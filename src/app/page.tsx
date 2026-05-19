@@ -15,6 +15,485 @@ type Question = {
   explanation: string;
 };
 
+const medicalTerms = [
+
+  // General medicine
+  "anatomy",
+  "physiology",
+  "pathology",
+  "pharmacology",
+  "histology",
+  "biochemistry",
+  "genetics",
+  "embryology",
+  "microbiology",
+  "immunology",
+  "neuroscience",
+  "cardiology",
+  "respiratory",
+  "gastrointestinal",
+  "renal",
+  "endocrine",
+  "haematology",
+  "oncology",
+
+  // Cells & tissues
+  "cell",
+  "membrane",
+  "nucleus",
+  "cytoplasm",
+  "mitochondria",
+  "ribosome",
+  "lysosome",
+  "epithelium",
+  "epithelial",
+  "connective tissue",
+  "smooth muscle",
+  "skeletal muscle",
+  "cardiac muscle",
+  "fibroblast",
+  "macrophage",
+  "neuron",
+  "glial",
+  "astrocyte",
+  "oligodendrocyte",
+  "microglia",
+
+  // Anatomy
+  "artery",
+  "vein",
+  "capillary",
+  "nerve",
+  "ligament",
+  "tendon",
+  "fascia",
+  "cartilage",
+  "bone",
+  "joint",
+  "muscle",
+  "thorax",
+  "abdomen",
+  "pelvis",
+  "mediastinum",
+  "peritoneum",
+  "mesentery",
+  "inguinal",
+  "femoral",
+  "brachial",
+  "radial",
+  "ulnar",
+  "axillary",
+  "carotid",
+  "jugular",
+  "superior",
+  "inferior",
+  "anterior",
+  "posterior",
+  "medial",
+  "lateral",
+  "proximal",
+  "distal",
+  "superficial",
+  "deep",
+  "dorsal",
+  "ventral",
+  "cranial",
+  "caudal",
+  "sagittal",
+  "coronal",
+  "transverse",
+  "foramen",
+  "canal",
+  "fossa",
+  "process",
+  "tubercle",
+  "condyle",
+  "epicondyle",
+  "trochanter",
+  "ramus",
+  "septum",
+  "plexus",
+  "ganglion",
+
+  // Organs
+  "heart",
+  "lung",
+  "liver",
+  "kidney",
+  "brain",
+  "spinal cord",
+  "pancreas",
+  "spleen",
+  "stomach",
+  "duodenum",
+  "jejunum",
+  "ileum",
+  "colon",
+  "bladder",
+  "ureter",
+  "urethra",
+  "ovary",
+  "uterus",
+  "testis",
+  "prostate",
+
+  // Cardiovascular
+  "atrium",
+  "ventricle",
+  "aorta",
+  "vena cava",
+  "pulmonary artery",
+  "pulmonary vein",
+  "coronary artery",
+  "coronary sinus",
+  "myocardium",
+  "endocardium",
+  "pericardium",
+  "systole",
+  "diastole",
+  "ejection fraction",
+  "venous return",
+  "vascular resistance",
+  "baroreceptor",
+  "chemoreceptor",
+  "SA node",
+  "AV node",
+  "bundle of His",
+  "purkinje fibres",
+  "ECG",
+  "P wave",
+  "QRS complex",
+  "T wave",
+
+  // Respiratory
+  "alveolus",
+  "alveoli",
+  "bronchus",
+  "bronchiole",
+  "trachea",
+  "pleura",
+  "diaphragm",
+  "tidal volume",
+  "vital capacity",
+  "residual volume",
+  "dead space",
+  "surfactant",
+  "partial pressure",
+  "oxygen saturation",
+  "haemoglobin",
+  "carbon dioxide",
+  "hypoxia",
+  "hypercapnia",
+  "respiratory acidosis",
+  "respiratory alkalosis",
+
+  // Renal
+  "nephron",
+  "glomerulus",
+  "bowmans capsule",
+  "proximal convoluted tubule",
+  "loop of henle",
+  "distal convoluted tubule",
+  "collecting duct",
+  "podocyte",
+  "juxtaglomerular apparatus",
+  "afferent arteriole",
+  "efferent arteriole",
+  "GFR",
+  "creatinine",
+  "urea",
+  "aldosterone",
+  "ADH",
+  "renin",
+  "angiotensin",
+  "RAAS",
+  "micturition",
+
+  // Gastrointestinal
+  "oesophagus",
+  "gastric",
+  "pylorus",
+  "ileocaecal",
+  "caecum",
+  "rectum",
+  "anal canal",
+  "bile",
+  "gallbladder",
+  "hepatocyte",
+  "portal vein",
+  "hepatic artery",
+  "hepatic portal system",
+  "villus",
+  "microvillus",
+  "crypt",
+  "peristalsis",
+  "segmentation",
+  "absorption",
+  "secretion",
+  "CCK",
+  "secretin",
+  "gastrin",
+
+  // Nervous system
+  "axon",
+  "dendrite",
+  "synapse",
+  "neurotransmitter",
+  "myelin",
+  "schwann cell",
+  "dorsal root",
+  "ventral root",
+  "spinal nerve",
+  "cranial nerve",
+  "sympathetic",
+  "parasympathetic",
+  "autonomic",
+  "somatic",
+  "motor neuron",
+  "sensory neuron",
+  "cerebrum",
+  "cerebellum",
+  "brainstem",
+  "midbrain",
+  "pons",
+  "medulla",
+  "thalamus",
+  "hypothalamus",
+  "basal ganglia",
+  "limbic system",
+
+  // Physiology
+  "action potential",
+  "resting membrane potential",
+  "depolarisation",
+  "repolarisation",
+  "hyperpolarisation",
+  "osmosis",
+  "diffusion",
+  "filtration",
+  "perfusion",
+  "ventilation",
+  "compliance",
+  "cardiac output",
+  "stroke volume",
+  "heart rate",
+  "blood pressure",
+  "afterload",
+  "preload",
+  "homeostasis",
+  "acid-base",
+  "pH",
+  "bicarbonate",
+  "electrolyte",
+  "sodium",
+  "potassium",
+  "calcium",
+
+  // Biochemistry
+  "enzyme",
+  "substrate",
+  "glycolysis",
+  "gluconeogenesis",
+  "citric acid cycle",
+  "krebs cycle",
+  "oxidative phosphorylation",
+  "ATP",
+  "DNA",
+  "RNA",
+  "transcription",
+  "translation",
+  "mutation",
+  "protein synthesis",
+
+  // Immunology
+  "antigen",
+  "antibody",
+  "cytokine",
+  "lymphocyte",
+  "neutrophil",
+  "eosinophil",
+  "basophil",
+  "mast cell",
+  "complement",
+  "MHC",
+  "T cell",
+  "B cell",
+  "innate immunity",
+  "adaptive immunity",
+  "inflammation",
+
+  // Endocrine
+  "pituitary",
+  "thyroid",
+  "parathyroid",
+  "adrenal gland",
+  "cortisol",
+  "insulin",
+  "glucagon",
+  "thyroxine",
+  "TSH",
+  "ACTH",
+  "LH",
+  "FSH",
+  "growth hormone",
+  "prolactin",
+  "negative feedback",
+  "positive feedback",
+
+  // Pathology / clinical
+  "necrosis",
+  "apoptosis",
+  "infarction",
+  "ischaemia",
+  "hypertrophy",
+  "hyperplasia",
+  "dysplasia",
+  "metaplasia",
+  "neoplasia",
+  "carcinoma",
+  "sarcoma",
+  "metastasis",
+  "thrombosis",
+  "embolism",
+  "oedema",
+  "shock",
+  "acute",
+  "chronic",
+  "benign",
+  "malignant",
+  "lesion",
+  "ulcer",
+  "fibrosis",
+  "atrophy",
+  "infarct",
+  "haemorrhage",
+  "infection",
+  "autoimmune",
+  "congenital",
+  "idiopathic",
+  "iatrogenic",
+  "aetiology",
+  "pathogenesis",
+  "morbidity",
+  "mortality",
+
+  // Pharmacology
+  "agonist",
+  "antagonist",
+  "receptor",
+  "ligand",
+  "dose-response",
+  "half-life",
+  "bioavailability",
+  "clearance",
+  "first-pass metabolism",
+  "pharmacokinetics",
+  "pharmacodynamics",
+  "acetylcholine",
+  "noradrenaline",
+  "adrenaline",
+  "dopamine",
+  "serotonin",
+  "competitive antagonist",
+  "non-competitive antagonist",
+  "partial agonist",
+  "inverse agonist",
+  "efficacy",
+  "potency",
+  "therapeutic index",
+  "volume of distribution",
+  "loading dose",
+  "maintenance dose",
+  "renal excretion",
+  "hepatic metabolism",
+  "CYP450",
+  "side effect",
+  "adverse effect",
+  "contraindication",
+
+  // Microbiology / infection
+  "bacteria",
+  "virus",
+  "fungus",
+  "parasite",
+  "pathogen",
+  "virulence",
+  "toxin",
+  "capsid",
+  "lipid envelope",
+  "gram-positive",
+  "gram-negative",
+  "aerobic",
+  "anaerobic",
+  "antibiotic",
+  "antiviral",
+  "antifungal",
+  "vaccination",
+  "vaccine",
+  "immunity",
+  "sepsis",
+  "endotoxin",
+  "exotoxin",
+  "biofilm",
+  "replication",
+  "transmission",
+  "incubation period",
+  "zoonosis",
+  "PCR",
+  "ELISA",
+  "culture",
+  "stain",
+  "gram stain",
+
+  // Clinical terms / epidemiology
+  "diagnosis",
+  "prognosis",
+  "symptom",
+  "sign",
+  "syndrome",
+  "differential diagnosis",
+  "treatment",
+  "management",
+  "screening",
+  "epidemiology",
+  "incidence",
+  "prevalence",
+  "sensitivity",
+  "specificity",
+  "likelihood ratio",
+  "risk factor",
+  "case-control",
+  "cohort study",
+  "randomised controlled trial",
+  "relative risk",
+  "odds ratio",
+  "confidence interval",
+  "p value",
+
+  // Common diseases
+  "diabetes",
+  "hypertension",
+  "asthma",
+  "COPD",
+  "stroke",
+  "myocardial infarction",
+  "heart failure",
+  "pneumonia",
+  "cancer",
+  "anaemia",
+  "arthritis"
+];
+
+function isMedicalText(text: string) {
+  const lower = text.toLowerCase();
+
+  const foundTerms = medicalTerms.filter((term) =>
+    lower.includes(term.toLowerCase())
+  );
+
+  return new Set(foundTerms).size >= 5;
+}
+
 export default function Home() {
   const [lectureNotes, setLectureNotes] = useState("");
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -28,7 +507,15 @@ export default function Home() {
 
   const [showResults, setShowResults] = useState(false);
 
+
+
   async function generateQuestions() {
+
+    if (!isMedicalText(lectureNotes)) {
+      setError("Please paste valid medical lecture notes before generating questions.");
+      return;
+    }
+
     setLoading(true);
     setError("");
     setQuestions([]);
@@ -74,49 +561,49 @@ export default function Home() {
   }
 
   function exportWrongQuestionsToAnkiCSV() {
-  const wrongQuestions = getWrongQuestions();
+    const wrongQuestions = getWrongQuestions();
 
-  if (wrongQuestions.length === 0) return;
+    if (wrongQuestions.length === 0) return;
 
-  const escapeAnkiField = (text: string) => {
-    if (text === null || text === undefined) return "";
-    return `"${String(text).replace(/"/g, '""')}"`;
-  };
+    const escapeAnkiField = (text: string) => {
+      if (text === null || text === undefined) return "";
+      return `"${String(text).replace(/"/g, '""')}"`;
+    };
 
-  const rows = [
-    "#separator:Semicolon",
-    "#html:true",
-    ...wrongQuestions.map((q) => {
-      const correctLetter = q.correctAnswer as keyof typeof q.options;
-      const correctAnswerText = q.options[correctLetter];
+    const rows = [
+      "#separator:Semicolon",
+      "#html:true",
+      ...wrongQuestions.map((q) => {
+        const correctLetter = q.correctAnswer as keyof typeof q.options;
+        const correctAnswerText = q.options[correctLetter];
 
-      const front = q.question;
+        const front = q.question;
 
-      const back = correctAnswerText;
+        const back = correctAnswerText;
 
-      return [
-        escapeAnkiField(front),
-        escapeAnkiField(back),
-        escapeAnkiField("wrong-question"),
-      ].join(";");
-    }),
-  ];
+        return [
+          escapeAnkiField(front),
+          escapeAnkiField(back),
+          escapeAnkiField("wrong-question"),
+        ].join(";");
+      }),
+    ];
 
-  const ankiContent = rows.join("\n");
+    const ankiContent = rows.join("\n");
 
-  const blob = new Blob([ankiContent], {
-    type: "text/plain;charset=utf-8;",
-  });
+    const blob = new Blob([ankiContent], {
+      type: "text/plain;charset=utf-8;",
+    });
 
-  const url = URL.createObjectURL(blob);
+    const url = URL.createObjectURL(blob);
 
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "wrong_questions_anki.txt";
-  link.click();
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "wrong_questions_anki.txt";
+    link.click();
 
-  URL.revokeObjectURL(url);
-}
+    URL.revokeObjectURL(url);
+  }
 
   const wrongQuestions = getWrongQuestions();
 
@@ -137,7 +624,7 @@ export default function Home() {
           className="mt-6 h-64 w-full rounded-xl border border-gray-300 p-4 text-gray-900"
           placeholder="Paste lecture notes here..."
         />
-        
+
         <div className="mt-4 w-full max-w-xl">
           <label className="mb-2 block font-semibold text-black">
             Number of questions: {numberOfQuestions}
@@ -146,7 +633,7 @@ export default function Home() {
           <input
             type="range"
             min="1"
-            max="10"
+            max="50"
             step="1"
             value={numberOfQuestions}
             onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
@@ -199,17 +686,16 @@ export default function Home() {
                       key={letter}
                       onClick={() => selectAnswer(questionIndex, letter)}
                       disabled={showResults}
-                      className={`block w-full rounded-lg border p-3 text-left transition ${
-                        isCorrectSelected
+                      className={`block w-full rounded-lg border p-3 text-left transition ${isCorrectSelected
                           ? "border-green-500 bg-green-100 text-green-900"
                           : isWrongSelected
-                          ? "border-red-500 bg-red-100 text-red-900"
-                          : shouldShowCorrectAnswer
-                          ? "border-green-500 bg-green-50 text-green-900"
-                          : isSelected
-                          ? "border-blue-500 bg-blue-100 text-blue-900"
-                          : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
-                      }`}
+                            ? "border-red-500 bg-red-100 text-red-900"
+                            : shouldShowCorrectAnswer
+                              ? "border-green-500 bg-green-50 text-green-900"
+                              : isSelected
+                                ? "border-blue-500 bg-blue-100 text-blue-900"
+                                : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+                        }`}
                     >
                       <span className="font-semibold">{letter}.</span>{" "}
                       {option}
