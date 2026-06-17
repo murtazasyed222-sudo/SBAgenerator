@@ -16,7 +16,7 @@ type Question = {
 };
 
 type QuestionFeedback = {
-  rating: "Good" | "Okay" | "Bad";
+  rating: "good" | "okay" | "bad";
   reason: string;
 };
 
@@ -562,7 +562,7 @@ export default function Home() {
 
   function selectFeedbackRating(
   questionIndex: number,
-  rating: "Good" | "Okay" | "Bad"
+  rating: "good" | "okay" | "bad"
 ) {
   setQuestionFeedback({
     ...questionFeedback,
