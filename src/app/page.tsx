@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   questionBankFolders,
   type Question,
+  type QuestionBankFolder,
   type QuestionSet,
 } from "./questionBank";
 
@@ -495,7 +496,10 @@ export default function Home() {
   const [isQuestionBankOpen, setIsQuestionBankOpen] = useState(true);
   const [questionBankSearch, setQuestionBankSearch] = useState("");
   const [expandedQuestionBankFolders, setExpandedQuestionBankFolders] =
-    useState<Record<string, boolean>>({});
+    useState<Record<string, boolean>>({
+      "physiology-and-anatomy-of-systems": true,
+      "fundamentals-of-anatomy-and-histology": true,
+    });
   const [activeQuestionSetId, setActiveQuestionSetId] = useState<string | null>(
     null
   );
@@ -620,34 +624,93 @@ export default function Home() {
 
   const wrongQuestions = getWrongQuestions();
   const normalizedQuestionBankSearch = questionBankSearch.trim().toLowerCase();
-  const visibleQuestionBankFolders = questionBankFolders
-    .map((folder) => {
-      const folderMatchesSearch = folder.title
-        .toLowerCase()
-        .includes(normalizedQuestionBankSearch);
-      const visibleQuestionSets = normalizedQuestionBankSearch
-        ? folder.questionSets.filter((questionSet) =>
-            questionSet.title
-              .toLowerCase()
-              .includes(normalizedQuestionBankSearch)
-          )
-        : folder.questionSets;
 
+  function filterQuestionBankFolder(
+    folder: QuestionBankFolder
+  ): QuestionBankFolder | null {
+    if (!normalizedQuestionBankSearch) return folder;
+
+    const folderMatchesSearch = folder.title
+      .toLowerCase()
+      .includes(normalizedQuestionBankSearch);
+    const visibleQuestionSets = folder.questionSets.filter((questionSet) =>
+      questionSet.title.toLowerCase().includes(normalizedQuestionBankSearch)
+    );
+    const visibleSubfolders = folder.subfolders
+      .map(filterQuestionBankFolder)
+      .filter((subfolder): subfolder is QuestionBankFolder =>
+        Boolean(subfolder)
+      );
+
+    if (folderMatchesSearch) return folder;
+
+    if (visibleQuestionSets.length > 0 || visibleSubfolders.length > 0) {
       return {
         ...folder,
-        questionSets: folderMatchesSearch
-          ? folder.questionSets
-          : visibleQuestionSets,
+        questionSets: visibleQuestionSets,
+        subfolders: visibleSubfolders,
       };
-    })
-    .filter((folder) => {
-      if (!normalizedQuestionBankSearch) return true;
+    }
 
-      return (
-        folder.title.toLowerCase().includes(normalizedQuestionBankSearch) ||
-        folder.questionSets.length > 0
-      );
-    });
+    return null;
+  }
+
+  const visibleQuestionBankFolders = questionBankFolders
+    .map(filterQuestionBankFolder)
+    .filter((folder): folder is QuestionBankFolder => Boolean(folder));
+
+  function renderQuestionBankFolder(folder: QuestionBankFolder, depth = 0) {
+    const isExpanded =
+      Boolean(normalizedQuestionBankSearch) ||
+      expandedQuestionBankFolders[folder.id];
+    const hasContent =
+      folder.questionSets.length > 0 || folder.subfolders.length > 0;
+
+    return (
+      <div key={folder.id} style={{ marginLeft: depth * 10 }}>
+        <button
+          onClick={() => toggleQuestionBankFolder(folder.id)}
+          className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left font-semibold text-gray-900 hover:bg-gray-100"
+        >
+          <span>{folder.title}</span>
+          <span aria-hidden="true">{isExpanded ? "v" : ">"}</span>
+        </button>
+
+        {isExpanded && (
+          <div className="mt-2 space-y-1 pl-3">
+            {!hasContent ? (
+              <p className="rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-500">
+                No lecture sets yet.
+              </p>
+            ) : (
+              <>
+                {folder.subfolders.map((subfolder) =>
+                  renderQuestionBankFolder(subfolder, depth + 1)
+                )}
+
+                {folder.questionSets.map((questionSet) => (
+                  <button
+                    key={questionSet.id}
+                    onClick={() => loadQuestionSet(questionSet)}
+                    className={`block w-full rounded-lg px-3 py-2 text-left text-sm font-medium ${
+                      activeQuestionSetId === questionSet.id
+                        ? "bg-blue-100 text-blue-900"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`}
+                  >
+                    <span className="block">{questionSet.title}</span>
+                    <span className="text-xs text-gray-500">
+                      {questionSet.questions.length} questions
+                    </span>
+                  </button>
+                ))}
+              </>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-gray-100">
@@ -699,45 +762,9 @@ export default function Home() {
                 </p>
               )}
 
-              {visibleQuestionBankFolders.map((folder) => {
-                const isExpanded = expandedQuestionBankFolders[folder.id];
-
-                return (
-                  <div key={folder.id}>
-                    <button
-                      onClick={() => toggleQuestionBankFolder(folder.id)}
-                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left font-semibold text-gray-900 hover:bg-gray-100"
-                    >
-                      <span>{folder.title}</span>
-                      <span aria-hidden="true">{isExpanded ? "v" : ">"}</span>
-                    </button>
-
-                    {isExpanded && (
-                      <div className="mt-2 space-y-1 pl-3">
-                        {folder.questionSets.length === 0 ? (
-                          <p className="rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-500">
-                            No lecture sets yet.
-                          </p>
-                        ) : (
-                          folder.questionSets.map((questionSet) => (
-                            <button
-                              key={questionSet.id}
-                              onClick={() => loadQuestionSet(questionSet)}
-                              className={`block w-full rounded-lg px-3 py-2 text-left text-sm font-medium ${
-                                activeQuestionSetId === questionSet.id
-                                  ? "bg-blue-100 text-blue-900"
-                                  : "text-gray-700 hover:bg-gray-100"
-                              }`}
-                            >
-                              {questionSet.title}
-                            </button>
-                          ))
-                        )}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+              {visibleQuestionBankFolders.map((folder) =>
+                renderQuestionBankFolder(folder)
+              )}
             </nav>
           </aside>
         )}
@@ -767,7 +794,7 @@ export default function Home() {
           <input
             type="range"
             min="1"
-            max="50"
+            max="25"
             step="1"
             value={numberOfQuestions}
             onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
