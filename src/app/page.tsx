@@ -492,7 +492,8 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [numberOfQuestions, setNumberOfQuestions] = useState(5);
-  const [isQuestionBankOpen, setIsQuestionBankOpen] = useState(false);
+  const [isQuestionBankOpen, setIsQuestionBankOpen] = useState(true);
+  const [questionBankSearch, setQuestionBankSearch] = useState("");
   const [expandedQuestionBankFolders, setExpandedQuestionBankFolders] =
     useState<Record<string, boolean>>({});
   const [activeQuestionSetId, setActiveQuestionSetId] = useState<string | null>(
@@ -618,26 +619,60 @@ export default function Home() {
   }
 
   const wrongQuestions = getWrongQuestions();
+  const normalizedQuestionBankSearch = questionBankSearch.trim().toLowerCase();
+  const visibleQuestionBankFolders = questionBankFolders
+    .map((folder) => {
+      const folderMatchesSearch = folder.title
+        .toLowerCase()
+        .includes(normalizedQuestionBankSearch);
+      const visibleQuestionSets = normalizedQuestionBankSearch
+        ? folder.questionSets.filter((questionSet) =>
+            questionSet.title
+              .toLowerCase()
+              .includes(normalizedQuestionBankSearch)
+          )
+        : folder.questionSets;
+
+      return {
+        ...folder,
+        questionSets: folderMatchesSearch
+          ? folder.questionSets
+          : visibleQuestionSets,
+      };
+    })
+    .filter((folder) => {
+      if (!normalizedQuestionBankSearch) return true;
+
+      return (
+        folder.title.toLowerCase().includes(normalizedQuestionBankSearch) ||
+        folder.questionSets.length > 0
+      );
+    });
 
   return (
     <main className="min-h-screen bg-gray-100">
       <header className="border-b border-gray-200 bg-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-8">
-          <button
-            onClick={() => setIsQuestionBankOpen(!isQuestionBankOpen)}
-            aria-expanded={isQuestionBankOpen}
-            className="rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50"
-          >
-            {isQuestionBankOpen ? "Close Question Bank" : "Question Bank"}
-          </button>
+        <div className="flex flex-col sm:flex-row">
+          <div className="w-full shrink-0 border-b border-gray-200 sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
+            <button
+              onClick={() => setIsQuestionBankOpen(!isQuestionBankOpen)}
+              aria-expanded={isQuestionBankOpen}
+              className="flex min-h-24 w-full items-center justify-between px-4 py-4 text-left font-semibold text-gray-950 hover:bg-gray-50"
+            >
+              <span>Browse Question Bank</span>
+              <span aria-hidden="true">{isQuestionBankOpen ? "v" : ">"}</span>
+            </button>
+          </div>
 
-          <div>
-            <h1 className="text-2xl font-bold text-gray-950 sm:text-3xl">
-              Medicine Question Generator
-            </h1>
-            <p className="mt-1 text-sm text-gray-600">
-              Generate SBA questions or browse saved lecture sets.
-            </p>
+          <div className="flex flex-1 items-center px-4 py-4 sm:min-h-24 sm:px-8">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-950 sm:text-3xl">
+                Medicine Question Generator
+              </h1>
+              <p className="mt-1 text-sm text-gray-600">
+                Generate SBA questions or browse saved lecture sets.
+              </p>
+            </div>
           </div>
         </div>
       </header>
@@ -650,7 +685,21 @@ export default function Home() {
                 Question Bank
               </h2>
 
-              {questionBankFolders.map((folder) => {
+              <input
+                type="search"
+                value={questionBankSearch}
+                onChange={(event) => setQuestionBankSearch(event.target.value)}
+                placeholder="Search lectures..."
+                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              />
+
+              {visibleQuestionBankFolders.length === 0 && (
+                <p className="rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-500">
+                  No matching lecture sets.
+                </p>
+              )}
+
+              {visibleQuestionBankFolders.map((folder) => {
                 const isExpanded = expandedQuestionBankFolders[folder.id];
 
                 return (
