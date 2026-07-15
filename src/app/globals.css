@@ -28,22 +28,22 @@ body {
  .numberSlider {
   -webkit-appearance: none;
   appearance: none;
-  accent-color: #7aff83;
+  accent-color: #0d9488;
 }
 
 .numberSlider::-webkit-slider-runnable-track {
-  background: #808080;
+  background: #cbd5e1;
   height: 8px;
   border-radius: 9999px;
 }
 
 .numberSlider::-webkit-slider-thumb {
-  background: #000000;
+  background: #0b1f3a;
   margin-top: -4px;
 }
 
 .numberSlider::-moz-range-track {
-  background: #d1d5db;
+  background: #cbd5e1;
   height: 8px;
   border-radius: 9999px;
 }

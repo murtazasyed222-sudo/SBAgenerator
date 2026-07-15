@@ -503,6 +503,9 @@ export default function Home() {
   const [activeQuestionSetId, setActiveQuestionSetId] = useState<string | null>(
     null
   );
+  const [activeQuestionSetTitle, setActiveQuestionSetTitle] = useState<
+    string | null
+  >(null);
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>(
     {}
@@ -523,6 +526,7 @@ export default function Home() {
     setSelectedAnswers({});
     setShowResults(false);
     setActiveQuestionSetId(null);
+    setActiveQuestionSetTitle(null);
 
     try {
       const response = await fetch("/api/generate", {
@@ -567,6 +571,16 @@ export default function Home() {
     setShowResults(false);
     setError("");
     setActiveQuestionSetId(questionSet.id);
+    setActiveQuestionSetTitle(questionSet.title);
+  }
+
+  function returnToGenerator() {
+    setQuestions([]);
+    setSelectedAnswers({});
+    setShowResults(false);
+    setError("");
+    setActiveQuestionSetId(null);
+    setActiveQuestionSetTitle(null);
   }
 
   function getWrongQuestions() {
@@ -670,16 +684,18 @@ export default function Home() {
       <div key={folder.id} style={{ marginLeft: depth * 10 }}>
         <button
           onClick={() => toggleQuestionBankFolder(folder.id)}
-          className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left font-semibold text-gray-900 hover:bg-gray-100"
+          className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left font-semibold text-slate-100 hover:bg-slate-800"
         >
           <span>{folder.title}</span>
-          <span aria-hidden="true">{isExpanded ? "v" : ">"}</span>
+          <span className="text-teal-200" aria-hidden="true">
+            {isExpanded ? "v" : ">"}
+          </span>
         </button>
 
         {isExpanded && (
           <div className="mt-2 space-y-1 pl-3">
             {!hasContent ? (
-              <p className="rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-500">
+              <p className="rounded-lg bg-slate-800 px-3 py-2 text-sm text-slate-300">
                 No lecture sets yet.
               </p>
             ) : (
@@ -694,12 +710,12 @@ export default function Home() {
                     onClick={() => loadQuestionSet(questionSet)}
                     className={`block w-full rounded-lg px-3 py-2 text-left text-sm font-medium ${
                       activeQuestionSetId === questionSet.id
-                        ? "bg-blue-100 text-blue-900"
-                        : "text-gray-700 hover:bg-gray-100"
+                        ? "bg-teal-300 text-slate-950"
+                        : "text-slate-300 hover:bg-slate-800 hover:text-white"
                     }`}
                   >
                     <span className="block">{questionSet.title}</span>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs opacity-75">
                       {questionSet.questions.length} questions
                     </span>
                   </button>
@@ -713,26 +729,28 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-100">
-      <header className="border-b border-gray-200 bg-white shadow-sm">
+    <main className="min-h-screen bg-[#edf3f8]">
+      <header className="border-b border-[#14375f] bg-[#0b1f3a] text-white shadow-sm">
         <div className="flex flex-col sm:flex-row">
-          <div className="w-full shrink-0 border-b border-gray-200 sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
+          <div className="w-full shrink-0 border-b border-[#14375f] bg-[#07172b] sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
             <button
               onClick={() => setIsQuestionBankOpen(!isQuestionBankOpen)}
               aria-expanded={isQuestionBankOpen}
-              className="flex min-h-24 w-full items-center justify-between px-4 py-4 text-left font-semibold text-gray-950 hover:bg-gray-50"
+              className="flex min-h-24 w-full items-center justify-between px-4 py-4 text-left font-semibold text-white hover:bg-[#102b4c]"
             >
               <span>Browse Question Bank</span>
-              <span aria-hidden="true">{isQuestionBankOpen ? "v" : ">"}</span>
+              <span className="text-teal-200" aria-hidden="true">
+                {isQuestionBankOpen ? "v" : ">"}
+              </span>
             </button>
           </div>
 
           <div className="flex flex-1 items-center px-4 py-4 sm:min-h-24 sm:px-8">
             <div>
-              <h1 className="text-2xl font-bold text-gray-950 sm:text-3xl">
+              <h1 className="text-2xl font-bold text-white sm:text-3xl">
                 Medicine Question Generator
               </h1>
-              <p className="mt-1 text-sm text-gray-600">
+              <p className="mt-1 text-sm text-slate-300">
                 Generate SBA questions or browse saved lecture sets.
               </p>
             </div>
@@ -742,9 +760,9 @@ export default function Home() {
 
       <div className="flex min-h-[calc(100vh-89px)] flex-col sm:flex-row">
         {isQuestionBankOpen && (
-          <aside className="w-full shrink-0 border-r border-gray-200 bg-white p-4 shadow-sm sm:w-72 lg:w-1/6">
+          <aside className="w-full shrink-0 border-r border-[#14375f] bg-[#0b1f3a] p-4 shadow-sm sm:w-72 lg:w-1/6">
             <nav className="space-y-3">
-              <h2 className="text-sm font-bold uppercase tracking-wide text-gray-500">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-teal-200">
                 Question Bank
               </h2>
 
@@ -753,11 +771,11 @@ export default function Home() {
                 value={questionBankSearch}
                 onChange={(event) => setQuestionBankSearch(event.target.value)}
                 placeholder="Search lectures..."
-                className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-900 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                className="w-full rounded-lg border border-[#25527d] bg-[#102b4c] px-3 py-2 text-sm text-white outline-none placeholder:text-slate-400 focus:border-teal-300 focus:ring-2 focus:ring-teal-300/30"
               />
 
               {visibleQuestionBankFolders.length === 0 && (
-                <p className="rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-500">
+                <p className="rounded-lg bg-slate-800 px-3 py-2 text-sm text-slate-300">
                   No matching lecture sets.
                 </p>
               )}
@@ -770,61 +788,86 @@ export default function Home() {
         )}
 
         <section className="flex-1 p-4 sm:p-8">
-      <div className="mx-auto max-w-4xl rounded-2xl bg-white p-8 shadow">
-        <h2 className="text-2xl font-bold text-gray-900">
-          Generate SBA Questions
-        </h2>
+      <div className="mx-auto max-w-4xl rounded-lg border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
+        {activeQuestionSetId ? (
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+                Question Bank
+              </p>
+              <h2 className="mt-1 text-2xl font-bold text-slate-950">
+                {activeQuestionSetTitle}
+              </h2>
+              <p className="mt-2 text-slate-600">
+                Answer the saved questions, then check your results at the end.
+              </p>
+            </div>
 
-        <p className="mt-3 text-gray-600">
-          Paste lecture notes below and generate exam-style SBA questions.
-        </p>
+            <button
+              onClick={returnToGenerator}
+              className="rounded-lg bg-slate-100 px-5 py-3 font-semibold text-slate-900 hover:bg-slate-200"
+            >
+              Back to Generator
+            </button>
+          </div>
+        ) : (
+          <>
+            <h2 className="text-2xl font-bold text-slate-950">
+              Generate SBA Questions
+            </h2>
 
-        <textarea
-          value={lectureNotes}
-          onChange={(e) => setLectureNotes(e.target.value)}
-          className="mt-6 h-64 w-full rounded-xl border border-gray-300 p-4 text-gray-900"
-          placeholder="Paste lecture notes here..."
-        />
+            <p className="mt-3 text-slate-600">
+              Paste lecture notes below and generate exam-style SBA questions.
+            </p>
 
-        <div className="mt-4 w-full max-w-xl">
-          <label className="mb-2 block font-semibold text-black">
-            Number of questions: {numberOfQuestions}
-          </label>
+            <textarea
+              value={lectureNotes}
+              onChange={(e) => setLectureNotes(e.target.value)}
+              className="mt-6 h-64 w-full rounded-lg border border-slate-300 bg-slate-50 p-4 text-slate-950 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
+              placeholder="Paste lecture notes here..."
+            />
 
-          <input
-            type="range"
-            min="1"
-            max="25"
-            step="1"
-            value={numberOfQuestions}
-            onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
-            className="numberSlider w-full"
-          />
-        </div>
+            <div className="mt-4 w-full max-w-xl">
+              <label className="mb-2 block font-semibold text-slate-900">
+                Number of questions: {numberOfQuestions}
+              </label>
 
-        <div className="flex justify-center">
-          <button
-            onClick={generateQuestions}
-            disabled={loading || lectureNotes.trim().length === 0}
-            className="mt-4 rounded-xl bg-black px-5 py-3 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            {loading ? "Generating..." : "Generate Questions"}
-          </button>
-        </div>
+              <input
+                type="range"
+                min="1"
+                max="25"
+                step="1"
+                value={numberOfQuestions}
+                onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
+                className="numberSlider w-full"
+              />
+            </div>
 
-        {error && (
-          <p className="mt-4 rounded-lg bg-red-50 p-3 text-red-700">
-            {error}
-          </p>
+            <div className="flex justify-center">
+              <button
+                onClick={generateQuestions}
+                disabled={loading || lectureNotes.trim().length === 0}
+                className="mt-4 rounded-lg bg-[#0b1f3a] px-5 py-3 font-semibold text-white hover:bg-[#12365f] disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {loading ? "Generating..." : "Generate Questions"}
+              </button>
+            </div>
+
+            {error && (
+              <p className="mt-4 rounded-lg bg-rose-50 p-3 text-rose-700">
+                {error}
+              </p>
+            )}
+          </>
         )}
 
         <div className="mt-8 space-y-6">
           {questions.map((q, questionIndex) => (
             <div
               key={questionIndex}
-              className="rounded-xl border border-gray-200 p-5"
+              className="rounded-lg border border-slate-200 bg-[#fbfdff] p-5"
             >
-              <h2 className="font-semibold text-gray-900">
+              <h2 className="font-semibold text-slate-950">
                 {questionIndex + 1}. {q.question}
               </h2>
 
@@ -848,14 +891,14 @@ export default function Home() {
                       onClick={() => selectAnswer(questionIndex, letter)}
                       disabled={showResults}
                       className={`block w-full rounded-lg border p-3 text-left transition ${isCorrectSelected
-                          ? "border-green-500 bg-green-100 text-green-900"
+                          ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                           : isWrongSelected
-                            ? "border-red-500 bg-red-100 text-red-900"
+                            ? "border-rose-500 bg-rose-50 text-rose-950"
                             : shouldShowCorrectAnswer
-                              ? "border-green-500 bg-green-50 text-green-900"
+                              ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                               : isSelected
-                                ? "border-blue-500 bg-blue-100 text-blue-900"
-                                : "border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
+                                ? "border-teal-500 bg-teal-50 text-slate-950"
+                                : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
                         }`}
                     >
                       <span className="font-semibold">{letter}.</span>{" "}
@@ -866,7 +909,7 @@ export default function Home() {
               </div>
 
               {showResults && (
-  <div className="mt-4 rounded-lg bg-gray-50 p-3 text-gray-800">
+  <div className="mt-4 rounded-lg bg-slate-50 p-3 text-slate-800">
     <p>
       <span className="font-semibold">Correct answer:</span>{" "}
       {q.correctAnswer}
@@ -891,7 +934,7 @@ export default function Home() {
         {questions.length > 0 && !showResults && (
           <button
             onClick={() => setShowResults(true)}
-            className="mt-8 rounded-xl bg-green-500 px-5 py-3 font-semibold text-white"
+            className="mt-8 rounded-lg bg-teal-600 px-5 py-3 font-semibold text-white hover:bg-teal-700"
           >
             Check Answers
           </button>
@@ -904,7 +947,7 @@ export default function Home() {
     setSelectedAnswers({});
     setShowResults(false);
   }}
-              className="rounded-xl bg-gray-200 px-5 py-3 font-semibold text-gray-900"
+              className="rounded-lg bg-slate-100 px-5 py-3 font-semibold text-slate-900 hover:bg-slate-200"
             >
               Try Again
             </button>
@@ -912,7 +955,7 @@ export default function Home() {
             <button
               onClick={exportWrongQuestionsToAnkiCSV}
               disabled={wrongQuestions.length === 0}
-              className="rounded-xl bg-blue-600 px-5 py-3 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-lg bg-[#0b1f3a] px-5 py-3 font-semibold text-white hover:bg-[#12365f] disabled:cursor-not-allowed disabled:opacity-50"
             >
               Export {wrongQuestions.length} Wrong Questions to Anki
             </button>
