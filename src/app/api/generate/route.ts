@@ -88,10 +88,15 @@ ${lectureNotes}
     const parsed = JSON.parse(cleanedText);
 
     return NextResponse.json(parsed);
-  } catch (error: any) {
+  } catch (error: unknown) {
   console.error(error);
 
-  if (error?.status === 429) {
+  const errorStatus =
+    typeof error === "object" && error !== null && "status" in error
+      ? error.status
+      : undefined;
+
+  if (errorStatus === 429) {
     return NextResponse.json(
       {
         error:

@@ -1,19 +1,11 @@
 "use client";
 
 import { useState } from "react";
-
-type Question = {
-  question: string;
-  options: {
-    A: string;
-    B: string;
-    C: string;
-    D: string;
-    E: string;
-  };
-  correctAnswer: string;
-  explanation: string;
-};
+import {
+  questionBankFolders,
+  type Question,
+  type QuestionSet,
+} from "./questionBank";
 
 const medicalTerms = [
 
@@ -500,6 +492,12 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [numberOfQuestions, setNumberOfQuestions] = useState(5);
+  const [isQuestionBankOpen, setIsQuestionBankOpen] = useState(false);
+  const [expandedQuestionBankFolders, setExpandedQuestionBankFolders] =
+    useState<Record<string, boolean>>({});
+  const [activeQuestionSetId, setActiveQuestionSetId] = useState<string | null>(
+    null
+  );
 
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>(
     {}
@@ -519,6 +517,7 @@ export default function Home() {
     setQuestions([]);
     setSelectedAnswers({});
     setShowResults(false);
+    setActiveQuestionSetId(null);
 
     try {
       const response = await fetch("/api/generate", {
@@ -548,6 +547,21 @@ export default function Home() {
       ...selectedAnswers,
       [questionIndex]: letter,
     });
+  }
+
+  function toggleQuestionBankFolder(folderId: string) {
+    setExpandedQuestionBankFolders({
+      ...expandedQuestionBankFolders,
+      [folderId]: !expandedQuestionBankFolders[folderId],
+    });
+  }
+
+  function loadQuestionSet(questionSet: QuestionSet) {
+    setQuestions(questionSet.questions);
+    setSelectedAnswers({});
+    setShowResults(false);
+    setError("");
+    setActiveQuestionSetId(questionSet.id);
   }
 
   function getWrongQuestions() {
@@ -606,11 +620,84 @@ export default function Home() {
   const wrongQuestions = getWrongQuestions();
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-gray-100">
+      <header className="border-b border-gray-200 bg-white shadow-sm">
+        <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:px-8">
+          <button
+            onClick={() => setIsQuestionBankOpen(!isQuestionBankOpen)}
+            aria-expanded={isQuestionBankOpen}
+            className="rounded-lg border border-gray-300 bg-white px-4 py-2 font-semibold text-gray-900 hover:bg-gray-50"
+          >
+            {isQuestionBankOpen ? "Close Question Bank" : "Question Bank"}
+          </button>
+
+          <div>
+            <h1 className="text-2xl font-bold text-gray-950 sm:text-3xl">
+              Medicine Question Generator
+            </h1>
+            <p className="mt-1 text-sm text-gray-600">
+              Generate SBA questions or browse saved lecture sets.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div className="flex min-h-[calc(100vh-89px)] flex-col sm:flex-row">
+        {isQuestionBankOpen && (
+          <aside className="w-full shrink-0 border-r border-gray-200 bg-white p-4 shadow-sm sm:w-72 lg:w-1/6">
+            <nav className="space-y-3">
+              <h2 className="text-sm font-bold uppercase tracking-wide text-gray-500">
+                Question Bank
+              </h2>
+
+              {questionBankFolders.map((folder) => {
+                const isExpanded = expandedQuestionBankFolders[folder.id];
+
+                return (
+                  <div key={folder.id}>
+                    <button
+                      onClick={() => toggleQuestionBankFolder(folder.id)}
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left font-semibold text-gray-900 hover:bg-gray-100"
+                    >
+                      <span>{folder.title}</span>
+                      <span aria-hidden="true">{isExpanded ? "v" : ">"}</span>
+                    </button>
+
+                    {isExpanded && (
+                      <div className="mt-2 space-y-1 pl-3">
+                        {folder.questionSets.length === 0 ? (
+                          <p className="rounded-lg bg-gray-50 px-3 py-2 text-sm text-gray-500">
+                            No lecture sets yet.
+                          </p>
+                        ) : (
+                          folder.questionSets.map((questionSet) => (
+                            <button
+                              key={questionSet.id}
+                              onClick={() => loadQuestionSet(questionSet)}
+                              className={`block w-full rounded-lg px-3 py-2 text-left text-sm font-medium ${
+                                activeQuestionSetId === questionSet.id
+                                  ? "bg-blue-100 text-blue-900"
+                                  : "text-gray-700 hover:bg-gray-100"
+                              }`}
+                            >
+                              {questionSet.title}
+                            </button>
+                          ))
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </nav>
+          </aside>
+        )}
+
+        <section className="flex-1 p-4 sm:p-8">
       <div className="mx-auto max-w-4xl rounded-2xl bg-white p-8 shadow">
-        <h1 className="text-3xl font-bold text-gray-900">
-          Medicine Question Generator
-        </h1>
+        <h2 className="text-2xl font-bold text-gray-900">
+          Generate SBA Questions
+        </h2>
 
         <p className="mt-3 text-gray-600">
           Paste lecture notes below and generate exam-style SBA questions.
@@ -755,6 +842,8 @@ export default function Home() {
             </button>
           </div>
         )}
+      </div>
+        </section>
       </div>
     </main>
   );
