@@ -15,11 +15,6 @@ type Question = {
   explanation: string;
 };
 
-type QuestionFeedback = {
-  rating: "good" | "okay" | "bad";
-  reason: string;
-};
-
 const medicalTerms = [
 
   // General medicine
@@ -512,10 +507,6 @@ export default function Home() {
 
   const [showResults, setShowResults] = useState(false);
 
-  const [questionFeedback, setQuestionFeedback] = useState<
-    Record<number, QuestionFeedback>
-  >({});
-
   async function generateQuestions() {
 
     if (!isMedicalText(lectureNotes)) {
@@ -527,7 +518,6 @@ export default function Home() {
     setError("");
     setQuestions([]);
     setSelectedAnswers({});
-    setQuestionFeedback({});
     setShowResults(false);
 
     try {
@@ -559,29 +549,6 @@ export default function Home() {
       [questionIndex]: letter,
     });
   }
-
-  function selectFeedbackRating(
-  questionIndex: number,
-  rating: "good" | "okay" | "bad"
-) {
-  setQuestionFeedback({
-    ...questionFeedback,
-    [questionIndex]: {
-      rating,
-      reason: questionFeedback[questionIndex]?.reason || "",
-    },
-  });
-}
-
-function updateFeedbackReason(questionIndex: number, reason: string) {
-  setQuestionFeedback({
-    ...questionFeedback,
-    [questionIndex]: {
-      rating: questionFeedback[questionIndex]?.rating || "Okay",
-      reason,
-    },
-  });
-}
 
   function getWrongQuestions() {
     return questions.filter((q, questionIndex) => {
@@ -752,55 +719,6 @@ function updateFeedbackReason(questionIndex: number, reason: string) {
       {q.explanation}
     </p>
 
-    <div className="mt-5 rounded-xl border border-gray-200 bg-white p-4">
-      <p className="font-semibold text-gray-900">
-        Was this a good question?
-      </p>
-
-      <div className="mt-3 flex flex-wrap gap-3">
-        <button
-          onClick={() => selectFeedbackRating(questionIndex, "good")}
-          className={`rounded-lg px-4 py-2 font-semibold ${
-            questionFeedback[questionIndex]?.rating === "good"
-              ? "bg-green-600 text-white ring-2 ring-green-800"
-              : "bg-green-100 text-green-800 hover:bg-green-200"
-          }`}
-        >
-          Good
-        </button>
-
-        <button
-          onClick={() => selectFeedbackRating(questionIndex, "okay")}
-          className={`rounded-lg px-4 py-2 font-semibold ${
-            questionFeedback[questionIndex]?.rating === "okay"
-              ? "bg-yellow-500 text-white ring-2 ring-yellow-700"
-              : "bg-yellow-100 text-yellow-800 hover:bg-yellow-200"
-          }`}
-        >
-          Okay
-        </button>
-
-        <button
-          onClick={() => selectFeedbackRating(questionIndex, "bad")}
-          className={`rounded-lg px-4 py-2 font-semibold ${
-            questionFeedback[questionIndex]?.rating === "bad"
-              ? "bg-red-600 text-white ring-2 ring-red-800"
-              : "bg-red-100 text-red-800 hover:bg-red-200"
-          }`}
-        >
-          Bad
-        </button>
-      </div>
-
-      <textarea
-        value={questionFeedback[questionIndex]?.reason || ""}
-        onChange={(e) =>
-          updateFeedbackReason(questionIndex, e.target.value)
-        }
-        placeholder="Optional: why? e.g. too easy, too vague, excellent distractors..."
-        className="mt-3 h-24 w-full rounded-lg border border-gray-300 p-3 text-gray-900"
-      />
-    </div>
   </div>
 )}
             </div>
@@ -821,7 +739,6 @@ function updateFeedbackReason(questionIndex: number, reason: string) {
             <button
   onClick={() => {
     setSelectedAnswers({});
-    setQuestionFeedback({});
     setShowResults(false);
   }}
               className="rounded-xl bg-gray-200 px-5 py-3 font-semibold text-gray-900"
