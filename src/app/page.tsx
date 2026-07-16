@@ -499,6 +499,8 @@ export default function Home() {
     useState<Record<string, boolean>>({
       "physiology-and-anatomy-of-systems": true,
       "fundamentals-of-anatomy-and-histology": true,
+      "fundamentals-of-physiology-and-pharmacology-questions": true,
+      "anatomy-of-cardiovascular-and-respiratory-systems-questions": true,
     });
   const [activeQuestionSetId, setActiveQuestionSetId] = useState<string | null>(
     null
