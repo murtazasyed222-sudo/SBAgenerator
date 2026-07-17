@@ -487,7 +487,7 @@ function isMedicalText(text: string) {
   return new Set(foundTerms).size >= 5;
 }
 
-type AppView = "question-bank" | "progress";
+type AppView = "question-bank" | "generator" | "progress";
 
 type QuestionProgress = {
   answered: number;
@@ -624,7 +624,7 @@ export default function Home() {
     setShowResults(false);
     setActiveQuestionSetId(null);
     setActiveQuestionSetTitle(null);
-    setCurrentView("question-bank");
+    setCurrentView("generator");
 
     try {
       const response = await fetch("/api/generate", {
@@ -696,6 +696,19 @@ export default function Home() {
       "physiology-and-anatomy-of-systems": true,
       [submoduleId]: true,
     });
+  }
+
+  function openGeneratorView() {
+    setCurrentView("generator");
+    setError("");
+
+    if (activeQuestionSetId) {
+      setQuestions([]);
+      setSelectedAnswers({});
+      setShowResults(false);
+      setActiveQuestionSetId(null);
+      setActiveQuestionSetTitle(null);
+    }
   }
 
   function getWrongQuestions() {
@@ -1068,56 +1081,71 @@ export default function Home() {
     );
   }
 
-  function renderGeneratorPanel() {
+  function renderGeneratorView() {
     return (
-      <div className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
-        <p className="text-xs font-semibold uppercase tracking-wide text-teal-700">
-          Supplementary
-        </p>
-        <h2 className="mt-1 text-xl font-bold text-slate-950">
-          Generate SBA Questions
-        </h2>
-        <p className="mt-2 text-sm text-slate-600">
-          Paste lecture notes when you want extra practice beyond the bank.
-        </p>
+      <section className="mx-auto max-w-5xl space-y-6">
+        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+          <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+            Generator
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-slate-950">
+            Generate SBA Questions
+          </h2>
+          <p className="mt-3 max-w-3xl text-slate-600">
+            Use this when you want extra practice beyond the permanent question
+            bank.
+          </p>
 
-        <textarea
-          value={lectureNotes}
-          onChange={(e) => setLectureNotes(e.target.value)}
-          className="mt-4 h-48 w-full rounded-lg border border-slate-300 bg-slate-50 p-3 text-sm text-slate-950 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
-          placeholder="Paste lecture notes here..."
-        />
-
-        <div className="mt-4">
-          <label className="mb-2 block text-sm font-semibold text-slate-900">
-            Number of questions: {numberOfQuestions}
-          </label>
-
-          <input
-            type="range"
-            min="1"
-            max="25"
-            step="1"
-            value={numberOfQuestions}
-            onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
-            className="numberSlider w-full"
+          <textarea
+            value={lectureNotes}
+            onChange={(e) => setLectureNotes(e.target.value)}
+            className="mt-6 h-72 w-full rounded-lg border border-slate-300 bg-slate-50 p-4 text-slate-950 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
+            placeholder="Paste lecture notes here..."
           />
+
+          <div className="mt-4 w-full max-w-xl">
+            <label className="mb-2 block font-semibold text-slate-900">
+              Number of questions: {numberOfQuestions}
+            </label>
+
+            <input
+              type="range"
+              min="1"
+              max="25"
+              step="1"
+              value={numberOfQuestions}
+              onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
+              className="numberSlider w-full"
+            />
+          </div>
+
+          <button
+            onClick={generateQuestions}
+            disabled={loading || lectureNotes.trim().length === 0}
+            className="mt-5 rounded-lg bg-[#0b1f3a] px-5 py-3 font-semibold text-white transition hover:bg-[#12365f] disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {loading ? "Generating..." : "Generate Questions"}
+          </button>
+
+          {error && (
+            <p className="mt-4 rounded-lg bg-rose-50 p-3 text-rose-700">
+              {error}
+            </p>
+          )}
         </div>
 
-        <button
-          onClick={generateQuestions}
-          disabled={loading || lectureNotes.trim().length === 0}
-          className="mt-4 w-full rounded-lg bg-[#0b1f3a] px-5 py-3 font-semibold text-white transition hover:bg-[#12365f] disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          {loading ? "Generating..." : "Generate Questions"}
-        </button>
-
-        {error && (
-          <p className="mt-4 rounded-lg bg-rose-50 p-3 text-sm text-rose-700">
-            {error}
-          </p>
+        {questions.length > 0 && !activeQuestionSetId && (
+          <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+              Generated Practice
+            </p>
+            <h2 className="mt-1 text-2xl font-bold text-slate-950">
+              New SBA Questions
+            </h2>
+            {renderQuestionList()}
+          </section>
         )}
-      </div>
+      </section>
     );
   }
 
@@ -1194,7 +1222,7 @@ export default function Home() {
 
   function renderQuestionBankHome() {
     return (
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="mx-auto max-w-6xl">
         <div className="space-y-6">
           <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
             <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
@@ -1292,20 +1320,7 @@ export default function Home() {
             </section>
           )}
 
-          {questions.length > 0 && !activeQuestionSetId && (
-            <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
-                Generated Practice
-              </p>
-              <h2 className="mt-1 text-2xl font-bold text-slate-950">
-                New SBA Questions
-              </h2>
-              {renderQuestionList()}
-            </section>
-          )}
         </div>
-
-        <aside className="space-y-6">{renderGeneratorPanel()}</aside>
       </div>
     );
   }
@@ -1480,16 +1495,40 @@ export default function Home() {
               </p>
             </div>
 
-            <button
-              onClick={() => setCurrentView("progress")}
-              className={`rounded-lg px-5 py-3 text-left font-semibold transition ${
-                currentView === "progress"
-                  ? "bg-teal-300 text-slate-950"
-                  : "bg-[#102b4c] text-white hover:bg-[#173b66]"
-              }`}
-            >
-              Progress Tracker
-            </button>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setCurrentView("question-bank")}
+                className={`rounded-lg px-4 py-3 text-left font-semibold transition ${
+                  currentView === "question-bank"
+                    ? "bg-teal-300 text-slate-950"
+                    : "bg-[#102b4c] text-white hover:bg-[#173b66]"
+                }`}
+              >
+                Question Bank
+              </button>
+
+              <button
+                onClick={openGeneratorView}
+                className={`rounded-lg px-4 py-3 text-left font-semibold transition ${
+                  currentView === "generator"
+                    ? "bg-teal-300 text-slate-950"
+                    : "bg-[#102b4c] text-white hover:bg-[#173b66]"
+                }`}
+              >
+                Generator
+              </button>
+
+              <button
+                onClick={() => setCurrentView("progress")}
+                className={`rounded-lg px-4 py-3 text-left font-semibold transition ${
+                  currentView === "progress"
+                    ? "bg-teal-300 text-slate-950"
+                    : "bg-[#102b4c] text-white hover:bg-[#173b66]"
+                }`}
+              >
+                Progress Tracker
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -1526,9 +1565,11 @@ export default function Home() {
         <section className="flex-1 p-4 sm:p-8">
           {currentView === "progress"
             ? renderProgressTracker()
-            : activeQuestionSetId
-              ? renderActiveQuestionSet()
-              : renderQuestionBankHome()}
+            : currentView === "generator"
+              ? renderGeneratorView()
+              : activeQuestionSetId
+                ? renderActiveQuestionSet()
+                : renderQuestionBankHome()}
         </section>
       </div>
     </main>
