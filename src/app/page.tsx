@@ -547,6 +547,9 @@ export default function Home() {
   const [numberOfQuestions, setNumberOfQuestions] = useState(5);
   const [isQuestionBankOpen, setIsQuestionBankOpen] = useState(true);
   const [currentView, setCurrentView] = useState<AppView>("question-bank");
+  const [selectedBankSubmoduleId, setSelectedBankSubmoduleId] = useState<
+    string | null
+  >(null);
   const [questionBankSearch, setQuestionBankSearch] = useState("");
   const [expandedQuestionBankFolders, setExpandedQuestionBankFolders] =
     useState<Record<string, boolean>>({});
@@ -603,6 +606,10 @@ export default function Home() {
       ),
     };
   }, []);
+  const selectedBankSubmodule =
+    bankStats.submodules.find(
+      (submodule) => submodule.id === selectedBankSubmoduleId
+    ) ?? null;
 
   async function generateQuestions() {
     if (!isMedicalText(lectureNotes)) {
@@ -681,6 +688,9 @@ export default function Home() {
   function openSubmodule(submoduleId: string) {
     setIsQuestionBankOpen(true);
     setCurrentView("question-bank");
+    setSelectedBankSubmoduleId(submoduleId);
+    setActiveQuestionSetId(null);
+    setActiveQuestionSetTitle(null);
     setExpandedQuestionBankFolders({
       ...expandedQuestionBankFolders,
       "physiology-and-anatomy-of-systems": true,
@@ -1150,6 +1160,38 @@ export default function Home() {
     );
   }
 
+  function renderLectureCard(questionSet: QuestionSet) {
+    const progress = getQuestionSetProgress(questionSet);
+    const savedAt = savedAnswersByQuestionSet[questionSet.id]?.savedAt;
+
+    return (
+      <button
+        key={questionSet.id}
+        onClick={() => loadQuestionSet(questionSet)}
+        className="rounded-lg border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md"
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <h3 className="font-bold text-slate-950">{questionSet.title}</h3>
+            <p className="mt-1 text-sm text-slate-600">
+              {questionSet.questions.length} questions | {progress.answered} answered
+            </p>
+            {savedAt && (
+              <p className="mt-1 text-xs text-slate-500">
+                Saved {new Date(savedAt).toLocaleString()}
+              </p>
+            )}
+          </div>
+          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+            {progress.percent}%
+          </span>
+        </div>
+
+        <div className="mt-4">{renderProgressMeter(progress.percent)}</div>
+      </button>
+    );
+  }
+
   function renderQuestionBankHome() {
     return (
       <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
@@ -1188,36 +1230,67 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="grid gap-4 lg:grid-cols-2">
-            {bankStats.submodules.map((submodule) => {
-              const progress = getSubmoduleProgress(submodule);
+          {selectedBankSubmodule ? (
+            <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+                    PAS Submodule
+                  </p>
+                  <h2 className="mt-1 text-2xl font-bold text-slate-950">
+                    {selectedBankSubmodule.title}
+                  </h2>
+                  <p className="mt-2 text-slate-600">
+                    Choose a lecture to start answering its saved questions.
+                  </p>
+                </div>
 
-              return (
                 <button
-                  key={submodule.id}
-                  onClick={() => openSubmodule(submodule.id)}
-                  className="rounded-lg border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md"
+                  onClick={() => setSelectedBankSubmoduleId(null)}
+                  className="rounded-lg bg-slate-100 px-5 py-3 font-semibold text-slate-900 transition hover:bg-slate-200"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="font-bold text-slate-950">
-                        {submodule.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-600">
-                        {getLectureCount(submodule)} lectures |{" "}
-                        {progress.totalQuestions} questions
-                      </p>
-                    </div>
-                    <span className="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
-                      {progress.percent}%
-                    </span>
-                  </div>
-
-                  <div className="mt-4">{renderProgressMeter(progress.percent)}</div>
+                  All PAS Submodules
                 </button>
-              );
-            })}
-          </section>
+              </div>
+
+              <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                {selectedBankSubmodule.questionSets.map(renderLectureCard)}
+              </div>
+            </section>
+          ) : (
+            <section className="grid gap-4 lg:grid-cols-2">
+              {bankStats.submodules.map((submodule) => {
+                const progress = getSubmoduleProgress(submodule);
+
+                return (
+                  <button
+                    key={submodule.id}
+                    onClick={() => openSubmodule(submodule.id)}
+                    className="rounded-lg border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="font-bold text-slate-950">
+                          {submodule.title}
+                        </h3>
+                        <p className="mt-1 text-sm text-slate-600">
+                          {getLectureCount(submodule)} lectures |{" "}
+                          {progress.totalQuestions} questions
+                        </p>
+                      </div>
+                      <span className="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+                        {progress.percent}%
+                      </span>
+                    </div>
+
+                    <div className="mt-4">
+                      {renderProgressMeter(progress.percent)}
+                    </div>
+                  </button>
+                );
+              })}
+            </section>
+          )}
 
           {questions.length > 0 && !activeQuestionSetId && (
             <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
@@ -1423,7 +1496,7 @@ export default function Home() {
 
       <div className="flex min-h-[calc(100vh-97px)] flex-col sm:flex-row">
         {isQuestionBankOpen && (
-          <aside className="questionBankScroll w-full shrink-0 overflow-y-auto border-r border-[#14375f] bg-[#0b1f3a] p-4 shadow-sm sm:max-h-[calc(100vh-97px)] sm:w-72 lg:w-1/6">
+          <aside className="questionBankScroll w-full shrink-0 overflow-y-auto border-r border-[#14375f] bg-[#0b1f3a] p-4 shadow-sm sm:sticky sm:top-0 sm:h-screen sm:w-72 lg:w-1/6">
             <nav className="space-y-3">
               <h2 className="text-sm font-bold uppercase tracking-wide text-teal-200">
                 Question Bank
