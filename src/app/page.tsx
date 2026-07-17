@@ -896,7 +896,7 @@ export default function Home() {
 
   function renderProgressMeter(percent: number) {
     return (
-      <div className="h-2.5 overflow-hidden rounded-full bg-slate-200">
+      <div className="h-2.5 overflow-hidden rounded-full bg-slate-200/80 shadow-inner">
         <div
           className="h-full rounded-full bg-emerald-500 transition-all duration-500"
           style={{ width: `${Math.min(percent, 100)}%` }}
@@ -916,7 +916,7 @@ export default function Home() {
       <div key={folder.id} style={{ marginLeft: depth * 10 }}>
         <button
           onClick={() => toggleQuestionBankFolder(folder.id)}
-          className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left font-semibold text-slate-100 transition hover:bg-[#102b4c]"
+          className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left font-semibold text-slate-100 transition hover:bg-white/10"
         >
           <span>{folder.title}</span>
           <span
@@ -937,7 +937,7 @@ export default function Home() {
           <div className="overflow-hidden">
             <div className="mt-2 space-y-1 pl-3">
               {!hasContent ? (
-                <p className="rounded-md bg-[#102b4c] px-3 py-2 text-sm text-slate-300">
+                <p className="rounded-xl bg-white/10 px-3 py-2 text-sm text-slate-300">
                   No lecture sets yet.
                 </p>
               ) : (
@@ -953,10 +953,10 @@ export default function Home() {
                       <button
                         key={questionSet.id}
                         onClick={() => loadQuestionSet(questionSet)}
-                        className={`block w-full rounded-md px-3 py-2 text-left text-sm font-medium transition ${
+                        className={`block w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium transition ${
                           activeQuestionSetId === questionSet.id
-                            ? "bg-teal-300 text-slate-950"
-                            : "text-slate-300 hover:bg-[#102b4c] hover:text-white"
+                            ? "bg-teal-300 text-slate-950 shadow-sm"
+                            : "text-slate-300 hover:bg-white/10 hover:text-white"
                         }`}
                       >
                         <span className="block">{questionSet.title}</span>
@@ -983,7 +983,7 @@ export default function Home() {
           {questions.map((q, questionIndex) => (
             <div
               key={questionIndex}
-              className="rounded-lg border border-slate-200 bg-[#fbfdff] p-5"
+              className="interactiveCard p-5"
             >
               <h2 className="font-semibold text-slate-950">
                 {questionIndex + 1}. {q.question}
@@ -1007,7 +1007,7 @@ export default function Home() {
                       key={letter}
                       onClick={() => selectAnswer(questionIndex, letter)}
                       disabled={showResults}
-                      className={`block w-full rounded-lg border p-3 text-left transition ${
+                      className={`answerChoice block w-full border p-3 text-left transition ${
                         isCorrectSelected
                           ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                           : isWrongSelected
@@ -1050,7 +1050,7 @@ export default function Home() {
         {questions.length > 0 && !showResults && !activeQuestionSetId && (
           <button
             onClick={checkAnswers}
-            className="mt-8 rounded-lg bg-teal-600 px-5 py-3 font-semibold text-white transition hover:bg-teal-700"
+            className="mt-8 rounded-full bg-teal-600 px-5 py-3 font-semibold text-white shadow-lg shadow-teal-900/10 transition hover:bg-teal-700"
           >
             Check Answers
           </button>
@@ -1063,7 +1063,7 @@ export default function Home() {
                 setSelectedAnswers({});
                 setShowResults(false);
               }}
-              className="rounded-lg bg-slate-100 px-5 py-3 font-semibold text-slate-900 transition hover:bg-slate-200"
+              className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition"
             >
               Try Again
             </button>
@@ -1071,7 +1071,7 @@ export default function Home() {
             <button
               onClick={exportWrongQuestionsToAnkiCSV}
               disabled={wrongQuestions.length === 0}
-              className="rounded-lg bg-[#0b1f3a] px-5 py-3 font-semibold text-white transition hover:bg-[#12365f] disabled:cursor-not-allowed disabled:opacity-50"
+              className="primaryButton px-5 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50"
             >
               Export {wrongQuestions.length} Wrong Questions to Anki
             </button>
@@ -1084,11 +1084,11 @@ export default function Home() {
   function renderGeneratorView() {
     return (
       <section className="mx-auto max-w-5xl space-y-6">
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+        <div className="surfaceCard p-6 sm:p-8">
+          <p className="text-sm font-semibold uppercase text-teal-700">
             Generator
           </p>
-          <h2 className="mt-2 text-3xl font-bold text-slate-950">
+          <h2 className="mt-2 text-3xl font-bold text-slate-950 sm:text-4xl">
             Generate SBA Questions
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
@@ -1099,7 +1099,7 @@ export default function Home() {
           <textarea
             value={lectureNotes}
             onChange={(e) => setLectureNotes(e.target.value)}
-            className="mt-6 h-72 w-full rounded-lg border border-slate-300 bg-slate-50 p-4 text-slate-950 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
+            className="mt-6 h-72 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 text-slate-950 shadow-inner outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
             placeholder="Paste lecture notes here..."
           />
 
@@ -1122,21 +1122,21 @@ export default function Home() {
           <button
             onClick={generateQuestions}
             disabled={loading || lectureNotes.trim().length === 0}
-            className="mt-5 rounded-lg bg-[#0b1f3a] px-5 py-3 font-semibold text-white transition hover:bg-[#12365f] disabled:cursor-not-allowed disabled:opacity-50"
+            className="primaryButton mt-5 px-6 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? "Generating..." : "Generate Questions"}
           </button>
 
           {error && (
-            <p className="mt-4 rounded-lg bg-rose-50 p-3 text-rose-700">
+            <p className="mt-4 rounded-2xl bg-rose-50 p-3 text-rose-700">
               {error}
             </p>
           )}
         </div>
 
         {questions.length > 0 && !activeQuestionSetId && (
-          <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+          <section className="surfaceCard p-6">
+            <p className="text-sm font-semibold uppercase text-teal-700">
               Generated Practice
             </p>
             <h2 className="mt-1 text-2xl font-bold text-slate-950">
@@ -1165,7 +1165,7 @@ export default function Home() {
           <button
             onClick={checkAnswers}
             disabled={showResults}
-            className="rounded-lg bg-teal-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="rounded-full bg-teal-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {showResults ? "Marked" : "Mark Answers"}
           </button>
@@ -1173,7 +1173,7 @@ export default function Home() {
           <button
             onClick={saveCurrentLectureAnswers}
             disabled={showResults}
-            className="rounded-lg bg-[#0b1f3a] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#12365f] disabled:cursor-not-allowed disabled:opacity-60"
+            className="primaryButton px-4 py-2 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
           >
             Save Progress
           </button>
@@ -1196,7 +1196,7 @@ export default function Home() {
       <button
         key={questionSet.id}
         onClick={() => loadQuestionSet(questionSet)}
-        className="rounded-lg border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md"
+        className="interactiveCard p-5 text-left transition hover:-translate-y-0.5"
       >
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -1224,11 +1224,11 @@ export default function Home() {
     return (
       <div className="mx-auto max-w-6xl">
         <div className="space-y-6">
-          <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+          <section className="surfaceCard p-6 sm:p-8">
+            <p className="text-sm font-semibold uppercase text-teal-700">
               Question Bank
             </p>
-            <h2 className="mt-2 text-3xl font-bold text-slate-950">
+            <h2 className="mt-2 text-3xl font-bold text-slate-950 sm:text-4xl">
               Physiology and Anatomy of Systems
             </h2>
             <p className="mt-3 max-w-3xl text-slate-600">
@@ -1237,19 +1237,19 @@ export default function Home() {
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-lg bg-[#edf3f8] p-4">
+              <div className="statTile p-4">
                 <p className="text-2xl font-bold text-[#0b1f3a]">
                   {bankStats.submodules.length}
                 </p>
                 <p className="text-sm text-slate-600">Submodules</p>
               </div>
-              <div className="rounded-lg bg-[#edf3f8] p-4">
+              <div className="statTile p-4">
                 <p className="text-2xl font-bold text-[#0b1f3a]">
                   {bankStats.totalLectures}
                 </p>
                 <p className="text-sm text-slate-600">Lectures</p>
               </div>
-              <div className="rounded-lg bg-[#edf3f8] p-4">
+              <div className="statTile p-4">
                 <p className="text-2xl font-bold text-[#0b1f3a]">
                   {bankStats.totalQuestions}
                 </p>
@@ -1259,10 +1259,10 @@ export default function Home() {
           </section>
 
           {selectedBankSubmodule ? (
-            <section className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+            <section className="surfaceCard p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+                  <p className="text-sm font-semibold uppercase text-teal-700">
                     PAS Submodule
                   </p>
                   <h2 className="mt-1 text-2xl font-bold text-slate-950">
@@ -1275,7 +1275,7 @@ export default function Home() {
 
                 <button
                   onClick={() => setSelectedBankSubmoduleId(null)}
-                  className="rounded-lg bg-slate-100 px-5 py-3 font-semibold text-slate-900 transition hover:bg-slate-200"
+                  className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition"
                 >
                   All PAS Submodules
                 </button>
@@ -1294,7 +1294,7 @@ export default function Home() {
                   <button
                     key={submodule.id}
                     onClick={() => openSubmodule(submodule.id)}
-                    className="rounded-lg border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-md"
+                    className="interactiveCard p-5 text-left transition hover:-translate-y-0.5"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -1329,10 +1329,10 @@ export default function Home() {
     const answeredCount = Object.keys(selectedAnswers).length;
 
     return (
-      <section className="mx-auto max-w-5xl rounded-lg border border-slate-200 bg-white p-6 pb-28 shadow-sm">
+      <section className="surfaceCard mx-auto max-w-5xl p-6 pb-28 sm:p-8 sm:pb-28">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+            <p className="text-sm font-semibold uppercase text-teal-700">
               Question Bank
             </p>
             <h2 className="mt-1 text-2xl font-bold text-slate-950">
@@ -1345,7 +1345,7 @@ export default function Home() {
 
           <button
             onClick={returnToGenerator}
-            className="rounded-lg bg-slate-100 px-5 py-3 font-semibold text-slate-900 transition hover:bg-slate-200"
+            className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition"
           >
             Back to Generator
           </button>
@@ -1360,11 +1360,11 @@ export default function Home() {
   function renderProgressTracker() {
     return (
       <section className="mx-auto max-w-6xl space-y-6">
-        <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+        <div className="surfaceCard p-6 sm:p-8">
+          <p className="text-sm font-semibold uppercase text-teal-700">
             Progress Tracker
           </p>
-          <h2 className="mt-2 text-3xl font-bold text-slate-950">
+          <h2 className="mt-2 text-3xl font-bold text-slate-950 sm:text-4xl">
             PAS Question Bank Progress
           </h2>
           <p className="mt-3 text-slate-600">
@@ -1373,19 +1373,19 @@ export default function Home() {
           </p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-lg bg-[#edf3f8] p-4">
+            <div className="statTile p-4">
               <p className="text-2xl font-bold text-[#0b1f3a]">
                 {overallProgressPercent}%
               </p>
               <p className="text-sm text-slate-600">Question progress</p>
             </div>
-            <div className="rounded-lg bg-[#edf3f8] p-4">
+            <div className="statTile p-4">
               <p className="text-2xl font-bold text-[#0b1f3a]">
                 {overallAnswered}/{bankStats.totalQuestions}
               </p>
               <p className="text-sm text-slate-600">Answered</p>
             </div>
-            <div className="rounded-lg bg-[#edf3f8] p-4">
+            <div className="statTile p-4">
               <p className="text-2xl font-bold text-[#0b1f3a]">
                 {overallCorrect}
               </p>
@@ -1403,7 +1403,7 @@ export default function Home() {
             return (
               <article
                 key={submodule.id}
-                className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
+                className="surfaceCard p-5"
               >
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div>
@@ -1433,7 +1433,7 @@ export default function Home() {
                       <button
                         key={questionSet.id}
                         onClick={() => loadQuestionSet(questionSet)}
-                        className="w-full rounded-lg border border-slate-200 bg-[#fbfdff] p-4 text-left transition hover:border-teal-300 hover:bg-white"
+                        className="interactiveCard w-full p-4 text-left transition hover:-translate-y-0.5"
                       >
                         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                           <div>
@@ -1466,17 +1466,17 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-[#edf3f8]">
-      <header className="border-b border-[#14375f] bg-[#0b1f3a] text-white shadow-sm">
+    <main className="appCanvas min-h-screen">
+      <header className="appHeader border-b border-white/10 text-white">
         <div className="flex flex-col sm:flex-row">
-          <div className="w-full shrink-0 border-b border-[#14375f] bg-[#07172b] sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
+          <div className="headerRail w-full shrink-0 border-b border-white/10 sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
             <button
               onClick={() => {
                 setIsQuestionBankOpen(!isQuestionBankOpen);
                 setCurrentView("question-bank");
               }}
               aria-expanded={isQuestionBankOpen}
-              className="flex min-h-24 w-full items-center justify-between px-4 py-4 text-left font-semibold text-white transition hover:bg-[#102b4c]"
+              className="flex min-h-24 w-full items-center justify-between px-5 py-4 text-left font-semibold text-white transition hover:bg-white/10"
             >
               <span>Browse Question Bank</span>
               <span className="text-teal-200" aria-hidden="true">
@@ -1495,13 +1495,13 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 rounded-full border border-white/10 bg-white/10 p-1">
               <button
                 onClick={() => setCurrentView("question-bank")}
-                className={`rounded-lg px-4 py-3 text-left font-semibold transition ${
+                className={`navPill px-4 py-2.5 text-left font-semibold transition ${
                   currentView === "question-bank"
-                    ? "bg-teal-300 text-slate-950"
-                    : "bg-[#102b4c] text-white hover:bg-[#173b66]"
+                    ? "bg-white text-slate-950 shadow-sm"
+                    : "bg-transparent text-white hover:bg-white/10"
                 }`}
               >
                 Question Bank
@@ -1509,10 +1509,10 @@ export default function Home() {
 
               <button
                 onClick={openGeneratorView}
-                className={`rounded-lg px-4 py-3 text-left font-semibold transition ${
+                className={`navPill px-4 py-2.5 text-left font-semibold transition ${
                   currentView === "generator"
-                    ? "bg-teal-300 text-slate-950"
-                    : "bg-[#102b4c] text-white hover:bg-[#173b66]"
+                    ? "bg-white text-slate-950 shadow-sm"
+                    : "bg-transparent text-white hover:bg-white/10"
                 }`}
               >
                 Generator
@@ -1520,10 +1520,10 @@ export default function Home() {
 
               <button
                 onClick={() => setCurrentView("progress")}
-                className={`rounded-lg px-4 py-3 text-left font-semibold transition ${
+                className={`navPill px-4 py-2.5 text-left font-semibold transition ${
                   currentView === "progress"
-                    ? "bg-teal-300 text-slate-950"
-                    : "bg-[#102b4c] text-white hover:bg-[#173b66]"
+                    ? "bg-white text-slate-950 shadow-sm"
+                    : "bg-transparent text-white hover:bg-white/10"
                 }`}
               >
                 Progress Tracker
@@ -1535,9 +1535,9 @@ export default function Home() {
 
       <div className="flex min-h-[calc(100vh-97px)] flex-col sm:flex-row">
         {isQuestionBankOpen && (
-          <aside className="questionBankScroll w-full shrink-0 overflow-y-auto border-r border-[#14375f] bg-[#0b1f3a] p-4 shadow-sm sm:sticky sm:top-0 sm:h-screen sm:w-72 lg:w-1/6">
+          <aside className="questionBankPanel questionBankScroll w-full shrink-0 overflow-y-auto border-r border-white/10 p-4 sm:sticky sm:top-0 sm:h-screen sm:w-72 lg:w-1/6">
             <nav className="space-y-3">
-              <h2 className="text-sm font-bold uppercase tracking-wide text-teal-200">
+              <h2 className="text-sm font-bold uppercase text-teal-200">
                 Question Bank
               </h2>
 
@@ -1546,11 +1546,11 @@ export default function Home() {
                 value={questionBankSearch}
                 onChange={(event) => setQuestionBankSearch(event.target.value)}
                 placeholder="Search lectures..."
-                className="w-full rounded-lg border border-[#25527d] bg-[#102b4c] px-3 py-2 text-sm text-white outline-none placeholder:text-slate-400 focus:border-teal-300 focus:ring-2 focus:ring-teal-300/30"
+                className="w-full rounded-2xl border border-white/10 bg-white/10 px-3 py-2.5 text-sm text-white outline-none placeholder:text-slate-400 focus:border-teal-300 focus:ring-2 focus:ring-teal-300/30"
               />
 
               {visibleQuestionBankFolders.length === 0 && (
-                <p className="rounded-md bg-[#102b4c] px-3 py-2 text-sm text-slate-300">
+                <p className="rounded-xl bg-white/10 px-3 py-2 text-sm text-slate-300">
                   No matching lecture sets.
                 </p>
               )}

@@ -1,55 +1,151 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f7fb;
+  --foreground: #111827;
+  --navy: #07172b;
+  --navy-soft: #0c2340;
+  --teal: #0f766e;
+  --teal-bright: #2dd4bf;
+  --surface: rgba(255, 255, 255, 0.88);
+  --surface-solid: #ffffff;
+  --line: rgba(15, 23, 42, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-raleway);
+  --font-mono: var(--font-raleway);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-raleway), Arial, Helvetica, sans-serif;
+  font-feature-settings: "lnum";
 }
 
- .numberSlider {
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(45, 212, 191, 0.35);
+  outline-offset: 2px;
+}
+
+.appCanvas {
+  background:
+    linear-gradient(180deg, #f8fafc 0%, #eef4f8 46%, #f6f8fb 100%);
+}
+
+.appHeader {
+  background: rgba(7, 23, 43, 0.94);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 50px rgba(7, 23, 43, 0.18);
+}
+
+.headerRail {
+  background: rgba(4, 16, 31, 0.72);
+}
+
+.navPill {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  min-height: 44px;
+}
+
+.surfaceCard {
+  background: var(--surface);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  box-shadow: 0 20px 70px rgba(15, 23, 42, 0.09), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+}
+
+.interactiveCard {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 16px 50px rgba(15, 23, 42, 0.07);
+}
+
+.interactiveCard:hover {
+  border-color: rgba(20, 184, 166, 0.34);
+  box-shadow: 0 22px 65px rgba(15, 23, 42, 0.11);
+}
+
+.statTile {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(241, 245, 249, 0.92));
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  border-radius: 8px;
+}
+
+.primaryButton {
+  background: #07172b;
+  border-radius: 9999px;
+  box-shadow: 0 12px 28px rgba(7, 23, 43, 0.22);
+}
+
+.primaryButton:hover {
+  background: #0e2a4c;
+}
+
+.secondaryButton {
+  background: rgba(241, 245, 249, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 9999px;
+}
+
+.secondaryButton:hover {
+  background: #ffffff;
+}
+
+.questionBankPanel {
+  background: linear-gradient(180deg, #08192f 0%, #0b1f3a 100%);
+  box-shadow: 18px 0 55px rgba(7, 23, 43, 0.14);
+}
+
+.answerChoice {
+  border-radius: 14px;
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.28);
+}
+
+.numberSlider {
   -webkit-appearance: none;
   appearance: none;
   accent-color: #0d9488;
 }
 
 .numberSlider::-webkit-slider-runnable-track {
-  background: #cbd5e1;
+  background: #d8e0ea;
   height: 8px;
   border-radius: 9999px;
 }
 
 .numberSlider::-webkit-slider-thumb {
-  background: #0b1f3a;
+  background: #07172b;
+  border: 3px solid white;
+  border-radius: 9999px;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.22);
   margin-top: -4px;
 }
 
 .numberSlider::-moz-range-track {
-  background: #cbd5e1;
+  background: #d8e0ea;
   height: 8px;
   border-radius: 9999px;
 }
 
 .questionBankScroll {
-  scrollbar-color: #5eead4 #07172b;
+  scrollbar-color: #5eead4 #08192f;
   scrollbar-width: thin;
 }
 
@@ -58,11 +154,11 @@ body {
 }
 
 .questionBankScroll::-webkit-scrollbar-track {
-  background: #07172b;
+  background: #08192f;
 }
 
 .questionBankScroll::-webkit-scrollbar-thumb {
   background: #5eead4;
-  border: 3px solid #07172b;
+  border: 3px solid #08192f;
   border-radius: 9999px;
 }
