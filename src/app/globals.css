@@ -47,3 +47,22 @@ body {
   height: 8px;
   border-radius: 9999px;
 }
+
+.questionBankScroll {
+  scrollbar-color: #5eead4 #07172b;
+  scrollbar-width: thin;
+}
+
+.questionBankScroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.questionBankScroll::-webkit-scrollbar-track {
+  background: #07172b;
+}
+
+.questionBankScroll::-webkit-scrollbar-thumb {
+  background: #5eead4;
+  border: 3px solid #07172b;
+  border-radius: 9999px;
+}
