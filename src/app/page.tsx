@@ -599,6 +599,7 @@ export default function Home() {
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, string>>(
     {}
   );
+  const [markedAnswers, setMarkedAnswers] = useState<Record<number, string>>({});
   const [showResults, setShowResults] = useState(false);
   const [progressByQuestionSet, setProgressByQuestionSet] = useState<
     Record<string, QuestionProgress>
@@ -905,6 +906,7 @@ export default function Home() {
     setError("");
     setQuestions([]);
     setSelectedAnswers({});
+    setMarkedAnswers({});
     setShowResults(false);
     setActiveQuestionSetId(null);
     setActiveQuestionSetTitle(null);
@@ -976,6 +978,7 @@ export default function Home() {
     setSelectedAnswers(
       savedAnswersByQuestionSet[questionSet.id]?.selectedAnswers ?? {}
     );
+    setMarkedAnswers({});
     setShowResults(false);
     setError("");
     setActiveQuestionSetId(questionSet.id);
@@ -987,6 +990,7 @@ export default function Home() {
     autosaveActiveLectureAnswers();
     setQuestions([]);
     setSelectedAnswers({});
+    setMarkedAnswers({});
     setShowResults(false);
     setError("");
     setActiveQuestionSetId(null);
@@ -1022,6 +1026,7 @@ export default function Home() {
       autosaveActiveLectureAnswers();
       setQuestions([]);
       setSelectedAnswers({});
+      setMarkedAnswers({});
       setShowResults(false);
       setActiveQuestionSetId(null);
       setActiveQuestionSetTitle(null);
@@ -1039,6 +1044,7 @@ export default function Home() {
 
   function checkAnswers() {
     setShowResults(true);
+    setMarkedAnswers(selectedAnswers);
 
     if (!activeQuestionSetId) return;
 
@@ -1610,21 +1616,22 @@ export default function Home() {
               <div className="mt-4 space-y-2">
                 {Object.entries(q.options).map(([letter, option]) => {
                   const selectedAnswer = selectedAnswers[questionIndex];
-                  const hasSelectedAnswer = Boolean(selectedAnswer);
+                  const markedAnswer = markedAnswers[questionIndex];
+                  const hasMarkedAnswer = Boolean(markedAnswer);
                   const isSelected = selectedAnswer === letter;
+                  const isMarkedSelection = markedAnswer === letter;
                   const isCorrect = q.correctAnswer === letter;
                   const isWrongSelected =
-                    showResults && isSelected && !isCorrect;
+                    showResults && isMarkedSelection && !isCorrect;
                   const isCorrectSelected =
-                    showResults && isSelected && isCorrect;
+                    showResults && isMarkedSelection && isCorrect;
                   const shouldShowCorrectAnswer =
-                    showResults && hasSelectedAnswer && isCorrect;
+                    showResults && hasMarkedAnswer && isCorrect;
 
                   return (
                     <button
                       key={letter}
                       onClick={() => selectAnswer(questionIndex, letter)}
-                      disabled={showResults}
                       className={`answerChoice block w-full border p-3 text-left text-sm leading-relaxed transition sm:text-base ${
                         isCorrectSelected
                           ? "border-emerald-500 bg-emerald-50 text-emerald-950"
@@ -1643,7 +1650,7 @@ export default function Home() {
                 })}
               </div>
 
-              {showResults && selectedAnswers[questionIndex] && (
+              {showResults && markedAnswers[questionIndex] && (
                 <div className="mt-4 rounded-lg bg-slate-50 p-3 text-slate-800">
                   <p>
                     <span className="font-semibold">Correct answer:</span>{" "}
@@ -1652,7 +1659,7 @@ export default function Home() {
 
                   <p className="mt-2">
                     <span className="font-semibold">Your answer:</span>{" "}
-                    {selectedAnswers[questionIndex] || "No answer selected"}
+                    {markedAnswers[questionIndex] || "No answer selected"}
                   </p>
 
                   <p className="mt-2">
@@ -1679,6 +1686,7 @@ export default function Home() {
             <button
               onClick={() => {
                 setSelectedAnswers({});
+                setMarkedAnswers({});
                 setShowResults(false);
               }}
               className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition"
@@ -1769,6 +1777,10 @@ export default function Home() {
 
   function renderFloatingStudyActions() {
     const answeredCount = Object.keys(selectedAnswers).length;
+    const hasMarkedAnswers = Object.keys(markedAnswers).length > 0;
+    const hasUnmarkedSelections = Object.entries(selectedAnswers).some(
+      ([questionIndex, answer]) => markedAnswers[Number(questionIndex)] !== answer
+    );
     const savedAt = activeQuestionSetId
       ? savedAnswersByQuestionSet[activeQuestionSetId]?.savedAt
       : null;
@@ -1783,15 +1795,15 @@ export default function Home() {
 
           <button
             onClick={checkAnswers}
-            disabled={showResults}
+            disabled={!hasUnmarkedSelections}
             className="primaryButton px-3 py-2 text-xs font-bold text-white transition disabled:cursor-not-allowed disabled:opacity-60 sm:px-4 sm:text-sm"
           >
-            {showResults ? "Marked" : "Mark"}
+            {!hasUnmarkedSelections && hasMarkedAnswers ? "Marked" : "Mark"}
           </button>
 
           <button
             onClick={saveCurrentLectureAnswers}
-            disabled={showResults}
+            disabled={showResults && !hasUnmarkedSelections}
             className="secondaryButton px-3 py-2 text-xs font-bold text-slate-900 transition disabled:cursor-not-allowed disabled:opacity-60 sm:px-4 sm:text-sm"
           >
             Save
