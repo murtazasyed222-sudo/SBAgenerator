@@ -630,6 +630,7 @@ export default function Home() {
   const [authPassword, setAuthPassword] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState("");
+  const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
 
@@ -835,6 +836,7 @@ export default function Home() {
       setAuthMessage("Account created. Check your email to confirm your login.");
     } else {
       setAuthMessage("Signed in. Your study progress will sync to the cloud.");
+      setIsAuthMenuOpen(false);
     }
 
     setAuthLoading(false);
@@ -848,6 +850,7 @@ export default function Home() {
     setUser(null);
     setCloudSyncStatus("");
     setAuthMessage("Signed out. This device will keep using local saves.");
+    setIsAuthMenuOpen(false);
     setAuthLoading(false);
   }
 
@@ -1223,110 +1226,159 @@ export default function Home() {
   function renderAccountPanel() {
     if (!isSupabaseConfigured) {
       return (
-        <div className="headerAccountPanel w-full p-3 text-sm text-white/90 lg:w-80">
-          <p className="font-semibold text-white">Local saves</p>
-          <p className="mt-1 text-xs leading-snug text-white/68">
-            Add Supabase env vars to enable accounts.
-          </p>
+        <div className="relative flex justify-start xl:justify-end">
+          <button
+            type="button"
+            onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
+            className="headerAccountButton"
+            aria-expanded={isAuthMenuOpen}
+          >
+            Local saves
+          </button>
+
+          {isAuthMenuOpen && (
+            <div className="headerAccountPopover">
+              <p className="text-sm font-bold text-slate-950">
+                Cloud login not connected
+              </p>
+              <p className="mt-1 text-sm leading-snug text-slate-600">
+                Add Supabase environment variables to enable account sync across
+                devices.
+              </p>
+            </div>
+          )}
         </div>
       );
     }
 
     if (user) {
       return (
-        <div className="headerAccountPanel w-full p-3 text-white lg:w-80">
-          <div className="flex items-center justify-between gap-3">
-            <div className="min-w-0">
-              <p className="truncate text-sm font-semibold">{user.email}</p>
-              <p className="mt-0.5 truncate text-xs text-white/66">
+        <div className="relative flex justify-start xl:justify-end">
+          <button
+            type="button"
+            onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
+            className="headerAccountButton max-w-full"
+            aria-expanded={isAuthMenuOpen}
+          >
+            Signed in
+          </button>
+
+          {isAuthMenuOpen && (
+            <div className="headerAccountPopover">
+              <p className="truncate text-sm font-bold text-slate-950">
+                {user.email}
+              </p>
+              <p className="mt-1 text-sm leading-snug text-slate-600">
                 {isCloudProgressLoading
                   ? "Loading cloud progress..."
-                  : cloudSyncStatus || "Cloud sync ready"}
+                  : cloudSyncStatus || "Progress sync is ready across devices."}
               </p>
-            </div>
 
-            <button
-              onClick={handleSignOut}
-              disabled={authLoading}
-              className="shrink-0 rounded-full bg-white px-3 py-2 text-xs font-bold text-slate-900 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {authLoading ? "..." : "Sign out"}
-            </button>
-          </div>
+              <button
+                onClick={handleSignOut}
+                disabled={authLoading}
+                className="secondaryButton mt-4 w-full px-4 py-2.5 text-sm font-bold text-slate-900 transition disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {authLoading ? "Signing out..." : "Sign out"}
+              </button>
+            </div>
+          )}
         </div>
       );
     }
 
     return (
-      <div className="headerAccountPanel w-full p-3 text-white lg:w-[26rem]">
-        <form
-          onSubmit={handleAuthSubmit}
-          className="grid gap-2 sm:grid-cols-[1fr_1fr_auto]"
+      <div className="relative flex justify-start xl:justify-end">
+        <button
+          type="button"
+          onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
+          className="headerAccountButton"
+          aria-expanded={isAuthMenuOpen}
         >
-          <input
-            type="email"
-            value={authEmail}
-            onChange={(event) => setAuthEmail(event.target.value)}
-            className="headerAccountInput min-w-0 px-3 py-2 text-sm outline-none placeholder:text-slate-400"
-            placeholder="Email"
-            required
-          />
+          Sign in
+        </button>
 
-          <input
-            type="password"
-            value={authPassword}
-            onChange={(event) => setAuthPassword(event.target.value)}
-            className="headerAccountInput min-w-0 px-3 py-2 text-sm outline-none placeholder:text-slate-400"
-            placeholder="Password"
-            minLength={6}
-            required
-          />
-
-          <button
-            type="submit"
-            disabled={authLoading || !isAuthReady}
-            className="rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {authLoading
-              ? "..."
-              : authMode === "sign-in"
-                ? "Sign in"
-                : "Create"}
-          </button>
-        </form>
-
-        <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex w-fit rounded-full border border-white/14 bg-white/8 p-0.5">
-            <button
-              onClick={() => setAuthMode("sign-in")}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                authMode === "sign-in"
-                  ? "bg-white text-slate-950"
-                  : "text-white/72 hover:bg-white/10 hover:text-white"
-              }`}
-              type="button"
-            >
-              Sign in
-            </button>
-            <button
-              onClick={() => setAuthMode("sign-up")}
-              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                authMode === "sign-up"
-                  ? "bg-white text-slate-950"
-                  : "text-white/72 hover:bg-white/10 hover:text-white"
-              }`}
-              type="button"
-            >
-              Create
-            </button>
-          </div>
-
-          {(authMessage || cloudSyncStatus) && (
-            <p className="truncate text-xs font-semibold text-white/72">
-              {authMessage || cloudSyncStatus}
+        {isAuthMenuOpen && (
+          <div className="headerAccountPopover">
+            <p className="text-sm font-bold text-slate-950">
+              Sync your progress
             </p>
-          )}
-        </div>
+            <p className="mt-1 text-sm leading-snug text-slate-600">
+              Sign in to save answers and progress across devices. You can still
+              practise locally without an account.
+            </p>
+
+            <form onSubmit={handleAuthSubmit} className="mt-4 space-y-3">
+              <input
+                type="email"
+                value={authEmail}
+                onChange={(event) => setAuthEmail(event.target.value)}
+                className="headerAccountInput w-full px-4 py-2.5 text-sm outline-none placeholder:text-slate-400"
+                placeholder="Email"
+                required
+              />
+
+              <input
+                type="password"
+                value={authPassword}
+                onChange={(event) => setAuthPassword(event.target.value)}
+                className="headerAccountInput w-full px-4 py-2.5 text-sm outline-none placeholder:text-slate-400"
+                placeholder="Password"
+                minLength={6}
+                required
+              />
+
+              <button
+                type="submit"
+                disabled={authLoading || !isAuthReady}
+                className="primaryButton w-full px-4 py-2.5 text-sm font-bold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {authLoading
+                  ? "Working..."
+                  : authMode === "sign-in"
+                    ? "Sign in"
+                    : "Create account"}
+              </button>
+            </form>
+
+            <div className="mt-3 flex items-center justify-between gap-3">
+              <div className="flex rounded-full border border-slate-200 bg-slate-50 p-0.5">
+                <button
+                  onClick={() => setAuthMode("sign-in")}
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                    authMode === "sign-in"
+                      ? "bg-slate-950 text-white"
+                      : "text-slate-600 hover:bg-white"
+                  }`}
+                  type="button"
+                >
+                  Sign in
+                </button>
+                <button
+                  onClick={() => setAuthMode("sign-up")}
+                  className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                    authMode === "sign-up"
+                      ? "bg-slate-950 text-white"
+                      : "text-slate-600 hover:bg-white"
+                  }`}
+                  type="button"
+                >
+                  Create
+                </button>
+              </div>
+
+              <span className="text-xs font-semibold text-teal-700">
+                Cloud sync
+              </span>
+            </div>
+
+            {(authMessage || cloudSyncStatus) && (
+              <p className="mt-3 text-xs font-semibold text-slate-600">
+                {authMessage || cloudSyncStatus}
+              </p>
+            )}
+          </div>
+        )}
       </div>
     );
   }

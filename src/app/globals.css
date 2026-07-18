@@ -82,18 +82,48 @@ textarea:focus-visible {
   transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.headerAccountPanel {
-  border: 1px solid rgba(255, 255, 255, 0.14);
+.headerAccountButton {
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 0.65rem 1.05rem;
+  color: #102033;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 12px 28px rgba(4, 12, 24, 0.16);
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.headerAccountButton:hover {
+  background: #fef3c7;
+  box-shadow: 0 16px 34px rgba(4, 12, 24, 0.2);
+  transform: translateY(-1px);
+}
+
+.headerAccountPopover {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.75rem);
+  z-index: 50;
+  width: min(20.5rem, calc(100vw - 2rem));
+  border: 1px solid rgba(15, 23, 42, 0.1);
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 16px 38px rgba(4, 12, 24, 0.18);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.98);
+  padding: 1rem;
+  color: #102033;
+  box-shadow: 0 24px 70px rgba(4, 12, 24, 0.26);
+  backdrop-filter: blur(22px);
 }
 
 .headerAccountInput {
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(15, 118, 110, 0.18);
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   color: #102033;
 }
 
@@ -245,5 +275,11 @@ textarea:focus-visible {
 
   .studyDock {
     border-radius: 18px;
+  }
+
+  .headerAccountPopover {
+    left: 0;
+    right: auto;
+    width: min(22rem, calc(100vw - 2rem));
   }
 }
