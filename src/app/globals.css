@@ -24,6 +24,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-raleway), Arial, Helvetica, sans-serif;
   font-feature-settings: "lnum";
+  overflow-x: hidden;
 }
 
 button,
@@ -161,4 +162,35 @@ textarea:focus-visible {
   background: #5eead4;
   border: 3px solid #08192f;
   border-radius: 9999px;
+}
+
+@media (max-width: 639px) {
+  .appCanvas {
+    background: linear-gradient(180deg, #f8fafc 0%, #f0f6fb 42%, #f8fafc 100%);
+  }
+
+  .appHeader {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 34px rgba(7, 23, 43, 0.16);
+  }
+
+  .navPill {
+    min-height: 40px;
+  }
+
+  .surfaceCard {
+    box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  }
+
+  .interactiveCard {
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
+  }
+
+  .statTile p:last-child {
+    font-size: 0.72rem;
+    line-height: 1rem;
+  }
+
+  .questionBankScroll {
+    -webkit-overflow-scrolling: touch;
+  }
 }

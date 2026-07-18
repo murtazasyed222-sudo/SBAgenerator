@@ -992,7 +992,7 @@ export default function Home() {
           {questions.map((q, questionIndex) => (
             <div
               key={questionIndex}
-              className="interactiveCard p-5"
+              className="interactiveCard p-4 sm:p-5"
             >
               <h2 className="font-semibold text-slate-950">
                 {questionIndex + 1}. {q.question}
@@ -1016,7 +1016,7 @@ export default function Home() {
                       key={letter}
                       onClick={() => selectAnswer(questionIndex, letter)}
                       disabled={showResults}
-                      className={`answerChoice block w-full border p-3 text-left transition ${
+                      className={`answerChoice block w-full border p-3 text-left text-sm leading-relaxed transition sm:text-base ${
                         isCorrectSelected
                           ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                           : isWrongSelected
@@ -1093,8 +1093,8 @@ export default function Home() {
   function renderGeneratorView() {
     return (
       <section className="mx-auto max-w-5xl space-y-6">
-        <div className="surfaceCard p-6 sm:p-8">
-          <h2 className="text-3xl font-bold text-slate-950 sm:text-4xl">
+        <div className="surfaceCard p-5 sm:p-8">
+          <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
             Generate SBA Questions
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
@@ -1105,7 +1105,7 @@ export default function Home() {
           <textarea
             value={lectureNotes}
             onChange={(e) => setLectureNotes(e.target.value)}
-            className="mt-6 h-72 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 text-slate-950 shadow-inner outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
+            className="mt-6 h-56 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 text-slate-950 shadow-inner outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 sm:h-72"
             placeholder="Paste lecture notes here..."
           />
 
@@ -1128,7 +1128,7 @@ export default function Home() {
           <button
             onClick={generateQuestions}
             disabled={loading || lectureNotes.trim().length === 0}
-            className="primaryButton mt-5 px-6 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50"
+            className="primaryButton mt-5 w-full px-6 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
           >
             {loading ? "Generating..." : "Generate Questions"}
           </button>
@@ -1141,8 +1141,8 @@ export default function Home() {
         </div>
 
         {questions.length > 0 && !activeQuestionSetId && (
-          <section className="surfaceCard p-6">
-            <h2 className="text-2xl font-bold text-slate-950">
+          <section className="surfaceCard p-5 sm:p-6">
+            <h2 className="text-xl font-bold text-slate-950 sm:text-2xl">
               New SBA Questions
             </h2>
             {renderQuestionList()}
@@ -1159,16 +1159,16 @@ export default function Home() {
       : null;
 
     return (
-      <div className="fixed bottom-5 right-5 z-30 max-w-[calc(100vw-2.5rem)] rounded-lg border border-slate-200 bg-white p-3 shadow-[0_18px_45px_rgba(15,23,42,0.22)]">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-          <div className="px-1 text-xs font-semibold text-slate-600 sm:w-32">
+      <div className="fixed inset-x-3 bottom-3 z-30 rounded-lg border border-slate-200 bg-white/95 p-3 shadow-[0_18px_45px_rgba(15,23,42,0.22)] backdrop-blur sm:inset-x-auto sm:bottom-5 sm:right-5 sm:max-w-[calc(100vw-2.5rem)]">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center">
+          <div className="col-span-2 text-center text-xs font-semibold text-slate-600 sm:w-32 sm:text-left">
             {answeredCount}/{questions.length} answered
           </div>
 
           <button
             onClick={checkAnswers}
             disabled={showResults}
-            className="rounded-full bg-teal-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="rounded-full bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-32"
           >
             {showResults ? "Marked" : "Mark Answers"}
           </button>
@@ -1176,14 +1176,14 @@ export default function Home() {
           <button
             onClick={saveCurrentLectureAnswers}
             disabled={showResults}
-            className="primaryButton px-4 py-2 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+            className="primaryButton px-4 py-2.5 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-32"
           >
             Save Progress
           </button>
         </div>
 
         {savedAt && (
-          <p className="mt-2 px-1 text-xs text-slate-500">
+          <p className="mt-2 text-center text-xs text-slate-500 sm:text-left">
             Saved {new Date(savedAt).toLocaleString()}
           </p>
         )}
@@ -1199,7 +1199,7 @@ export default function Home() {
       <button
         key={questionSet.id}
         onClick={() => loadQuestionSet(questionSet)}
-        className="interactiveCard p-5 text-left transition hover:-translate-y-0.5"
+        className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
       >
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -1227,8 +1227,8 @@ export default function Home() {
     return (
       <div className="mx-auto max-w-6xl">
         <div className="space-y-6">
-          <section className="surfaceCard p-6 sm:p-8">
-            <h2 className="text-3xl font-bold text-slate-950 sm:text-4xl">
+          <section className="surfaceCard p-5 sm:p-8">
+            <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
               Physiology and Anatomy of Systems
             </h2>
             <p className="mt-3 max-w-3xl text-slate-600">
@@ -1236,21 +1236,21 @@ export default function Home() {
               and build progress as you check your answers.
             </p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              <div className="statTile p-4">
-                <p className="text-2xl font-bold text-[#0b1f3a]">
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="statTile p-3 sm:p-4">
+                <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
                   {bankStats.submodules.length}
                 </p>
                 <p className="text-sm text-slate-600">Submodules</p>
               </div>
-              <div className="statTile p-4">
-                <p className="text-2xl font-bold text-[#0b1f3a]">
+              <div className="statTile p-3 sm:p-4">
+                <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
                   {bankStats.totalLectures}
                 </p>
                 <p className="text-sm text-slate-600">Lectures</p>
               </div>
-              <div className="statTile p-4">
-                <p className="text-2xl font-bold text-[#0b1f3a]">
+              <div className="statTile p-3 sm:p-4">
+                <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
                   {bankStats.totalQuestions}
                 </p>
                 <p className="text-sm text-slate-600">Questions</p>
@@ -1269,8 +1269,8 @@ export default function Home() {
           </section>
 
           {normalizedQuestionBankSearch ? (
-            <section className="surfaceCard p-6">
-              <h2 className="text-2xl font-bold text-slate-950">
+            <section className="surfaceCard p-5 sm:p-6">
+              <h2 className="text-xl font-bold text-slate-950 sm:text-2xl">
                 Lecture Search Results
               </h2>
 
@@ -1287,7 +1287,7 @@ export default function Home() {
                       <button
                         key={questionSet.id}
                         onClick={() => loadQuestionSet(questionSet)}
-                        className="interactiveCard p-5 text-left transition hover:-translate-y-0.5"
+                        className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
                       >
                         <div className="flex items-start justify-between gap-4">
                           <div>
@@ -1317,10 +1317,10 @@ export default function Home() {
               )}
             </section>
           ) : selectedBankSubmodule ? (
-            <section className="surfaceCard p-6">
+            <section className="surfaceCard p-5 sm:p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <h2 className="text-2xl font-bold text-slate-950">
+                  <h2 className="text-xl font-bold text-slate-950 sm:text-2xl">
                     {selectedBankSubmodule.title}
                   </h2>
                   <p className="mt-2 text-slate-600">
@@ -1349,7 +1349,7 @@ export default function Home() {
                   <button
                     key={submodule.id}
                     onClick={() => openSubmodule(submodule.id)}
-                    className="interactiveCard p-5 text-left transition hover:-translate-y-0.5"
+                    className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -1384,10 +1384,10 @@ export default function Home() {
     const answeredCount = Object.keys(selectedAnswers).length;
 
     return (
-      <section className="surfaceCard mx-auto max-w-5xl p-6 pb-28 sm:p-8 sm:pb-28">
+      <section className="surfaceCard mx-auto max-w-5xl p-5 pb-36 sm:p-8 sm:pb-28">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-slate-950">
+            <h2 className="text-xl font-bold leading-tight text-slate-950 sm:text-2xl">
               {activeQuestionSetTitle}
             </h2>
             <p className="mt-2 text-slate-600">
@@ -1397,7 +1397,7 @@ export default function Home() {
 
           <button
             onClick={returnToGenerator}
-            className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition"
+            className="secondaryButton w-full px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
           >
             Back to Question Bank
           </button>
@@ -1412,8 +1412,8 @@ export default function Home() {
   function renderProgressTracker() {
     return (
       <section className="mx-auto max-w-6xl space-y-6">
-        <div className="surfaceCard p-6 sm:p-8">
-          <h2 className="text-3xl font-bold text-slate-950 sm:text-4xl">
+        <div className="surfaceCard p-5 sm:p-8">
+          <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
             PAS Question Bank Progress
           </h2>
           <p className="mt-3 text-slate-600">
@@ -1421,21 +1421,21 @@ export default function Home() {
             lecture.
           </p>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            <div className="statTile p-4">
-              <p className="text-2xl font-bold text-[#0b1f3a]">
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
+            <div className="statTile p-3 sm:p-4">
+              <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
                 {overallProgressPercent}%
               </p>
               <p className="text-sm text-slate-600">Question progress</p>
             </div>
-            <div className="statTile p-4">
-              <p className="text-2xl font-bold text-[#0b1f3a]">
+            <div className="statTile p-3 sm:p-4">
+              <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
                 {overallAnswered}/{bankStats.totalQuestions}
               </p>
               <p className="text-sm text-slate-600">Answered</p>
             </div>
-            <div className="statTile p-4">
-              <p className="text-2xl font-bold text-[#0b1f3a]">
+            <div className="statTile p-3 sm:p-4">
+              <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
                 {overallCorrect}
               </p>
               <p className="text-sm text-slate-600">Best correct answers</p>
@@ -1536,42 +1536,44 @@ export default function Home() {
             </div>
           )}
 
-          <div className="flex flex-1 flex-col gap-4 px-4 py-4 sm:min-h-24 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <div className="flex flex-1 flex-col gap-4 px-4 py-5 sm:min-h-24 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-4">
             <div>
-              <h1 className="text-2xl font-bold text-white sm:text-3xl">
+              <h1 className="text-3xl font-bold leading-none text-white sm:text-3xl">
                 SBAgen
               </h1>
-              <p className="mt-1 text-sm text-slate-300">
+              <p className="mt-2 max-w-sm text-sm leading-snug text-slate-300 sm:mt-1">
                 Question bank and single-best answer question generator
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 rounded-full border border-white/10 bg-white/10 p-1">
+            <div className="grid w-full grid-cols-3 gap-1 rounded-2xl border border-white/10 bg-white/10 p-1 sm:w-auto sm:rounded-full">
               <button
                 onClick={() => setCurrentView("question-bank")}
-                className={`navPill px-4 py-2.5 text-left font-semibold transition ${
+                className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
                   currentView === "question-bank"
                     ? "bg-white text-slate-950 shadow-sm"
                     : "bg-transparent text-white hover:bg-white/10"
                 }`}
               >
-                Question Bank
+                <span className="sm:hidden">Bank</span>
+                <span className="hidden sm:inline">Question Bank</span>
               </button>
 
               <button
                 onClick={() => setCurrentView("progress")}
-                className={`navPill px-4 py-2.5 text-left font-semibold transition ${
+                className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
                   currentView === "progress"
                     ? "bg-white text-slate-950 shadow-sm"
                     : "bg-transparent text-white hover:bg-white/10"
                 }`}
               >
-                Progress Tracker
+                <span className="sm:hidden">Progress</span>
+                <span className="hidden sm:inline">Progress Tracker</span>
               </button>
 
               <button
                 onClick={openGeneratorView}
-                className={`navPill px-4 py-2.5 text-left font-semibold transition ${
+                className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
                   currentView === "generator"
                     ? "bg-white text-slate-950 shadow-sm"
                     : "bg-transparent text-white hover:bg-white/10"
@@ -1586,7 +1588,7 @@ export default function Home() {
 
       <div className="flex min-h-[calc(100vh-97px)] flex-col sm:flex-row">
         {currentView === "question-bank" && activeQuestionSetId && isQuestionBankOpen && (
-          <aside className="questionBankPanel questionBankScroll w-full shrink-0 overflow-y-auto border-r border-white/10 p-4 sm:sticky sm:top-0 sm:h-screen sm:w-72 lg:w-1/6">
+          <aside className="questionBankPanel questionBankScroll max-h-[48vh] w-full shrink-0 overflow-y-auto border-b border-white/10 p-4 sm:sticky sm:top-0 sm:h-screen sm:max-h-none sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
             <nav className="space-y-3">
               <input
                 type="search"
@@ -1609,7 +1611,7 @@ export default function Home() {
           </aside>
         )}
 
-        <section className="flex-1 p-4 sm:p-8">
+        <section className="flex-1 p-3 sm:p-8">
           {currentView === "progress"
             ? renderProgressTracker()
             : currentView === "generator"
