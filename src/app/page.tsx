@@ -1,12 +1,20 @@
 "use client";
 
-import { type CSSProperties, useEffect, useMemo, useState } from "react";
+import {
+  type CSSProperties,
+  type FormEvent,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+import type { User } from "@supabase/supabase-js";
 import {
   questionBankFolders,
   type Question,
   type QuestionBankFolder,
   type QuestionSet,
 } from "./questionBank";
+import { createClient, hasSupabaseConfig } from "@/lib/supabase/client";
 
 const medicalTerms = [
 
@@ -501,6 +509,24 @@ type SavedQuestionSetAnswers = {
   savedAt: string;
 };
 
+type AuthMode = "sign-in" | "sign-up";
+
+type CloudProgressRow = {
+  question_set_id: string;
+  answered: number | null;
+  correct: number | null;
+  total: number | null;
+  completed_at: string | null;
+  updated_at: string | null;
+};
+
+type CloudAnswersRow = {
+  question_set_id: string;
+  selected_answers: Record<string, string> | null;
+  saved_at: string | null;
+  updated_at: string | null;
+};
+
 const progressStorageKey = "questionBankProgressV1";
 const savedAnswersStorageKey = "questionBankSavedAnswersV1";
 const cardAccentColors = [
@@ -529,6 +555,17 @@ function readStorageRecord<T>(storageKey: string): Record<string, T> {
   } catch {
     return {};
   }
+}
+
+function normalizeSelectedAnswers(
+  selectedAnswers: Record<string, string> | null
+) {
+  return Object.fromEntries(
+    Object.entries(selectedAnswers ?? {}).map(([questionIndex, letter]) => [
+      Number(questionIndex),
+      letter,
+    ])
+  ) as Record<number, string>;
 }
 
 function getQuestionCount(folder: QuestionBankFolder): number {
@@ -584,6 +621,20 @@ export default function Home() {
   const [savedAnswersByQuestionSet, setSavedAnswersByQuestionSet] = useState<
     Record<string, SavedQuestionSetAnswers>
   >(() => readStorageRecord<SavedQuestionSetAnswers>(savedAnswersStorageKey));
+  const isSupabaseConfigured = hasSupabaseConfig();
+  const supabase = useMemo(
+    () => (isSupabaseConfigured ? createClient() : null),
+    [isSupabaseConfigured]
+  );
+  const [user, setUser] = useState<User | null>(null);
+  const [isAuthReady, setIsAuthReady] = useState(!isSupabaseConfigured);
+  const [authMode, setAuthMode] = useState<AuthMode>("sign-in");
+  const [authEmail, setAuthEmail] = useState("");
+  const [authPassword, setAuthPassword] = useState("");
+  const [authLoading, setAuthLoading] = useState(false);
+  const [authMessage, setAuthMessage] = useState("");
+  const [cloudSyncStatus, setCloudSyncStatus] = useState("");
+  const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -602,6 +653,136 @@ export default function Home() {
       JSON.stringify(savedAnswersByQuestionSet)
     );
   }, [savedAnswersByQuestionSet]);
+
+  useEffect(() => {
+    if (!supabase) {
+      return;
+    }
+
+    let isMounted = true;
+
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        if (!isMounted) return;
+
+        setUser(data.session?.user ?? null);
+        setIsAuthReady(true);
+      })
+      .catch(() => {
+        if (!isMounted) return;
+
+        setAuthMessage("Could not check your saved login.");
+        setIsAuthReady(true);
+      });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      isMounted = false;
+      subscription.unsubscribe();
+    };
+  }, [supabase]);
+
+  useEffect(() => {
+    if (!supabase || !user) {
+      return;
+    }
+
+    let isMounted = true;
+    const supabaseClient = supabase;
+    const userId = user.id;
+
+    async function loadCloudStudyData() {
+      setIsCloudProgressLoading(true);
+      setCloudSyncStatus("Loading cloud progress...");
+
+      const [progressResult, answersResult] = await Promise.all([
+        supabaseClient
+          .from("user_question_progress")
+          .select("question_set_id, answered, correct, total, completed_at, updated_at")
+          .eq("user_id", userId),
+        supabaseClient
+          .from("user_question_answers")
+          .select("question_set_id, selected_answers, saved_at, updated_at")
+          .eq("user_id", userId),
+      ]);
+
+      if (!isMounted) return;
+
+      if (progressResult.error || answersResult.error) {
+        setCloudSyncStatus("Cloud progress could not be loaded.");
+        setIsCloudProgressLoading(false);
+        return;
+      }
+
+      const progressRows = (progressResult.data ?? []) as CloudProgressRow[];
+      const answersRows = (answersResult.data ?? []) as CloudAnswersRow[];
+
+      setProgressByQuestionSet((currentProgress) => {
+        const mergedProgress = { ...currentProgress };
+
+        progressRows.forEach((row) => {
+          const questionSetId = row.question_set_id;
+          const localProgress = mergedProgress[questionSetId];
+          const cloudCompletedAt =
+            row.completed_at ?? row.updated_at ?? new Date().toISOString();
+
+          mergedProgress[questionSetId] = {
+            answered: Math.max(
+              localProgress?.answered ?? 0,
+              row.answered ?? 0
+            ),
+            correct: Math.max(localProgress?.correct ?? 0, row.correct ?? 0),
+            total: Math.max(localProgress?.total ?? 0, row.total ?? 0),
+            completedAt:
+              localProgress &&
+              Date.parse(localProgress.completedAt) > Date.parse(cloudCompletedAt)
+                ? localProgress.completedAt
+                : cloudCompletedAt,
+          };
+        });
+
+        return mergedProgress;
+      });
+
+      setSavedAnswersByQuestionSet((currentAnswers) => {
+        const mergedAnswers = { ...currentAnswers };
+
+        answersRows.forEach((row) => {
+          const questionSetId = row.question_set_id;
+          const localAnswers = mergedAnswers[questionSetId];
+          const cloudSavedAt =
+            row.saved_at ?? row.updated_at ?? new Date().toISOString();
+
+          if (
+            !localAnswers ||
+            Date.parse(cloudSavedAt) >= Date.parse(localAnswers.savedAt)
+          ) {
+            mergedAnswers[questionSetId] = {
+              selectedAnswers: normalizeSelectedAnswers(row.selected_answers),
+              savedAt: cloudSavedAt,
+            };
+          }
+        });
+
+        return mergedAnswers;
+      });
+
+      setCloudSyncStatus("Cloud progress loaded.");
+      setIsCloudProgressLoading(false);
+    }
+
+    loadCloudStudyData();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [supabase, user]);
 
   const bankStats = useMemo(() => {
     const pasFolder = questionBankFolders.find(
@@ -625,6 +806,106 @@ export default function Home() {
     bankStats.submodules.find(
       (submodule) => submodule.id === selectedBankSubmoduleId
     ) ?? null;
+
+  async function handleAuthSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!supabase) {
+      setAuthMessage("Add your Supabase environment variables to enable login.");
+      return;
+    }
+
+    setAuthLoading(true);
+    setAuthMessage("");
+
+    const credentials = {
+      email: authEmail.trim(),
+      password: authPassword,
+    };
+    const result =
+      authMode === "sign-up"
+        ? await supabase.auth.signUp(credentials)
+        : await supabase.auth.signInWithPassword(credentials);
+
+    if (result.error) {
+      setAuthMessage(result.error.message);
+    } else if (authMode === "sign-up" && !result.data.session) {
+      setAuthMessage("Account created. Check your email to confirm your login.");
+    } else {
+      setAuthMessage("Signed in. Your study progress will sync to the cloud.");
+    }
+
+    setAuthLoading(false);
+  }
+
+  async function handleSignOut() {
+    if (!supabase) return;
+
+    setAuthLoading(true);
+    await supabase.auth.signOut();
+    setUser(null);
+    setCloudSyncStatus("");
+    setAuthMessage("Signed out. This device will keep using local saves.");
+    setAuthLoading(false);
+  }
+
+  async function saveProgressToCloud(
+    questionSetId: string,
+    progress: QuestionProgress
+  ) {
+    if (!supabase || !user) return;
+
+    setCloudSyncStatus("Syncing marked answers...");
+
+    const { error: progressError } = await supabase
+      .from("user_question_progress")
+      .upsert(
+        {
+          user_id: user.id,
+          question_set_id: questionSetId,
+          answered: progress.answered,
+          correct: progress.correct,
+          total: progress.total,
+          completed_at: progress.completedAt,
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: "user_id,question_set_id" }
+      );
+
+    setCloudSyncStatus(
+      progressError
+        ? "Cloud sync failed. Your local progress is still saved."
+        : "Marked answers synced."
+    );
+  }
+
+  async function saveAnswersToCloud(
+    questionSetId: string,
+    answers: SavedQuestionSetAnswers
+  ) {
+    if (!supabase || !user) return;
+
+    setCloudSyncStatus("Saving answer choices...");
+
+    const { error: answersError } = await supabase
+      .from("user_question_answers")
+      .upsert(
+        {
+          user_id: user.id,
+          question_set_id: questionSetId,
+          selected_answers: answers.selectedAnswers,
+          saved_at: answers.savedAt,
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: "user_id,question_set_id" }
+      );
+
+    setCloudSyncStatus(
+      answersError
+        ? "Cloud save failed. Your local answers are still saved."
+        : "Answer choices synced."
+    );
+  }
 
   async function generateQuestions() {
     if (!isMedicalText(lectureNotes)) {
@@ -748,34 +1029,38 @@ export default function Home() {
       (question, questionIndex) =>
         selectedAnswers[questionIndex] === question.correctAnswer
     ).length;
+    const existingProgress = progressByQuestionSet[activeQuestionSetId];
+    const nextProgress = {
+      answered: Math.max(existingProgress?.answered ?? 0, answered),
+      correct: Math.max(existingProgress?.correct ?? 0, correct),
+      total: questions.length,
+      completedAt: new Date().toISOString(),
+    };
 
     setProgressByQuestionSet((currentProgress) => {
-      const existingProgress = currentProgress[activeQuestionSetId];
-
       return {
         ...currentProgress,
-        [activeQuestionSetId]: {
-          answered: Math.max(existingProgress?.answered ?? 0, answered),
-          correct: Math.max(existingProgress?.correct ?? 0, correct),
-          total: questions.length,
-          completedAt: new Date().toISOString(),
-        },
+        [activeQuestionSetId]: nextProgress,
       };
     });
 
+    void saveProgressToCloud(activeQuestionSetId, nextProgress);
     saveCurrentLectureAnswers();
   }
 
   function saveCurrentLectureAnswers() {
     if (!activeQuestionSetId) return;
 
+    const nextSavedAnswers = {
+      selectedAnswers,
+      savedAt: new Date().toISOString(),
+    };
+
     setSavedAnswersByQuestionSet((currentAnswers) => ({
       ...currentAnswers,
-      [activeQuestionSetId]: {
-        selectedAnswers,
-        savedAt: new Date().toISOString(),
-      },
+      [activeQuestionSetId]: nextSavedAnswers,
     }));
+    void saveAnswersToCloud(activeQuestionSetId, nextSavedAnswers);
   }
 
   function exportWrongQuestionsToAnkiCSV() {
@@ -930,6 +1215,148 @@ export default function Home() {
           style={{ width: `${Math.min(percent, 100)}%` }}
         />
       </div>
+    );
+  }
+
+  function renderAccountPanel() {
+    if (!isSupabaseConfigured) {
+      return (
+        <section className="surfaceCard mx-auto mb-5 max-w-6xl p-4 sm:p-5">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h2 className="font-bold text-slate-950">Cloud login not connected</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                Add your Supabase URL and publishable key to enable accounts.
+                Until then, progress stays saved locally on this device.
+              </p>
+            </div>
+            <span className="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">
+              Local saves
+            </span>
+          </div>
+        </section>
+      );
+    }
+
+    if (user) {
+      return (
+        <section className="surfaceCard mx-auto mb-5 max-w-6xl p-4 sm:p-5">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <h2 className="font-bold text-slate-950">Study account</h2>
+              <p className="mt-1 text-sm text-slate-600">
+                Signed in as{" "}
+                <span className="font-semibold text-slate-900">
+                  {user.email}
+                </span>
+                . Your marked answers and saved choices sync when you save.
+              </p>
+              <p className="mt-1 text-xs font-semibold text-teal-700">
+                {isCloudProgressLoading
+                  ? "Loading cloud progress..."
+                  : cloudSyncStatus || "Cloud sync ready."}
+              </p>
+            </div>
+
+            <button
+              onClick={handleSignOut}
+              disabled={authLoading}
+              className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {authLoading ? "Signing out..." : "Sign out"}
+            </button>
+          </div>
+        </section>
+      );
+    }
+
+    return (
+      <section className="surfaceCard mx-auto mb-5 max-w-6xl p-4 sm:p-5">
+        <div className="grid gap-4 lg:grid-cols-[1fr_1.35fr] lg:items-center">
+          <div>
+            <h2 className="font-bold text-slate-950">Save progress with login</h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Create an account or sign in to keep marked scores and saved answer
+              choices in Supabase. You can still practise without signing in.
+            </p>
+          </div>
+
+          <form
+            onSubmit={handleAuthSubmit}
+            className="grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end"
+          >
+            <label className="text-sm font-semibold text-slate-700">
+              Email
+              <input
+                type="email"
+                value={authEmail}
+                onChange={(event) => setAuthEmail(event.target.value)}
+                className="mt-1 w-full rounded-2xl border border-slate-200 bg-white/90 px-4 py-2.5 text-slate-950 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
+                placeholder="you@example.com"
+                required
+              />
+            </label>
+
+            <label className="text-sm font-semibold text-slate-700">
+              Password
+              <input
+                type="password"
+                value={authPassword}
+                onChange={(event) => setAuthPassword(event.target.value)}
+                className="mt-1 w-full rounded-2xl border border-slate-200 bg-white/90 px-4 py-2.5 text-slate-950 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
+                placeholder="Minimum 6 characters"
+                minLength={6}
+                required
+              />
+            </label>
+
+            <button
+              type="submit"
+              disabled={authLoading || !isAuthReady}
+              className="primaryButton px-5 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {authLoading
+                ? "Working..."
+                : authMode === "sign-in"
+                  ? "Sign in"
+                  : "Create account"}
+            </button>
+          </form>
+        </div>
+
+        <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex rounded-full border border-slate-200 bg-white/70 p-1">
+            <button
+              onClick={() => setAuthMode("sign-in")}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                authMode === "sign-in"
+                  ? "bg-teal-600 text-white"
+                  : "text-slate-700 hover:bg-teal-50"
+              }`}
+              type="button"
+            >
+              Sign in
+            </button>
+            <button
+              onClick={() => setAuthMode("sign-up")}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                authMode === "sign-up"
+                  ? "bg-pink-500 text-white"
+                  : "text-slate-700 hover:bg-pink-50"
+              }`}
+              type="button"
+            >
+              Create account
+            </button>
+          </div>
+
+          {(authMessage || cloudSyncStatus) && (
+            <p className="text-sm font-semibold text-slate-600">
+              {authMessage || cloudSyncStatus}
+            </p>
+          )}
+        </div>
+      </section>
     );
   }
 
@@ -1487,8 +1914,8 @@ export default function Home() {
             PAS Question Bank Progress
           </h2>
           <p className="mt-3 text-slate-600">
-            Progress is saved on this device when you check answers for a saved
-            lecture.
+            Progress is saved locally, and signed-in users also sync marked
+            scores and saved answer choices to Supabase.
           </p>
 
           <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
@@ -1689,6 +2116,8 @@ export default function Home() {
         )}
 
         <section className="flex-1 p-3 sm:p-8">
+          {renderAccountPanel()}
+
           {currentView === "progress"
             ? renderProgressTracker()
             : currentView === "generator"
