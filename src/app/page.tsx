@@ -1233,7 +1233,10 @@ export default function Home() {
             className="headerAccountButton"
             aria-expanded={isAuthMenuOpen}
           >
-            Local saves
+            <span className="block">Local saves</span>
+            <span className="mt-0.5 block text-[0.68rem] font-bold text-teal-700">
+              to sync progress
+            </span>
           </button>
 
           {isAuthMenuOpen && (
@@ -1295,7 +1298,10 @@ export default function Home() {
           className="headerAccountButton"
           aria-expanded={isAuthMenuOpen}
         >
-          Sign in
+          <span className="block">Sign in</span>
+          <span className="mt-0.5 block text-[0.68rem] font-bold text-teal-700">
+            to sync progress
+          </span>
         </button>
 
         {isAuthMenuOpen && (
