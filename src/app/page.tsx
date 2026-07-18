@@ -620,7 +620,6 @@ export default function Home() {
   const [authMessage, setAuthMessage] = useState("");
   const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false);
   const [isSavePromptOpen, setIsSavePromptOpen] = useState(false);
-  const [isAuthButtonHighlighted, setIsAuthButtonHighlighted] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
 
@@ -753,16 +752,6 @@ export default function Home() {
       isMounted = false;
     };
   }, [supabase, user]);
-
-  useEffect(() => {
-    if (!isAuthButtonHighlighted) return;
-
-    const timeoutId = window.setTimeout(() => {
-      setIsAuthButtonHighlighted(false);
-    }, 2400);
-
-    return () => window.clearTimeout(timeoutId);
-  }, [isAuthButtonHighlighted]);
 
   const bankStats = useMemo(() => {
     const pasFolder = questionBankFolders.find(
@@ -899,8 +888,6 @@ export default function Home() {
   function promptSignInForGenerator() {
     setAuthMessage("Sign in to use Question Generator.");
     setIsAuthMenuOpen(true);
-    setIsAuthButtonHighlighted(false);
-    window.setTimeout(() => setIsAuthButtonHighlighted(true), 20);
   }
 
   async function generateQuestions() {
@@ -1263,9 +1250,6 @@ export default function Home() {
   }
 
   function renderAccountPanel() {
-    const accountButtonClassName = `headerAccountButton ${
-      !user && isAuthButtonHighlighted ? "headerAccountButtonAttention" : ""
-    }`;
     const isGeneratorAuthPrompt =
       authMessage === "Sign in to use Question Generator.";
     const footerAuthMessage = isGeneratorAuthPrompt ? "" : authMessage;
@@ -1276,7 +1260,7 @@ export default function Home() {
           <button
             type="button"
             onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
-            className={accountButtonClassName}
+            className="headerAccountButton"
             aria-expanded={isAuthMenuOpen}
           >
             Local saves
@@ -1353,7 +1337,7 @@ export default function Home() {
         <button
           type="button"
           onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
-          className={accountButtonClassName}
+          className="headerAccountButton"
           aria-expanded={isAuthMenuOpen}
         >
           Sign in

@@ -85,8 +85,6 @@ textarea:focus-visible {
 }
 
 .headerAccountButton {
-  position: relative;
-  isolation: isolate;
   min-height: 44px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 9999px;
@@ -103,53 +101,10 @@ textarea:focus-visible {
     box-shadow 180ms ease;
 }
 
-.headerAccountButton::before {
-  content: "";
-  position: absolute;
-  inset: -5px;
-  z-index: 0;
-  border-radius: inherit;
-  opacity: 0;
-  padding: 3px;
-  pointer-events: none;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 310deg,
-    #22c55e 326deg,
-    #86efac 342deg,
-    transparent 360deg
-  );
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  transition: opacity 180ms ease;
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-}
-
-.headerAccountButtonAttention::before {
-  opacity: 1;
-  animation: accountBorderTrace 900ms linear infinite;
-}
-
-.headerAccountButtonAttention {
-  box-shadow: 0 16px 38px rgba(34, 197, 94, 0.28), 0 12px 28px rgba(4, 12, 24, 0.16);
-}
-
 .headerAccountButton:hover {
   background: #fef3c7;
   box-shadow: 0 16px 34px rgba(4, 12, 24, 0.2);
   transform: translateY(-1px);
-}
-
-@keyframes accountBorderTrace {
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .headerAccountPopover {
