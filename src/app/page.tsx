@@ -530,13 +530,10 @@ type CloudAnswersRow = {
 const progressStorageKey = "questionBankProgressV1";
 const savedAnswersStorageKey = "questionBankSavedAnswersV1";
 const cardAccentColors = [
-  "#14b8a6",
-  "#f97316",
-  "#6366f1",
-  "#ec4899",
-  "#22c55e",
-  "#0ea5e9",
-  "#eab308",
+  "#0f766e",
+  "#2563eb",
+  "#b7791f",
+  "#475569",
 ];
 
 function getAccentStyle(index: number): CSSProperties {
@@ -1226,117 +1223,86 @@ export default function Home() {
   function renderAccountPanel() {
     if (!isSupabaseConfigured) {
       return (
-        <section className="surfaceCard mx-auto mb-5 max-w-6xl p-4 sm:p-5">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h2 className="font-bold text-slate-950">Cloud login not connected</h2>
-              <p className="mt-1 text-sm text-slate-600">
-                Add your Supabase URL and publishable key to enable accounts.
-                Until then, progress stays saved locally on this device.
-              </p>
-            </div>
-            <span className="rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-900">
-              Local saves
-            </span>
-          </div>
-        </section>
+        <div className="headerAccountPanel w-full p-3 text-sm text-white/90 lg:w-80">
+          <p className="font-semibold text-white">Local saves</p>
+          <p className="mt-1 text-xs leading-snug text-white/68">
+            Add Supabase env vars to enable accounts.
+          </p>
+        </div>
       );
     }
 
     if (user) {
       return (
-        <section className="surfaceCard mx-auto mb-5 max-w-6xl p-4 sm:p-5">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            <div>
-              <h2 className="font-bold text-slate-950">Study account</h2>
-              <p className="mt-1 text-sm text-slate-600">
-                Signed in as{" "}
-                <span className="font-semibold text-slate-900">
-                  {user.email}
-                </span>
-                . Your marked answers and saved choices sync when you save.
-              </p>
-              <p className="mt-1 text-xs font-semibold text-teal-700">
+        <div className="headerAccountPanel w-full p-3 text-white lg:w-80">
+          <div className="flex items-center justify-between gap-3">
+            <div className="min-w-0">
+              <p className="truncate text-sm font-semibold">{user.email}</p>
+              <p className="mt-0.5 truncate text-xs text-white/66">
                 {isCloudProgressLoading
                   ? "Loading cloud progress..."
-                  : cloudSyncStatus || "Cloud sync ready."}
+                  : cloudSyncStatus || "Cloud sync ready"}
               </p>
             </div>
 
             <button
               onClick={handleSignOut}
               disabled={authLoading}
-              className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition disabled:cursor-not-allowed disabled:opacity-60"
+              className="shrink-0 rounded-full bg-white px-3 py-2 text-xs font-bold text-slate-900 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {authLoading ? "Signing out..." : "Sign out"}
+              {authLoading ? "..." : "Sign out"}
             </button>
           </div>
-        </section>
+        </div>
       );
     }
 
     return (
-      <section className="surfaceCard mx-auto mb-5 max-w-6xl p-4 sm:p-5">
-        <div className="grid gap-4 lg:grid-cols-[1fr_1.35fr] lg:items-center">
-          <div>
-            <h2 className="font-bold text-slate-950">Save progress with login</h2>
-            <p className="mt-1 text-sm text-slate-600">
-              Create an account or sign in to keep marked scores and saved answer
-              choices in Supabase. You can still practise without signing in.
-            </p>
-          </div>
+      <div className="headerAccountPanel w-full p-3 text-white lg:w-[26rem]">
+        <form
+          onSubmit={handleAuthSubmit}
+          className="grid gap-2 sm:grid-cols-[1fr_1fr_auto]"
+        >
+          <input
+            type="email"
+            value={authEmail}
+            onChange={(event) => setAuthEmail(event.target.value)}
+            className="headerAccountInput min-w-0 px-3 py-2 text-sm outline-none placeholder:text-slate-400"
+            placeholder="Email"
+            required
+          />
 
-          <form
-            onSubmit={handleAuthSubmit}
-            className="grid gap-3 sm:grid-cols-[1fr_1fr_auto] sm:items-end"
+          <input
+            type="password"
+            value={authPassword}
+            onChange={(event) => setAuthPassword(event.target.value)}
+            className="headerAccountInput min-w-0 px-3 py-2 text-sm outline-none placeholder:text-slate-400"
+            placeholder="Password"
+            minLength={6}
+            required
+          />
+
+          <button
+            type="submit"
+            disabled={authLoading || !isAuthReady}
+            className="rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-amber-100 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <label className="text-sm font-semibold text-slate-700">
-              Email
-              <input
-                type="email"
-                value={authEmail}
-                onChange={(event) => setAuthEmail(event.target.value)}
-                className="mt-1 w-full rounded-2xl border border-slate-200 bg-white/90 px-4 py-2.5 text-slate-950 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
-                placeholder="you@example.com"
-                required
-              />
-            </label>
+            {authLoading
+              ? "..."
+              : authMode === "sign-in"
+                ? "Sign in"
+                : "Create"}
+          </button>
+        </form>
 
-            <label className="text-sm font-semibold text-slate-700">
-              Password
-              <input
-                type="password"
-                value={authPassword}
-                onChange={(event) => setAuthPassword(event.target.value)}
-                className="mt-1 w-full rounded-2xl border border-slate-200 bg-white/90 px-4 py-2.5 text-slate-950 outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
-                placeholder="Minimum 6 characters"
-                minLength={6}
-                required
-              />
-            </label>
-
-            <button
-              type="submit"
-              disabled={authLoading || !isAuthReady}
-              className="primaryButton px-5 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {authLoading
-                ? "Working..."
-                : authMode === "sign-in"
-                  ? "Sign in"
-                  : "Create account"}
-            </button>
-          </form>
-        </div>
-
-        <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex rounded-full border border-slate-200 bg-white/70 p-1">
+        <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex w-fit rounded-full border border-white/14 bg-white/8 p-0.5">
             <button
               onClick={() => setAuthMode("sign-in")}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
                 authMode === "sign-in"
-                  ? "bg-teal-600 text-white"
-                  : "text-slate-700 hover:bg-teal-50"
+                  ? "bg-white text-slate-950"
+                  : "text-white/72 hover:bg-white/10 hover:text-white"
               }`}
               type="button"
             >
@@ -1344,24 +1310,24 @@ export default function Home() {
             </button>
             <button
               onClick={() => setAuthMode("sign-up")}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+              className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
                 authMode === "sign-up"
-                  ? "bg-pink-500 text-white"
-                  : "text-slate-700 hover:bg-pink-50"
+                  ? "bg-white text-slate-950"
+                  : "text-white/72 hover:bg-white/10 hover:text-white"
               }`}
               type="button"
             >
-              Create account
+              Create
             </button>
           </div>
 
           {(authMessage || cloudSyncStatus) && (
-            <p className="text-sm font-semibold text-slate-600">
+            <p className="truncate text-xs font-semibold text-white/72">
               {authMessage || cloudSyncStatus}
             </p>
           )}
         </div>
-      </section>
+      </div>
     );
   }
 
@@ -1376,11 +1342,11 @@ export default function Home() {
       <div key={folder.id} style={{ marginLeft: depth * 10 }}>
         <button
           onClick={() => toggleQuestionBankFolder(folder.id)}
-          className="flex w-full items-center justify-between rounded-xl border border-[#facc15]/10 bg-white/5 px-3 py-2.5 text-left font-semibold text-slate-100 transition hover:bg-[#facc15]/20"
+          className="flex w-full items-center justify-between rounded-xl border border-amber-300/10 bg-white/5 px-3 py-2.5 text-left font-semibold text-slate-100 transition hover:bg-amber-300/14"
         >
           <span>{folder.title}</span>
           <span
-            className={`ml-3 text-[#facc15] transition-transform duration-300 ${
+            className={`ml-3 text-amber-300 transition-transform duration-300 ${
               isExpanded ? "rotate-90" : ""
             }`}
             aria-hidden="true"
@@ -1415,8 +1381,8 @@ export default function Home() {
                         onClick={() => loadQuestionSet(questionSet)}
                         className={`block w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium transition ${
                           activeQuestionSetId === questionSet.id
-                            ? "bg-[#facc15] text-slate-950 shadow-sm"
-                            : "text-white/85 hover:bg-[#facc15]/20 hover:text-white"
+                            ? "bg-amber-300 text-slate-950 shadow-sm"
+                            : "text-white/85 hover:bg-amber-300/14 hover:text-white"
                         }`}
                       >
                         <span className="block">{questionSet.title}</span>
@@ -1476,8 +1442,8 @@ export default function Home() {
                             : shouldShowCorrectAnswer
                               ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                               : isSelected
-                                ? "border-pink-500 bg-pink-50 text-slate-950"
-                                : "border-pink-200 bg-pink-50/40 text-slate-800 hover:bg-pink-50"
+                                ? "border-teal-600 bg-teal-50 text-slate-950"
+                                : "border-teal-200 bg-teal-50/35 text-slate-800 hover:bg-teal-50"
                       }`}
                     >
                       <span className="font-semibold">{letter}.</span> {option}
@@ -1611,31 +1577,32 @@ export default function Home() {
       : null;
 
     return (
-      <div className="fixed inset-x-3 bottom-3 z-30 rounded-lg border border-slate-200 bg-white/95 p-3 shadow-[0_18px_45px_rgba(15,23,42,0.22)] backdrop-blur sm:inset-x-auto sm:bottom-5 sm:right-5 sm:max-w-[calc(100vw-2.5rem)]">
-        <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center">
-          <div className="col-span-2 text-center text-xs font-semibold text-slate-600 sm:w-32 sm:text-left">
-            {answeredCount}/{questions.length} answered
+      <div className="studyDock fixed inset-x-3 bottom-3 z-30 px-3 py-2 sm:inset-x-auto sm:bottom-5 sm:right-5">
+        <div className="flex items-center gap-2">
+          <div className="min-w-0 px-1 text-xs font-bold text-slate-600 sm:min-w-24">
+            {answeredCount}/{questions.length}
+            <span className="hidden sm:inline"> answered</span>
           </div>
 
           <button
             onClick={checkAnswers}
             disabled={showResults}
-            className="primaryButton px-4 py-2.5 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-32"
+            className="primaryButton px-3 py-2 text-xs font-bold text-white transition disabled:cursor-not-allowed disabled:opacity-60 sm:px-4 sm:text-sm"
           >
-            {showResults ? "Marked" : "Mark Answers"}
+            {showResults ? "Marked" : "Mark"}
           </button>
 
           <button
             onClick={saveCurrentLectureAnswers}
             disabled={showResults}
-            className="primaryButton px-4 py-2.5 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-32"
+            className="secondaryButton px-3 py-2 text-xs font-bold text-slate-900 transition disabled:cursor-not-allowed disabled:opacity-60 sm:px-4 sm:text-sm"
           >
-            Save Progress
+            Save
           </button>
         </div>
 
         {savedAt && (
-          <p className="mt-2 text-center text-xs text-slate-500 sm:text-left">
+          <p className="mt-1 truncate px-1 text-center text-[0.68rem] font-semibold text-slate-500 sm:text-left">
             Saved {new Date(savedAt).toLocaleString()}
           </p>
         )}
@@ -1697,7 +1664,7 @@ export default function Home() {
 
               <div className="relative w-full lg:w-96">
                 <svg
-                  className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#ec4899]"
+                  className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-teal-700"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -1714,7 +1681,7 @@ export default function Home() {
                   value={questionBankSearch}
                   onChange={(event) => setQuestionBankSearch(event.target.value)}
                   placeholder="Search for a lecture..."
-                  className="w-full rounded-2xl border border-pink-200 bg-white/90 py-3 pl-11 pr-4 text-slate-950 shadow-inner outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-300/30"
+                  className="w-full rounded-2xl border border-teal-200 bg-white/90 py-3 pl-11 pr-4 text-slate-950 shadow-inner outline-none placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
                 />
               </div>
             </div>
@@ -1873,7 +1840,7 @@ export default function Home() {
     const answeredCount = Object.keys(selectedAnswers).length;
 
     return (
-      <section className="surfaceCard mx-auto max-w-5xl p-5 pb-36 sm:p-8 sm:pb-28">
+      <section className="surfaceCard mx-auto max-w-5xl p-5 pb-28 sm:p-8 sm:pb-24">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <h2 className="text-xl font-bold leading-tight text-slate-950 sm:text-2xl">
@@ -2030,18 +1997,18 @@ export default function Home() {
                   setCurrentView("question-bank");
                 }}
                 aria-expanded={isQuestionBankOpen}
-                className="flex min-h-24 w-full items-center justify-between bg-[#facc15]/10 px-5 py-4 text-left font-semibold text-white transition hover:bg-[#facc15]/20"
+                className="flex min-h-24 w-full items-center justify-between bg-amber-300/10 px-5 py-4 text-left font-semibold text-white transition hover:bg-amber-300/16"
               >
                 <span>Browse Question Bank</span>
-                <span className="text-[#facc15]" aria-hidden="true">
+                <span className="text-amber-200" aria-hidden="true">
                   {isQuestionBankOpen ? "v" : ">"}
                 </span>
               </button>
             </div>
           )}
 
-          <div className="flex flex-1 flex-col gap-4 px-4 py-5 sm:min-h-24 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-4">
-            <div>
+          <div className="grid flex-1 gap-4 px-4 py-5 sm:min-h-24 sm:px-8 sm:py-4 xl:grid-cols-[minmax(12rem,1fr)_minmax(24rem,31rem)_minmax(18rem,1fr)] xl:items-center">
+            <div className="min-w-0">
               <h1 className="text-3xl font-bold leading-none text-white sm:text-3xl">
                 SBAgen
               </h1>
@@ -2051,7 +2018,7 @@ export default function Home() {
             </div>
 
             <div
-              className="tabSwitcher relative grid w-full grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-1 sm:w-[31rem] sm:rounded-full"
+              className="tabSwitcher relative grid w-full grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-1 sm:mx-auto sm:w-[31rem] sm:rounded-full"
               style={{ "--active-tab-index": activeTabIndex } as CSSProperties}
             >
               <span className="tabIndicator" aria-hidden="true" />
@@ -2061,7 +2028,7 @@ export default function Home() {
                 className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
                   currentView === "question-bank"
                     ? "text-slate-950"
-                    : "text-white hover:text-[#facc15]"
+                    : "text-white hover:text-amber-200"
                 }`}
               >
                 <span className="sm:hidden">Bank</span>
@@ -2073,7 +2040,7 @@ export default function Home() {
                 className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
                   currentView === "progress"
                     ? "text-slate-950"
-                    : "text-white hover:text-[#facc15]"
+                    : "text-white hover:text-amber-200"
                 }`}
               >
                 <span className="sm:hidden">Progress</span>
@@ -2085,11 +2052,15 @@ export default function Home() {
                 className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
                   currentView === "generator"
                     ? "text-slate-950"
-                    : "text-white hover:text-[#facc15]"
+                    : "text-white hover:text-amber-200"
                 }`}
               >
                 Generator
               </button>
+            </div>
+
+            <div className="justify-self-stretch xl:justify-self-end">
+              {renderAccountPanel()}
             </div>
           </div>
         </div>
@@ -2121,8 +2092,6 @@ export default function Home() {
         )}
 
         <section className="flex-1 p-3 sm:p-8">
-          {renderAccountPanel()}
-
           {currentView === "progress"
             ? renderProgressTracker()
             : currentView === "generator"

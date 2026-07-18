@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fbff;
+  --background: #f7fafc;
   --foreground: #111827;
-  --ink: #14213d;
+  --ink: #102033;
   --lagoon: #0f766e;
-  --coral: #f97316;
-  --iris: #6366f1;
-  --rose: #ec4899;
-  --sun: #facc15;
+  --harbor: #2563eb;
+  --clay: #b7791f;
+  --mint: #dff7ef;
   --surface: rgba(255, 255, 255, 0.9);
   --surface-solid: #ffffff;
   --line: rgba(15, 23, 42, 0.1);
-  --card-accent: #14b8a6;
+  --card-accent: #0f766e;
 }
 
 @theme inline {
@@ -39,23 +38,24 @@ textarea {
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid rgba(45, 212, 191, 0.35);
+  outline: 3px solid rgba(20, 184, 166, 0.3);
   outline-offset: 2px;
 }
 
 .appCanvas {
   background:
-    linear-gradient(145deg, #f8fbff 0%, #ecfbf6 30%, #fff6ed 66%, #f7f3ff 100%);
+    radial-gradient(circle at top left, rgba(218, 245, 236, 0.7), transparent 32rem),
+    linear-gradient(145deg, #f7fafc 0%, #edf7f4 48%, #f8f6f0 100%);
 }
 
 .appHeader {
-  background: linear-gradient(112deg, rgba(20, 33, 61, 0.97) 0%, rgba(15, 118, 110, 0.95) 48%, rgba(124, 45, 85, 0.94) 100%);
+  background: linear-gradient(112deg, rgba(16, 32, 51, 0.98) 0%, rgba(18, 78, 86, 0.97) 62%, rgba(51, 65, 85, 0.97) 100%);
   backdrop-filter: blur(24px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.14), 0 18px 50px rgba(20, 33, 61, 0.22);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12), 0 18px 50px rgba(16, 32, 51, 0.2);
 }
 
 .headerRail {
-  background: rgba(20, 33, 61, 0.58);
+  background: rgba(10, 22, 36, 0.44);
 }
 
 .navPill {
@@ -76,10 +76,25 @@ textarea:focus-visible {
   transform: translateX(calc(var(--active-tab-index) * (100% + 4px)));
   border-radius: 9999px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 247, 237, 0.96)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(236, 253, 245, 0.96)),
     #ffffff;
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
   transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.headerAccountPanel {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 38px rgba(4, 12, 24, 0.18);
+  backdrop-filter: blur(20px);
+}
+
+.headerAccountInput {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #102033;
 }
 
 .surfaceCard {
@@ -91,10 +106,10 @@ textarea:focus-visible {
 
 .interactiveCard {
   background:
-    linear-gradient(90deg, color-mix(in srgb, var(--card-accent) 16%, transparent) 0%, rgba(255, 255, 255, 0.92) 34%),
+    linear-gradient(90deg, color-mix(in srgb, var(--card-accent) 12%, transparent) 0%, rgba(255, 255, 255, 0.93) 36%),
     rgba(255, 255, 255, 0.92);
-  border: 1px solid color-mix(in srgb, var(--card-accent) 34%, rgba(15, 23, 42, 0.08));
-  border-left: 5px solid var(--card-accent);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 26%, rgba(15, 23, 42, 0.08));
+  border-left: 4px solid var(--card-accent);
   border-radius: 8px;
   box-shadow: 0 16px 50px rgba(15, 23, 42, 0.07);
 }
@@ -105,15 +120,15 @@ textarea:focus-visible {
 }
 
 .statTile {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.84));
-  border: 1px solid rgba(14, 165, 233, 0.16);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(237, 247, 244, 0.86));
+  border: 1px solid rgba(15, 118, 110, 0.14);
   border-radius: 8px;
 }
 
 .primaryButton {
-  background: linear-gradient(135deg, #0f766e 0%, #2563eb 58%, #ec4899 100%);
+  background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%);
   border-radius: 9999px;
-  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
+  box-shadow: 0 12px 26px rgba(15, 118, 110, 0.2);
 }
 
 .primaryButton:hover {
@@ -121,18 +136,26 @@ textarea:focus-visible {
 }
 
 .secondaryButton {
-  background: linear-gradient(135deg, rgba(255, 247, 237, 0.96), rgba(236, 253, 245, 0.96));
-  border: 1px solid rgba(249, 115, 22, 0.22);
+  background: linear-gradient(135deg, rgba(255, 251, 235, 0.96), rgba(236, 253, 245, 0.96));
+  border: 1px solid rgba(15, 118, 110, 0.18);
   border-radius: 9999px;
 }
 
 .secondaryButton:hover {
-  background: linear-gradient(135deg, rgba(255, 237, 213, 0.98), rgba(204, 251, 241, 0.98));
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.98), rgba(204, 251, 241, 0.98));
 }
 
 .questionBankPanel {
-  background: linear-gradient(180deg, #14213d 0%, #0f766e 54%, #7c2d55 100%);
-  box-shadow: 18px 0 55px rgba(20, 33, 61, 0.16);
+  background: linear-gradient(180deg, #102033 0%, #124e56 58%, #0f766e 100%);
+  box-shadow: 18px 0 55px rgba(16, 32, 51, 0.16);
+}
+
+.studyDock {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(18px);
 }
 
 .answerChoice {
@@ -146,7 +169,7 @@ textarea:focus-visible {
 .numberSlider {
   -webkit-appearance: none;
   appearance: none;
-  accent-color: #ec4899;
+  accent-color: #0f766e;
 }
 
 .numberSlider::-webkit-slider-runnable-track {
@@ -156,7 +179,7 @@ textarea:focus-visible {
 }
 
 .numberSlider::-webkit-slider-thumb {
-  background: linear-gradient(135deg, #0f766e, #ec4899);
+  background: linear-gradient(135deg, #0f766e, #2563eb);
   border: 3px solid white;
   border-radius: 9999px;
   box-shadow: 0 5px 14px rgba(15, 23, 42, 0.22);
@@ -170,7 +193,7 @@ textarea:focus-visible {
 }
 
 .questionBankScroll {
-  scrollbar-color: #facc15 #14213d;
+  scrollbar-color: #f59e0b #102033;
   scrollbar-width: thin;
 }
 
@@ -179,18 +202,20 @@ textarea:focus-visible {
 }
 
 .questionBankScroll::-webkit-scrollbar-track {
-  background: #14213d;
+  background: #102033;
 }
 
 .questionBankScroll::-webkit-scrollbar-thumb {
-  background: #facc15;
-  border: 3px solid #14213d;
+  background: #f59e0b;
+  border: 3px solid #102033;
   border-radius: 9999px;
 }
 
 @media (max-width: 639px) {
   .appCanvas {
-    background: linear-gradient(150deg, #f8fbff 0%, #ecfbf6 38%, #fff7ed 74%, #f7f3ff 100%);
+    background:
+      radial-gradient(circle at top left, rgba(218, 245, 236, 0.8), transparent 24rem),
+      linear-gradient(150deg, #f7fafc 0%, #edf7f4 56%, #f8f6f0 100%);
   }
 
   .appHeader {
@@ -216,5 +241,9 @@ textarea:focus-visible {
 
   .questionBankScroll {
     -webkit-overflow-scrolling: touch;
+  }
+
+  .studyDock {
+    border-radius: 18px;
   }
 }
