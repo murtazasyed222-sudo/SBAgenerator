@@ -619,6 +619,7 @@ export default function Home() {
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState("");
   const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false);
+  const [isSavePromptOpen, setIsSavePromptOpen] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
 
@@ -885,6 +886,12 @@ export default function Home() {
   }
 
   async function generateQuestions() {
+    if (!user) {
+      setAuthMessage("Sign in to use the question generator.");
+      setIsAuthMenuOpen(true);
+      return;
+    }
+
     if (!isMedicalText(lectureNotes)) {
       setError("Please paste valid medical lecture notes before generating questions.");
       return;
@@ -999,6 +1006,12 @@ export default function Home() {
   }
 
   function openGeneratorView() {
+    if (!user) {
+      setAuthMessage("Sign in to use the question generator.");
+      setIsAuthMenuOpen(true);
+      return;
+    }
+
     setCurrentView("generator");
     setError("");
 
@@ -1061,8 +1074,8 @@ export default function Home() {
     if (!activeQuestionSetId) return;
 
     if (!user) {
-      setAuthMessage("Sign in to save and track progress.");
-      setIsAuthMenuOpen(true);
+      setAuthMessage("");
+      setIsSavePromptOpen(true);
       return;
     }
 
@@ -1416,6 +1429,45 @@ export default function Home() {
     );
   }
 
+  function renderSavePrompt() {
+    if (!isSavePromptOpen) return null;
+
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 px-4 py-6 backdrop-blur-sm">
+        <div className="relative w-full max-w-sm rounded-[1.75rem] border border-white/70 bg-white p-6 shadow-2xl">
+          <button
+            type="button"
+            onClick={() => setIsSavePromptOpen(false)}
+            className="absolute -right-3 -top-3 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-sm font-black text-white shadow-lg transition hover:scale-105"
+            aria-label="Close save sign in prompt"
+          >
+            X
+          </button>
+
+          <p className="text-lg font-black text-slate-950">
+            Sign in to save progress
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            Create an account or sign in so your saved answers and progress can
+            sync across devices.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => {
+              setIsSavePromptOpen(false);
+              setAuthMode("sign-in");
+              setIsAuthMenuOpen(true);
+            }}
+            className="primaryButton mt-5 w-full px-5 py-3 text-sm font-bold text-white transition"
+          >
+            Sign in
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   function renderQuestionBankFolder(folder: QuestionBankFolder, depth = 0) {
     const isExpanded =
       Boolean(normalizedQuestionBankSearch) ||
@@ -1651,6 +1703,12 @@ export default function Home() {
             bank.
           </p>
 
+          {!user && (
+            <p className="mt-4 rounded-full bg-amber-100 px-4 py-2 text-sm font-bold text-amber-950">
+              Sign in to use the question generator.
+            </p>
+          )}
+
           <textarea
             value={lectureNotes}
             onChange={(e) => setLectureNotes(e.target.value)}
@@ -1676,7 +1734,7 @@ export default function Home() {
 
           <button
             onClick={generateQuestions}
-            disabled={loading || lectureNotes.trim().length === 0}
+            disabled={!user || loading || lectureNotes.trim().length === 0}
             className="primaryButton mt-5 w-full px-6 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
           >
             {loading ? "Generating..." : "Generate Questions"}
@@ -1725,7 +1783,7 @@ export default function Home() {
 
           <button
             onClick={saveCurrentLectureAnswers}
-            disabled={!user || showResults}
+            disabled={showResults}
             className="secondaryButton px-3 py-2 text-xs font-bold text-slate-900 transition disabled:cursor-not-allowed disabled:opacity-60 sm:px-4 sm:text-sm"
           >
             Save
@@ -2196,7 +2254,9 @@ export default function Home() {
                 className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
                   currentView === "generator"
                     ? "text-slate-950"
-                    : "text-white hover:text-amber-200"
+                    : user
+                      ? "text-white hover:text-amber-200"
+                      : "text-white/50"
                 }`}
               >
                 Generator
@@ -2235,6 +2295,7 @@ export default function Home() {
                 : renderQuestionBankHome()}
         </section>
       </div>
+      {renderSavePrompt()}
     </main>
   );
 }
