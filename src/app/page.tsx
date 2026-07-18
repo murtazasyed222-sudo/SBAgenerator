@@ -843,6 +843,8 @@ export default function Home() {
     bankStats.totalQuestions > 0
       ? Math.round((overallAnswered / bankStats.totalQuestions) * 100)
       : 0;
+  const activeTabIndex =
+    currentView === "question-bank" ? 0 : currentView === "progress" ? 1 : 2;
 
   function getQuestionSetProgress(questionSet: QuestionSet) {
     const savedProgress = progressByQuestionSet[questionSet.id];
@@ -1616,13 +1618,18 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid w-full grid-cols-3 gap-1 rounded-2xl border border-white/10 bg-white/10 p-1 sm:w-auto sm:rounded-full">
+            <div
+              className="tabSwitcher relative grid w-full grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-1 sm:w-[31rem] sm:rounded-full"
+              style={{ "--active-tab-index": activeTabIndex } as CSSProperties}
+            >
+              <span className="tabIndicator" aria-hidden="true" />
+
               <button
                 onClick={() => setCurrentView("question-bank")}
-                className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
+                className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
                   currentView === "question-bank"
-                    ? "bg-white text-slate-950 shadow-sm"
-                    : "bg-white/10 text-white hover:bg-[#facc15]/20"
+                    ? "text-slate-950"
+                    : "text-white hover:text-[#facc15]"
                 }`}
               >
                 <span className="sm:hidden">Bank</span>
@@ -1631,10 +1638,10 @@ export default function Home() {
 
               <button
                 onClick={() => setCurrentView("progress")}
-                className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
+                className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
                   currentView === "progress"
-                    ? "bg-white text-slate-950 shadow-sm"
-                    : "bg-white/10 text-white hover:bg-[#facc15]/20"
+                    ? "text-slate-950"
+                    : "text-white hover:text-[#facc15]"
                 }`}
               >
                 <span className="sm:hidden">Progress</span>
@@ -1643,10 +1650,10 @@ export default function Home() {
 
               <button
                 onClick={openGeneratorView}
-                className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
+                className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
                   currentView === "generator"
-                    ? "bg-white text-slate-950 shadow-sm"
-                    : "bg-white/10 text-white hover:bg-[#facc15]/20"
+                    ? "text-slate-950"
+                    : "text-white hover:text-[#facc15]"
                 }`}
               >
                 Generator
