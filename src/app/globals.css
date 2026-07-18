@@ -117,9 +117,34 @@ textarea:focus-visible {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.98);
   padding: 1rem;
+  padding-right: 3.1rem;
   color: #102033;
   box-shadow: 0 24px 70px rgba(4, 12, 24, 0.26);
   backdrop-filter: blur(22px);
+}
+
+.headerAccountClose {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  display: grid;
+  height: 1.8rem;
+  width: 1.8rem;
+  place-items: center;
+  border-radius: 9999px;
+  background: #020617;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.headerAccountClose:hover {
+  background: #0f172a;
+  transform: scale(1.04);
 }
 
 .headerAccountInput {

@@ -966,7 +966,25 @@ export default function Home() {
     });
   }
 
+  function autosaveActiveLectureAnswers() {
+    if (!activeQuestionSetId || Object.keys(selectedAnswers).length === 0) {
+      return;
+    }
+
+    const nextSavedAnswers = {
+      selectedAnswers,
+      savedAt: new Date().toISOString(),
+    };
+
+    setSavedAnswersByQuestionSet((currentAnswers) => ({
+      ...currentAnswers,
+      [activeQuestionSetId]: nextSavedAnswers,
+    }));
+    void saveAnswersToCloud(activeQuestionSetId, nextSavedAnswers);
+  }
+
   function loadQuestionSet(questionSet: QuestionSet) {
+    autosaveActiveLectureAnswers();
     setIsQuestionBankOpen(true);
     setIsMobileQuestionBankOpen(false);
     setQuestions(questionSet.questions);
@@ -981,6 +999,7 @@ export default function Home() {
   }
 
   function returnToGenerator() {
+    autosaveActiveLectureAnswers();
     setQuestions([]);
     setSelectedAnswers({});
     setShowResults(false);
@@ -1010,6 +1029,7 @@ export default function Home() {
     setError("");
 
     if (activeQuestionSetId) {
+      autosaveActiveLectureAnswers();
       setQuestions([]);
       setSelectedAnswers({});
       setShowResults(false);
@@ -1231,21 +1251,29 @@ export default function Home() {
   function renderAccountPanel() {
     if (!isSupabaseConfigured) {
       return (
-        <div className="relative flex justify-start xl:justify-end">
+        <div className="relative flex flex-col items-end">
           <button
             type="button"
             onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
             className="headerAccountButton"
             aria-expanded={isAuthMenuOpen}
           >
-            <span className="block">Local saves</span>
-            <span className="mt-0.5 block text-[0.68rem] font-bold text-teal-700">
-              to sync progress
-            </span>
+            Local saves
           </button>
+          <span className="mt-1 text-center text-[0.68rem] font-bold leading-none text-white/72">
+            to sync progress across devices
+          </span>
 
           {isAuthMenuOpen && (
             <div className="headerAccountPopover">
+              <button
+                type="button"
+                onClick={() => setIsAuthMenuOpen(false)}
+                className="headerAccountClose"
+                aria-label="Close sign in menu"
+              >
+                X
+              </button>
               <p className="text-sm font-bold text-slate-950">
                 Cloud login not connected
               </p>
@@ -1261,7 +1289,7 @@ export default function Home() {
 
     if (user) {
       return (
-        <div className="relative flex justify-start xl:justify-end">
+        <div className="relative flex flex-col items-end">
           <button
             type="button"
             onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
@@ -1273,6 +1301,14 @@ export default function Home() {
 
           {isAuthMenuOpen && (
             <div className="headerAccountPopover">
+              <button
+                type="button"
+                onClick={() => setIsAuthMenuOpen(false)}
+                className="headerAccountClose"
+                aria-label="Close account menu"
+              >
+                X
+              </button>
               <p className="truncate text-sm font-bold text-slate-950">
                 {user.email}
               </p>
@@ -1296,27 +1332,35 @@ export default function Home() {
     }
 
     return (
-      <div className="relative flex justify-start xl:justify-end">
+      <div className="relative flex flex-col items-end">
         <button
           type="button"
           onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
           className="headerAccountButton"
           aria-expanded={isAuthMenuOpen}
         >
-          <span className="block">Sign in</span>
-          <span className="mt-0.5 block text-[0.68rem] font-bold text-teal-700">
-            to sync progress
-          </span>
+          Sign in
         </button>
+        <span className="mt-1 text-center text-[0.68rem] font-bold leading-none text-white/72">
+          to sync progress across devices
+        </span>
 
         {isAuthMenuOpen && (
           <div className="headerAccountPopover">
+            <button
+              type="button"
+              onClick={() => setIsAuthMenuOpen(false)}
+              className="headerAccountClose"
+              aria-label="Close sign in menu"
+            >
+              X
+            </button>
             <p className="text-sm font-bold text-slate-950">
               Sync your progress
             </p>
             <p className="mt-1 text-sm leading-snug text-slate-600">
-              Sign in to save answers and progress across devices. You can still
-              practise locally without an account.
+              Without an account, your progress will still be saved to this
+              device.
             </p>
 
             <form onSubmit={handleAuthSubmit} className="mt-4 space-y-3">
