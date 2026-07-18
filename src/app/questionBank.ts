@@ -45,7 +45,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "FAH01L Introduction to Anatomy and Dissection",
             "questions": [
               {
-                "question": "A first-year student says anatomy is mainly the memorisation of Latin names and that dissection is a historical curiosity rather than part of the meaning of the discipline. Which response best captures the lecture's explanation of the word \"anatomy\"?",
+                "question": "A first-year student says anatomy is mainly the memorisation of Latin names and that dissection is a historical curiosity rather than part of the meaning of the discipline. Which response best captures the explanation of the word \"anatomy\"?",
                 "options": {
                   "A": "It derives from Greek roots meaning \"cutting up\"",
                   "B": "It derives from Latin roots meaning \"body mapping\"",
@@ -69,7 +69,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is B because gross anatomy refers to the study of visible structures in the body without using a microscope, which is emphasized in this scenario."
               },
               {
-                "question": "A learner is examining cell and tissue shapes under a microscope and relating these forms to tissue and organ function. Which discipline from the lecture best matches this activity?",
+                "question": "A learner is examining cell and tissue shapes under a microscope and relating these forms to tissue and organ function. Which discipline best matches this activity?",
                 "options": {
                   "A": "Gross anatomy",
                   "B": "Surface anatomy",
@@ -93,7 +93,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is D because embryology deals with the development of living organisms from fertilized eggs, making it relevant to understanding congenital defects."
               },
               {
-                "question": "A teaching fellow is planning a session focused mainly on the brain and spinal cord, with some reference to peripheral nerves. Which subdivision described in the lecture is most appropriate?",
+                "question": "A teaching fellow is planning a session focused mainly on the brain and spinal cord, with some reference to peripheral nerves. Which subdivision is most appropriate?",
                 "options": {
                   "A": "Histology",
                   "B": "Embryology",
@@ -105,7 +105,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is E because neuroanatomy focuses on the structure and function of the nervous system, particularly the brain and spinal cord, as described in this scenario."
               },
               {
-                "question": "A student asks why anatomical knowledge transmitted during the Dark Ages was described as problematic in the lecture. Which explanation best reflects the lecturer's point?",
+                "question": "A student asks why anatomical knowledge transmitted during the Dark Ages was described as problematic. Which explanation best reflects the point?",
                 "options": {
                   "A": "It relied on clinical imaging rather than cadaveric anatomy",
                   "B": "It was based entirely on student-led dissection workshops",
@@ -117,7 +117,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is C because Galen's influence was often repeated from authoritative texts and animal dissections, which were considered problematic by the lecturer."
               },
               {
-                "question": "A group is asked to explain why Galen's influence was treated critically rather than simply celebrated. Which answer best captures the lecture's reasoning?",
+                "question": "A group is asked to explain why Galen's influence was treated critically rather than simply celebrated. Which answer best captures the reasoning?",
                 "options": {
                   "A": "He banned all university dissections after the 3rd century BC",
                   "B": "He promoted erroneous information derived partly from animals",
@@ -129,7 +129,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is B because Galen promoted erroneous information derived partly from animals, which contributed to his critical treatment in the lecture."
               },
               {
-                "question": "Which historical sequence best matches the lecture's account of anatomical dissection?",
+                "question": "Which historical sequence best matches the account of anatomical dissection?",
                 "options": {
                   "A": "Galen's reform, 3rd century BC dissection, religious ban, Vesalius",
                   "B": "Religious ban, Vesalius, public dissection, 3rd century BC dissection",
@@ -141,7 +141,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is D because the historical sequence of 3rd century BC dissection, religious ban, revival around 1315, and Vesalius accurately matches the lecture's account of anatomical dissection."
               },
               {
-                "question": "A medieval anatomy class has a professor reading from a text while a barber surgeon performs the manual cutting. Which educational limitation does this arrangement most clearly illustrate from the lecture?",
+                "question": "A medieval anatomy class has a professor reading from a text while a barber surgeon performs the manual cutting. Which educational limitation does this arrangement most clearly illustrate?",
                 "options": {
                   "A": "The session depends mainly on microscopic tissue interpretation",
                   "B": "The session is focused too heavily on cross-sectional anatomy",
@@ -165,7 +165,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is A because Andreas Vesalius was important mainly because he insisted that learners dissect for themselves, making a significant contribution to anatomical education."
               },
               {
-                "question": "A specimen has already been carefully dissected so that students can immediately study important exposed structures. Which term from the lecture best describes this material?",
+                "question": "A specimen has already been carefully dissected so that students can immediately study important exposed structures. Which term best describes this material?",
                 "options": {
                   "A": "Dissection",
                   "B": "Prosection",
@@ -189,7 +189,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is C because the student is physically separating tissues with instruments during a practical class to reveal anatomical structures, using dissection as the learning method."
               },
               {
-                "question": "A curriculum lead wants students to appreciate depth, spatial relationships, and layered anatomy in three dimensions without relying on human tissue for every activity. Which resource best fits that purpose as described in the lecture?",
+                "question": "A curriculum lead wants students to appreciate depth, spatial relationships, and layered anatomy in three dimensions without relying on human tissue for every activity. Which resource best fits that purpose?",
                 "options": {
                   "A": "A cadaveric photo atlas",
                   "B": "A Q&A discussion board",
@@ -213,7 +213,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is Medical imaging because it involves cross-sectional planes and helps students become familiar with them."
               },
               {
-                "question": "A tablet displays a digital organ model on an apparently empty table in front of students. Which technology described in the lecture does this best represent?",
+                "question": "A tablet displays a digital organ model on an apparently empty table in front of students. Which technology does this best represent?",
                 "options": {
                   "A": "Virtual reality",
                   "B": "Augmented reality",
@@ -237,7 +237,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is Virtual reality because the lecturer wears goggles and sees an anatomical environment generated on a screen that others can view externally."
               },
               {
-                "question": "A student enters the dissecting room assuming it is governed by the same informal expectations as a lecture theatre. Which statement is the most important correction from the lecture?",
+                "question": "A student enters the dissecting room assuming it is governed by the same informal expectations as a lecture theatre. Which statement is the most important correction?",
                 "options": {
                   "A": "The dissecting room is an optional museum space without attendance records",
                   "B": "The dissecting room is an informal tutorial room for group discussion",
@@ -249,7 +249,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is The dissecting room is a licensed premises governed by legal regulations because it emphasizes the importance of respecting donor bodies as human beings who consented to donation."
               },
               {
-                "question": "A student says donor bodies are primarily anonymous teaching objects and should be treated differently from living patients. Which response best reflects the lecturer's expectation?",
+                "question": "A student says donor bodies are primarily anonymous teaching objects and should be treated differently from living patients. Which response best reflects the expectation?",
                 "options": {
                   "A": "Donors should be treated as standard laboratory equipment because the setting is educational",
                   "B": "Donors should be treated as replaceable models because the anatomy is preserved",
@@ -261,7 +261,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is Donors should be treated with utmost respect because they were human beings who consented to donation because it reflects the lecturer's expectation of treating donors with dignity and respect."
               },
               {
-                "question": "A student becomes distressed during the first dissecting room session. What is the most appropriate action according to the lecture?",
+                "question": "A student becomes distressed during the first dissecting room session. What is the most appropriate action?",
                 "options": {
                   "A": "Leave without telling anyone and avoid future sessions",
                   "B": "Speak with staff, technicians, demonstrators, or another trusted support person",
@@ -273,7 +273,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is Speak with staff, technicians, demonstrators, or another trusted support person because it encourages students to seek help when needed in a safe and supportive environment."
               },
               {
-                "question": "A student has an unavoidable clash with the timetabled dissection rotation. Which action best matches the lecture's guidance?",
+                "question": "A student has an unavoidable clash with the timetabled dissection rotation. Which action best matches the guidance?",
                 "options": {
                   "A": "Attend any rotation without notifying staff because all sessions are equivalent",
                   "B": "Swap only after the class has finished so attendance can be inferred",
@@ -285,7 +285,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is Swap into another rotation and inform the lecturer so attendance is recorded because it follows the lecture's guidance of swapping rotations while maintaining accurate attendance records."
               },
               {
-                "question": "Why is paper attendance used in the dissecting room according to the lecture?",
+                "question": "Why is paper attendance used in the dissecting room?",
                 "options": {
                   "A": "Electronic attendance is considered less legally valid",
                   "B": "Paper records are more accurate than all electronic systems",
@@ -297,7 +297,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is Students are not allowed to bring phones into the room because it explains why paper attendance is used in the dissecting room, ensuring a distraction-free learning environment."
               },
               {
-                "question": "A student is preparing physically for a two-hour dissecting room class. Which plan best matches the lecturer's advice?",
+                "question": "A student is preparing physically for a two-hour dissecting room class. Which plan best matches the advice?",
                 "options": {
                   "A": "Avoid all food and water from the morning until the session ends",
                   "B": "Drink only after leaving because hydration is discouraged beforehand",
@@ -309,7 +309,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is Arrive hydrated, rested, and having eaten a moderate amount because it advises students to prepare physically for the class while maintaining focus and engagement."
               },
               {
-                "question": "Which student should contact staff before attending the dissecting room because of a specific risk mentioned in the lecture?",
+                "question": "Which student should contact staff before attending the dissecting room because of a specific risk?",
                 "options": {
                   "A": "A student who may be pregnant",
                   "B": "A student who dislikes mnemonics",
@@ -321,7 +321,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A student who may be pregnant because it highlights the importance of contacting staff before attending the dissecting room due to specific risks mentioned in the lecture."
               },
               {
-                "question": "A student plans to wear contact lenses in the dissecting room because they are more comfortable than glasses. Which instruction from the lecture applies?",
+                "question": "A student plans to wear contact lenses in the dissecting room because they are more comfortable than glasses. Which instruction applies?",
                 "options": {
                   "A": "Do not wear contact lenses in the dissecting room",
                   "B": "Wear contact lenses only during prosection sessions",
@@ -333,7 +333,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is Do not wear contact lenses in the dissecting room because it emphasizes the need for students to follow safety guidelines and avoid potential distractions or hazards."
               },
               {
-                "question": "A learner feels overwhelmed by anatomy because every textbook chapter links to more detail. Which study strategy most closely follows the lecturer's advice for managing content volume?",
+                "question": "A learner feels overwhelmed by anatomy because every textbook chapter links to more detail. Which study strategy most closely follows the advice for managing content volume?",
                 "options": {
                   "A": "Memorise every textbook detail before attending practical classes",
                   "B": "Use further reading as the starting point for every topic",
@@ -357,7 +357,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option D illustrates a limitation of mnemonics, where they may be remembered better than the actual anatomical structures, highlighting the importance of clinical integration."
               },
               {
-                "question": "In the lecture's scalp example, which list correctly matches the mnemonic \"SCALP\"?",
+                "question": "In the scalp example, which list correctly matches the mnemonic \"SCALP\"?",
                 "options": {
                   "A": "Skin, cartilage, aponeurosis, ligament, periosteum",
                   "B": "Skin, connective tissue, artery, lymphatics, periosteum",
@@ -381,7 +381,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option A is incorrect because it gives a mnemonic rather than the actual branches of the external carotid artery, which is the key problem with this answer."
               },
               {
-                "question": "A student wants to use the weekly open learning sessions effectively. Which approach best matches the lecture?",
+                "question": "A student wants to use the weekly open learning sessions effectively. Which approach is most accurate?",
                 "options": {
                   "A": "Email the dissecting room individually in advance and state what they want to revise",
                   "B": "Attend without notice so the session remains fully self-directed",
@@ -405,7 +405,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option C states that the purpose of telling the dissecting room team what topic students want to revise is to prepare the room and set up appropriate specimens or stations."
               },
               {
-                "question": "A first-year student is considering hiring a half skeleton for the year. Which lecture point best justifies this as a useful resource?",
+                "question": "A first-year student is considering hiring a half skeleton for the year. Which point best justifies this as a useful resource?",
                 "options": {
                   "A": "Skeletons replace the need to attend dissection rotations",
                   "B": "Skeletons provide the main substitute for all online resources",
@@ -417,7 +417,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option D justifies hiring a half skeleton as a useful resource because bony structures recur across regions and are especially relevant to musculoskeletal anatomy."
               },
               {
-                "question": "A student wants a compact university-subscribed interactive resource organised by regions or systems, where clicking reveals further information. Which resource from the lecture best fits this description?",
+                "question": "A student wants a compact university-subscribed interactive resource organised by regions or systems, where clicking reveals further information. Which resource best fits this description?",
                 "options": {
                   "A": "Ackland's videos",
                   "B": "Lecture capture",
@@ -429,7 +429,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option E is the best resource that fits the description of a compact, interactive resource organised by regions or systems, where clicking reveals further information."
               },
               {
-                "question": "A student needs a short narrated video reviewing the external features of the heart. Which resource named in the lecture is most appropriate?",
+                "question": "A student needs a short narrated video reviewing the external features of the heart. Which resource is most appropriate?",
                 "options": {
                   "A": "Ackland's videos",
                   "B": "Anatom Media",
@@ -441,7 +441,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option A is the most appropriate resource for a short narrated video reviewing external heart features, as it provides high-quality educational content."
               },
               {
-                "question": "A student receives conflicting anatomical explanations from AI and a peer-made online summary. Which action best follows the lecturer's advice?",
+                "question": "A student receives conflicting anatomical explanations from AI and a peer-made online summary. Which action best follows the advice?",
                 "options": {
                   "A": "Use the shortest answer because exam questions reward brevity",
                   "B": "Choose the answer that appears first in the search results",
@@ -453,7 +453,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option E recommends checking multiple reliable resources and asking teaching staff if needed, which follows the lecturer's advice to ensure accuracy and resolve discrepancies."
               },
               {
-                "question": "A student asks why textbooks still matter when many anatomy websites and AI tools are available. Which answer best reflects the lecture?",
+                "question": "A student asks why textbooks still matter when many anatomy websites and AI tools are available. Which answer is most accurate?",
                 "options": {
                   "A": "Textbooks are the only permitted anatomy resource in the course",
                   "B": "Textbooks are useful mainly for creating mnemonics",
@@ -465,7 +465,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option C reflects the lecture's answer that textbooks help ensure accuracy and can resolve discrepancies in anatomical explanations."
               },
               {
-                "question": "A student uses a cadaveric photograph of the forearm to identify muscles, infer their actions, recall nerve and blood supply, and consider consequences of dysfunction. Which revision principle from the lecture is being applied?",
+                "question": "A student uses a cadaveric photograph of the forearm to identify muscles, infer their actions, recall nerve and blood supply, and consider consequences of dysfunction. Which revision principle is being applied?",
                 "options": {
                   "A": "Avoid clinical reasoning until all names are memorised",
                   "B": "Use photographs only for naming structures",
@@ -477,7 +477,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option D builds layered knowledge from a single anatomical image, which is being applied by the student using a cadaveric photograph of the forearm."
               },
               {
-                "question": "A student says surface anatomy should be practised by palpating colleagues whenever convenient. Which addition is essential according to the lecture?",
+                "question": "A student says surface anatomy should be practised by palpating colleagues whenever convenient. Which addition is essential?",
                 "options": {
                   "A": "Practise only on donors in the dissecting room",
                   "B": "Practise only during formal examinations",
@@ -501,7 +501,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Discussing anatomy with peers in small revision groups helps test and improve the learner's impression of mastery by promoting active learning and peer feedback."
               },
               {
-                "question": "A student posts an offensive anonymous comment during a Menti activity, arguing that anonymity makes it harmless. Which lecture principle is most relevant?",
+                "question": "A student posts an offensive anonymous comment during a Menti activity, arguing that anonymity makes it harmless. Which principle is most relevant?",
                 "options": {
                   "A": "Anonymous platforms are excluded from professional expectations",
                   "B": "Anonymous responses are primarily assessed for factual accuracy",
@@ -513,7 +513,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Medical students are expected to demonstrate professionalism even when anonymous, as it is a fundamental aspect of their role and a key expectation for professionals."
               },
               {
-                "question": "A curriculum designer wants to address the main challenges students commonly report in anatomy while staying aligned with the lecture. Which pair of challenges should receive highest priority?",
+                "question": "A curriculum designer wants to address the main challenges students commonly report in anatomy. Which pair of challenges should receive highest priority?",
                 "options": {
                   "A": "Lack of textbooks and absence of mnemonics",
                   "B": "Excessive textbook accuracy and overuse of peer discussion",
@@ -759,7 +759,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Hip lateral rotation involves moving away from the midline of the body, not toward it."
               },
               {
-                "question": "Which description correctly distinguishes abduction from extension of the thumb as emphasized in the lecture?",
+                "question": "Which description correctly distinguishes abduction from extension of the thumb?",
                 "options": {
                   "A": "Abduction moves the thumb in the plane of the palm; extension moves it perpendicular to the palm.",
                   "B": "Abduction moves the thumb perpendicular to the palm; extension moves it in the plane of the palm.",
@@ -891,7 +891,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Rotation of the lower limb bud during development accounts for the adult arrangement where the flexor compartment comes to lie posteriorly."
               },
               {
-                "question": "Which statement about dorsiflexion and plantar flexion best reflects the lecture explanation?",
+                "question": "Which statement about dorsiflexion and plantar flexion best reflects the explanation?",
                 "options": {
                   "A": "Dorsiflexion corresponds to flexion; plantar flexion corresponds to extension.",
                   "B": "Dorsiflexion resembles extension; plantar flexion resembles flexion.",
@@ -927,7 +927,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option describes the upper limb as consisting of two distinct parts: the arm (from shoulder to elbow) and the forearm (from elbow to wrist), which is anatomically precise."
               },
               {
-                "question": "Which description best matches the axial skeleton as described in the lecture?",
+                "question": "Which description best matches the axial skeleton?",
                 "options": {
                   "A": "Bones forming the upper and lower limbs",
                   "B": "Bones of the pectoral girdle and pelvic limbs",
@@ -939,7 +939,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option describes the axial skeleton as including bones associated with midline body regions, such as the vertebral column and sternum, which is accurate."
               },
               {
-                "question": "Which set belongs to the appendicular skeleton as described in the lecture?",
+                "question": "Which set belongs to the appendicular skeleton?",
                 "options": {
                   "A": "Skull, vertebral column, and ribs",
                   "B": "Cervical, thoracic, abdominal, and pelvic regions",
@@ -1125,7 +1125,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option identifies palmar skin ligaments as more numerous and tighter, which restricts skin mobility and contributes to the limited range of motion in the hand."
               },
               {
-                "question": "A fluid is found within lymphatic vessels and is classified in the lecture as a specialised connective tissue fluid. Which option identifies it?",
+                "question": "A fluid is found within lymphatic vessels and is classified as a specialised connective tissue fluid. Which option identifies it?",
                 "options": {
                   "A": "Plasma",
                   "B": "Interstitial filtrate",
@@ -1185,7 +1185,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option explains oedema in the limb due to failure of lymphatic drainage, which leads to accumulation of interstitial fluid and visible swelling."
               },
               {
-                "question": "Which pairing of tissue type with its principal lecture function is most accurate?",
+                "question": "Which pairing of tissue type with its principal function is most accurate?",
                 "options": {
                   "A": "Epithelium: contraction for movement",
                   "B": "Connective tissue: generation of sensory impulses",
@@ -1197,7 +1197,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option pairs muscle tissue with its principal function as movement and shape maintenance, which accurately reflects the role of this tissue type in the body."
               },
               {
-                "question": "A student expects venous return from the lower limb to be maintained mainly by heart-generated arterial pressure. Which lecture mechanism better explains venous return from the lower limb during walking?",
+                "question": "A student expects venous return from the lower limb to be maintained mainly by heart-generated arterial pressure. Which mechanism better explains venous return from the lower limb during walking?",
                 "options": {
                   "A": "Capillary diffusion with arterial recoil",
                   "B": "Portal flow through two capillary beds",
@@ -1269,7 +1269,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because filtering lymph and trapping abnormal cells is the primary role of a regional lymph node in this context."
               },
               {
-                "question": "Which classification best fits tendons and ligaments in the lecture's connective tissue framework?",
+                "question": "Which classification best fits tendons and ligaments in the connective tissue framework?",
                 "options": {
                   "A": "Dense connective tissue proper",
                   "B": "Loose connective tissue proper",
@@ -1293,7 +1293,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because simple columnar epithelium is specialised for absorption and secretion, which matches the description provided."
               },
               {
-                "question": "Which drainage statement best matches the lymphatic arrangement described in the lecture?",
+                "question": "Which drainage statement best matches the lymphatic arrangement?",
                 "options": {
                   "A": "The thoracic duct drains only the right upper quadrant",
                   "B": "Most body lymph drains via the thoracic duct",
@@ -1353,7 +1353,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because systemic circulation from the heart to a forearm muscle and back follows this sequence."
               },
               {
-                "question": "Which statement best distinguishes skeletal, cardiac, and smooth muscle in the lecture's overview?",
+                "question": "Which statement best distinguishes skeletal, cardiac, and smooth muscle in the overview?",
                 "options": {
                   "A": "Skeletal lines vessels, cardiac lines viscera, smooth forms limb muscles",
                   "B": "Skeletal forms lymph nodes, cardiac forms fascia, smooth forms epidermis",
@@ -1365,7 +1365,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because functional end arteries have inadequate collateral flow, which affects their ability to maintain tissue supply after occlusion."
               },
               {
-                "question": "A student describes connective tissue as containing cells plus extracellular matrix with collagen, elastic fibres, or reticular fibres. Why does the lecture emphasise matrix composition?",
+                "question": "A student describes connective tissue as containing cells plus extracellular matrix with collagen, elastic fibres, or reticular fibres. Why is matrix composition important?",
                 "options": {
                   "A": "It determines whether the tissue becomes epithelial",
                   "B": "It influences mechanical and functional properties",
@@ -1413,7 +1413,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because accompanying veins are positioned beside arteries and assist in venous return."
               },
               {
-                "question": "Which option best describes the right lymphatic duct territory as presented in the lecture?",
+                "question": "Which option best describes the right lymphatic duct territory?",
                 "options": {
                   "A": "Both lower limbs and the abdomen",
                   "B": "The left upper quadrant of the body",
@@ -1425,7 +1425,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because the right lymphatic duct territory includes both lower limbs and the abdomen, as described in the lecture."
               },
               {
-                "question": "A student says capillaries are just the smallest veins. Which correction best reflects the lecture?",
+                "question": "A student says capillaries are just the smallest veins. Which correction is most accurate?",
                 "options": {
                   "A": "Capillaries are epithelial-lined ducts that drain lymph nodes",
                   "B": "Capillaries link arterioles to venules for exchange",
@@ -1437,7 +1437,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because capillaries link arterioles to venules for exchange, as described in the lecture."
               },
               {
-                "question": "A cancer in the skin of the chest spreads through lymphatic channels before a palpable node enlarges. Which sequence best reflects the lecture's pathway?",
+                "question": "A cancer in the skin of the chest spreads through lymphatic channels before a palpable node enlarges. Which sequence best reflects the pathway?",
                 "options": {
                   "A": "Epidermis, arteries, capillary bed, portal vein, lymph node",
                   "B": "Dermis, skeletal muscle, thoracic duct, artery, lymph node",
@@ -1449,7 +1449,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because skin cells, lymphatic vessels, and larger lymphatic ducts form a pathway for cancer spread."
               },
               {
-                "question": "A lecture slide labels epidermis as stratified squamous epithelium. Which feature best explains its suitability as the body's first barrier?",
+                "question": "A slide labels epidermis as stratified squamous epithelium. Which feature best explains its suitability as the body's first barrier?",
                 "options": {
                   "A": "A single thin layer allowing rapid diffusion",
                   "B": "Multiple layers resisting mechanical insult",
@@ -1461,7 +1461,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because stratified squamous epithelium's multiple layers resist mechanical insult, making it suitable as the body's first barrier."
               },
               {
-                "question": "Which option gives the best example of supportive specialised connective tissue in the lecture's classification?",
+                "question": "Which option gives the best example of supportive specialised connective tissue in the classification?",
                 "options": {
                   "A": "Blood and lymph",
                   "B": "Tendons and ligaments",
@@ -1473,7 +1473,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because bone and cartilage are examples of supportive specialised connective tissue in the lecture's classification."
               },
               {
-                "question": "A student studying nervous tissue identifies neurones and glial cells. Which distinction best matches the lecture?",
+                "question": "A student studying nervous tissue identifies neurones and glial cells. Which distinction is most accurate?",
                 "options": {
                   "A": "Neurones support myelin formation; glia conduct impulses",
                   "B": "Neurones build the blood-brain barrier; glia secrete gastric acid",
@@ -1503,7 +1503,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "FAH04L Skeleton and Joints",
             "questions": [
               {
-                "question": "A 10-year-old has clear radiolucent gaps between several hand bones on an X-ray, but there is no tenderness or history of trauma. Which interpretation best fits the developmental anatomy described in the lecture?",
+                "question": "A 10-year-old has clear radiolucent gaps between several hand bones on an X-ray, but there is no tenderness or history of trauma. Which interpretation best fits the developmental anatomy?",
                 "options": {
                   "A": "Failure of periosteal fusion at fibrous joints",
                   "B": "Fat-filled medullary cavities replacing compact bone",
@@ -1659,7 +1659,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because the patella acts as a mechanical advantage for flexion and extension at the knee joint, increasing its effectiveness."
               },
               {
-                "question": "According to the classification used in this lecture, which category best describes the scapula?",
+                "question": "Which category best describes the scapula?",
                 "options": {
                   "A": "Short bone",
                   "B": "Flat bone",
@@ -1851,7 +1851,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Synovial fluid within the joint cavity reduces friction and allows smooth movement in synovial joints."
               },
               {
-                "question": "The shoulder joint is used in the lecture as an example of a synovial joint. Which two bony structures form the principal articulation?",
+                "question": "The shoulder joint is used as an example of a synovial joint. Which two bony structures form the principal articulation?",
                 "options": {
                   "A": "Ulna and trochlea",
                   "B": "Femur and acetabulum",
@@ -1911,7 +1911,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A biaxial condyloid joint allows flexion-extension and abduction-adduction, but not circumduction as freely as the shoulder."
               },
               {
-                "question": "The thumb joint discussed in the lecture permits two degrees of movement and is shaped to allow opposition-related positioning. Which synovial joint type is most appropriate?",
+                "question": "The thumb joint permits two degrees of movement and is shaped to allow opposition-related positioning. Which synovial joint type is most appropriate?",
                 "options": {
                   "A": "Plane",
                   "B": "Pivot",
@@ -1947,7 +1947,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Hilton's law states that joints are innervated by nerves supplying the muscles moving them."
               },
               {
-                "question": "A patient has painful inflammatory swelling of several joints. Based on terminology from the lecture, which term most precisely describes inflammation of joints?",
+                "question": "A patient has painful inflammatory swelling of several joints. Which term most precisely describes inflammation of joints?",
                 "options": {
                   "A": "Arthritis",
                   "B": "Arthrosis",
@@ -2475,7 +2475,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "FAH06L Nervous System",
             "questions": [
               {
-                "question": "A student states that the peripheral nervous system is defined by “all neural tissue outside the skull.” Which correction best matches the anatomical classification used in this lecture?",
+                "question": "A student states that the peripheral nervous system is defined by “all neural tissue outside the skull.” Which correction best matches the anatomical classification used?",
                 "options": {
                   "A": "It includes the brainstem but excludes the cerebral hemispheres.",
                   "B": "It includes the spinal cord but excludes cranial nerves.",
@@ -2487,7 +2487,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Nerves and ganglia outside the brain and spinal cord are included in the definition of the peripheral nervous system, which is the correct anatomical classification used in this lecture."
               },
               {
-                "question": "A patient feels a hot object and withdraws the hand. Which sequence best represents the core nervous system roles described in the lecture?",
+                "question": "A patient feels a hot object and withdraws the hand. Which sequence best represents the core nervous system roles?",
                 "options": {
                   "A": "Receptor detects stimulus, CNS interprets input, motor output produces response.",
                   "B": "CNS detects stimulus, peripheral nerve interprets input, receptor produces response.",
@@ -2571,7 +2571,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A nerve is a visible bundle of axons, while a nerve fiber is an individual axonal component, making this distinction accurate and important for understanding neural anatomy."
               },
               {
-                "question": "A patient has reduced sensation in the skin around the umbilicus. Based on the lecture example, which spinal nerve level is most relevant?",
+                "question": "A patient has reduced sensation in the skin around the umbilicus. Which spinal nerve level is most relevant?",
                 "options": {
                   "A": "T4",
                   "B": "T6",
@@ -2619,7 +2619,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Afferent information from skin travels toward the spinal cord through the dorsal root, accurately describing the direction and root of sensory fibers in a spinal nerve."
               },
               {
-                "question": "Which set of components belongs to the central nervous system as described in the lecture?",
+                "question": "Which set of components belongs to the central nervous system?",
                 "options": {
                   "A": "Cerebral hemispheres, brainstem, cerebellum, spinal cord",
                   "B": "Cranial nerves, spinal nerves, ganglia, sympathetic chain",
@@ -2787,7 +2787,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is B because sympathetic pathways have short preganglionic and long postganglionic neurons, while parasympathetic pathways have the reverse."
               },
               {
-                "question": "A sympathetic preganglionic fiber enters the sympathetic chain at T5 but does not synapse there. Which alternative course is consistent with the lecture?",
+                "question": "A sympathetic preganglionic fiber enters the sympathetic chain at T5 but does not synapse there. Which alternative course is consistent?",
                 "options": {
                   "A": "It must enter the dorsal root ganglion before synapsing.",
                   "B": "It must become a special sensory cranial nerve fiber.",
@@ -2847,7 +2847,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is E because the vagus nerve is emphasized as especially important for parasympathetic innervation to thoracic and abdominal organs."
               },
               {
-                "question": "A student says that autonomic innervation is purely motor because it controls organ responses. Which correction best reflects the lecture?",
+                "question": "A student says that autonomic innervation is purely motor because it controls organ responses. Which correction is most accurate?",
                 "options": {
                   "A": "Autonomic pathways have afferent components because organs also detect changes.",
                   "B": "Autonomic pathways are purely sensory because organs cannot generate responses.",
@@ -2919,7 +2919,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is E because general visceral afferent fibers originate from internal organs, while general somatic afferent fibers originate from body wall structures."
               },
               {
-                "question": "Which scenario best illustrates special sensory afferent function as framed in the lecture?",
+                "question": "Which scenario best illustrates special sensory afferent function?",
                 "options": {
                   "A": "Pain from a distended abdominal organ",
                   "B": "Voluntary contraction of a skeletal muscle",
@@ -2931,7 +2931,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is E because special sensory afferent function involves detecting smells through cranial nerves."
               },
               {
-                "question": "A spinal nerve has emerged from rootlets and roots, then briefly exists as a mixed nerve. What is the next named division described in the lecture?",
+                "question": "A spinal nerve has emerged from rootlets and roots, then briefly exists as a mixed nerve. What is the next named division?",
                 "options": {
                   "A": "It divides into dorsal and ventral rami.",
                   "B": "It divides into white and gray matter.",
@@ -2943,7 +2943,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is A because the next named division after emergence from rootlets and roots is the division into dorsal and ventral rami."
               },
               {
-                "question": "A preganglionic sympathetic neuron destined for sweat glands in the anterior body wall is traced from the spinal cord. Which sequence is most consistent with the lecture?",
+                "question": "A preganglionic sympathetic neuron destined for sweat glands in the anterior body wall is traced from the spinal cord. Which sequence is most consistent?",
                 "options": {
                   "A": "Dorsal root, spinal nerve, white ramus, sympathetic ganglion, gray ramus, ventral ramus",
                   "B": "Ventral root, spinal nerve, white ramus, sympathetic ganglion, gray ramus, ventral ramus",
@@ -2961,7 +2961,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "FAH07L Imaging Technologies",
             "questions": [
               {
-                "question": "A clinician compares two axial head images. In image 1, the skull forms a bright rim; in image 2, the expected skull location is a dark band and grey-white matter contrast is prominent. Which interpretation best follows from the lecture?",
+                "question": "A clinician compares two axial head images. In image 1, the skull forms a bright rim; in image 2, the expected skull location is a dark band and grey-white matter contrast is prominent. Which interpretation is best?",
                 "options": {
                   "A": "Image 1 is MRI and image 2 is CT, because MRI makes calcium bright",
                   "B": "Image 1 is PET and image 2 is ultrasound, because PET has higher bone contrast",
@@ -3021,7 +3021,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A 1 mm voxel size will better depict small spatial detail than a 4 mm voxel size."
               },
               {
-                "question": "During a keyhole ASD closure, the delivery device is visible on X-ray but the cardiac anatomy needed to size the defect is not well shown. Which combined imaging approach best matches the lecture example?",
+                "question": "During a keyhole ASD closure, the delivery device is visible on X-ray but the cardiac anatomy needed to size the defect is not well shown. Which combined imaging approach best matches the example?",
                 "options": {
                   "A": "Fluoroscopic X-ray guidance plus transoesophageal ultrasound",
                   "B": "PET metabolic imaging plus portable chest radiography",
@@ -3057,7 +3057,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Fluoroscopy is a dynamic X-ray imaging mode that involves injecting iodinated contrast into a coronary artery."
               },
               {
-                "question": "A junior doctor suggests repeated CT scans every week for long-term cardiac functional assessment in a child because CT is fast. Which concern from the lecture most strongly argues for preferring MRI or ultrasound when feasible?",
+                "question": "A junior doctor suggests repeated CT scans every week for long-term cardiac functional assessment in a child because CT is fast. Which concern most strongly argues for preferring MRI or ultrasound when feasible?",
                 "options": {
                   "A": "CT cannot display any cardiac soft tissue anatomy",
                   "B": "CT uses sound waves that heat paediatric tissues",
@@ -3081,7 +3081,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "CT acquires many X-ray projections around the patient to reconstruct a 3D attenuation map."
               },
               {
-                "question": "In the lecture, Radon's contribution to CT is best characterized as which concept?",
+                "question": "Radon's contribution to CT is best characterized as which concept?",
                 "options": {
                   "A": "The first engineering design of a rotating gantry",
                   "B": "Reconstruction from projections as a mathematical technique",
@@ -3093,7 +3093,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Reconstruction from projections is a mathematical technique used in CT imaging, as described by Radon."
               },
               {
-                "question": "A CT scanner needs both hardware capable of rapidly acquiring projections and algorithms capable of reconstructing images. Which historical pairing from the lecture best reflects these complementary requirements?",
+                "question": "A CT scanner needs both hardware capable of rapidly acquiring projections and algorithms capable of reconstructing images. Which historical pairing best reflects these complementary requirements?",
                 "options": {
                   "A": "Roentgen and Becquerel",
                   "B": "Marie Curie and Pierre Curie",
@@ -3105,7 +3105,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Hounsfield and Cormack developed the reconstruction algorithm for CT imaging."
               },
               {
-                "question": "An elderly patient has very bright foci in the heart on CT. Based on the lecture's explanation of CT brightness, what is the most likely interpretation?",
+                "question": "An elderly patient has very bright foci in the heart on CT. What is the most likely interpretation?",
                 "options": {
                   "A": "Calcification, because highly attenuating material appears bright",
                   "B": "Air embolus, because low-density gas appears bright",
@@ -3141,7 +3141,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Alpha emitters are poor choices for diagnostic nuclear medicine imaging due to local energy deposition and lack of penetrating emissions."
               },
               {
-                "question": "Which sequence best describes PET signal generation as presented in the lecture?",
+                "question": "Which sequence best describes PET signal generation?",
                 "options": {
                   "A": "Gamma emission, barium attenuation, visible light production, film exposure",
                   "B": "Hydrogen excitation, gradient switching, radiofrequency emission, coil detection",
@@ -3165,7 +3165,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The PET tracer is primarily used to map glucose uptake and metabolic activity in tissues."
               },
               {
-                "question": "A technetium-99m bone scan shows intense activity in the bladder and multiple unexpected foci in the spine and clavicle. Which interpretation is most consistent with the lecture?",
+                "question": "A technetium-99m bone scan shows intense activity in the bladder and multiple unexpected foci in the spine and clavicle. Which interpretation is most consistent?",
                 "options": {
                   "A": "Bladder activity is expected urinary excretion; skeletal foci may represent metastases",
                   "B": "Bladder activity is scanner noise; skeletal foci are expected normal marrow clearance",
@@ -3213,7 +3213,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A strong static magnetic field, rapidly switched magnetic gradients, and radiofrequency pulses are used to detect the physical signal in MRI imaging."
               },
               {
-                "question": "Bone is poorly seen on MRI compared with CT. Which explanation best matches the lecture?",
+                "question": "Bone is poorly seen on MRI compared with CT. Which explanation is most accurate?",
                 "options": {
                   "A": "Bone absorbs all radio waves before they reach the detector",
                   "B": "Bone has relatively little hydrogen signal compared with many soft tissues",
@@ -3225,7 +3225,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Bone is poorly seen on MRI compared with CT due to relatively little hydrogen signal in bone tissue."
               },
               {
-                "question": "A T1 MRI brain image is compared with a CT brain image. Which grey-white matter relationship was emphasized in the lecture?",
+                "question": "A T1 MRI brain image is compared with a CT brain image. Which grey-white matter relationship was?",
                 "options": {
                   "A": "T1 MRI makes white matter darker than grey matter; CT makes both identical",
                   "B": "T1 MRI makes grey matter brighter than bone; CT makes bone invisible",
@@ -3237,7 +3237,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "T1 MRI shows grey matter as grey and white matter as white, whereas CT reverses this contrast."
               },
               {
-                "question": "A patient needs repeated assessment of cardiac motion and blood flow without ionizing radiation. Which modality is best supported by the lecture as capable of functional assessment in this way?",
+                "question": "A patient needs repeated assessment of cardiac motion and blood flow without ionizing radiation. Which modality is capable of functional assessment in this way?",
                 "options": {
                   "A": "Static hand radiography",
                   "B": "Barium gastrointestinal fluoroscopy",
@@ -3249,7 +3249,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "MRI is capable of functional assessment without ionizing radiation, making it suitable for repeated cardiac motion and blood flow assessments."
               },
               {
-                "question": "Which component is mainly responsible for the characteristic loud clicking noises during MRI scanning as described in the lecture?",
+                "question": "Which component is mainly responsible for the characteristic loud clicking noises during MRI scanning?",
                 "options": {
                   "A": "Rapid switching of magnetic gradient coils",
                   "B": "Positron annihilation in the detector ring",
@@ -3261,7 +3261,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The rapid switching of magnetic gradient coils produces loud clicking noises during MRI scanning due to the mechanical movement and interaction between the coils."
               },
               {
-                "question": "A pregnant patient requires imaging of fetal anatomy. Which principle from the lecture best supports the routine use of ultrasound in this setting?",
+                "question": "A pregnant patient requires imaging of fetal anatomy. Which principle best supports the routine use of ultrasound in this setting?",
                 "options": {
                   "A": "It uses positron emitters with 6-hour half-lives",
                   "B": "It uses non-ionizing sound waves and echo detection",
@@ -3273,7 +3273,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Ultrasound uses non-ionizing sound waves and echo detection, making it safe for pregnant patients and suitable for fetal anatomy imaging."
               },
               {
-                "question": "Which frequency range best matches the diagnostic ultrasound frequencies described in the lecture?",
+                "question": "Which frequency range best matches the diagnostic ultrasound frequencies?",
                 "options": {
                   "A": "1 to 15 Hz",
                   "B": "20 to 20,000 Hz",
@@ -3297,7 +3297,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Reflection of sound at a tissue interface produces clear boundaries between amniotic fluid and fetal soft tissue in B-mode ultrasound."
               },
               {
-                "question": "A student assumes homogeneous soft tissue should be completely invisible on ultrasound because it has no large boundary. Which correction best follows from the lecture?",
+                "question": "A student assumes homogeneous soft tissue should be completely invisible on ultrasound because it has no large boundary. Which correction is best?",
                 "options": {
                   "A": "It can still produce echoes and attenuation changes within tissue",
                   "B": "It is visible because every soft tissue contains iodinated contrast",
@@ -3381,7 +3381,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A 10-bit image provides more possible intensity values per pixel than an 8-bit image, improving image quality and detail."
               },
               {
-                "question": "Which historical sequence is most consistent with the lecture?",
+                "question": "Which historical sequence is most consistent?",
                 "options": {
                   "A": "CT reconstruction in 1917, X-rays in 1970, MRI in 1895, ultrasound after 2000",
                   "B": "Ultrasound in 1895, PET in 1896, CT in 1917, X-rays in the 1970s",
@@ -3393,7 +3393,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct historical sequence is X-rays in 1895, early image-guided surgery in 1896, CT enabled later by Hounsfield/Cormack, reflecting the development of imaging modalities over time."
               },
               {
-                "question": "A patient is too unwell to be transported to a fixed X-ray room but needs a chest radiograph. Which equipment choice best follows the lecture?",
+                "question": "A patient is too unwell to be transported to a fixed X-ray room but needs a chest radiograph. Which equipment choice is best?",
                 "options": {
                   "A": "Portable X-ray machine brought to the bedside",
                   "B": "PET-MRI scanner with FDG injection",
@@ -3454,7 +3454,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "FPP-1 Homeostasis and Physiological Variables",
             "questions": [
               {
-                "question": "A patient with septic shock has a fall in arterial pressure, followed within seconds by increased sympathetic outflow to the heart and arterioles. In the negative feedback framework described in the lecture, what is the best description of the initial fall in arterial pressure?",
+                "question": "A patient with septic shock has a fall in arterial pressure, followed within seconds by increased sympathetic outflow to the heart and arterioles. In the negative feedback framework, what is the best description of the initial fall in arterial pressure?",
                 "options": {
                   "A": "A physiological variable drifting from its set point",
                   "B": "An efferent signal arriving at the effector organs",
@@ -3466,7 +3466,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A, as a physiological variable drifting from its set point can cause a fall in arterial pressure due to negative feedback mechanisms."
               },
               {
-                "question": "A student claims that homeostasis means keeping physiological variables absolutely constant. Which observation from the lecture most strongly refutes that claim?",
+                "question": "A student claims that homeostasis means keeping physiological variables absolutely constant. Which observation most strongly refutes that claim?",
                 "options": {
                   "A": "Blood glucose rises after a meal and is never regulated",
                   "B": "Blood pressure fluctuates minute to minute around an average",
@@ -3478,7 +3478,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B, as blood pressure fluctuates around an average value, contradicting the claim that homeostasis means keeping physiological variables absolutely constant."
               },
               {
-                "question": "A researcher records arterial pressure across 24 hours in a healthy subject. The mean is close to 120/80 mmHg, but values fall during sleep and show transient daytime spikes. Which interpretation best matches the lecture?",
+                "question": "A researcher records arterial pressure across 24 hours in a healthy subject. The mean is close to 120/80 mmHg, but values fall during sleep and show transient daytime spikes. Which interpretation is most accurate?",
                 "options": {
                   "A": "The spikes indicate loss of homeostatic control",
                   "B": "The sleeping values prove pressure lacks a set point",
@@ -3490,7 +3490,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C, as dynamic regulation can include predictable set-point shifts, allowing for fluctuations in blood pressure during sleep and daily activities."
               },
               {
-                "question": "A person eats a very salty meal and later has a mild sustained rise in blood pressure. Which sequence best explains this using the hierarchy of physiological variables emphasized in the lecture?",
+                "question": "A person eats a very salty meal and later has a mild sustained rise in blood pressure. Which sequence best explains this using the hierarchy of physiological variables?",
                 "options": {
                   "A": "Salt intake lowers osmolarity, causing diuresis, plasma volume expansion, and hypertension",
                   "B": "Salt intake raises osmolarity, causing thirst, plasma volume contraction, and hypertension",
@@ -3502,7 +3502,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D, as salt intake raises osmolarity, causing thirst and water intake, which leads to plasma volume expansion and hypertension."
               },
               {
-                "question": "A patient eats a carbohydrate-rich breakfast. Blood glucose rises and then returns toward baseline within about an hour. According to the lecture, what is the main reason glucose has fallen despite glucose not being eliminated from the body?",
+                "question": "A patient eats a carbohydrate-rich breakfast. Blood glucose rises and then returns toward baseline within about an hour. What is the main reason glucose has fallen despite glucose not being eliminated from the body?",
                 "options": {
                   "A": "It has been converted to carbonic acid",
                   "B": "It has been excreted rapidly by the kidney",
@@ -3514,7 +3514,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E, as glucose falls due to storage after removal from the blood, rather than elimination or conversion."
               },
               {
-                "question": "A patient has a blood hydrogen ion concentration of 4.0 x 10^-8 mol/L. Using the lecture's pH definition, what is the pH?",
+                "question": "A patient has a blood hydrogen ion concentration of 4.0 x 10^-8 mol/L. Using the pH definition, what is the pH?",
                 "options": {
                   "A": "7.4",
                   "B": "6.4",
@@ -3526,7 +3526,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A, as pH is defined as the negative logarithm of hydrogen ion concentration, resulting in a value of 7.4 for a pH of 4.0 x 10^-8 mol/L."
               },
               {
-                "question": "A person suddenly stops breathing. Which paired change would be expected within minutes based on the lecture's explanation of immediate survival variables?",
+                "question": "A person suddenly stops breathing. Which paired change would be expected within minutes?",
                 "options": {
                   "A": "PO2 rises and PCO2 falls",
                   "B": "PO2 falls and PCO2 rises",
@@ -3538,7 +3538,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B, as sudden cessation of breathing leads to a fall in PO2 and an increase in PCO2 due to the body's immediate survival mechanisms."
               },
               {
-                "question": "A tumor increases cortisol production for months. Which term best describes the resulting state, as framed in the lecture?",
+                "question": "A tumor increases cortisol production for months. Which term best describes the resulting state?",
                 "options": {
                   "A": "Normal physiology because cortisol is endogenous",
                   "B": "Feedforward because the hormone acts before stress",
@@ -3550,7 +3550,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C, as cortisol production disrupts normal function, leading to pathophysiology rather than normal physiology or feedforward mechanisms."
               },
               {
-                "question": "Which finding would be the most urgent immediate threat under the hierarchy of variables described in the lecture?",
+                "question": "Which finding would be the most urgent immediate threat under the hierarchy of variables?",
                 "options": {
                   "A": "Systolic pressure increasing by 2 mmHg",
                   "B": "Blood pressure averaging 122/81 mmHg for one day",
@@ -3586,7 +3586,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because the integrating centre compares the measured value against the set point to determine the appropriate response to maintain homeostasis."
               },
               {
-                "question": "A patient with a brainstem lesion develops impaired control of breathing and arterial pressure. Which site is most consistent with the lecture?",
+                "question": "A patient with a brainstem lesion develops impaired control of breathing and arterial pressure. Which site is most consistent?",
                 "options": {
                   "A": "Anterior pituitary",
                   "B": "Medulla",
@@ -3598,7 +3598,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because the medulla oblongata is responsible for controlling breathing and blood pressure, and damage to this area can disrupt these critical functions."
               },
               {
-                "question": "A patient with hypothalamic damage has impaired core temperature regulation and impaired osmolarity regulation. Which principle from the lecture best explains these deficits occurring together?",
+                "question": "A patient with hypothalamic damage has impaired core temperature regulation and impaired osmolarity regulation. Which principle best explains these deficits occurring together?",
                 "options": {
                   "A": "The hypothalamus secretes all steroid hormones",
                   "B": "Osmolarity and temperature use the kidney as sensor",
@@ -3646,7 +3646,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because the feedforward mechanism anticipates and prepares for a stimulus by initiating a response before it occurs."
               },
               {
-                "question": "A runner's heart rate rises at the start of a threatening situation, before sustained exercise has occurred. Which interpretation best matches the lecture's fight-or-flight example?",
+                "question": "A runner's heart rate rises at the start of a threatening situation, before sustained exercise has occurred. Which interpretation best matches the fight-or-flight example?",
                 "options": {
                   "A": "It is positive feedback because heart rate keeps amplifying",
                   "B": "It is feedforward preparation for increased physical demand",
@@ -3682,7 +3682,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because the cardiovascular system is a closed volume-pressure system, where changes in plasma volume can affect blood pressure."
               },
               {
-                "question": "A subject has increased metabolic rate in exercising muscle. Which set of downstream changes would be most consistent with the lecture's linked-variable model?",
+                "question": "A subject has increased metabolic rate in exercising muscle. Which set of downstream changes would be most consistent with the linked-variable model?",
                 "options": {
                   "A": "Decreased heat generation, decreased CO2, decreased O2 use",
                   "B": "Increased heat generation, decreased CO2, increased O2 use",
@@ -3706,7 +3706,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because circulating insulin in the blood acts on hepatocytes to increase glucose uptake and reduce blood glucose levels."
               },
               {
-                "question": "A patient has an insulin-secreting tumor. Which immediate effect on the liver is most consistent with the lecture's description of insulin action?",
+                "question": "A patient has an insulin-secreting tumor. Which immediate effect on the liver is most consistent with the description of insulin action?",
                 "options": {
                   "A": "Increased conversion of glycogen to glucose",
                   "B": "Increased glucose absorption and glycogen synthesis",
@@ -3718,7 +3718,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because increased glucose absorption and glycogen synthesis occur in response to insulin secretion from pancreatic beta cells."
               },
               {
-                "question": "Which statement correctly pairs a hormone class with the receptor location and time course emphasized in the lecture?",
+                "question": "Which statement correctly pairs a hormone class with the receptor location and time course?",
                 "options": {
                   "A": "Steroids, cell-surface receptors, rapid and brief effects",
                   "B": "Catecholamines, nuclear receptors, delayed and prolonged effects",
@@ -3730,7 +3730,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because peptides, such as insulin, act on cell-surface receptors to produce rapid effects."
               },
               {
-                "question": "A new drug prevents a steroid hormone receptor from entering the nucleus. Which hormone action would be most impaired based on the lecture?",
+                "question": "A new drug prevents a steroid hormone receptor from entering the nucleus. Which hormone action would be most impaired?",
                 "options": {
                   "A": "Opening of synaptic channels by neurotransmitter",
                   "B": "Endothelial nitric oxide relaxation of smooth muscle",
@@ -3754,7 +3754,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because cell-surface receptors, such as those for adrenaline, trigger rapid signaling cascades to produce effects."
               },
               {
-                "question": "Which hormone is correctly paired with its source or precursor as described in the lecture?",
+                "question": "Which hormone is correctly paired with its source or precursor?",
                 "options": {
                   "A": "Renin, kidney secretion into blood",
                   "B": "Aldosterone, posterior pituitary secretion",
@@ -3766,7 +3766,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because renin is secreted by the kidney and acts in the blood to regulate blood pressure and electrolyte balance."
               },
               {
-                "question": "A student says the kidney does not produce hormones because it is not a classical endocrine gland. Which lecture point best counters this?",
+                "question": "A student says the kidney does not produce hormones because it is not a classical endocrine gland. Which point best counters this?",
                 "options": {
                   "A": "All hormones must be secreted by epithelial glands",
                   "B": "Renin is secreted by the kidney and acts in blood",
@@ -3778,7 +3778,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because the kidney does produce hormones, such as renin, which are secreted into the bloodstream to regulate various physiological functions."
               },
               {
-                "question": "Which option lists only tyrosine-derived hormones or transmitters mentioned in the lecture?",
+                "question": "Which option lists only tyrosine-derived hormones or transmitters?",
                 "options": {
                   "A": "Insulin, glucagon, growth hormone",
                   "B": "Cortisol, aldosterone, testosterone",
@@ -3790,7 +3790,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because thyroid hormone, adrenaline, and noradrenaline are all tyrosine-derived hormones or transmitters mentioned in the lecture."
               },
               {
-                "question": "Which option lists only steroid hormones mentioned in the lecture?",
+                "question": "Which option lists only steroid hormones?",
                 "options": {
                   "A": "Insulin, oxytocin, ADH",
                   "B": "Adrenaline, noradrenaline, T3",
@@ -3802,7 +3802,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because estradiol, testosterone, and cortisol are all steroid hormones mentioned in the lecture."
               },
               {
-                "question": "A patient has excess aldosterone secretion. Which physiological domain is most closely linked to aldosterone in the lecture?",
+                "question": "A patient has excess aldosterone secretion. Which physiological domain is most closely linked to aldosterone?",
                 "options": {
                   "A": "Uterine excitability at birth",
                   "B": "Immediate salivation before eating",
@@ -3826,7 +3826,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because paracrine signaling involves the release of a mediator that diffuses to adjacent cells to produce an effect, such as relaxing smooth muscle."
               },
               {
-                "question": "A patient develops localized swelling after a skin allergen exposure because mast cells release a mediator that increases nearby vessel permeability. Which mediator and effect are most consistent with the lecture?",
+                "question": "A patient develops localized swelling after a skin allergen exposure because mast cells release a mediator that increases nearby vessel permeability. Which mediator and effect are most consistent?",
                 "options": {
                   "A": "Oxytocin causing uterine contraction",
                   "B": "Histamine causing edema",
@@ -3838,7 +3838,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because histamine causes edema by increasing nearby vessel permeability in response to mast cell activation."
               },
               {
-                "question": "A synapse releases neurotransmitter that crosses a small extracellular gap to influence a neighboring neuron. How was this categorized in the lecture?",
+                "question": "A synapse releases neurotransmitter that crosses a small extracellular gap to influence a neighboring neuron. How was this categorized?",
                 "options": {
                   "A": "Hormonal signaling",
                   "B": "Feedforward signaling",
@@ -3874,7 +3874,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Delivery of the baby stops the positive feedback loop, as the event marks the end of parturition and reduces cervical pressure, oxytocin release, and uterine excitability."
               },
               {
-                "question": "Which sequence best represents the positive feedback loop in parturition as described in the lecture?",
+                "question": "Which sequence best represents the positive feedback loop in parturition?",
                 "options": {
                   "A": "Cervical pressure, hypothalamic signaling, oxytocin release, increased uterine excitability",
                   "B": "Low glucose, beta-cell sensing, insulin release, hepatic glucose uptake",
@@ -3886,7 +3886,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The sequence represents a positive feedback loop in parturition, where cervical pressure triggers hypothalamic signaling, which releases oxytocin, increasing uterine excitability, and ultimately leading to delivery of the baby."
               },
               {
-                "question": "Which statement about paracrine mechanisms best matches the lecture?",
+                "question": "Which statement about paracrine mechanisms is most accurate?",
                 "options": {
                   "A": "They usually replace neuronal and hormonal mechanisms",
                   "B": "They often assist broader neuronal or hormonal control mechanisms",
@@ -3898,7 +3898,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Paracrine mechanisms often assist broader neuronal or hormonal control mechanisms, making this statement accurate in the context of the lecture."
               },
               {
-                "question": "A patient has chronic hyperglycemia due to diabetes mellitus. Which broader consequence is most consistent with the lecture's framing?",
+                "question": "A patient has chronic hyperglycemia due to diabetes mellitus. Which broader consequence is most consistent with the framing?",
                 "options": {
                   "A": "It is harmless if osmolarity is normal",
                   "B": "It represents normal physiology after meals",
@@ -3910,7 +3910,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Chronic hyperglycemia can cause short-term and long-term complications due to the broader consequences of uncontrolled blood glucose levels, as described in the lecture's framing."
               },
               {
-                "question": "A patient has blue lips and tongue during respiratory failure. Which physiological variable is implicated by this sign in the lecture?",
+                "question": "A patient has blue lips and tongue during respiratory failure. Which physiological variable is implicated by this sign?",
                 "options": {
                   "A": "High plasma osmolarity",
                   "B": "Low arterial pressure",
@@ -3940,7 +3940,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "FPP-2 Fundamental principles of pharmacology 1",
             "questions": [
               {
-                "question": "A student describes pharmacology as \"the professional activity of preserving, dispensing, and supplying medicines after a prescription is written.\" Which correction best aligns this statement with the lecture terminology?",
+                "question": "A student describes pharmacology as \"the professional activity of preserving, dispensing, and supplying medicines after a prescription is written.\" Which correction best aligns this statement with the terminology?",
                 "options": {
                   "A": "It describes therapeutics, whereas pharmacology is the medical use of drugs.",
                   "B": "It describes toxicology, whereas pharmacology is limited to poisons.",
@@ -3976,7 +3976,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A compound that cannot reach the diseased tissue due to destruction by gastric acid lacks effective delivery to the site of action, failing a crucial requirement for a useful medicinal drug."
               },
               {
-                "question": "A patient asks why insulin is usually injected rather than taken as a standard tablet. Which explanation best follows the pharmacological principle emphasized in the lecture?",
+                "question": "A patient asks why insulin is usually injected rather than taken as a standard tablet. Which explanation best follows the pharmacological principle?",
                 "options": {
                   "A": "Insulin is too selective for one receptor to be absorbed orally.",
                   "B": "Insulin is a peptide that would be broken down in the gastrointestinal tract.",
@@ -3988,7 +3988,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Insulin is usually injected rather than taken orally because it is a peptide that would be broken down in the gastrointestinal tract, making this explanation consistent with the lecture's emphasis on pharmacological principles."
               },
               {
-                "question": "Two drugs both lower blood pressure by binding the same molecular target. The target is present only in cardiovascular tissue for drug X, but is also abundant in gastrointestinal tissue for drug Y. Using the lecture's distinction, which statement is most accurate?",
+                "question": "Two drugs both lower blood pressure by binding the same molecular target. The target is present only in cardiovascular tissue for drug X, but is also abundant in gastrointestinal tissue for drug Y. Using the distinction, which statement is most accurate?",
                 "options": {
                   "A": "Drug X is non-specific, whereas drug Y is specific and selective.",
                   "B": "Drug X is pharmacokinetic, whereas drug Y is pharmacodynamic.",
@@ -4024,7 +4024,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Cyclooxygenase inhibitor is the classification that uses its mechanism of action rather than its trade name or therapeutic use, accurately describing the compound's mechanism in the lecture."
               },
               {
-                "question": "A patient with asthma uses a blue inhaler containing salbutamol. Which chain of reasoning best matches the preclinical hypothesis described in the lecture?",
+                "question": "A patient with asthma uses a blue inhaler containing salbutamol. Which chain of reasoning best matches the preclinical hypothesis?",
                 "options": {
                   "A": "Asthma is bronchoconstriction; blocking beta-2 receptors mimics acetylcholine; this reduces airway diameter.",
                   "B": "Asthma is bronchoconstriction; stimulating beta-2 receptors mimics adrenaline; this causes bronchodilation.",
@@ -4048,7 +4048,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The compound lacks selective therapeutic action due to its ability to cause severe sedation when reaching the brain despite excellent oral absorption and a long plasma half-life."
               },
               {
-                "question": "A pharmacology practical compares a local anaesthetic, fluoxetine, salbutamol, and ibuprofen. Which pairing of drug example and major protein target class is most consistent with the lecture?",
+                "question": "A pharmacology practical compares a local anaesthetic, fluoxetine, salbutamol, and ibuprofen. Which pairing of drug example and major protein target class is most consistent?",
                 "options": {
                   "A": "Local anaesthetic - transporter; fluoxetine - enzyme; salbutamol - channel; ibuprofen - receptor",
                   "B": "Local anaesthetic - channel; fluoxetine - transporter; salbutamol - receptor; ibuprofen - enzyme",
@@ -4072,7 +4072,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The medicinal chemist optimizes ligand-target fit by modifying the lead compound to better complement the three-dimensional pocket of its target receptor."
               },
               {
-                "question": "A drug binds covalently to cyclooxygenase and blocks the enzyme for the lifetime of that protein. Which drug example from the lecture best matches this unusual binding pattern?",
+                "question": "A drug binds covalently to cyclooxygenase and blocks the enzyme for the lifetime of that protein. Which drug example best matches this unusual binding pattern?",
                 "options": {
                   "A": "Aspirin",
                   "B": "Salbutamol",
@@ -4144,7 +4144,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "This represents the generation of a target-based hypothesis, where modifying protein activity is proposed as a potential treatment for cancer."
               },
               {
-                "question": "A promising compound is active in a cellular assay but is poorly absorbed and rapidly cleared in rodent studies. Which preclinical action best follows the lecture's development sequence?",
+                "question": "A promising compound is active in a cellular assay but is poorly absorbed and rapidly cleared in rodent studies. Which preclinical action best follows the development sequence?",
                 "options": {
                   "A": "Proceed to phase IV surveillance because rare toxicity is the next concern.",
                   "B": "Chemically optimize the compound and retest activity and pharmacokinetic properties.",
@@ -4168,7 +4168,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "This testing identifies potential toxicology and safety pharmacology concerns that need to be addressed before clinical exposure, ensuring a safer drug development process."
               },
               {
-                "question": "A compound has completed discovery, assay screening, optimization, rodent disease modelling, and toxicology studies, yielding two drug candidates. According to the lecture, what stage has just been completed?",
+                "question": "A compound has completed discovery, assay screening, optimization, rodent disease modelling, and toxicology studies, yielding two drug candidates. What stage has just been completed?",
                 "options": {
                   "A": "Preclinical development",
                   "B": "Phase I development",
@@ -4180,7 +4180,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Preclinical development has just completed, marking the end of initial research and experimentation stages and the beginning of more formalized testing and evaluation phases."
               },
               {
-                "question": "A company receives a patent early in preclinical development. Ten years are spent on discovery and clinical trials before approval. Which commercial implication follows from the lecture?",
+                "question": "A company receives a patent early in preclinical development. Ten years are spent on discovery and clinical trials before approval. Which commercial implication follows?",
                 "options": {
                   "A": "The patent clock begins only after phase IV surveillance ends.",
                   "B": "The company has unlimited exclusivity while it recovers development costs.",
@@ -4204,7 +4204,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "This trial focuses on testing safety and tolerability in humans before assessing efficacy, a crucial step in ensuring a drug's safety profile before moving forward with further development."
               },
               {
-                "question": "A phase I trial is described as randomized, placebo-controlled, and double-blind. Which additional feature is most consistent with the lecture's description?",
+                "question": "A phase I trial is described as randomized, placebo-controlled, and double-blind. Which additional feature is most consistent with the description?",
                 "options": {
                   "A": "It uses large multicentre cohorts of 2000 to 10,000 patients.",
                   "B": "It is performed after the drug is registered and sold.",
@@ -4252,7 +4252,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "This large-scale study supports registration for use in specified conditions, indicating a phase III trial that has demonstrated sufficient efficacy and safety to support marketing approval."
               },
               {
-                "question": "A GP prescribes a recently marketed medicine and later observes an unexpected adverse drug reaction. Which response best reflects the lecture's description of phase IV monitoring?",
+                "question": "A GP prescribes a recently marketed medicine and later observes an unexpected adverse drug reaction. Which response best reflects the description of phase IV monitoring?",
                 "options": {
                   "A": "Reclassify the generic name as a proprietary name.",
                   "B": "Repeat the original rodent disease model.",
@@ -4300,7 +4300,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "This example highlights pharmacokinetics, where the drug's distribution into fat and prolonged duration are key factors in its effects and elimination from the body."
               },
               {
-                "question": "A drug fails to enter cells but can still modify a cell-surface receptor and alter intracellular signalling. Which point from the lecture does this demonstrate?",
+                "question": "A drug fails to enter cells but can still modify a cell-surface receptor and alter intracellular signalling. Which point does this demonstrate?",
                 "options": {
                   "A": "Cell-membrane targets can be useful because the drug need not cross the phospholipid bilayer.",
                   "B": "All effective receptor ligands must enter the nucleus before producing a response.",
@@ -4324,7 +4324,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Steroids are lipophilic and can pass through cell membranes, making them suitable for use as intracellular targets in certain therapeutic applications."
               },
               {
-                "question": "A lecturer says, \"This compound is not very specific, but that may contribute to why it works well in schizophrenia.\" Which drug example from the lecture best fits this point?",
+                "question": "A lecturer says, \"This compound is not very specific, but that may contribute to why it works well in schizophrenia.\" Which drug example best fits this point?",
                 "options": {
                   "A": "Aspirin",
                   "B": "Ibuprofen",
@@ -4336,7 +4336,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Clozapine is an example of a drug that works well in schizophrenia despite being non-specific, highlighting the importance of understanding pharmacodynamics in drug development."
               },
               {
-                "question": "Which set contains only sources of candidate molecules for preclinical screening mentioned in the lecture?",
+                "question": "Which set contains only sources of candidate molecules for preclinical screening?",
                 "options": {
                   "A": "Natural products; compound libraries; newly synthesized chemicals",
                   "B": "Yellow-card reports; generic formularies; registration dossiers",
@@ -4360,7 +4360,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The balance between maintaining target activity and improving pharmacokinetic properties is crucial in drug development, where efficacy and duration of action must be balanced against safety and absorption concerns."
               },
               {
-                "question": "A student states that epinephrine and adrenaline are different endogenous molecules because both names appear in asthma pharmacology resources. Which correction best reflects the lecture?",
+                "question": "A student states that epinephrine and adrenaline are different endogenous molecules because both names appear in asthma pharmacology resources. Which correction is most accurate?",
                 "options": {
                   "A": "Epinephrine is the UK term, whereas adrenaline is the US term.",
                   "B": "Epinephrine is synthetic salbutamol, whereas adrenaline is endogenous noradrenaline.",
@@ -4372,7 +4372,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Epinephrine and adrenaline refer to the same molecule, with naming differences across settings (e.g., UK vs. US terminology)."
               },
               {
-                "question": "A biologically active compound is isolated from a plant and shown to produce a measurable effect in cells. Which additional feature is required by the lecture's definition before it is comfortably called a drug?",
+                "question": "A biologically active compound is isolated from a plant and shown to produce a measurable effect in cells. Which additional feature is required by the definition before it is comfortably called a drug?",
                 "options": {
                   "A": "It must be sold under a proprietary name.",
                   "B": "It must have completed phase III trials.",
@@ -4384,7 +4384,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A biologically active compound must be a chemical substance of known structure, other than a nutrient or essential dietary ingredient, to be considered a drug."
               },
               {
-                "question": "A new compound is chemically similar to aspirin and ibuprofen. Which comparison best captures the lecture's distinction between common drug-receptor binding and the aspirin exception?",
+                "question": "A new compound is chemically similar to aspirin and ibuprofen. Which comparison best captures the distinction between common drug-receptor binding and the aspirin exception?",
                 "options": {
                   "A": "Most drugs bind only DNA; aspirin binds proteins through hydrophobic interactions.",
                   "B": "Most drugs bind through weaker reversible interactions; aspirin covalently inhibits cyclooxygenase.",
@@ -4408,7 +4408,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The drug may be specific for a target but not selective in therapeutic action, leading to severe gastrointestinal adverse effects despite its intended use for hypertension."
               },
               {
-                "question": "Which sequence best represents the overall route from basic discovery to routine monitoring described in the lecture?",
+                "question": "Which sequence best represents the overall route from basic discovery to routine monitoring?",
                 "options": {
                   "A": "Phase I volunteer efficacy; patent expiry; assay development; phase II safety; phase III yellow-card reporting",
                   "B": "Target hypothesis; assay screening and optimization; preclinical safety; phase I safety; phase II/III efficacy; phase IV surveillance",
@@ -5056,7 +5056,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The volume of distribution (Vd) can be estimated using the simple equation Vd = dose/C0. To calculate C0, an IV bolus dose with extrapolation to plasma concentration at time zero is most appropriate, as it allows for direct measurement of C0."
               },
               {
-                "question": "A drug has a volume of distribution of 5 L in an adult. Which interpretation is most consistent with the lecture?",
+                "question": "A drug has a volume of distribution of 5 L in an adult. Which interpretation is most consistent?",
                 "options": {
                   "A": "The drug is confined to adipose tissue",
                   "B": "The drug largely remains within the blood compartment",
@@ -5080,7 +5080,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The apparent volume calculated from dose/concentration in the beaker model would be 1000 mL, as 90% of the drug binds to the glass wall and only 10% remains in solution."
               },
               {
-                "question": "Which statement best distinguishes pharmacokinetics from pharmacodynamics in the context of this lecture?",
+                "question": "Which statement best distinguishes pharmacokinetics from pharmacodynamics in the context?",
                 "options": {
                   "A": "Pharmacokinetics concerns receptor effects; pharmacodynamics concerns systemic exposure",
                   "B": "Pharmacokinetics concerns adverse effects; pharmacodynamics concerns gut absorption",
@@ -5296,7 +5296,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "At the moment of Cmax, absorption rate and elimination rate are equal, making option C the most accurate statement."
               },
               {
-                "question": "Which set contains the two primary pharmacokinetic measures emphasized in the lecture?",
+                "question": "Which set contains the two primary pharmacokinetic measures?",
                 "options": {
                   "A": "Clearance and volume of distribution",
                   "B": "Cmax and Tmax",
@@ -5398,7 +5398,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "FPP-5 Toxicology and Drug safety",
             "questions": [
               {
-                "question": "A new oral drug causes hair loss, nausea, and vomiting in 35% of recipients. Which licensing decision best reflects the benefit:risk reasoning described in the lecture?",
+                "question": "A new oral drug causes hair loss, nausea, and vomiting in 35% of recipients. Which licensing decision best reflects the benefit:risk reasoning?",
                 "options": {
                   "A": "Reject it for all indications because common adverse drug reactions cannot be acceptable.",
                   "B": "Approve it for seasonal rhinitis because the symptoms are common in the population.",
@@ -5446,7 +5446,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The adverse reaction may be caused by unintended accumulation of the drug, leading to exaggerated on-target pharmacology and excessive blood pressure reduction."
               },
               {
-                "question": "Which statement best captures the lecture's contrast between small-molecule drugs and monoclonal antibody biologics?",
+                "question": "Which statement best captures the contrast between small-molecule drugs and monoclonal antibody biologics?",
                 "options": {
                   "A": "Small molecules are target-specific, whereas biologics usually bind multiple unrelated proteins.",
                   "B": "Small molecules may show off-target pharmacology, whereas biologics are highly target-specific.",
@@ -5458,7 +5458,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Small molecules can exhibit off-target pharmacology, whereas biologics are highly target-specific due to their binding to multiple unrelated proteins."
               },
               {
-                "question": "Which sequence best represents the medicines pathway described in the lecture?",
+                "question": "Which sequence best represents the medicines pathway?",
                 "options": {
                   "A": "Phase IV surveillance, target validation, hit screening, preclinical studies, licensing.",
                   "B": "Toxicology studies, target validation, phase I trials, hit identification, post-marketing surveillance.",
@@ -5470,7 +5470,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The medicines pathway involves target identification, hit identification, lead optimization, preclinical development, clinical development, and post-marketing surveillance."
               },
               {
-                "question": "A first-in-human study of a new non-cancer small molecule is being planned. Which design aim most closely matches the lecture's description of phase I?",
+                "question": "A first-in-human study of a new non-cancer small molecule is being planned. Which design aim most closely matches the description of phase I?",
                 "options": {
                   "A": "Start at a low dose derived from preclinical toxicity data and assess pharmacokinetics and adverse effects in healthy volunteers.",
                   "B": "Compare the drug with standard of care across multiple countries to estimate effectiveness in routine practice.",
@@ -5518,7 +5518,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Safety pharmacology focuses on organ systems such as cardiovascular, central nervous, and respiratory systems to assess potential toxicities."
               },
               {
-                "question": "A regulator is reviewing whether a new drug should be licensed. Which set of factors is the regulator principally assessing, according to the lecture?",
+                "question": "A regulator is reviewing whether a new drug should be licensed. Which set of factors is the regulator principally assessing?",
                 "options": {
                   "A": "Quality, efficacy, and safety.",
                   "B": "Cost, prescribing volume, and patent duration.",
@@ -5554,7 +5554,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Regulators may issue a black box warning for a licensed medicine with a rare but serious adverse effect, requiring careful monitoring and risk assessment by prescribers."
               },
               {
-                "question": "A patient asks why severe adverse effects appear in the ibuprofen patient information leaflet despite most users never experiencing them. Which response best reflects the lecture?",
+                "question": "A patient asks why severe adverse effects appear in the ibuprofen patient information leaflet despite most users never experiencing them. Which response is most accurate?",
                 "options": {
                   "A": "Listed reactions are included because they are expected in most patients at therapeutic doses.",
                   "B": "Listed reactions arise from experimental and clinical safety data, even when individual risks are very low.",
@@ -5590,7 +5590,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Neonates and older adults require particular caution with medicines due to differences in drug metabolism and clearance at opposite ends of the age spectrum."
               },
               {
-                "question": "A phase II trial is designed for a drug where an established standard of care exists. Which comparison best matches the lecture's description?",
+                "question": "A phase II trial is designed for a drug where an established standard of care exists. Which comparison best matches the description?",
                 "options": {
                   "A": "Healthy volunteers receiving escalating doses versus untreated healthy controls.",
                   "B": "Licensed drug users reporting adverse events versus historical animal toxicity results.",
@@ -5602,7 +5602,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because it describes a phase II trial with an established standard of care, where the investigational therapy is compared to the standard of care in terms of safety and efficacy."
               },
               {
-                "question": "What is the main purpose of phase III clinical development as described in the lecture?",
+                "question": "What is the main purpose of phase III clinical development?",
                 "options": {
                   "A": "To identify molecular hits in high-throughput in vitro screens.",
                   "B": "To determine whether a compound binds tightly to off-target proteins.",
@@ -5650,7 +5650,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because Good Laboratory Practice-style documentation creates date-stamped, detailed records that allow regulators to audit the supporting data."
               },
               {
-                "question": "Which definition best matches an adverse drug reaction as used in the lecture?",
+                "question": "Which definition best matches an adverse drug reaction?",
                 "options": {
                   "A": "An unwanted harmful response associated with exposure to a medicine.",
                   "B": "Any symptom a patient reports before receiving a medicine.",
@@ -5746,7 +5746,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because QT prolongation after a single therapeutic-range dose in two animal species is concerning in safety pharmacology."
               },
               {
-                "question": "A patient taking ten regular medicines reports dizziness and poor adherence. Which interpretation best reflects the lecture's prescribing implications?",
+                "question": "A patient taking ten regular medicines reports dizziness and poor adherence. Which interpretation best reflects the prescribing implications?",
                 "options": {
                   "A": "Polypharmacy mainly matters before licensing and is rarely relevant in routine care.",
                   "B": "Non-adherence excludes adverse drug reactions as a cause of symptoms.",
@@ -5770,7 +5770,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because reduced renal clearance causing a standard repeated dose to accumulate in an older patient illustrates an unintended overdose rather than deliberate self-poisoning."
               },
               {
-                "question": "A clinician says, \"This herbal remedy is natural, so it has no toxic potential.\" Which lecture principle best corrects this misconception?",
+                "question": "A clinician says, \"This herbal remedy is natural, so it has no toxic potential.\" Which principle best corrects this misconception?",
                 "options": {
                   "A": "Only biologics can be toxic because they act on immune targets.",
                   "B": "Natural products are exempt from benefit:risk assessment.",
@@ -5782,7 +5782,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because the dose differentiates a therapeutic from a toxin, according to the lecture's principle correcting the misconception that herbal remedies are exempt from benefit:risk assessment."
               },
               {
-                "question": "In the lecture, what is the main reason a seasonal rhinitis medicine intended for over-the-counter use must tolerate very little serious toxicity?",
+                "question": "What is the main reason a seasonal rhinitis medicine intended for over-the-counter use must tolerate very little serious toxicity?",
                 "options": {
                   "A": "The exposed population is broad, symptoms are usually non-life-threatening, and accidental access is more likely.",
                   "B": "Rhinitis has no symptoms and therefore cannot justify any medicine.",
@@ -5818,7 +5818,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because post-marketing surveillance continuously monitors safety, efficacy, and quality during clinical use."
               },
               {
-                "question": "A regulator reviews preclinical data for a small molecule. Which current expectation did the lecture describe as typical, while noting that requirements are changing?",
+                "question": "A regulator reviews preclinical data for a small molecule. Which current expectation is typical, while requirements are changing?",
                 "options": {
                   "A": "Safety evaluation only in one in vitro assay.",
                   "B": "Safety evaluation in two species, commonly rat and dog.",
@@ -5842,7 +5842,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because a safety factor is applied to the preclinical toxic dose to choose a cautious starting dose for phase I dosing in humans."
               },
               {
-                "question": "A new drug is tested in patients with no existing standard of care. Which control strategy is most consistent with the lecture's phase II description?",
+                "question": "A new drug is tested in patients with no existing standard of care. Which control strategy is most consistent with the phase II description?",
                 "options": {
                   "A": "Compare only with an animal saline control.",
                   "B": "Use no comparator because efficacy cannot be assessed.",
@@ -5866,7 +5866,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because the acceptable risk changes with indication severity, exposed population, and patient context, making benefit:risk assessment necessary at each stage of development and prescribing."
               },
               {
-                "question": "Which set of contributors best reflects the lecture's description of early medicine discovery?",
+                "question": "Which set of contributors best reflects the description of early medicine discovery?",
                 "options": {
                   "A": "Regulators, prescribing committees, and health economists only.",
                   "B": "Oncologists, pharmacists, and patients after phase IV only.",
@@ -5956,7 +5956,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Pumping 3 Na+ out and 2 K+ into the cell impairs the maintenance of ionic gradients during cerebral ischemia."
               },
               {
-                "question": "A membrane patch contains four open potassium channels. The external and internal potassium concentrations are then changed so that the potassium gradient is halved, while the same four channels remain open. What happens to potassium conductance in the sense used in the lecture?",
+                "question": "A membrane patch contains four open potassium channels. The external and internal potassium concentrations are then changed so that the potassium gradient is halved, while the same four channels remain open. What happens to potassium conductance in the sense used?",
                 "options": {
                   "A": "It increases because more channels are available to carry current",
                   "B": "It becomes zero because the channels no longer determine flux",
@@ -6220,7 +6220,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Demyelination causes current leak and impaired nodal reactivation, leading to conduction failure."
               },
               {
-                "question": "The lecture compares the membrane to a capacitor. Which feature of the cell membrane supports this analogy?",
+                "question": "The membrane can be compared to a capacitor. Which feature of the cell membrane supports this analogy?",
                 "options": {
                   "A": "It consumes ATP to move ions against concentration gradients",
                   "B": "It separates and stores opposite charges across an insulating bilayer",
@@ -6316,7 +6316,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "An action potential propagates without decrement once triggered, distinguishing it from graded signals."
               },
               {
-                "question": "A large myelinated sensory axon and a small unmyelinated C fiber both carry nociceptive information. Which difference is most consistent with the lecture?",
+                "question": "A large myelinated sensory axon and a small unmyelinated C fiber both carry nociceptive information. Which difference is most consistent?",
                 "options": {
                   "A": "The myelinated axon carries faster, more precisely localized pain",
                   "B": "The C fiber carries faster, more precisely localized pain",
@@ -6526,7 +6526,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Temporal summation of successive EPSPs is responsible for the axon hillock reaching threshold before the previous EPSP has decayed."
               },
               {
-                "question": "In a spinal reflex circuit, a stretch afferent excites an alpha motor neuron and also excites an inhibitory interneuron controlling the antagonist muscle. Which transmitter sequence best matches the lecture?",
+                "question": "In a spinal reflex circuit, a stretch afferent excites an alpha motor neuron and also excites an inhibitory interneuron controlling the antagonist muscle. Which transmitter sequence is most accurate?",
                 "options": {
                   "A": "Glycine onto motor neuron; acetylcholine onto interneuron; glutamate at NMJ",
                   "B": "Glutamate onto motor neuron; glutamate onto inhibitory interneuron; glycine onto antagonist motor neuron",
@@ -6550,7 +6550,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Since the net response remains subthreshold after partial cancellation, the EPSP does not trigger a full action potential."
               },
               {
-                "question": "A neurologic mutation causes presynaptic voltage-gated calcium channels to remain open longer for each action potential. Which synaptic effect is most consistent with the lecture's migraine example?",
+                "question": "A neurologic mutation causes presynaptic voltage-gated calcium channels to remain open longer for each action potential. Which synaptic effect is most consistent with the migraine example?",
                 "options": {
                   "A": "Reduced vesicle docking despite normal calcium entry",
                   "B": "Faster acetylcholine breakdown in the synaptic cleft",
@@ -6562,7 +6562,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The increased neurotransmitter release for the same stimulus is most consistent with the lecture's migraine example, where increased transmitter release leads to more severe symptoms."
               },
               {
-                "question": "A drug blocks serotonin reuptake transporters at a synapse without acting on postsynaptic receptors. Which effect follows most closely from the lecture?",
+                "question": "A drug blocks serotonin reuptake transporters at a synapse without acting on postsynaptic receptors. Which effect follows most closely?",
                 "options": {
                   "A": "Serotonin is degraded faster by acetylcholinesterase",
                   "B": "Serotonin vesicles cannot dock at the presynaptic membrane",
@@ -6622,7 +6622,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Stimulus intensity is encoded by frequency and timing of spikes, as increasing pressure does not increase the size of each axonal action potential but produces more action potentials over time."
               },
               {
-                "question": "In a synapse using glutamate as the transmitter, which postsynaptic receptor arrangement is most consistent with the lecture's structural description?",
+                "question": "In a synapse using glutamate as the transmitter, which postsynaptic receptor arrangement is most consistent with the structural description?",
                 "options": {
                   "A": "Nicotinic receptors dispersed randomly along the axon",
                   "B": "Gap junction pores concentrated in the synaptic cleft",
@@ -6658,7 +6658,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Acetylcholine persists longer in the synaptic cleft after a drug inactivates acetylcholinesterase at the NMJ."
               },
               {
-                "question": "Which statement best distinguishes a neuromodulator from the fast transmitters emphasized in the lecture?",
+                "question": "Which statement best distinguishes a neuromodulator from the fast transmitters?",
                 "options": {
                   "A": "A neuromodulator changes excitability or transmitter effects rather than serving mainly as a fast excitatory or inhibitory signal",
                   "B": "A neuromodulator crosses gap junctions instead of the synaptic cleft",
@@ -6694,7 +6694,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Acetylcholine persists longer in the synaptic cleft after a drug inactivates acetylcholinesterase at the NMJ, allowing for prolonged neurotransmitter release."
               },
               {
-                "question": "Which pairing correctly matches synapse type with a likely functional feature from the lecture?",
+                "question": "Which pairing correctly matches synapse type with a likely functional feature?",
                 "options": {
                   "A": "Axodendritic: strongest effect because it lies beside the hillock",
                   "B": "Axosomatic: rare and limited to changing transmitter packaging",
@@ -6706,7 +6706,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Axosomatic synapses have a strong influence on action potential initiation due to their target on the cell body, as they release neurotransmitters that directly affect the neuron's excitability."
               },
               {
-                "question": "A postsynaptic membrane potential moves from -70 mV to -76 mV after a synapse is activated. Which transmitter-channel combination is most consistent with the lecture?",
+                "question": "A postsynaptic membrane potential moves from -70 mV to -76 mV after a synapse is activated. Which transmitter-channel combination is most consistent?",
                 "options": {
                   "A": "Glutamate opening sodium-permeable excitatory channels",
                   "B": "Acetylcholine opening nicotinic cation channels at muscle",
@@ -6766,7 +6766,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Chemical synapses convert electrical activity to chemical release and back to electrical activity, allowing for bidirectional communication between neurons."
               },
               {
-                "question": "A patellar tendon tap produces quadriceps contraction and hamstring relaxation. Which synaptic event mediates relaxation of the antagonist muscle in the lecture's circuit?",
+                "question": "A patellar tendon tap produces quadriceps contraction and hamstring relaxation. Which synaptic event mediates relaxation of the antagonist muscle in the circuit?",
                 "options": {
                   "A": "Acetylcholine release at the antagonist NMJ",
                   "B": "Glutamate release from the antagonist motor neuron",
@@ -6826,7 +6826,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Glutamate remains available to postsynaptic receptors for longer due to blocked astrocytic glutamate transporters."
               },
               {
-                "question": "In a neuron, a distal dendritic EPSP and a proximal somatic IPSP occur at the same time. The neuron fails to fire despite the EPSP being locally large. Which explanation best fits the lecture?",
+                "question": "In a neuron, a distal dendritic EPSP and a proximal somatic IPSP occur at the same time. The neuron fails to fire despite the EPSP being locally large. Which explanation is most accurate?",
                 "options": {
                   "A": "The IPSP near the soma can reduce the net depolarization reaching threshold",
                   "B": "The EPSP must always trigger firing if it is locally large",
@@ -6940,7 +6940,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The autonomic pattern that best supports increased oxygen delivery during exercise involves bronchodilation, increased heart rate, and reduced digestion, preparing the body for increased demand."
               },
               {
-                "question": "Which statement best explains why two acetylcholine molecules are required to activate the nicotinic acetylcholine receptor described in the lecture?",
+                "question": "Which statement best explains why two acetylcholine molecules are required to activate the nicotinic acetylcholine receptor?",
                 "options": {
                   "A": "The receptor contains two beta subunits that bind acetylcholine",
                   "B": "The receptor is a dimer of two muscarinic receptor proteins",
@@ -7060,7 +7060,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Salbutamol improves airflow in asthma primarily through Beta 2 receptor agonism causing airway smooth muscle relaxation."
               },
               {
-                "question": "A nonselective beta blocker worsens wheeze in a patient with asthma. Which explanation best fits the lecture mechanism?",
+                "question": "A nonselective beta blocker worsens wheeze in a patient with asthma. Which explanation best fits the mechanism?",
                 "options": {
                   "A": "It increases parasympathetic release of acetylcholine in ganglia",
                   "B": "It blocks M3 receptors and prevents airway smooth muscle contraction",
@@ -7072,7 +7072,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A nonselective beta blocker worsens wheeze in a patient with asthma by preventing beta 2 mediated relaxation of airway smooth muscle."
               },
               {
-                "question": "A patient with overactive bladder has premature detrusor contraction before the bladder is full. Which treatment mechanism best targets the parasympathetic contribution described in the lecture?",
+                "question": "A patient with overactive bladder has premature detrusor contraction before the bladder is full. Which treatment mechanism best targets the parasympathetic contribution?",
                 "options": {
                   "A": "Beta 1 receptor agonism in bladder smooth muscle",
                   "B": "Nicotinic receptor activation in autonomic ganglia",
@@ -7108,7 +7108,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Bethanechol benefits patients with dry mouth by activating muscarinic receptor activation increasing watery saliva production."
               },
               {
-                "question": "A patient takes Buscopan for abdominal cramping due to excessive gut smooth muscle contraction. Which mechanism is most consistent with the lecture?",
+                "question": "A patient takes Buscopan for abdominal cramping due to excessive gut smooth muscle contraction. Which mechanism is most consistent?",
                 "options": {
                   "A": "Beta 1 receptor blockade reduces cyclic AMP",
                   "B": "Alpha 1 receptor activation increases gut motility",
@@ -7120,7 +7120,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Buscopan improves abdominal cramping due to excessive gut smooth muscle contraction by reducing cholinergic contraction through muscarinic receptor antagonism."
               },
               {
-                "question": "Phenylephrine is classified as a direct sympathomimetic in the lecture. What makes it \"direct\"?",
+                "question": "Phenylephrine is classified as a direct sympathomimetic. What makes it \"direct\"?",
                 "options": {
                   "A": "It blocks acetylcholinesterase in sympathetic ganglia",
                   "B": "It displaces noradrenaline from storage vesicles",
@@ -7132,7 +7132,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Phenylephrine is classified as a direct sympathomimetic because it activates adrenergic receptors itself."
               },
               {
-                "question": "Amphetamine produces sympathetic overactivation without being a standard adrenergic receptor agonist. Which mechanism best matches the lecture?",
+                "question": "Amphetamine produces sympathetic overactivation without being a standard adrenergic receptor agonist. Which mechanism is most accurate?",
                 "options": {
                   "A": "It inhibits M2 receptors in the sinoatrial node",
                   "B": "It blocks phospholipase C in smooth muscle",
@@ -7156,7 +7156,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A sudden increase in arterial pressure stretches baroreceptors, which is restored by increased parasympathetic tone and reduced sympathetic tone."
               },
               {
-                "question": "A patient stands up rapidly and arterial pressure transiently falls. Based on the baroreflex logic in the lecture, which response would best compensate?",
+                "question": "A patient stands up rapidly and arterial pressure transiently falls. Based on the baroreflex logic, which response would best compensate?",
                 "options": {
                   "A": "Increased M2 signaling in the sinoatrial node",
                   "B": "Increased sympathetic drive to heart and vessels",
@@ -7252,7 +7252,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct receptor-coupling pair is Alpha 1 - Gq."
               },
               {
-                "question": "Which statement best distinguishes cholinergic and adrenergic neuroeffector termination as taught in the lecture?",
+                "question": "Which statement best distinguishes cholinergic and adrenergic neuroeffector termination?",
                 "options": {
                   "A": "Both mainly depend on enzymatic breakdown in the cleft",
                   "B": "Cholinergic signaling ends by acetylcholinesterase, whereas adrenergic signaling ends mainly by reuptake",
@@ -7324,7 +7324,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A muscarinic antagonist that reaches the heart, bronchioles, bladder, and gut would cause faster heart rate, bronchodilation, reduced bladder contraction, and reduced gut cramping."
               },
               {
-                "question": "A drug candidate for asthma is found to be a beta 2 receptor antagonist. Based on the lecture, why would this be a poor bronchodilator choice?",
+                "question": "A drug candidate for asthma is found to be a beta 2 receptor antagonist. Why would this be a poor bronchodilator choice?",
                 "options": {
                   "A": "It would block the sympathetic receptor that relaxes airway smooth muscle",
                   "B": "It would activate the parasympathetic receptor that relaxes airway smooth muscle",
@@ -7510,7 +7510,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Skeletal muscle fibres have long cylindrical shapes with motor-neuron input, distinguishing them from ventricular myocytes' shorter brick-like cells."
               },
               {
-                "question": "During myocardial ischaemia, intracellular pH falls and inorganic phosphate accumulates. Based on the lecture, which contractile effect is most consistent with these changes?",
+                "question": "During myocardial ischaemia, intracellular pH falls and inorganic phosphate accumulates. Which contractile effect is most consistent with these changes?",
                 "options": {
                   "A": "Increased force from enhanced troponin C calcium affinity",
                   "B": "Increased force from recruitment of more cardiac motor units",
@@ -7534,7 +7534,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Positive lusitropy due to faster relaxation after contraction acceleration by the drug's effect on the ATP-dependent pump."
               },
               {
-                "question": "A skeletal muscle action potential differs from a typical neuronal action potential in the lecture mainly because it:",
+                "question": "A skeletal muscle action potential differs from a typical neuronal action potential mainly because it:",
                 "options": {
                   "A": "has no resting membrane potential",
                   "B": "lacks a prominent after-hyperpolarisation undershoot",
@@ -7594,7 +7594,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Voltage opens L-type calcium channels, calcium enters, SR calcium release is triggered, and calcium binds troponin C in excitation-contraction coupling."
               },
               {
-                "question": "A skeletal muscle fibre is bathed in solution with very low extracellular calcium but normal membrane excitability and intact SR calcium stores. Which result best fits the lecture?",
+                "question": "A skeletal muscle fibre is bathed in solution with very low extracellular calcium but normal membrane excitability and intact SR calcium stores. Which result is most accurate?",
                 "options": {
                   "A": "Twitch force disappears immediately because trigger calcium cannot enter",
                   "B": "Twitch force increases because calcium no longer binds tropomyosin",
@@ -7642,7 +7642,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The drug decreases the peak cytosolic calcium transient, reducing cross-bridge formation and thus force generation."
               },
               {
-                "question": "In the cross-bridge cycle described in the lecture, ATP is most directly required to:",
+                "question": "In the cross-bridge cycle, ATP is most directly required to:",
                 "options": {
                   "A": "bind calcium to troponin C",
                   "B": "conduct calcium through L-type channels",
@@ -7774,7 +7774,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "T-tubules are mitochondrial folds that generate ATP beside each sarcomere."
               },
               {
-                "question": "In cardiac muscle relaxation, cytosolic calcium must fall after the calcium transient. Which mechanism contributes to this fall according to the lecture?",
+                "question": "In cardiac muscle relaxation, cytosolic calcium must fall after the calcium transient. Which mechanism contributes to this fall?",
                 "options": {
                   "A": "ATP-dependent pumping of calcium back into intracellular stores",
                   "B": "ATP-dependent pumping of calcium into actin filaments",
@@ -7810,7 +7810,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Cardiac: calcium entry triggers SR release; skeletal: T-tubule voltage triggers SR release."
               },
               {
-                "question": "A student claims that cardiac output rises with venous return because the heart consciously recruits more fibres, as skeletal muscle does. Which correction best reflects the lecture?",
+                "question": "A student claims that cardiac output rises with venous return because the heart consciously recruits more fibres, as skeletal muscle does. Which correction is most accurate?",
                 "options": {
                   "A": "Ventricular force rises because the sinoatrial node recruits extra motor units",
                   "B": "Ventricular force rises because preload shortens sarcomeres below optimal length",
@@ -7984,7 +7984,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option explains how beta 2 receptor stimulation leads to bronchodilation through adenylate cyclase activation and cAMP production."
               },
               {
-                "question": "In a vascular bed, adrenaline causes vasodilation rather than vasoconstriction. Which explanation best fits the lecture mechanism?",
+                "question": "In a vascular bed, adrenaline causes vasodilation rather than vasoconstriction. Which explanation best fits the mechanism?",
                 "options": {
                   "A": "The smooth muscle expresses beta 2 receptors rather than alpha 1 receptors",
                   "B": "The smooth muscle lacks voltage-gated calcium channels entirely",
@@ -8080,7 +8080,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option explains how IP3 triggers calcium release from the sarcoplasmic reticulum in response to Gq-coupled vasoconstrictors."
               },
               {
-                "question": "The same Gq-coupled vasoconstrictor also produces diacylglycerol. In the lecture pathway, which effect of diacylglycerol contributes to depolarization?",
+                "question": "The same Gq-coupled vasoconstrictor also produces diacylglycerol. Pathway, which effect of diacylglycerol contributes to depolarization?",
                 "options": {
                   "A": "Activation of non-selective cation channels",
                   "B": "Activation of myosin light chain phosphatase",
@@ -8116,7 +8116,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option describes the effect of increased cyclic AMP on vascular smooth muscle, where potassium channel opening and reduced calcium entry favor relaxation."
               },
               {
-                "question": "A uterine smooth muscle strip shows rhythmic contractions during labor that persist without neural stimulation, but become stronger after oxytocin. Which interpretation is most consistent with the lecture?",
+                "question": "A uterine smooth muscle strip shows rhythmic contractions during labor that persist without neural stimulation, but become stronger after oxytocin. Which interpretation is most consistent?",
                 "options": {
                   "A": "Myometrial contraction requires sympathetic innervation of each cell",
                   "B": "Myometrial action potentials use sodium as the obligatory upstroke current",
@@ -8140,7 +8140,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option describes the effect of receptor signaling on airway smooth muscle tone without action potentials, allowing for relaxation and contraction regulation."
               },
               {
-                "question": "A smooth muscle contraction persists for a prolonged period with relatively low ATP use. Which property from the lecture best explains this compared with skeletal muscle twitches?",
+                "question": "A smooth muscle contraction persists for a prolonged period with relatively low ATP use. Which property best explains this compared with skeletal muscle twitches?",
                 "options": {
                   "A": "Smooth muscle has no myosin-actin cross-bridge cycling",
                   "B": "Smooth muscle contractions are always brief and all-or-nothing",
@@ -8200,7 +8200,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option explains how depolarization in smooth muscle leads to increased calcium influx and contraction."
               },
               {
-                "question": "A patient with overactive bladder is treated with a beta 3 receptor agonist. Which tissue-selective effect from the lecture is being exploited?",
+                "question": "A patient with overactive bladder is treated with a beta 3 receptor agonist. Which tissue-selective effect is being exploited?",
                 "options": {
                   "A": "Relaxation of bladder smooth muscle",
                   "B": "Contraction of uterine smooth muscle",
@@ -8212,7 +8212,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option describes the tissue-selective effect of beta 3 receptor agonism, where relaxation of bladder smooth muscle is exploited for treatment of overactive bladder."
               },
               {
-                "question": "A labor induction drug is chosen because it acts specifically on uterine smooth muscle to enhance contraction. Which agent matches this role from the lecture?",
+                "question": "A labor induction drug is chosen because it acts specifically on uterine smooth muscle to enhance contraction. Which agent matches this role?",
                 "options": {
                   "A": "Sildenafil",
                   "B": "Salbutamol",
@@ -8224,7 +8224,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "PGE2 stimulates uterine smooth muscle contraction, making it a suitable labor induction drug."
               },
               {
-                "question": "Which comparison of action potential duration is most consistent with the lecture examples?",
+                "question": "Which comparison of action potential duration is most consistent?",
                 "options": {
                   "A": "Smooth muscle GI spikes are shorter than skeletal muscle spikes",
                   "B": "Skeletal, cardiac, and GI smooth muscle action potentials all last about 5 ms",
@@ -8296,7 +8296,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Increasing MLCP activity reduces tone due to myosin light chain dephosphorylation in vascular smooth muscle."
               },
               {
-                "question": "During exercise, arterioles in active skeletal muscle encounter circulating adrenaline and high local metabolite concentrations. Which pairing best reflects the lecture's integrated view of these influences?",
+                "question": "During exercise, arterioles in active skeletal muscle encounter circulating adrenaline and high local metabolite concentrations. Which pairing best reflects the integrated view of these influences?",
                 "options": {
                   "A": "Adrenaline and metabolites both uniformly constrict all vascular beds",
                   "B": "Adrenaline has receptor-dependent effects, while local metabolites tend to promote vasodilation",
@@ -8609,7 +8609,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because scalenes attach from the cervical vertebral column to ribs 1 and 2, elevating the upper ribs during increased inspiratory effort."
               },
               {
-                "question": "A patient forcefully expires by increasing intra-abdominal pressure. Which muscle group is most responsible for this action as described in the lecture?",
+                "question": "A patient forcefully expires by increasing intra-abdominal pressure. Which muscle group is most responsible for this action?",
                 "options": {
                   "A": "Abdominal muscles",
                   "B": "External intercostals",
@@ -8807,7 +8807,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "ACRS02L Respiratory System 1: Anatomy Introduction",
             "questions": [
               {
-                "question": "During bronchoscopy teaching, a student states that the lower respiratory tract begins immediately after the pharynx. Which correction best matches the lecture's arrangement of the tract?",
+                "question": "During bronchoscopy teaching, a student states that the lower respiratory tract begins immediately after the pharynx. Which correction best matches the arrangement of the tract?",
                 "options": {
                   "A": "It begins at the nasal cavity and continues to the alveoli.",
                   "B": "It begins at the pharynx and includes the larynx and trachea.",
@@ -8843,7 +8843,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The superior thoracic aperture is bounded by the xiphoid process, costal margin, lower ribs, and T12 vertebra, as described in the lecture."
               },
               {
-                "question": "A clinical note describes \"thoracic outlet syndrome\" due to compression of structures passing between the neck and thorax near the first rib. In anatomical terminology used in the lecture, this region is the:",
+                "question": "A clinical note describes \"thoracic outlet syndrome\" due to compression of structures passing between the neck and thorax near the first rib. In anatomical terminology used, this region is the:",
                 "options": {
                   "A": "inferior thoracic aperture",
                   "B": "superior thoracic aperture",
@@ -8855,7 +8855,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The superior thoracic aperture is the region near the first rib where structures pass between the neck and thorax."
               },
               {
-                "question": "Which group contains only structures highlighted in the lecture as passing through the anatomical thoracic inlet?",
+                "question": "Which group contains only structures highlighted as passing through the anatomical thoracic inlet?",
                 "options": {
                   "A": "Thoracic duct, azygos vein, descending aorta, posterior vagal trunk",
                   "B": "Inferior vena cava, right phrenic nerve, esophagus, thoracic duct",
@@ -8903,7 +8903,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The central tendon of the diaphragm has peripheral muscular fibres, as described in the lecture."
               },
               {
-                "question": "Which attachment pairing is most consistent with the named parts of the diaphragm in the lecture?",
+                "question": "Which attachment pairing is most consistent with the named parts of the diaphragm?",
                 "options": {
                   "A": "Sternal part to lower ribs; costal part to vertebral column; lumbar part to xiphoid process",
                   "B": "Sternal part to xiphoid region; costal part to ribs and costal margins; lumbar part to lumbar vertebrae",
@@ -8975,7 +8975,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The superior phrenic artery arises from the thoracic aorta and supplies the superior surface near the posterior diaphragm."
               },
               {
-                "question": "A lesion affecting nerve roots C3, C4, and C5 would most threaten which functional supply described in the lecture?",
+                "question": "A lesion affecting nerve roots C3, C4, and C5 would most threaten which functional supply?",
                 "options": {
                   "A": "Sympathetic supply to the thoracic duct",
                   "B": "Phrenic motor supply to the diaphragm",
@@ -8987,7 +8987,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A lesion affecting nerve roots C3, C4, and C5 would most threaten the phrenic motor supply to the diaphragm."
               },
               {
-                "question": "The right phrenic nerve is transected in the thorax before it reaches the diaphragm. Which deficit best follows from the lecture's description?",
+                "question": "The right phrenic nerve is transected in the thorax before it reaches the diaphragm. Which deficit best follows from this injury?",
                 "options": {
                   "A": "Bilateral paralysis of the diaphragm",
                   "B": "Loss of the left hemidiaphragm motor supply",
@@ -9035,7 +9035,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The right phrenic nerve passes through the diaphragm and is responsible for this passage."
               },
               {
-                "question": "Which statement about the left phrenic nerve's passage through the diaphragm is correct according to the lecture?",
+                "question": "Which statement about the left phrenic nerve's passage through the diaphragm is correct?",
                 "options": {
                   "A": "It passes through the caval opening with the inferior vena cava.",
                   "B": "It pierces the muscular diaphragm rather than using a major opening.",
@@ -9059,7 +9059,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The caval opening is bounded by the inferior vena cava and right phrenic nerve, as described in the lecture."
               },
               {
-                "question": "Which group passes through the aortic hiatus as described in the lecture?",
+                "question": "Which group passes through the aortic hiatus?",
                 "options": {
                   "A": "Inferior vena cava, right phrenic nerve, inferior phrenic artery",
                   "B": "Esophagus, anterior vagal trunk, posterior vagal trunk",
@@ -9143,7 +9143,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Alveoli are responsible for gas exchange, whereas conducting airways facilitate airflow but do not participate in gas exchange."
               },
               {
-                "question": "Which statement most accurately corrects the common misconception about the diaphragm emphasized in the lecture?",
+                "question": "Which statement most accurately corrects the common misconception about the diaphragm?",
                 "options": {
                   "A": "It is a flat sheet at rest and becomes dome-shaped during contraction.",
                   "B": "It is a bony boundary of the inferior thoracic aperture.",
@@ -9167,7 +9167,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Trachea has incomplete rings visible along its wall, which remain patent during normal breathing due to this characteristic."
               },
               {
-                "question": "Which arrangement best describes the respiratory tract from the lecture overview?",
+                "question": "Which arrangement best describes the respiratory tract overview?",
                 "options": {
                   "A": "Multiple nasal passages merge into a single bronchiole before reaching the larynx.",
                   "B": "A conducting pathway begins near the nasal cavity and becomes an extensively branching system in the lungs.",
@@ -9191,7 +9191,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Musculophrenic arteries are supplied by the subclavian artery to internal thoracic artery, accounting for musculophrenic arterial supply to the diaphragm."
               },
               {
-                "question": "Which statement about subclavian arteries in relation to the thoracic inlet is most accurate based on the lecture?",
+                "question": "Which statement about subclavian arteries in relation to the thoracic inlet is most accurate?",
                 "options": {
                   "A": "The left subclavian arises from the aortic arch, while the right is related to the brachiocephalic trunk.",
                   "B": "Both subclavian arteries arise from the internal thoracic arteries.",
@@ -9215,7 +9215,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The esophageal hiatus contains structures such as the thoracic duct and azygos vein in addition to blood vessels supplying the esophagus."
               },
               {
-                "question": "A clinician describes compression of emerging arteries, veins, and nerves at the root of the neck as \"outlet\" pathology. Why does this differ from the anatomical term used in the lecture?",
+                "question": "A clinician describes compression of emerging arteries, veins, and nerves at the root of the neck as \"outlet\" pathology. Why does this differ from the anatomical term used?",
                 "options": {
                   "A": "Clinicians refer to the inferior aperture because veins enter the abdomen there.",
                   "B": "Clinicians refer to the aortic hiatus because arteries leave the thorax there.",
@@ -9251,7 +9251,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The central tendon is a central tendinous region from which muscle fibers extend to peripheral attachments, distinguishing it from typical tendon attachments."
               },
               {
-                "question": "Which combination best matches the lecture's superior-surface arterial supply to the diaphragm?",
+                "question": "Which combination best matches the superior-surface arterial supply to the diaphragm?",
                 "options": {
                   "A": "Inferior phrenic, superior epigastric, subcostal",
                   "B": "Pericardiacophrenic, musculophrenic, superior phrenic",
@@ -9263,7 +9263,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Pericardiacophrenic arteries supply the diaphragm's superior surface, matching the lecture's description of superior-surface arterial supply."
               },
               {
-                "question": "A student predicts that a lesion of the left phrenic nerve would affect both hemidiaphragms because the diaphragm has a common central tendon. Which concept from the lecture corrects this?",
+                "question": "A student predicts that a lesion of the left phrenic nerve would affect both hemidiaphragms because the diaphragm has a common central tendon. Which concept corrects this?",
                 "options": {
                   "A": "The phrenic nerves contain only sensory fibres.",
                   "B": "The intercostal nerves provide all diaphragmatic motor supply.",
@@ -9461,7 +9461,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The external intercostal muscles are active during inspiration and help stiffen intercostal spaces, increasing lung expansion and facilitating gas exchange."
               },
               {
-                "question": "Which fibre direction best describes the external intercostal muscles as taught in the lecture?",
+                "question": "Which fibre direction best describes the external intercostal muscles?",
                 "options": {
                   "A": "Infero-anterior from the rib above to the rib below",
                   "B": "Infero-posterior from the rib above to the rib below",
@@ -9473,7 +9473,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The external intercostal muscles' fibers run infero-anterior from the rib above to the rib below, allowing for efficient movement of the ribs during inspiration."
               },
               {
-                "question": "A student claims that all internal intercostal fibres must depress ribs because of their orientation. Which correction best reflects the experimental summary in the lecture?",
+                "question": "A student claims that all internal intercostal fibres must depress ribs because of their orientation. Which correction best reflects the experimental summary?",
                 "options": {
                   "A": "Internal intercostals are inactive in both inspiration and expiration",
                   "B": "Internal intercostals act only as accessory inspiratory muscles",
@@ -9485,7 +9485,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Interosseous internal intercostals aid expiration by depressing ribs, while interchondral fibres aid inspiration, enabling more effective lung expansion and gas exchange."
               },
               {
-                "question": "A patient coughs forcefully. Which muscle group contributes most to the active expiratory mechanism described in the lecture?",
+                "question": "A patient coughs forcefully. Which muscle group contributes most to the active expiratory mechanism?",
                 "options": {
                   "A": "Abdominal wall muscles",
                   "B": "Scalenes",
@@ -9533,7 +9533,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "During maximal inspiration, diaphragmatic excursion exceeds that in quiet breathing, allowing for greater lung expansion and gas exchange."
               },
               {
-                "question": "Which approximate diaphragmatic excursion during quiet breathing was stated in the lecture?",
+                "question": "Which approximate diaphragmatic excursion during quiet breathing was stated?",
                 "options": {
                   "A": "1.5 cm",
                   "B": "3.5 cm",
@@ -9545,7 +9545,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The approximate diaphragmatic excursion during quiet breathing is 1.5 cm, enabling efficient lung expansion and gas exchange."
               },
               {
-                "question": "A rigid abdominal wall would make inspiration less efficient. Which explanation best matches the lecture's reasoning?",
+                "question": "A rigid abdominal wall would make inspiration less efficient. Which explanation best matches the reasoning?",
                 "options": {
                   "A": "It would prevent the trachea from bifurcating at the sternal angle",
                   "B": "It would stop the external intercostals from stiffening intercostal spaces",
@@ -9557,7 +9557,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A rigid abdominal wall would resist displacement of abdominal viscera by the descending diaphragm, making inspiration less efficient and reducing lung expansion."
               },
               {
-                "question": "At which surface anatomical level does the trachea bifurcate into main bronchi, as emphasised in the lecture?",
+                "question": "At which surface anatomical level does the trachea bifurcate into main bronchi, as emphasised?",
                 "options": {
                   "A": "Jugular notch",
                   "B": "Sternal angle",
@@ -9761,7 +9761,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Segmental bronchi and vessels supply discrete functional units, making segmental anatomy crucial for adjacent segments to remain functional after removal."
               },
               {
-                "question": "A student is tracing the airway from the larynx to the gas-exchange surface. Where does the lecture place the transition from pure air conduction toward gas exchange?",
+                "question": "A student is tracing the airway from the larynx to the gas-exchange surface. Where is the transition from pure air conduction toward gas exchange?",
                 "options": {
                   "A": "At the carina between the right and left main bronchi",
                   "B": "At the lobar bronchi corresponding to lung lobes",
@@ -9923,7 +9923,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The ethmoidal sinuses are most likely being described when a skull radiograph shows multiple small, honeycomb-like air cells rather than one large paranasal cavity."
               },
               {
-                "question": "Which statement best describes the respiratory role of the paranasal sinuses emphasized in the lecture?",
+                "question": "Which statement best describes the respiratory role of the paranasal sinuses?",
                 "options": {
                   "A": "They extend the nasal cavity and share mucosa that helps warm and humidify air",
                   "B": "They produce surfactant to reduce surface tension in the upper airway",
@@ -9971,7 +9971,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The larynx continues as the trachea at approximately vertebral level C6, with the oesophagus beginning posteriorly."
               },
               {
-                "question": "Which set contains only the three unpaired laryngeal cartilages discussed in the lecture?",
+                "question": "Which set contains only the three unpaired laryngeal cartilages?",
                 "options": {
                   "A": "Thyroid, arytenoid, cuneiform",
                   "B": "Cricoid, corniculate, cuneiform",
@@ -10043,7 +10043,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because the vestibular ligament contributes to the paired laryngeal structure."
               },
               {
-                "question": "A student identifies the laryngeal inlet from above. Which boundary relationship best matches the lecture description?",
+                "question": "A student identifies the laryngeal inlet from above. Which boundary relationship best matches the description?",
                 "options": {
                   "A": "An opening between the vocal ligaments at the level of the true vocal folds",
                   "B": "An opening between the vestibular ligaments at the level of the false vocal folds",
@@ -10139,7 +10139,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because abduction of the vocal ligaments widens the airway during deep inspiration."
               },
               {
-                "question": "A tumor damages the internal branch of the superior laryngeal nerve. Which deficit is most consistent with the lecture?",
+                "question": "A tumor damages the internal branch of the superior laryngeal nerve. Which deficit is most consistent?",
                 "options": {
                   "A": "Loss of motor supply to all intrinsic laryngeal muscles",
                   "B": "Loss of parasympathetic supply to abdominal organs from the vagus trunk",
@@ -10955,7 +10955,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C, as the internal jugular vein and subclavian vein form each brachiocephalic vein."
               },
               {
-                "question": "A posterior intercostal vein on the left side drains first into a vessel that crosses to the right to join the azygos vein. Which route is most consistent with the lecture description?",
+                "question": "A posterior intercostal vein on the left side drains first into a vessel that crosses to the right to join the azygos vein. Which route is most consistent with the description?",
                 "options": {
                   "A": "Left posterior intercostal vein to internal thoracic vein to SVC",
                   "B": "Left posterior intercostal vein to pulmonary vein to left atrium",
@@ -11075,7 +11075,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B, as blood accumulates between the parietal and visceral layers of serous pericardium after a stab wound."
               },
               {
-                "question": "A learner argues that the right and left atria contract one after the other, followed by sequential contraction of the right then left ventricle. Which correction best reflects the lecture?",
+                "question": "A learner argues that the right and left atria contract one after the other, followed by sequential contraction of the right then left ventricle. Which correction is most accurate?",
                 "options": {
                   "A": "The right atrium contracts after both ventricles have ejected",
                   "B": "The left atrium contracts after the left ventricle has ejected",
@@ -11099,7 +11099,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C, as the left subclavian artery arises from the aortic arch without first passing through a brachiocephalic trunk."
               },
               {
-                "question": "A dissection view from above shows three large openings at the superior aspect of the heart. Which set best matches the vessels emphasized in the lecture?",
+                "question": "A dissection view from above shows three large openings at the superior aspect of the heart. Which set best matches the vessels?",
                 "options": {
                   "A": "Superior vena cava, inferior vena cava, and coronary sinus",
                   "B": "Superior vena cava, pulmonary trunk, and ascending aorta",
@@ -11123,7 +11123,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A, as the foramen ovale connects the right and left atria, while the ductus arteriosus connects the pulmonary trunk to the aortic arch."
               },
               {
-                "question": "A newborn's first breaths lead to closure of two fetal openings described in the lecture. Which adult structures result?",
+                "question": "A newborn's first breaths lead to closure of two fetal openings. Which adult structures result?",
                 "options": {
                   "A": "Ductus arteriosus and fossa ovalis",
                   "B": "Ligamentum arteriosum and foramen ovale",
@@ -11465,7 +11465,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The aortic sinuses are the structures that best describe the openings of the right and left coronary arteries near the aortic valve."
               },
               {
-                "question": "A right coronary artery is followed from the ascending aorta across the heart surface. Which course and branch pattern most closely matches the common arrangement taught in the lecture?",
+                "question": "A right coronary artery is followed from the ascending aorta across the heart surface. Which course and branch pattern most closely matches the common arrangement taught?",
                 "options": {
                   "A": "It enters the anterior interventricular groove and gives the circumflex branch",
                   "B": "It runs in the coronary sulcus, gives a right marginal branch, and gives the posterior interventricular branch",
@@ -11537,7 +11537,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A left-dominant pattern is described when the posterior interventricular branch arises from the left coronary artery system instead of the right."
               },
               {
-                "question": "Which criterion defines coronary dominance in the lecture?",
+                "question": "Which criterion defines coronary dominance?",
                 "options": {
                   "A": "Which coronary artery gives rise to the posterior interventricular branch",
                   "B": "Which ventricle has the greater myocardial thickness",
@@ -11561,7 +11561,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Right-dominance is common, present in roughly two-thirds of hearts, and means that the right marginal branch supplies the whole posterior interventricular groove."
               },
               {
-                "question": "In the lecture, arterial branches to the sinoatrial and atrioventricular nodes were described as variable. Which statement best reflects the typical pattern mentioned?",
+                "question": "Arterial branches to the sinoatrial and atrioventricular nodes were described as variable. Which statement best reflects the typical pattern mentioned?",
                 "options": {
                   "A": "They always arise from the left coronary artery",
                   "B": "They typically arise from right coronary vessels but not in all hearts",
@@ -11597,7 +11597,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Coronary arteries are functional end arteries, and the major consequence of an acute occlusion is that myocardium distal to the blockage receives insufficient blood supply."
               },
               {
-                "question": "A patient experiences chest pain after running for a bus, relieved after a short period of rest. Based on the lecture, which mechanism best explains the symptom?",
+                "question": "A patient experiences chest pain after running for a bus, relieved after a short period of rest. Which mechanism best explains the symptom?",
                 "options": {
                   "A": "Transient mismatch between myocardial oxygen demand and restricted coronary supply",
                   "B": "Sudden opening of the fossa ovalis during exertion",
@@ -11621,7 +11621,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Cardiac referred pain is typically described as occurring in the tip of the left shoulder and medial aspect of the left arm."
               },
               {
-                "question": "A catheter-based coronary angiogram is planned using an arterial approach. Which pathway best matches the lecture description?",
+                "question": "A catheter-based coronary angiogram is planned using an arterial approach. Which pathway best matches the description?",
                 "options": {
                   "A": "Femoral or brachial artery, proximal arterial course, ascending aorta, aortic sinuses, coronary arteries",
                   "B": "Femoral or brachial vein, inferior vena cava, right atrium, coronary sinus, coronary arteries",
@@ -11705,7 +11705,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The vein being traced along with the anterior interventricular branch and circumflex artery toward the posterior heart before joining the coronary sinus is the great cardiac vein."
               },
               {
-                "question": "Several small veins on the anterior surface of the right side of the heart are traced. Unlike most cardiac veins described in the lecture, they do not enter the coronary sinus. Where do they drain?",
+                "question": "Several small veins on the anterior surface of the right side of the heart are traced. Unlike most cardiac veins, they do not enter the coronary sinus. Where do they drain?",
                 "options": {
                   "A": "Left atrium",
                   "B": "Right ventricle",
@@ -11891,7 +11891,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The tricuspid valve prevents reflux into the right atrium, while the pulmonary valve prevents reflux into the left atrium."
               },
               {
-                "question": "A narrowed aortic valve leaves a larger volume of blood in the left ventricle after systole. Which long-term ventricular change was highlighted in the lecture as a possible consequence?",
+                "question": "A narrowed aortic valve leaves a larger volume of blood in the left ventricle after systole. Which long-term ventricular change was highlighted as a possible consequence?",
                 "options": {
                   "A": "Thinning of the left ventricular wall",
                   "B": "Dilatation of the right atrial appendage",
@@ -11915,7 +11915,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The normal anatomical spread of excitation is from the SA node, atrial myocardium, AV node, bundle branches, and then ventricles."
               },
               {
-                "question": "A pathological process destroys the sinoatrial node but spares the atrioventricular node. Which outcome is most consistent with the lecture?",
+                "question": "A pathological process destroys the sinoatrial node but spares the atrioventricular node. Which outcome is most consistent?",
                 "options": {
                   "A": "No ventricular contraction can occur",
                   "B": "Aortic valve closure sets the rhythm",
@@ -11927,7 +11927,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A slower nodal rhythm may maintain contractions when the sinoatrial node is destroyed but the atrioventricular node remains intact."
               },
               {
-                "question": "Which arterial supply was identified in the lecture as typically supplying the sinoatrial node?",
+                "question": "Which arterial supply was identified as typically supplying the sinoatrial node?",
                 "options": {
                   "A": "Circumflex branch of the left coronary artery",
                   "B": "Sinoatrial nodal branch of the right coronary artery",
@@ -11987,7 +11987,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The arrangement of ventricles promotes blood being pushed upward toward the outflow tracts during contraction."
               },
               {
-                "question": "A student claims the cardiac chambers contract as a simple linear chain: right atrium, right ventricle, left atrium, left ventricle. Which correction best fits the lecture?",
+                "question": "A student claims the cardiac chambers contract as a simple linear chain: right atrium, right ventricle, left atrium, left ventricle. Which correction is most accurate?",
                 "options": {
                   "A": "The right heart contracts throughout diastole, then the left heart contracts",
                   "B": "The left atrium contracts after both ventricles have finished systole",
@@ -12059,7 +12059,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option states that preganglionic parasympathetic fibres synapse in intrinsic ganglia near the heart wall, accurately describing the autonomic nervous system's role in regulating cardiac function."
               },
               {
-                "question": "Which statement best contrasts sympathetic and parasympathetic innervation of the heart as described in the lecture?",
+                "question": "Which statement best contrasts sympathetic and parasympathetic innervation of the heart?",
                 "options": {
                   "A": "Sympathetic fibres arise in the vagus; parasympathetic fibres arise in T1 to T5",
                   "B": "Sympathetic fibres synapse in intrinsic ganglia; parasympathetic fibres synapse in the chain",
@@ -12071,7 +12071,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option contrasts sympathetic and parasympathetic innervation of the heart by stating that sympathetic fibres use the chain and parasympathetic fibres use the vagus, accurately describing the autonomic nervous system's role in regulating cardiac function."
               },
               {
-                "question": "A drug increases sympathetic activity to the heart. Which physiological effect is most consistent with the lecture discussion?",
+                "question": "A drug increases sympathetic activity to the heart. Which physiological effect is most consistent?",
                 "options": {
                   "A": "Reduced heart rate due to vagal dominance",
                   "B": "Complete cessation of sinoatrial node activity",
@@ -12095,7 +12095,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option identifies T1 to T5 dermatomes as the spinal segments that receive visceral afferents from the heart, which are referred to the medial arm and upper thoracic chest wall due to shared spinal pathways."
               },
               {
-                "question": "A visceral pain fibre leaves the heart during myocardial ischaemia. Which route best matches the pathway emphasized in the lecture?",
+                "question": "A visceral pain fibre leaves the heart during myocardial ischaemia. Which route best matches the pathway?",
                 "options": {
                   "A": "Heart, vagus nerve, brainstem nucleus, thalamus",
                   "B": "Heart, phrenic nerve, cervical plexus, dorsal horn",
@@ -12155,7 +12155,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option describes the pathway of visceral afferents from the heart, involving the white communicating ramus, accurately describing the neural pathway involved in cardiac pain perception."
               },
               {
-                "question": "Which observation would most strongly suggest a murmur rather than a normal heart sound in this lecture's framework?",
+                "question": "Which observation would most strongly suggest a murmur rather than a normal heart sound in the framework?",
                 "options": {
                   "A": "Audible turbulence produced by disrupted blood flow",
                   "B": "A sound produced by closure of atrioventricular valves",
@@ -12329,7 +12329,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The carina at the transverse thoracic plane indicates the trachea lies in the anterior mediastinum, inferior to the sternal angle."
               },
               {
-                "question": "A fatty structure is encountered immediately deep to the removed anterior chest wall of an adult donor. Based on the lecture, which interpretation is most likely?",
+                "question": "A fatty structure is encountered immediately deep to the removed anterior chest wall of an adult donor. Which interpretation is most likely?",
                 "options": {
                   "A": "Persistent anterior mediastinal lymph node chain",
                   "B": "Atrophied thymic remnant in the anterior mediastinum",
@@ -12341,7 +12341,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A fatty structure immediately deep to the removed anterior chest wall is most likely an atrophied thymic remnant in the anterior mediastinum."
               },
               {
-                "question": "Which set contains structures most characteristic of the posterior mediastinum as taught in this lecture?",
+                "question": "Which set contains structures most characteristic of the posterior mediastinum?",
                 "options": {
                   "A": "Ascending aorta, pulmonary trunk, heart, phrenic nerves",
                   "B": "Thymus lobes, internal thoracic branches, sternopericardial ligaments",
@@ -12365,7 +12365,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A vascular clamp on the descending aorta just after the arch ends is located in the posterior mediastinum, just left of the midline."
               },
               {
-                "question": "Which list contains branches of the thoracic aorta emphasized in the lecture?",
+                "question": "Which list contains branches of the thoracic aorta?",
                 "options": {
                   "A": "Anterior intercostal, inferior phrenic, pericardiacophrenic, thymic branches",
                   "B": "Coronary, bronchial, superior phrenic, internal thoracic branches",
@@ -12437,7 +12437,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The thoracic aorta displaces the oesophagus to the right, causing it to be slightly deviated to the right in the posterior mediastinum."
               },
               {
-                "question": "Which arterial source supplies the thoracic oesophagus according to the lecture?",
+                "question": "Which arterial source supplies the thoracic oesophagus?",
                 "options": {
                   "A": "Internal thoracic branches from the subclavian artery",
                   "B": "Oesophageal branches from the thoracic aorta",
@@ -12485,7 +12485,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Sympathetic fibres from about T2-T6 reach the oesophageal plexus via cardiac branches, not preganglionic fibres from sacral segments or postganglionic fibres from cervical ganglia."
               },
               {
-                "question": "A gastroscope meets narrowing in the thoracic oesophagus. Which set lists the constricting structures emphasized in the lecture?",
+                "question": "A gastroscope meets narrowing in the thoracic oesophagus. Which set lists the constricting structures?",
                 "options": {
                   "A": "Aortic arch, left main bronchus, diaphragm",
                   "B": "Pulmonary trunk, right main bronchus, central tendon",
@@ -12545,7 +12545,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The thoracic duct courses from cisterna chyli to the left venous angle, passing anterior to lower thoracic vertebrae and crossing left near the sternal angle."
               },
               {
-                "question": "In a donor, the thoracic duct is difficult to identify. Which dissection strategy best follows the lecture?",
+                "question": "In a donor, the thoracic duct is difficult to identify. Which dissection strategy is best?",
                 "options": {
                   "A": "Trace the phrenic nerve along the fibrous pericardium and look medial to it",
                   "B": "Open the pulmonary trunk and follow its branches into the lung root",
@@ -12557,7 +12557,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Displacing the oesophagus and azygos veins allows for better identification of the thoracic duct in dissection."
               },
               {
-                "question": "Which statement best captures the lecture's treatment of the sympathetic trunks in relation to the posterior mediastinum?",
+                "question": "Which statement best captures the treatment of the sympathetic trunks in relation to the posterior mediastinum?",
                 "options": {
                   "A": "They are within the fibrous pericardium and form the middle mediastinal boundary",
                   "B": "They lie lateral to the vertebral bodies but were included with posterior mediastinal structures for teaching",
@@ -12569,7 +12569,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The sympathetic trunks are included with posterior mediastinal structures for teaching, lying lateral to the vertebral bodies."
               },
               {
-                "question": "Which comparison correctly distinguishes two thoracic sympathetic outflow routes described in the lecture?",
+                "question": "Which comparison correctly distinguishes two thoracic sympathetic outflow routes?",
                 "options": {
                   "A": "Cardiopulmonary splanchnics carry postganglionic fibres to thoracic plexuses; greater/lesser/least splanchnics carry preganglionic fibres to abdominal prevertebral ganglia",
                   "B": "Cardiopulmonary splanchnics carry preganglionic fibres to abdominal ganglia; greater/lesser/least splanchnics carry postganglionic fibres to thoracic plexuses",
@@ -12581,7 +12581,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Cardiopulmonary splanchnics carry postganglionic fibres to thoracic plexuses, while greater/lesser/least splanchnics carry preganglionic fibres to abdominal prevertebral ganglia."
               },
               {
-                "question": "Which thoracic spinal segment contributions to the abdominopelvic splanchnic nerves match the lecture?",
+                "question": "Which thoracic spinal segment contributions to the abdominopelvic splanchnic nerves are most accurate?",
                 "options": {
                   "A": "Greater T1-T4; lesser T5-T9; least T10-T12",
                   "B": "Greater T2-T6; lesser T7-T9; least T10-T11",
@@ -12677,7 +12677,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The oesophagus enters the superior mediastinum from the neck and continues into the posterior mediastinum before passing through the oesophageal hiatus, not beginning in the anterior or middle mediastinum."
               },
               {
-                "question": "A structure passes through the oesophageal hiatus together with the oesophagus and continues into the abdomen. Which structure fits this description from the lecture?",
+                "question": "A structure passes through the oesophageal hiatus together with the oesophagus and continues into the abdomen. Which structure fits this description?",
                 "options": {
                   "A": "Thoracic duct",
                   "B": "Azygos vein",
@@ -12738,7 +12738,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Diffusion moves molecules through a medium, whereas bulk flow moves the medium itself, distinguishing passive diffusion from bulk flow in respiratory gas transport."
               },
               {
-                "question": "A gas moves from alveolar air into pulmonary capillary blood. According to the diffusion relationship discussed in the lecture, which change would most increase the rate of diffusion if permeability is unchanged?",
+                "question": "A gas moves from alveolar air into pulmonary capillary blood. According to the diffusion relationship, which change would most increase the rate of diffusion if permeability is unchanged?",
                 "options": {
                   "A": "Increasing diffusion barrier thickness",
                   "B": "Increasing the alveolar-to-blood partial pressure difference",
@@ -12786,7 +12786,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "If resistance doubles while maintaining the same pressure difference, the new flow is 2 L/min due to increased resistance."
               },
               {
-                "question": "A vessel radius is reduced by half with viscosity, length, and pressure difference held constant. Which outcome follows from the resistance equation in the lecture?",
+                "question": "A vessel radius is reduced by half with viscosity, length, and pressure difference held constant. Which outcome follows from the resistance equation?",
                 "options": {
                   "A": "Resistance increases 2-fold and flow falls 2-fold.",
                   "B": "Resistance increases 16-fold and flow falls 16-fold.",
@@ -12810,7 +12810,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Increasing the arteriole's radius by 20% increases flow through that arteriole to 207% of baseline due to increased cross-sectional area."
               },
               {
-                "question": "Which vessel type is emphasized in the lecture as the primary site for regulating both total peripheral resistance and regional blood flow?",
+                "question": "Which vessel type is the primary site for regulating both total peripheral resistance and regional blood flow?",
                 "options": {
                   "A": "Large arteries",
                   "B": "Capillaries",
@@ -12846,7 +12846,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A hormone constricting systemic arterioles by increasing smooth muscle tone increases total peripheral resistance and arterial pressure, consistent with Darcy's law."
               },
               {
-                "question": "An investigator gives adrenaline to two isolated arterioles from different organs. One constricts and the other dilates. Which explanation best fits the lecture?",
+                "question": "An investigator gives adrenaline to two isolated arterioles from different organs. One constricts and the other dilates. Which explanation is most accurate?",
                 "options": {
                   "A": "The arterioles express different adrenoceptor subtypes.",
                   "B": "The constricting arteriole has no smooth muscle in its wall.",
@@ -12858,7 +12858,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Arterioles expressing different adrenoceptor subtypes can cause different responses to the same agonist, such as constricting or dilating, depending on their receptor profile."
               },
               {
-                "question": "Which set contains only vasoconstrictor influences identified in the lecture?",
+                "question": "Which set contains only vasoconstrictor influences identified?",
                 "options": {
                   "A": "Histamine, atrial natriuretic peptide, flow-induced dilation",
                   "B": "Adrenaline at beta 2 receptors, histamine, atrial natriuretic peptide",
@@ -12870,7 +12870,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The set containing only vasoconstrictor influences includes noradrenaline, angiotensin II, and antidiuretic hormone."
               },
               {
-                "question": "Which set contains only vasodilator influences identified in the lecture?",
+                "question": "Which set contains only vasodilator influences identified?",
                 "options": {
                   "A": "Noradrenaline, angiotensin II, antidiuretic hormone",
                   "B": "Angiotensin II, histamine, perfusion pressure",
@@ -12942,7 +12942,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The vascular beds are in parallel, allowing regional resistances to be adjusted independently and maintaining blood flow to each bed."
               },
               {
-                "question": "During exercise, cardiac output doubles. In the lecture example, muscle blood flow increases markedly while brain flow is maintained and kidney flow falls. Which pattern of arteriolar change best explains this redistribution?",
+                "question": "During exercise, cardiac output doubles. Example, muscle blood flow increases markedly while brain flow is maintained and kidney flow falls. Which pattern of arteriolar change best explains this redistribution?",
                 "options": {
                   "A": "Muscle constriction, brain dilation, kidney dilation",
                   "B": "Muscle constriction, brain constriction, kidney dilation",
@@ -13014,7 +13014,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Deformable red blood cells reduce effective viscosity in narrow vessels, preventing obstruction during capillary transit."
               },
               {
-                "question": "A disease makes red blood cells more rigid. Which hemodynamic consequence is most consistent with the lecture?",
+                "question": "A disease makes red blood cells more rigid. Which hemodynamic consequence is most consistent?",
                 "options": {
                   "A": "Decreased viscous drag and decreased total peripheral resistance",
                   "B": "Decreased viscous drag and increased flow through capillaries",
@@ -13050,7 +13050,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Turbulent flow across a damaged valve is analogous to the fluid dynamic change caused by a narrowed airway producing a wheeze."
               },
               {
-                "question": "Increased contact between blood components and endothelium during turbulent flow can have which additional consequence mentioned in the lecture?",
+                "question": "Increased contact between blood components and endothelium during turbulent flow can have which additional consequence?",
                 "options": {
                   "A": "Suppression of all clotting mechanisms",
                   "B": "Conversion of arteries into veins",
@@ -13122,7 +13122,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Increasing resistance does not always increase blood flow, as resistance affects pressure difference and can decrease flow in a vascular system."
               },
               {
-                "question": "Which physiological variables are described as the key homeostatic targets of cardiovascular and respiratory regulation in this lecture?",
+                "question": "Which physiological variables are described as the key homeostatic targets of cardiovascular and respiratory regulation?",
                 "options": {
                   "A": "Venous pressure and plasma glucose concentration",
                   "B": "Stroke volume and capillary hydrostatic pressure",
@@ -13170,7 +13170,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Oxygen movement from atmosphere to respiring tissue involves diffusion into lungs, bulk flow across alveoli, diffusion through arteries, bulk flow into mitochondria."
               },
               {
-                "question": "An ACE inhibitor lowers formation of angiotensin II. Based on the lecture's description of angiotensin II, which hemodynamic effect would be expected?",
+                "question": "An ACE inhibitor lowers formation of angiotensin II. Which hemodynamic effect would be expected?",
                 "options": {
                   "A": "Increased arteriolar constriction, increased total peripheral resistance, increased blood pressure",
                   "B": "Increased arteriolar dilation, increased total peripheral resistance, decreased blood pressure",
@@ -13236,7 +13236,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Increased vagal acetylcholine effect on sinoatrial nodal cells accounts for the physiological bradycardia during sleep."
               },
               {
-                "question": "In an experiment, atropine is administered to block parasympathetic input to the heart. Which response is most consistent with the lecture's model of resting autonomic tone?",
+                "question": "In an experiment, atropine is administered to block parasympathetic input to the heart. Which response is most consistent with the model of resting autonomic tone?",
                 "options": {
                   "A": "Heart rate falls because sympathetic tone is unopposed",
                   "B": "Heart rate is unchanged because the sinoatrial node is myogenic",
@@ -13248,7 +13248,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Removing resting vagal braking results in an increased heart rate, consistent with the lecture's model of resting autonomic tone."
               },
               {
-                "question": "A patient begins mild exercise and heart rate rises from 72 to 92 beats/min. According to the lecture, which autonomic change is most likely responsible for most of this rise?",
+                "question": "A patient begins mild exercise and heart rate rises from 72 to 92 beats/min. Which autonomic change is most likely responsible for most of this rise?",
                 "options": {
                   "A": "Withdrawal of vagal tone to the sinoatrial node",
                   "B": "Maximal sympathetic activation of ventricular myocardium",
@@ -13308,7 +13308,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Anisotropic conduction describes the property of ventricular fibres conducting impulses more readily along their length than across their width."
               },
               {
-                "question": "In a standard limb lead II arrangement as described in the lecture, which electrode placement best represents the recording axis?",
+                "question": "In a standard limb lead II arrangement which electrode placement best represents the recording axis?",
                 "options": {
                   "A": "Left arm to right arm",
                   "B": "Right arm to left arm",
@@ -13512,7 +13512,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The horizontal width of a left ventricular pressure-volume loop represents the stroke volume."
               },
               {
-                "question": "A catheter-derived pressure-volume loop encloses a larger area during one beat than during a previous beat. Which interpretation best matches the lecture?",
+                "question": "A catheter-derived pressure-volume loop encloses a larger area during one beat than during a previous beat. Which interpretation is most accurate?",
                 "options": {
                   "A": "The sinoatrial node is firing more slowly",
                   "B": "The atrioventricular node is filtering more impulses",
@@ -13572,7 +13572,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The activation of muscarinic receptors on sinoatrial nodal cells decreases cyclic AMP and increases potassium channel opening, leading to negative chronotropic effects."
               },
               {
-                "question": "Which statement best distinguishes a myogenic human heart from a neurogenic lobster heart as presented in the lecture?",
+                "question": "Which statement best distinguishes a myogenic human heart from a neurogenic lobster heart?",
                 "options": {
                   "A": "The human heartbeat originates in an external cardiac ganglion",
                   "B": "The human heartbeat originates in specialised cardiac muscle tissue",
@@ -14232,7 +14232,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is B because beta-2 receptors stimulate smooth muscle relaxation in response to adrenaline, leading to vasodilation rather than vasoconstriction."
               },
               {
-                "question": "During localized inflammation, histamine and bradykinin increase blood flow in the affected skin. Which sequence best describes the lecture mechanism?",
+                "question": "During localized inflammation, histamine and bradykinin increase blood flow in the affected skin. Which sequence best describes the mechanism?",
                 "options": {
                   "A": "Histamine and bradykinin activate platelet receptors, causing thromboxane release and arteriolar dilation.",
                   "B": "Histamine and bradykinin stimulate smooth muscle beta-1 receptors, increasing cyclic AMP and dilation.",
@@ -14256,7 +14256,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is A because thromboxane mediates vasoconstriction near activated platelets, contributing to local haemostasis."
               },
               {
-                "question": "A skeletal muscle is stimulated to contract repeatedly. Metabolites accumulate around nearby arterioles and blood flow increases. Which mechanism is most consistent with the lecture?",
+                "question": "A skeletal muscle is stimulated to contract repeatedly. Metabolites accumulate around nearby arterioles and blood flow increases. Which mechanism is most consistent?",
                 "options": {
                   "A": "Metabolites depolarize smooth muscle and open voltage-gated calcium channels.",
                   "B": "Metabolites activate endothelial endothelin release and increase calcium influx.",
@@ -14532,7 +14532,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Increasing pressure difference and decreasing resistance would most increase local blood flow according to the Flow = pressure difference / resistance equation."
               },
               {
-                "question": "Two arterioles have the same pressure difference. Arteriole X dilates substantially while arteriole Y remains unchanged. Which inference best follows from the lecture emphasis on vascular resistance?",
+                "question": "Two arterioles have the same pressure difference. Arteriole X dilates substantially while arteriole Y remains unchanged. Which inference about vascular resistance is most accurate?",
                 "options": {
                   "A": "Flow through X falls because radius is the least important determinant of resistance.",
                   "B": "Flow through X is unchanged because flow depends only on cardiac output.",
@@ -14580,7 +14580,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Mechanoreceptor activation by increased shear or flow at the endothelial surface is the most likely initiating endothelial stimulus for flow-induced vasodilation."
               },
               {
-                "question": "Which combination correctly pairs mediator with its dominant vascular action from the lecture?",
+                "question": "Which combination correctly pairs mediator with its dominant vascular action?",
                 "options": {
                   "A": "Adenosine, coronary vasoconstriction; endothelin, smooth muscle relaxation.",
                   "B": "Angiotensin II, vasoconstriction; ANP, vasodilation.",
@@ -14694,7 +14694,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Discontinuous endothelium with large gaps allows erythrocytes to pass through while restricting larger molecules like proteins and peptides."
               },
               {
-                "question": "In the lecture model, most water movement across a continuous capillary wall occurs through which route?",
+                "question": "Model, most water movement across a continuous capillary wall occurs through which route?",
                 "options": {
                   "A": "Vesicular transcytosis through endothelial cells",
                   "B": "Carrier-mediated transport through glucose transporters",
@@ -14706,7 +14706,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Paracellular movement between endothelial cells is the primary route for water movement across continuous capillary walls, as fenestrae are absent or very small."
               },
               {
-                "question": "Which permeability pattern best matches the lecture's description of a continuous endothelial layer?",
+                "question": "Which permeability pattern best matches the description of a continuous endothelial layer?",
                 "options": {
                   "A": "Albumin high, oxygen low, sodium low",
                   "B": "Oxygen high, sodium similar to water, albumin very low",
@@ -14718,7 +14718,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Oxygen high, sodium similar to water, and albumin very low describes a permeability pattern typical of continuous endothelial layers with minimal selective permeability."
               },
               {
-                "question": "Which statement best describes the endothelial glycocalyx as discussed in the lecture?",
+                "question": "Which statement best describes the endothelial glycocalyx as?",
                 "options": {
                   "A": "It is a smooth basement membrane that replaces endothelial tight junctions.",
                   "B": "It is a venous valve layer that prevents retrograde lymph flow.",
@@ -14778,7 +14778,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Decreased plasma oncotic pressure favouring filtration is a direct cause of oedema due to reduced absorption and increased filtration of fluid from the interstitial space."
               },
               {
-                "question": "A patient with congestive heart failure develops pitting ankle oedema despite not having high systemic arterial pressure. Which mechanism best explains the oedema in the lecture framework?",
+                "question": "A patient with congestive heart failure develops pitting ankle oedema despite not having high systemic arterial pressure. Which mechanism best explains the oedema framework?",
                 "options": {
                   "A": "Reduced arteriolar resistance lowering capillary pressure",
                   "B": "Reduced venous pressure increasing capillary reabsorption",
@@ -14802,7 +14802,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Raised venous pressure increases capillary filtration, causing fluid to leak from the capillaries into the interstitial space and leading to swelling."
               },
               {
-                "question": "A bee sting causes a local wheal that improves after antihistamine treatment. Which change is most consistent with the lecture's explanation?",
+                "question": "A bee sting causes a local wheal that improves after antihistamine treatment. Which change is most consistent with the explanation?",
                 "options": {
                   "A": "Increased endothelial leakiness from inflammatory mediator action",
                   "B": "Increased plasma albumin synthesis from hepatic stimulation",
@@ -14850,7 +14850,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Excess interstitial fluid that can be displaced is a characteristic feature of oedema, allowing it to slowly refill with fluid after pressure is applied."
               },
               {
-                "question": "Which size comparison from the lecture explains why erythrocytes may need to deform while passing through capillaries?",
+                "question": "Which size comparison explains why erythrocytes may need to deform while passing through capillaries?",
                 "options": {
                   "A": "Capillaries are 50-100 micrometres wide; erythrocytes are about 20 micrometres.",
                   "B": "Capillaries are 3-10 micrometres wide; erythrocytes are about 7 micrometres.",
@@ -14862,7 +14862,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Capillaries are 3-10 micrometres wide, while erythrocytes are about 7 micrometres in diameter, requiring deformation for passage through the capillary wall."
               },
               {
-                "question": "A researcher asks why dense capillary networks are needed in most tissues. Which distance best matches the lecture's description of average capillary proximity to cells?",
+                "question": "A researcher asks why dense capillary networks are needed in most tissues. Which distance best matches the description of average capillary proximity to cells?",
                 "options": {
                   "A": "1-5 micrometres from any cell",
                   "B": "10-20 micrometres from any cell",
@@ -14874,7 +14874,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Dense capillary networks are needed to maintain close proximity of capillaries to cells, allowing for efficient exchange of nutrients and waste products."
               },
               {
-                "question": "Which pair of daily fluid movements best reflects the lecture's quantitative summary of microcirculatory water handling?",
+                "question": "Which pair of daily fluid movements best reflects the quantitative summary of microcirculatory water handling?",
                 "options": {
                   "A": "4,000 L crosses capillaries; 80,000 L is lost to lymph",
                   "B": "80 L crosses capillaries; 2-4 L is lost in urine",
@@ -14886,7 +14886,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The daily fluid movements reflect the quantitative summary of microcirculatory water handling, with 80,000 L crossing capillaries and 2-4 L being net filtered."
               },
               {
-                "question": "Which condition must occur for oedema to develop in the lecture's model?",
+                "question": "Which condition must occur for oedema to develop in the model?",
                 "options": {
                   "A": "Absorption exceeds filtration and lymphatic flow.",
                   "B": "Lymphatic flow exceeds filtration and absorption.",
@@ -14898,7 +14898,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Oedema develops when filtration exceeds absorption and lymphatic removal, leading to an accumulation of fluid in the interstitial space."
               },
               {
-                "question": "A person stands upright for a prolonged period, increasing hydrostatic pressure in the feet. In the lecture, why do the feet not necessarily become markedly oedematous in normal physiology?",
+                "question": "A person stands upright for a prolonged period, increasing hydrostatic pressure in the feet. Why do the feet not necessarily become markedly oedematous in normal physiology?",
                 "options": {
                   "A": "Peripheral vasoconstriction lowers capillary pressure.",
                   "B": "Plasma albumin rapidly increases in the feet.",
@@ -14934,7 +14934,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Albumin contributes substantially to plasma oncotic pressure due to its poor permeability, while sodium contributes less despite being abundant in plasma."
               },
               {
-                "question": "Which Starling equation form best matches the lecture's description of net fluid movement across capillary endothelium?",
+                "question": "Which Starling equation form best matches the description of net fluid movement across capillary endothelium?",
                 "options": {
                   "A": "Jv = Kf[(Pi - Pc) - sigma(pi_i - pi_c)]",
                   "B": "Jv = Kf[(Pc - Pi) - sigma(pi_c - pi_i)]",
@@ -14970,7 +14970,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option explains how protein loss leads to decreased plasma oncotic pressure, increasing filtration across capillary endothelium."
               },
               {
-                "question": "Which combination best identifies the four broad oedema mechanisms emphasised in the lecture?",
+                "question": "Which combination best identifies the four broad oedema mechanisms emphasised?",
                 "options": {
                   "A": "Raised hydrostatic pressure; leaky endothelium; low plasma oncotic pressure; lymphatic obstruction",
                   "B": "Low hydrostatic pressure; tight endothelium; high plasma oncotic pressure; lymphatic dilation",
@@ -14982,7 +14982,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct sequence lists the four broad oedema mechanisms emphasized in the lecture, including raised hydrostatic pressure and leaky endothelium."
               },
               {
-                "question": "In the lecture, what is the main role of lymphatic capillary valves?",
+                "question": "What is the main role of lymphatic capillary valves?",
                 "options": {
                   "A": "To increase capillary hydrostatic pressure during filtration",
                   "B": "To permit erythrocytes to return from tissue to venous blood",
@@ -15006,7 +15006,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option explains how skeletal muscle contraction and lymphatic smooth muscle activity help propel lymph through lymphatic vessels."
               },
               {
-                "question": "Where does excess lymphatic fluid ultimately return to the venous circulation according to the lecture?",
+                "question": "Where does excess lymphatic fluid ultimately return to the venous circulation?",
                 "options": {
                   "A": "Femoral vein",
                   "B": "Hepatic portal vein",
@@ -15030,7 +15030,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct sequence lists the four broad oedema mechanisms emphasized in the lecture, including raised hydrostatic pressure and leaky endothelium."
               },
               {
-                "question": "Which statement best distinguishes filtration from absorption in the lecture's terminology?",
+                "question": "Which statement best distinguishes filtration from absorption in the terminology?",
                 "options": {
                   "A": "Filtration leaves capillaries; absorption returns into capillaries.",
                   "B": "Filtration enters cells; absorption enters lymphatic valves.",
@@ -15054,7 +15054,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option explains how peripheral vasodilation raises capillary hydrostatic pressure, favoring filtration and leading to oedema."
               },
               {
-                "question": "The kidney is described as having a capillary environment that favours filtration. Which feature from the lecture contributes to this?",
+                "question": "The kidney is described as having a capillary environment that favours filtration. Which feature contributes to this?",
                 "options": {
                   "A": "High interstitial protein concentration around renal capillaries",
                   "B": "Complete absence of capillary hydrostatic pressure in the kidney",
@@ -15090,7 +15090,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option states that increased Kf with unchanged pressures leads to greater outward fluid flux when the driving pressure is outward."
               },
               {
-                "question": "Which capillary type and location pairing is most consistent with the lecture?",
+                "question": "Which capillary type and location pairing is most consistent?",
                 "options": {
                   "A": "Continuous capillary - bone marrow",
                   "B": "Sinusoidal capillary - blood-brain barrier",
@@ -15204,7 +15204,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option describes the venoarteriolar axon reflex, where venous stretch causes constriction of terminal feeding arterioles."
               },
               {
-                "question": "A tall medical student feels faint while standing still in a queue. Which maneuver would most rapidly improve venous return by using the mechanism emphasized in the lecture?",
+                "question": "A tall medical student feels faint while standing still in a queue. Which maneuver would most rapidly improve venous return by using the mechanism?",
                 "options": {
                   "A": "Repeatedly contract the calf and thigh muscles",
                   "B": "Hold the breath after a deep inspiration",
@@ -15264,7 +15264,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because cerebrospinal fluid shifts down the spine, lowering intracranial pressure and helping to keep cerebral veins patent during orthostasis."
               },
               {
-                "question": "In the lecture's head-up tilt example, the subject developed visual loss and a mean arterial pressure near 35 mmHg after several minutes. Which feature of the setup made syncope more likely?",
+                "question": "In the head-up tilt example, the subject developed visual loss and a mean arterial pressure near 35 mmHg after several minutes. Which feature of the setup made syncope more likely?",
                 "options": {
                   "A": "Passive tilt prevented skeletal muscle pumping",
                   "B": "Supine posture reduced central blood volume",
@@ -15276,7 +15276,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because passive tilt prevented skeletal muscle pumping, leading to reduced venous return and increased risk of syncope."
               },
               {
-                "question": "A patient is about to receive a drug known to provoke a Bezold-Jarisch-like vasovagal response. Which positioning plan best follows the lecture's physiological reasoning?",
+                "question": "A patient is about to receive a drug known to provoke a Bezold-Jarisch-like vasovagal response. Which positioning plan best follows the physiological reasoning?",
                 "options": {
                   "A": "Stand the patient with active leg movements",
                   "B": "Sit the patient upright with the neck flexed",
@@ -15288,7 +15288,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because keeping the patient horizontal and be ready to elevate the legs helps maintain baroreceptor firing and reduces the risk of vasovagal response."
               },
               {
-                "question": "A patient after a road traffic collision is pale, tachycardic, thirsty, and confused, but has no obvious external bleeding. Which finding would most strongly fit concealed haemorrhage as discussed in the lecture?",
+                "question": "A patient after a road traffic collision is pale, tachycardic, thirsty, and confused, but has no obvious external bleeding. Which finding would most strongly fit concealed haemorrhage as?",
                 "options": {
                   "A": "Superficial finger laceration with slow oozing",
                   "B": "Femoral shaft fracture with expanding thigh swelling",
@@ -15300,7 +15300,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because a femoral shaft fracture with expanding thigh swelling can lead to concealed haemorrhage, which may not be immediately apparent."
               },
               {
-                "question": "Which statement best defines circulatory shock in the lecture's framework?",
+                "question": "Which statement best defines circulatory shock in the framework?",
                 "options": {
                   "A": "Any state in which arterial pressure is unmeasurable",
                   "B": "Any haemorrhage involving more than 10% of blood volume",
@@ -15312,7 +15312,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because circulatory shock is defined as inadequate tissue perfusion for metabolic needs, leading to organ dysfunction and failure."
               },
               {
-                "question": "A 70 kg adult loses approximately 10% of blood volume during donation. Which clinical course best matches the lecture?",
+                "question": "A 70 kg adult loses approximately 10% of blood volume during donation. Which clinical course is most accurate?",
                 "options": {
                   "A": "Immediate irreversible shock due to low haemoglobin",
                   "B": "Severe shock requiring urgent transfusion within minutes",
@@ -15336,7 +15336,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because rapid 30% loss can be fatal, whereas slower larger losses may be tolerated due to the body's adaptive mechanisms."
               },
               {
-                "question": "Which pairing of receptor type and main monitored region is most consistent with the lecture?",
+                "question": "Which pairing of receptor type and main monitored region is most consistent?",
                 "options": {
                   "A": "High-pressure receptors: atria; low-pressure receptors: carotid sinus",
                   "B": "High-pressure receptors: pulmonary vessels; low-pressure receptors: aortic arch",
@@ -15372,7 +15372,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because increased sympathetic drive and reduced parasympathetic drive are expected early in the response to acute haemorrhage."
               },
               {
-                "question": "An animal is haemorrhaged after pharmacological beta blockade. Which outcome best matches the lecture's experimental point?",
+                "question": "An animal is haemorrhaged after pharmacological beta blockade. Which outcome best matches the experimental point?",
                 "options": {
                   "A": "Survival improves because tachycardia wastes oxygen",
                   "B": "Survival is unchanged because vasopressin replaces sympathetic tone",
@@ -15420,7 +15420,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because preserving heart and brain perfusion while reducing splanchnic and renal flow is the most adaptive redistribution pattern over the short term."
               },
               {
-                "question": "Which blood-loss pattern best matches the lecture's pressure-output curve?",
+                "question": "Which blood-loss pattern best matches the pressure-output curve?",
                 "options": {
                   "A": "A 5% loss causes immediate collapse of cardiac output",
                   "B": "A 10-15% loss causes no compensation and severe hypotension",
@@ -15480,7 +15480,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because haemoglobin concentration is initially near normal, then diluted over subsequent days after acute haemorrhage."
               },
               {
-                "question": "Following a moderate haemorrhage, which recovery sequence best matches the lecture?",
+                "question": "Following a moderate haemorrhage, Which recovery sequence is most accurate?",
                 "options": {
                   "A": "Red cell mass in 3 days; plasma proteins in 4 weeks; volume in 2 months",
                   "B": "Haemoglobin in 1 day; blood volume in 4 weeks; proteins in 6 weeks",
@@ -15504,7 +15504,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because splenic contraction with increased platelet and some red cell release is part of sympathetic activation during haemorrhagic shock."
               },
               {
-                "question": "Which scenario best represents non-progressive shock as discussed in the lecture?",
+                "question": "Which scenario best represents non-progressive shock as?",
                 "options": {
                   "A": "Mild blood loss with compensatory recovery without transfusion",
                   "B": "Thirty percent blood loss with delayed irreversible organ ischaemia",
@@ -15516,7 +15516,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because mild blood loss with compensatory recovery without transfusion represents non-progressive shock as discussed in the lecture."
               },
               {
-                "question": "A trauma patient loses more than 30% of blood volume rapidly. After a brief partial improvement, blood pressure begins to fall again. What is the most important intervention implied by the lecture?",
+                "question": "A trauma patient loses more than 30% of blood volume rapidly. After a brief partial improvement, blood pressure begins to fall again. What is the most important intervention?",
                 "options": {
                   "A": "Wait for renal water retention to restore volume",
                   "B": "Give a beta blocker to prevent tachycardia",
@@ -15564,7 +15564,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because endothelial damage and protein loss reduce oncotic retention of fluid, leading to oedema despite blood loss."
               },
               {
-                "question": "A bystander keeps an unconscious fainting passenger upright for several minutes. Why is this dangerous according to the lecture?",
+                "question": "A bystander keeps an unconscious fainting passenger upright for several minutes. Why is this dangerous?",
                 "options": {
                   "A": "Upright posture prevents the normal horizontal restoration of cerebral perfusion",
                   "B": "Upright posture increases intracranial pressure enough to compress arteries",
@@ -15576,7 +15576,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because upright posture prevents the normal horizontal restoration of cerebral perfusion, which can lead to brain injury or death."
               },
               {
-                "question": "Which set of findings best distinguishes POTS-like dysregulation from a normal orthostatic response in the lecture?",
+                "question": "Which set of findings best distinguishes POTS-like dysregulation from a normal orthostatic response?",
                 "options": {
                   "A": "Bradycardia, vasodilation, and increased cerebral blood flow",
                   "B": "Tachycardia, absent effective vasoconstriction, and poor venous return increase",
@@ -15630,7 +15630,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because haematopoietic stem cells have self-renewal and multilineage potential, allowing them to reconstitute all blood cell types over the long term."
               },
               {
-                "question": "A fetus is assessed at 8 months of gestation. Based on the developmental timing described in the lecture, which site should be the overriding location for haematopoiesis?",
+                "question": "A fetus is assessed at 8 months of gestation. Based on the developmental timing, which site should be the overriding location for haematopoiesis?",
                 "options": {
                   "A": "Bone marrow",
                   "B": "Yolk sac blood islands",
@@ -15726,7 +15726,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because epoetin directly replaces the missing physiological signal in patients with advanced chronic kidney disease."
               },
               {
-                "question": "A menstruating patient has anaemia due to chronic blood loss and depleted iron stores. Which treatment best matches the mechanism described in the lecture?",
+                "question": "A menstruating patient has anaemia due to chronic blood loss and depleted iron stores. Which treatment best matches the mechanism?",
                 "options": {
                   "A": "Vitamin B12 to restore intrinsic-factor secretion",
                   "B": "Folic acid to reverse methotrexate toxicity",
@@ -15738,7 +15738,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because iron salts replace the substrate for haemoglobin production, treating anaemia due to chronic blood loss and depleted iron stores."
               },
               {
-                "question": "A patient receiving methotrexate develops features of impaired red-cell maturation. Which therapy is most appropriate for the deficiency state highlighted in the lecture?",
+                "question": "A patient receiving methotrexate develops features of impaired red-cell maturation. Which therapy is most appropriate for the deficiency state highlighted?",
                 "options": {
                   "A": "Epoetin",
                   "B": "Anti-D prophylaxis",
@@ -15750,7 +15750,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because folic acid is used to reverse methotrexate toxicity in patients with impaired red-cell maturation."
               },
               {
-                "question": "A patient undergoes gastric surgery that removes the site of intrinsic-factor production. Which prophylactic therapy is most appropriate to prevent the anaemia discussed in the lecture?",
+                "question": "A patient undergoes gastric surgery that removes the site of intrinsic-factor production. Which prophylactic therapy is most appropriate to prevent the anaemia?",
                 "options": {
                   "A": "Oral iron salts",
                   "B": "Folic acid",
@@ -15822,7 +15822,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Anti-D is usually absent until exposure to D-positive red cells, as the RhD antigen is not present on rhesus-negative red cells."
               },
               {
-                "question": "A rhesus-negative woman delivers a rhesus-positive infant, and fetal red cells enter her circulation. Which later event creates the main fetal risk described in the lecture?",
+                "question": "A rhesus-negative woman delivers a rhesus-positive infant, and fetal red cells enter her circulation. Which later event creates the main fetal risk?",
                 "options": {
                   "A": "First-trimester folate deficiency causing maternal megaloblastosis",
                   "B": "Maternal platelets binding fetal fibrin during delivery",
@@ -15834,7 +15834,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Maternal anti-D response damaging a subsequent rhesus-positive fetus is the main fetal risk described in the lecture, as it can lead to hemolytic disease of the newborn."
               },
               {
-                "question": "A patient develops a mild fever shortly after transfusion, without evidence of major haemolysis. Which transfusion complication from the lecture best fits this presentation?",
+                "question": "A patient develops a mild fever shortly after transfusion, without evidence of major haemolysis. Which transfusion complication best fits this presentation?",
                 "options": {
                   "A": "Iron overload from repeated transfusion",
                   "B": "Acute ABO-mediated red-cell lysis",
@@ -15858,7 +15858,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Iron overload is the transfusion-related complication most likely in this patient, as repeated transfusions of red blood cells can lead to iron accumulation in tissues."
               },
               {
-                "question": "A trauma patient receives very large volumes of blood products over a short period and later develops abnormal clotting. Which complication from the lecture does this illustrate?",
+                "question": "A trauma patient receives very large volumes of blood products over a short period and later develops abnormal clotting. Which complication does this illustrate?",
                 "options": {
                   "A": "Rhesus-negative primary sensitisation",
                   "B": "Pernicious anaemia",
@@ -15978,7 +15978,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Eosinophils best fit this description, as rare granulocytes with bilobed nuclei are characteristic of eosinophilic tissue persistence in patients with parasite infection and allergic asthma."
               },
               {
-                "question": "A clinician follows eosinophil kinetics after release from marrow. Which pattern best matches the lecture description?",
+                "question": "A clinician follows eosinophil kinetics after release from marrow. Which pattern best matches the description?",
                 "options": {
                   "A": "Blood residence for 8-12 hours, then tissue survival for days to weeks",
                   "B": "Blood residence for 90-120 days, then splenic destruction",
@@ -16050,7 +16050,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Natural killer cells are described as a larger lymphocyte population that includes cells specialised for killing virus-infected and some tumour cells."
               },
               {
-                "question": "Which ordering best reflects progressive restriction of developmental potential in the stem-cell hierarchy presented in the lecture?",
+                "question": "Which ordering best reflects progressive restriction of developmental potential in the stem-cell hierarchy?",
                 "options": {
                   "A": "Unipotent, multipotent, pluripotent, totipotent",
                   "B": "Multipotent, totipotent, unipotent, pluripotent",
@@ -16062,7 +16062,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Totipotent, pluripotent, multipotent, unipotent best reflects progressive restriction of developmental potential in the stem-cell hierarchy presented in the lecture."
               },
               {
-                "question": "A histology image of marrow appears disorganised at low power, but blood-cell production depends on a structured niche. Which vascular relationship best matches the lecture description?",
+                "question": "A histology image of marrow appears disorganised at low power, but blood-cell production depends on a structured niche. Which vascular relationship best matches the description?",
                 "options": {
                   "A": "Stem cells mature inside lymphatic valves before entering thoracic duct lymph",
                   "B": "Differentiated cells leave through renal tubules after nutrient-artery filtration",
@@ -16074,7 +16074,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Cells develop near sinusoidal endothelium and exit toward the emissary vein best matches the lecture description, as this vascular relationship supports blood-cell production in a structured niche."
               },
               {
-                "question": "A full blood count reports red cells 5.0 x 10^6/microlitre, platelets 2.5 x 10^5/microlitre, and white cells 7.0 x 10^3/microlitre. Which interpretation best matches the lecture's typical circulating ranges?",
+                "question": "A full blood count reports red cells 5.0 x 10^6/microlitre, platelets 2.5 x 10^5/microlitre, and white cells 7.0 x 10^3/microlitre. Which interpretation best matches the typical circulating ranges?",
                 "options": {
                   "A": "All three values are within the typical ranges described",
                   "B": "Red cells are low, platelets are high, and white cells are normal",
@@ -16296,7 +16296,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Increased airway resistance causes early flow limitation during COPD due to turbulent airflow."
               },
               {
-                "question": "A severely breathless patient with asthma has a quiet chest with little wheeze. Which interpretation best fits the lecture's warning about wheeze?",
+                "question": "A severely breathless patient with asthma has a quiet chest with little wheeze. Which interpretation best fits the warning about wheeze?",
                 "options": {
                   "A": "Wheeze disappears when airway calibre returns to normal",
                   "B": "Wheeze requires high-velocity airflow through narrowed airways",
@@ -16380,7 +16380,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Reduced lung elastic recoil increases functional residual capacity in emphysema due to gas trapping."
               },
               {
-                "question": "A patient with phrenic nerve damage has respiratory muscle weakness but no primary lung parenchymal disease. According to the lecture, which FRC change is most likely at relaxed end-expiration?",
+                "question": "A patient with phrenic nerve damage has respiratory muscle weakness but no primary lung parenchymal disease. Which FRC change is most likely at relaxed end-expiration?",
                 "options": {
                   "A": "Markedly reduced FRC from increased lung recoil",
                   "B": "Markedly increased FRC from reduced lung recoil",
@@ -16500,7 +16500,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The forced expiratory ratio (FER) is the volume exhaled in the first second divided by the total vital capacity, indicating airway resistance and lung function."
               },
               {
-                "question": "A patient exhales 1.2 L in the first second and has a forced vital capacity of 4.0 L. Which interpretation is most appropriate using the lecture's threshold?",
+                "question": "A patient exhales 1.2 L in the first second and has a forced vital capacity of 4.0 L. Which interpretation is most appropriate using the threshold?",
                 "options": {
                   "A": "Obstructive pattern with FEV1/FVC of 30%",
                   "B": "Restrictive pattern with FEV1/FVC of 30%",
@@ -16524,7 +16524,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "In restrictive lung disease, the FVC is reduced while the FEV1 remains normal or near-normal, indicating impaired lung expansion and reduced lung volumes."
               },
               {
-                "question": "A spirometry result shows FEV1/FVC of 62%. Which conclusion best follows from the lecture's criterion?",
+                "question": "A spirometry result shows FEV1/FVC of 62%. Which conclusion best follows from this criterion?",
                 "options": {
                   "A": "Normal airflow because FVC is measurable",
                   "B": "Restrictive disease because FEV1 must be low",
@@ -16572,7 +16572,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Pulmonary fibrosis is suggested by low FVC, low FEV1, and an FEV1/FVC ratio below 70%, indicating impaired lung expansion and reduced lung volumes."
               },
               {
-                "question": "During quiet breathing, which muscle contributes most to ventilation at rest according to the lecture?",
+                "question": "During quiet breathing, which muscle contributes most to ventilation at rest?",
                 "options": {
                   "A": "Internal intercostal muscle",
                   "B": "Sternocleidomastoid muscle",
@@ -17136,7 +17136,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "In a negative feedback model of ventilatory control, an acute rise in PaCO2 would stimulate chemoreceptors to increase ventilation and CO2 excretion."
               },
               {
-                "question": "Inflation of the lung close to maximal inspiratory capacity activates airway stretch receptors. Which reflex response is most consistent with the lecture?",
+                "question": "Inflation of the lung close to maximal inspiratory capacity activates airway stretch receptors. Which reflex response is most consistent?",
                 "options": {
                   "A": "Shorter inspiration with delayed onset of the next inspiratory cycle",
                   "B": "Longer inspiration with earlier onset of the next inspiratory cycle",
@@ -17184,7 +17184,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Proprioceptors in rib cage respiratory muscles help increase respiratory drive in response to increased load during asthma."
               },
               {
-                "question": "A person experiencing sudden severe pain briefly stops breathing, then breathes rapidly. Which input described in the lecture best explains this pattern?",
+                "question": "A person experiencing sudden severe pain briefly stops breathing, then breathes rapidly. Which input best explains this pattern?",
                 "options": {
                   "A": "Pulmonary stretch receptor input from bronchial smooth muscle",
                   "B": "Carotid body input from reduced arterial oxygen concentration",
@@ -17328,7 +17328,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Peripheral chemoreceptors respond rapidly to PaO2, PaCO2, and pH changes, whereas central chemoreceptors are slower and more focused on CO2."
               },
               {
-                "question": "A patient has profound anaemia with normal PaO2 but markedly reduced arterial oxygen content. Based on the lecture, how would carotid body oxygen sensing respond?",
+                "question": "A patient has profound anaemia with normal PaO2 but markedly reduced arterial oxygen content. How would carotid body oxygen sensing respond?",
                 "options": {
                   "A": "Little activation from oxygen sensing because PaO2 is normal",
                   "B": "Strong activation because oxygen concentration is reduced",
@@ -17448,7 +17448,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A lesion abolishing activity in the pre-Botzinger complex would impair generation of the inspiratory-expiratory rhythm, leading to respiratory failure."
               },
               {
-                "question": "A patient with renal failure develops metabolic acidosis. According to the Henderson-Hasselbalch relationship discussed in the lecture, which change would tend to increase hydrogen ion concentration?",
+                "question": "A patient with renal failure develops metabolic acidosis. According to the Henderson-Hasselbalch relationship, which change would tend to increase hydrogen ion concentration?",
                 "options": {
                   "A": "Lower PaCO2 with higher bicarbonate",
                   "B": "Lower PaCO2 with unchanged bicarbonate",
@@ -17460,7 +17460,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Metabolic acidosis tends to increase hydrogen ion concentration due to lower PaCO2 and bicarbonate levels."
               },
               {
-                "question": "A subject at rest quietly sighs every several minutes without conscious effort. Which explanation from the lecture is most plausible?",
+                "question": "A subject at rest quietly sighs every several minutes without conscious effort. Which explanation is most plausible?",
                 "options": {
                   "A": "Periodic carotid body discharge caused by cyclic arterial hypoxia",
                   "B": "Periodic central apnoea caused by loss of the pre-Botzinger complex",
@@ -17484,7 +17484,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Sneezing caused by nasal trigeminal afferent activation would be an immediate response to stimulation of these nerve endings."
               },
               {
-                "question": "A student claims that increased metabolic rate is sensed by a specific receptor that detects the rate of CO2 production. Which correction best reflects the lecture?",
+                "question": "A student claims that increased metabolic rate is sensed by a specific receptor that detects the rate of CO2 production. Which correction is most accurate?",
                 "options": {
                   "A": "The receptor exists in the carotid body and detects oxygen consumption rate",
                   "B": "No receptor senses metabolic rate directly; arterial gases and pH estimate its consequences",
@@ -17718,7 +17718,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because small anatomical shunts and physiological V/Q inequality contribute to lower oxygen levels in arterial blood compared to pulmonary capillary blood."
               },
               {
-                "question": "Which pair of vessels contributes to the normal anatomical right-to-left shunt described in the lecture?",
+                "question": "Which pair of vessels contributes to the normal anatomical right-to-left shunt?",
                 "options": {
                   "A": "Pulmonary veins and superior vena cava",
                   "B": "Pulmonary arteries and bronchial arteries",
@@ -17754,7 +17754,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is D because right ventricular pressure exceeding left ventricular pressure reverses the shunt flow, leading to new cyanosis."
               },
               {
-                "question": "Which combination is characteristic of tetralogy of Fallot as discussed in the lecture?",
+                "question": "Which combination is characteristic of tetralogy of Fallot as?",
                 "options": {
                   "A": "ASD, aortic stenosis, left ventricular hypertrophy, and pulmonary hypertension",
                   "B": "VSD, overriding aorta, pulmonary stenosis, and right ventricular hypertrophy",
@@ -18030,7 +18030,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option states that shunted blood never contacts ventilated alveoli and ventilated blood is already near fully saturated, limiting the rise in arterial oxygen content."
               },
               {
-                "question": "Which list contains only causes of arterial hypoxaemia emphasized in the lecture?",
+                "question": "Which list contains only causes of arterial hypoxaemia?",
                 "options": {
                   "A": "Anaemia, carbon monoxide poisoning, fever, and metabolic acidosis",
                   "B": "Pulmonary oedema, alkalosis, polycythaemia, and airway humidification",
@@ -18415,7 +18415,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The left hypochondriac region contains the spleen on surface projection using the nine abdominal regions."
               },
               {
-                "question": "An examiner asks for the vertical lines used in the nine-region scheme described first in the lecture. Which answer is correct?",
+                "question": "An examiner asks for the vertical lines used in the nine-region scheme described first. Which answer is correct?",
                 "options": {
                   "A": "Lines through the anterior superior iliac spines",
                   "B": "Midclavicular lines descending to the midinguinal points",
@@ -18487,7 +18487,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The subcostal plane is defined by the inferior border of the 10th costal cartilage, which corresponds to the iliac tubercles at approximately L5."
               },
               {
-                "question": "Which organ-location pairing is most consistent with the quadrant projection described in the lecture?",
+                "question": "Which organ-location pairing is most consistent with the quadrant projection?",
                 "options": {
                   "A": "Cecum and appendix - right lower quadrant",
                   "B": "Spleen and splenic flexure - right upper quadrant",
@@ -18649,7 +18649,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The inguinal canal varies in length due to its oblique course through several wall layers."
               },
               {
-                "question": "In the lecture description, the anterior wall of the lateral third of the inguinal canal receives contribution from which set of layers?",
+                "question": "Description, the anterior wall of the lateral third of the inguinal canal receives contribution from which set of layers?",
                 "options": {
                   "A": "Transversalis fascia and conjoint tendon",
                   "B": "Inguinal ligament and lacunar ligament",
@@ -18661,7 +18661,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The anterior wall of the lateral third of the inguinal canal receives contributions from the external oblique aponeurosis, internal oblique, and transversus abdominis muscles."
               },
               {
-                "question": "In the lateral and middle thirds of the inguinal canal described in the lecture, which structure forms the posterior wall?",
+                "question": "In the lateral and middle thirds of the inguinal canal, which structure forms the posterior wall?",
                 "options": {
                   "A": "External oblique aponeurosis",
                   "B": "Transversalis fascia",
@@ -18781,7 +18781,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A hernia bulging through a weak area of the anterior abdominal wall within the inguinal triangle rather than entering through the deep inguinal ring is characteristic of a direct inguinal hernia."
               },
               {
-                "question": "Which set of boundaries best defines the inguinal triangle as described in the lecture?",
+                "question": "Which set of boundaries best defines the inguinal triangle?",
                 "options": {
                   "A": "Pubic crest, femoral vein, and lacunar ligament",
                   "B": "Rectus abdominis, linea alba, and arcuate line",
@@ -18817,7 +18817,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The femoral ring, which is posterior to the inferior epigastric vessels, is implicated in a groin swelling that lies below and lateral to the pubic tubercle."
               },
               {
-                "question": "A groin swelling lies superior and medial to the pubic tubercle. Which interpretation is most consistent with the lecture's first-line clinical landmark?",
+                "question": "A groin swelling lies superior and medial to the pubic tubercle. Which interpretation is most consistent with the first-line clinical landmark?",
                 "options": {
                   "A": "Inguinal hernia",
                   "B": "Femoral hernia",
@@ -18949,7 +18949,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Below the arcuate line, all aponeuroses pass anterior to rectus abdominis."
               },
               {
-                "question": "Which item is a content of the spermatic cord specifically highlighted in the lecture as transporting sperm toward the ejaculatory duct?",
+                "question": "Which item is a content of the spermatic cord specifically highlighted as transporting sperm toward the ejaculatory duct?",
                 "options": {
                   "A": "Pampiniform plexus",
                   "B": "Testicular artery",
@@ -18997,7 +18997,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The inguinal ligament leaves a gap beneath it for vessels and nerves, explaining its relation to lower-limb neurovascular passage."
               },
               {
-                "question": "In the lecture, approximately what proportion of inguinal hernias was described as indirect?",
+                "question": "Approximately what proportion of inguinal hernias was described as indirect?",
                 "options": {
                   "A": "One tenth",
                   "B": "One quarter",
@@ -19267,7 +19267,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The paracolic gutters are deep grooves lateral to the ascending and descending colon that track fluid during surgery."
               },
               {
-                "question": "Which statement best distinguishes the peritoneal cavity from the pleural and pericardial cavities as described in the lecture?",
+                "question": "Which statement best distinguishes the peritoneal cavity from the pleural and pericardial cavities?",
                 "options": {
                   "A": "It lacks lubricating serous fluid under normal conditions",
                   "B": "It contains no visceral serous membrane on organs",
@@ -19303,7 +19303,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The pancreas is classified as secondary retroperitoneal due to its initial suspension in a peritoneal fold before becoming fixed to the posterior wall during development."
               },
               {
-                "question": "Which organ pair best represents primary retroperitoneal organs according to the lecture?",
+                "question": "Which organ pair best represents primary retroperitoneal organs?",
                 "options": {
                   "A": "Pancreas and ascending colon",
                   "B": "Stomach and spleen",
@@ -19411,7 +19411,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Peritoneal folds provide routes for neurovascular structures between organs, allowing them to move freely within the abdominal cavity."
               },
               {
-                "question": "A peritoneal fold is classified as an omentum rather than a mesocolon. Which connection best fits this classification from the lecture?",
+                "question": "A peritoneal fold is classified as an omentum rather than a mesocolon. Which connection best fits this classification?",
                 "options": {
                   "A": "Posterior abdominal wall to jejunum",
                   "B": "Liver to stomach",
@@ -19525,7 +19525,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The pylorus is attached to the mostly retroperitoneal duodenum near the transpyloric plane, preventing it from moving freely with the rest of the stomach."
               },
               {
-                "question": "A stab wound passes through the left 10th intercostal space in the midaxillary region. Which organ is most specifically at risk based on the lecture's surface projection?",
+                "question": "A stab wound passes through the left 10th intercostal space in the midaxillary region. Which organ is most specifically at risk?",
                 "options": {
                   "A": "Fundus of gallbladder",
                   "B": "Head of pancreas",
@@ -19585,7 +19585,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The liver, stomach, and greater omentum are most expected to be immediately visible before mobilizing the stomach during an anterior abdominal approach."
               },
               {
-                "question": "A radiologist reviews an axial image at approximately T12-L1. The stomach is partly obscured anteriorly by a large organ and has a glandular structure posterior to it. Which paired relationship is most consistent with the lecture?",
+                "question": "A radiologist reviews an axial image at approximately T12-L1. The stomach is partly obscured anteriorly by a large organ and has a glandular structure posterior to it. Which paired relationship is most consistent?",
                 "options": {
                   "A": "Anterior kidney; posterior spleen",
                   "B": "Anterior pancreas; posterior stomach",
@@ -19657,7 +19657,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Gastric veins drain into the hepatic portal system through named tributaries, which includes the left gastric vein and the right gastroepiploic vein."
               },
               {
-                "question": "A clinician palpates a firm structure below the left costal margin during examination. Which inference best follows from the lecture?",
+                "question": "A clinician palpates a firm structure below the left costal margin during examination. Which inference is best?",
                 "options": {
                   "A": "The left kidney must have crossed the midline",
                   "B": "A normal spleen should always be palpable in the left hypochondrium",
@@ -19729,7 +19729,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The spleen lies under ribs 9-11 in the left upper abdomen, which is the left hypochondrial region."
               },
               {
-                "question": "A student says the abdominal cavity is entirely below the rib cage. Which anatomical observation from the lecture best refutes this?",
+                "question": "A student says the abdominal cavity is entirely below the rib cage. Which anatomical observation best refutes this?",
                 "options": {
                   "A": "The pyloric sphincter controls entry into the duodenum",
                   "B": "The greater omentum loops back toward the transverse colon",
@@ -19789,7 +19789,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The visceral surface of the spleen is concave and bears impressions from adjacent organs, such as the stomach and pancreas."
               },
               {
-                "question": "A question asks for the adult foregut extent emphasized in the lecture. Which answer is best?",
+                "question": "A question asks for the adult foregut extent. Which answer is best?",
                 "options": {
                   "A": "From distal oesophagus to about halfway through the duodenum, including accessory organs such as liver, spleen, and pancreas",
                   "B": "From distal duodenum to proximal two thirds of transverse colon, including appendix and ascending colon",
@@ -19813,7 +19813,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The stomach lies anterior to the spleen, allowing for its increased visibility when the stomach is removed."
               },
               {
-                "question": "Which set contains the three major branches of the coeliac trunk described in the lecture?",
+                "question": "Which set contains the three major branches of the coeliac trunk?",
                 "options": {
                   "A": "Left gastric, superior mesenteric, inferior mesenteric",
                   "B": "Splenic, proper hepatic, gastroduodenal",
@@ -19897,7 +19897,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Splenic venous blood drains into the hepatic portal vein with the superior mesenteric vein, before contributing to the inferior vena cava."
               },
               {
-                "question": "Which abdominal regions may contain parts of the stomach according to the nine-region scheme discussed in the lecture?",
+                "question": "Which abdominal regions may contain parts of the stomach according to the nine-region scheme?",
                 "options": {
                   "A": "Right iliac, hypogastric, and left iliac regions",
                   "B": "Right lumbar, umbilical, and left lumbar regions",
@@ -19969,7 +19969,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The posterior gastric artery is a named artery from the splenic artery supplying the posterior stomach wall during gastric surgery."
               },
               {
-                "question": "Which function of the adult spleen is most consistent with the lecture?",
+                "question": "Which function of the adult spleen is most consistent?",
                 "options": {
                   "A": "Primary absorption of nutrients from chyme",
                   "B": "Production of bile for fat emulsification",
@@ -19999,7 +19999,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
             "title": "AGRS05L Liver and Hepatobiliary system",
             "questions": [
               {
-                "question": "During abdominal examination, a clinician estimates the normal surface projection of the liver before palpation. Which description best matches the lecture's surface anatomy of a normal liver?",
+                "question": "During abdominal examination, a clinician estimates the normal surface projection of the liver before palpation. Which description best matches the surface anatomy of a normal liver?",
                 "options": {
                   "A": "Mainly left upper quadrant, deep to ribs 9-12, with its lower edge above the costal margin",
                   "B": "Mainly epigastric, deep to ribs 5-8, with no expected palpable inferior margin",
@@ -20023,7 +20023,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The approximate surface projection of the gallbladder fundus can be marked using the right midclavicular line at the inferior border of the right ninth rib."
               },
               {
-                "question": "In an axial imaging slice, the pancreas is seen behind the stomach and extending from a head near the duodenal curve toward the spleen. Which additional feature supports the lecture's description of its position?",
+                "question": "In an axial imaging slice, the pancreas is seen behind the stomach and extending from a head near the duodenal curve toward the spleen. Which additional feature supports the description of its position?",
                 "options": {
                   "A": "The tail lies lower than the head and reaches approximately L3",
                   "B": "The head lies left of the midline and reaches approximately T10",
@@ -20083,7 +20083,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The caudate lobe lies adjacent to the gallbladder fossa, while the quadrate lobe is adjacent to the inferior vena cava."
               },
               {
-                "question": "A bare area is exposed when the liver is separated from the diaphragm. Which statement best defines this area in the context of the lecture?",
+                "question": "A bare area is exposed when the liver is separated from the diaphragm. Which statement best defines this area in the context?",
                 "options": {
                   "A": "A region lacking peritoneal covering where the liver contacts the diaphragm",
                   "B": "A region covered by parietal peritoneum where the liver contacts the stomach",
@@ -20107,7 +20107,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The triangular ligaments are formed where the upper and lower layers of peritoneal reflection meet around the bare area."
               },
               {
-                "question": "A dissected visceral liver surface shows impressions from neighbouring organs. Which set of impressions matches the lecture's description?",
+                "question": "A dissected visceral liver surface shows impressions from neighbouring organs. Which set of impressions matches the description?",
                 "options": {
                   "A": "Splenic, jejunal, suprarenal, and bladder impressions",
                   "B": "Duodenal, ileal, splenic, and sigmoid impressions",
@@ -20143,7 +20143,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The hepatoduodenal ligament encloses the portal triad within a peritoneal fold during dissection of the porta hepatis."
               },
               {
-                "question": "A cross-section through the hepatoduodenal ligament is viewed from in front. Which arrangement of the portal triad is most consistent with the lecture?",
+                "question": "A cross-section through the hepatoduodenal ligament is viewed from in front. Which arrangement of the portal triad is most consistent?",
                 "options": {
                   "A": "Bile duct right anterior; hepatic artery proper left anterior; portal vein posterior",
                   "B": "Portal vein right anterior; bile duct left anterior; hepatic artery posterior",
@@ -20167,7 +20167,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The hepatoduodenal ligament forms the anterior boundary of the peritoneal opening between the greater and lesser sacs."
               },
               {
-                "question": "A student traces the hepatic artery proper proximally. Which sequence best reflects its arterial origin as taught in the lecture?",
+                "question": "A student traces the hepatic artery proper proximally. Which sequence best reflects its arterial origin?",
                 "options": {
                   "A": "Hepatic artery proper -> right gastric artery -> left gastric artery -> abdominal aorta",
                   "B": "Hepatic artery proper -> gastroduodenal artery -> splenic artery -> abdominal aorta",
@@ -20179,7 +20179,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The hepatic artery proper originates from the coeliac trunk, then branches into right gastric and left gastric arteries before reaching its final destination."
               },
               {
-                "question": "Which statement best explains why the hepatic portal vein may be described as the major blood inflow to the liver in this lecture?",
+                "question": "Which statement best explains why the hepatic portal vein may be described as the major blood inflow to the liver?",
                 "options": {
                   "A": "It carries oxygenated blood from the abdominal aorta to hepatocytes",
                   "B": "It carries nutrient-rich venous blood from the gastrointestinal tract",
@@ -20191,7 +20191,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The hepatic portal vein carries nutrient-rich venous blood from the gastrointestinal tract to the liver."
               },
               {
-                "question": "Within the microscopic arrangement described in the lecture, venous blood from portal venous branches ultimately drains toward which sequence?",
+                "question": "Within the microscopic arrangement, venous blood from portal venous branches ultimately drains toward which sequence?",
                 "options": {
                   "A": "Central veins -> hepatic veins -> inferior vena cava",
                   "B": "Hepatic ducts -> cystic duct -> common bile duct",
@@ -20239,7 +20239,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Superior rectal vein connects with middle and inferior rectal veins, forming anastomoses that allow blood to flow from the portal system into systemic circulation."
               },
               {
-                "question": "A gallstone lodges at the neck of the gallbladder and blocks the beginning of the cystic duct. Which immediate consequence best follows from the lecture's biliary anatomy?",
+                "question": "A gallstone lodges at the neck of the gallbladder and blocks the beginning of the cystic duct. Which immediate consequence best follows from biliary anatomy?",
                 "options": {
                   "A": "Bile produced by hepatocytes cannot enter the right hepatic duct",
                   "B": "Bile backs up within the gallbladder while hepatic bile can still reach the common bile duct",
@@ -20275,7 +20275,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A small gallstone must follow the cystic duct, common hepatic duct, and right hepatic duct before reaching the duodenum."
               },
               {
-                "question": "A gallstone is impacted at the hepatopancreatic ampulla. Which paired flow disturbance is most likely from the lecture's ductal anatomy?",
+                "question": "A gallstone is impacted at the hepatopancreatic ampulla. Which paired flow disturbance is most likely ductal anatomy?",
                 "options": {
                   "A": "Portal venous blood and hepatic arterial blood are both obstructed",
                   "B": "Cystic arterial blood and splenic arterial blood are both obstructed",
@@ -20287,7 +20287,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The superior pancreaticoduodenal artery supplies the head of the pancreas via the gastroduodenal artery."
               },
               {
-                "question": "Which statement most accurately distinguishes bile production from bile storage in the lecture?",
+                "question": "Which statement most accurately distinguishes bile production from bile storage?",
                 "options": {
                   "A": "Hepatocytes produce bile; the gallbladder stores and concentrates it",
                   "B": "Gallbladder mucosa produces bile; hepatocytes store and release it",
@@ -20299,7 +20299,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The gallbladder stores and concentrates bile produced by hepatocytes, distinguishing it from bile storage in the duodenum."
               },
               {
-                "question": "A surgical trainee identifies an artery to the gallbladder. Which origin is the typical pattern emphasized in the lecture?",
+                "question": "A surgical trainee identifies an artery to the gallbladder. Which origin is the typical pattern?",
                 "options": {
                   "A": "Left gastric artery",
                   "B": "Right hepatic artery",
@@ -20383,7 +20383,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The splenic artery runs along the superior border of the gland toward the spleen, supplying the body and tail of the pancreas."
               },
               {
-                "question": "The inferior half of the pancreatic head is supplied by which artery according to the lecture's foregut-midgut division?",
+                "question": "The inferior half of the pancreatic head is supplied by which artery foregut-midgut division?",
                 "options": {
                   "A": "Inferior pancreaticoduodenal artery from the superior mesenteric artery",
                   "B": "Superior pancreaticoduodenal artery from the gastroduodenal artery",
@@ -20419,7 +20419,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The pancreas lies posterior to the stomach in the posterior abdominal region."
               },
               {
-                "question": "Which statement best describes the relationship between the pancreas and stomach in the lecture?",
+                "question": "Which statement best describes the relationship between the pancreas and stomach?",
                 "options": {
                   "A": "The pancreas lies anterior to the stomach and suspends it from the liver",
                   "B": "The pancreas lies within the lesser curvature of the stomach",
@@ -20689,7 +20689,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Referred pain around the umbilicus before localised right iliac fossa tenderness develops due to the appendix's location near the T10 vertebra."
               },
               {
-                "question": "Which description best matches the most common anatomical position of the appendix discussed in the lecture?",
+                "question": "Which description best matches the most common anatomical position of the appendix?",
                 "options": {
                   "A": "Retrocecal, passing posterior to the cecum",
                   "B": "Pre-ileal, passing anterior to the terminal ileum",
@@ -20737,7 +20737,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Most of the jejunum and ileum are intraperitoneal, suspended by mesentery proper."
               },
               {
-                "question": "A student divides the combined length of jejunum and ileum into five equal conceptual parts to estimate their distribution. Which approximation matches the lecture?",
+                "question": "A student divides the combined length of jejunum and ileum into five equal conceptual parts to estimate their distribution. Which approximation is most accurate?",
                 "options": {
                   "A": "Jejunum first one-fifth; ileum final four-fifths",
                   "B": "Jejunum first two-fifths; ileum final three-fifths",
@@ -20785,7 +20785,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The inferior pancreaticoduodenal artery supplies the distal duodenum and inferior head of pancreas, making it the first branch discussed in relation to these structures."
               },
               {
-                "question": "A surgeon ligates a vessel supplying the ascending colon. Which artery is the best named candidate, based on the lecture’s mapping of midgut branches?",
+                "question": "A surgeon ligates a vessel supplying the ascending colon. Which artery is the best named candidate, ’s mapping of midgut branches?",
                 "options": {
                   "A": "Left colic artery",
                   "B": "Sigmoid artery",
@@ -21151,7 +21151,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is B because parasympathetic fibres from the vagal trunks synapse near or within the target organ before leaving as postganglionic fibres."
               },
               {
-                "question": "Which autonomic ganglion or plexus association is most appropriate for the kidneys and suprarenal glands in the lecture summary?",
+                "question": "Which autonomic ganglion or plexus association is most appropriate for the kidneys and suprarenal glands summary?",
                 "options": {
                   "A": "Inferior mesenteric ganglion",
                   "B": "Inferior hypogastric plexus",
@@ -21271,7 +21271,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The iliopsoas muscle fills the iliac fossa and joins psoas major to form a single structure."
               },
               {
-                "question": "A dissection reveals a network of nerves embedded around psoas major. Which roots form the lumbar plexus described in the lecture?",
+                "question": "A dissection reveals a network of nerves embedded around psoas major. Which roots form the lumbar plexus?",
                 "options": {
                   "A": "Posterior rami of T12 to L3",
                   "B": "Anterior rami of L1 to L4",
@@ -21379,7 +21379,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The left renal vein crosses anterior to the abdominal aorta beneath the superior mesenteric artery, making it vulnerable to compression."
               },
               {
-                "question": "During a posterior approach, the superior portions of both kidneys are partly shielded by bony structures. Which surface projection best reflects this relationship from the lecture?",
+                "question": "During a posterior approach, the superior portions of both kidneys are partly shielded by bony structures. Which surface projection best reflects this relationship?",
                 "options": {
                   "A": "Kidneys extend from L3 to S1, with hila at L4.",
                   "B": "Kidneys extend from T8 to T10, with hila at T9.",
@@ -21685,7 +21685,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Damage to somatic motor fibres to the striated sphincter muscle would result in loss of voluntary continence after bladder filling sensation is normal."
               },
               {
-                "question": "Sympathetic fibres supplying the bladder are traced from their spinal origin through prevertebral and pelvic plexuses. Which route best matches the lecture description?",
+                "question": "Sympathetic fibres supplying the bladder are traced from their spinal origin through prevertebral and pelvic plexuses. Which route best matches the description?",
                 "options": {
                   "A": "S2-S4 pelvic splanchnic nerves to inferior hypogastric plexus without synapse",
                   "B": "T11-L2 spinal nerves to renal plexus and then ureteric orifices",
@@ -21865,7 +21865,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The inferior hypogastric plexus provides a route for autonomic fibres reaching the bladder, which are involved in bladder function and continence."
               },
               {
-                "question": "A female patient can sense bladder filling and initiate detrusor contraction but has impaired continence after injury to the pelvic floor and external urethral sphincter. Which lecture point best explains this presentation?",
+                "question": "A female patient can sense bladder filling and initiate detrusor contraction but has impaired continence after injury to the pelvic floor and external urethral sphincter. Which point best explains this presentation?",
                 "options": {
                   "A": "The female ureter runs inside the prostate before reaching the bladder.",
                   "B": "Female continence relies heavily on the external sphincter and surrounding pelvic muscles.",
@@ -21877,7 +21877,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Female continence relies heavily on the external sphincter and surrounding pelvic muscles, making this statement most accurate in explaining the patient's presentation."
               },
               {
-                "question": "A full bladder is at risk during a low anterior abdominal wall procedure because it may extend superiorly. How high can a markedly distended bladder reach according to the lecture?",
+                "question": "A full bladder is at risk during a low anterior abdominal wall procedure because it may extend superiorly. How high can a markedly distended bladder reach?",
                 "options": {
                   "A": "Xiphisternal joint",
                   "B": "Costal margin",
@@ -22106,7 +22106,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The sensory neurons projecting toward the epithelium are responsible for detecting chemical and mechanical stimuli in the gut, which is relevant to impaired submucosal sensory signaling."
               },
               {
-                "question": "A patient taking a medication that markedly increases sympathetic tone develops reduced gut motility. Which associated sphincter effect is also expected from sympathetic stimulation according to the lecture?",
+                "question": "A patient taking a medication that markedly increases sympathetic tone develops reduced gut motility. Which associated sphincter effect is also expected from sympathetic stimulation?",
                 "options": {
                   "A": "Relaxation of the lower esophageal sphincter during swallowing",
                   "B": "Opening of the pyloric sphincter after fatty chyme enters the duodenum",
@@ -22238,7 +22238,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Gastric acid reaching the mouth during reflux causes dental enamel erosion."
               },
               {
-                "question": "A drug increases gastrin release during the early postprandial period. Which motility effect is most consistent with the lecture?",
+                "question": "A drug increases gastrin release during the early postprandial period. Which motility effect is most consistent?",
                 "options": {
                   "A": "Decreased gastric motility",
                   "B": "Increased colonic water absorption",
@@ -22484,7 +22484,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Rapid flow limits ductal sodium and chloride reabsorption, resulting in an unusually salty taste of the salivary sample collected just before vomiting."
               },
               {
-                "question": "A patient has selective dysfunction of the parotid glands but intact submandibular, sublingual, and minor glands. Which salivary abnormality is most consistent with the lecture content?",
+                "question": "A patient has selective dysfunction of the parotid glands but intact submandibular, sublingual, and minor glands. Which salivary abnormality is most consistent?",
                 "options": {
                   "A": "Marked loss of mucus with preserved amylase",
                   "B": "Marked loss of bile salts with preserved mucins",
@@ -22532,7 +22532,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Tubulovesicles fuse with canaliculi and luminal membrane, increasing the secretory capacity of parietal cells to produce stomach acid."
               },
               {
-                "question": "Which set contains the three positive regulators of parietal cell hydrogen ion secretion emphasized in the lecture?",
+                "question": "Which set contains the three positive regulators of parietal cell hydrogen ion secretion?",
                 "options": {
                   "A": "Somatostatin, secretin, and CCK",
                   "B": "Ghrelin, GLP-1, and GIP",
@@ -22592,7 +22592,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because a pH sensor defect prevents low luminal pH from suppressing gastrin release, leading to excess acid secretion and increased ulcer risk."
               },
               {
-                "question": "Acidic chyme enters the duodenum. Which hormone-response pairing best matches the lecture mechanism that protects the duodenum from gastric acid?",
+                "question": "Acidic chyme enters the duodenum. Which hormone-response pairing best matches the mechanism that protects the duodenum from gastric acid?",
                 "options": {
                   "A": "CCK increases salivary bicarbonate-rich fluid",
                   "B": "Gastrin increases pancreatic enzyme-rich secretion",
@@ -22616,7 +22616,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because CCK stimulates pancreatic enzyme secretion and slows gastric secretion in response to a fatty meal."
               },
               {
-                "question": "A researcher infuses secretin into the bloodstream while keeping duodenal fat delivery low. Which response is most consistent with the lecture?",
+                "question": "A researcher infuses secretin into the bloodstream while keeping duodenal fat delivery low. Which response is most consistent?",
                 "options": {
                   "A": "Increased chief-cell pepsinogen release and gastric motility",
                   "B": "Increased parotid amylase secretion and esophageal mucus",
@@ -22712,7 +22712,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Bile salts are essential for emulsifying lipids, making them physiologically important for lipid digestion."
               },
               {
-                "question": "Which option best describes bile formation and modification as taught in the lecture?",
+                "question": "Which option best describes bile formation and modification?",
                 "options": {
                   "A": "Acinar cells make bile salts, and ducts remove bicarbonate",
                   "B": "Parietal cells make bilirubin, and chief cells store it",
@@ -22724,7 +22724,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Hepatocytes form bile, and ducts add water and bicarbonate, which is the correct sequence of bile formation as taught in the lecture."
               },
               {
-                "question": "A patient with liver disease develops steatorrhea despite preserved pancreatic enzyme secretion. Which explanation best fits the lecture?",
+                "question": "A patient with liver disease develops steatorrhea despite preserved pancreatic enzyme secretion. Which explanation is most accurate?",
                 "options": {
                   "A": "Loss of intrinsic factor prevents lipid absorption",
                   "B": "Loss of colonic bicarbonate traps fatty acids",
@@ -22772,7 +22772,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The glycocalyx on villus enterocytes supports luminal digestion by protecting enzymes from denaturation and facilitating their activity in the gut lumen."
               },
               {
-                "question": "A toxin causes exaggerated sodium secretion from small intestinal epithelial cells. Which consequence best follows the principle emphasized in the lecture?",
+                "question": "A toxin causes exaggerated sodium secretion from small intestinal epithelial cells. Which consequence best follows the principle?",
                 "options": {
                   "A": "Water retention in epithelial cells causing constipation",
                   "B": "Water movement into blood causing hypernatremia",
@@ -22784,7 +22784,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Exaggerated sodium secretion leads to water movement into the intestinal lumen, causing diarrhea, as emphasized in the lecture's principle."
               },
               {
-                "question": "A clinician compares daily gastrointestinal water handling in a healthy adult. Which statement best reflects the lecture's quantitative emphasis?",
+                "question": "A clinician compares daily gastrointestinal water handling in a healthy adult. Which statement best reflects the quantitative emphasis?",
                 "options": {
                   "A": "Dietary intake exceeds all endogenous secretions combined",
                   "B": "Small intestine absorbs most of the daily luminal water load",
@@ -22832,7 +22832,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Pepsinogen is produced by chief cells in the stomach, which are damaged in this patient."
               },
               {
-                "question": "A gastric mucosal barrier is disrupted by Helicobacter pylori infection. Which sequence best describes the pathogenesis emphasized in the lecture?",
+                "question": "A gastric mucosal barrier is disrupted by Helicobacter pylori infection. Which sequence best describes the pathogenesis?",
                 "options": {
                   "A": "Barrier failure exposes tissue to acid and proteases, producing ulcers",
                   "B": "Barrier failure blocks gastrin release, producing pernicious anemia",
@@ -22868,7 +22868,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "H+/K+-ATPase is the final common effector step in parietal cell acid secretion, making it a target for suppressing excessive gastric acid."
               },
               {
-                "question": "A patient receives an antagonist that blocks muscarinic signaling to the stomach. Which combined effect on acid secretion is most consistent with the lecture's control model?",
+                "question": "A patient receives an antagonist that blocks muscarinic signaling to the stomach. Which combined effect on acid secretion is most consistent with the control model?",
                 "options": {
                   "A": "Increased parietal stimulation, increased histamine, and increased somatostatin inhibition",
                   "B": "Increased parietal stimulation, reduced histamine, and reduced somatostatin inhibition",
@@ -22880,7 +22880,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Reduced somatostatin inhibition leads to increased histamine and parietal stimulation, consistent with the lecture's control model."
               },
               {
-                "question": "A patient has impaired colonic sodium absorption through luminal sodium channels. Based on the lecture's explanation of colonic potassium secretion, what would happen to the lumen-negative potential and potassium secretion?",
+                "question": "A patient has impaired colonic sodium absorption through luminal sodium channels. What would happen to the lumen-negative potential and potassium secretion?",
                 "options": {
                   "A": "Less negative lumen and reduced potassium secretion",
                   "B": "More negative lumen and reduced potassium secretion",
@@ -22904,7 +22904,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Reduced pancreatic bicarbonate response indicates a failure to release secretin in response to acid, as described in the lecture."
               },
               {
-                "question": "A student compares GIP, GLP-1, CCK, and ghrelin. Which statement best matches the lecture?",
+                "question": "A student compares GIP, GLP-1, CCK, and ghrelin. Which statement is most accurate?",
                 "options": {
                   "A": "GIP and GLP-1 initiate meals by stimulating hypothalamic hunger pathways",
                   "B": "GIP and GLP-1 act as incretins that support insulin secretion after nutrient entry",
@@ -23174,7 +23174,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is E because lactose intolerance leads to unabsorbed carbohydrate in the colon, causing water retention osmotically and resulting in watery diarrhea."
               },
               {
-                "question": "Cholera toxin causes profound watery diarrhea by altering intestinal ion movement. Which mechanism best fits the lecture description of secretory diarrhea?",
+                "question": "Cholera toxin causes profound watery diarrhea by altering intestinal ion movement. Which mechanism best fits the description of secretory diarrhea?",
                 "options": {
                   "A": "Failure of gastric acid to activate pepsinogen",
                   "B": "Loss of intrinsic factor-dependent vitamin uptake",
@@ -23282,7 +23282,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Cellulose is largely undigested in the small intestine, with some colonic fermentation."
               },
               {
-                "question": "A normal colon contributes to nutrient balance by absorbing water and electrolytes. Which additional absorptive contribution was emphasized in the lecture?",
+                "question": "A normal colon contributes to nutrient balance by absorbing water and electrolytes. Which additional absorptive contribution was?",
                 "options": {
                   "A": "Absorption of pancreatic proteases for recycling",
                   "B": "Absorption of intrinsic factor secreted by parietal cells",
@@ -23330,7 +23330,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Bile salts emulsify lipid droplets to increase surface area for lipase, facilitating fat digestion and absorption."
               },
               {
-                "question": "During digestion of a large fatty meal, the same bile salt pool may cycle several times. Which numerical statement best matches the lecture?",
+                "question": "During digestion of a large fatty meal, the same bile salt pool may cycle several times. Which numerical statement is most accurate?",
                 "options": {
                   "A": "About 50% is reabsorbed in the jejunum and cycled once per week",
                   "B": "About 75% is reabsorbed in the colon and cycled once per meal",
@@ -23636,7 +23636,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The proximal tubule is the primary site for reabsorption of glucose and amino acids."
               },
               {
-                "question": "A proximal tubule cell secretes an organic anion. Which transporter arrangement matches the lecture description?",
+                "question": "A proximal tubule cell secretes an organic anion. Which transporter arrangement matches the description?",
                 "options": {
                   "A": "Luminal facilitated diffusion entry, basolateral primary active exit",
                   "B": "Basolateral channel entry, luminal sodium-glucose cotransport exit",
@@ -23648,7 +23648,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Basolateral secondary active countertransport entry, with the organic anion being secreted against its concentration gradient."
               },
               {
-                "question": "A proximal tubule cell secretes an organic cation such as morphine. Which transporter sequence is most consistent with the lecture?",
+                "question": "A proximal tubule cell secretes an organic cation such as morphine. Which transporter sequence is most consistent?",
                 "options": {
                   "A": "Basolateral primary active entry, luminal facilitated diffusion exit",
                   "B": "Basolateral sodium-glucose cotransport entry, luminal primary active exit",
@@ -23744,7 +23744,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Freely filterable calcium concentration at the glomerulus is 1.5 mmol/L, as 40% of plasma calcium is protein-bound and thus not freely filterable."
               },
               {
-                "question": "Which anatomical relationship defines the juxtaglomerular apparatus as described in the lecture?",
+                "question": "Which anatomical relationship defines the juxtaglomerular apparatus?",
                 "options": {
                   "A": "Podocytes surrounding the proximal tubule brush border",
                   "B": "Vasa recta crossing the medullary collecting duct",
@@ -23792,7 +23792,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Approximately 99% of filtered water is reabsorbed, as most of the filtrate is reabsorbed back into the bloodstream in the proximal tubule."
               },
               {
-                "question": "Which combination correctly matches kidney endocrine roles described in the lecture?",
+                "question": "Which combination correctly matches kidney endocrine roles?",
                 "options": {
                   "A": "ADH acts on the kidney; erythropoietin is produced by the kidney",
                   "B": "Aldosterone is produced by the kidney; calcitriol acts on the kidney",
@@ -23804,7 +23804,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "ADH acts on the kidney to increase water reabsorption, while erythropoietin is produced by the kidney to stimulate red blood cell production."
               },
               {
-                "question": "A clinician expects a higher GFR to increase excretion of salt and water, assuming other variables are unchanged. Which determinant is included in the lecture's description of GFR?",
+                "question": "A clinician expects a higher GFR to increase excretion of salt and water, assuming other variables are unchanged. Which determinant is included in the description of GFR?",
                 "options": {
                   "A": "Ureteric smooth muscle tone",
                   "B": "Net filtration pressure",
@@ -23918,7 +23918,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer, B, is accurate because the described segment has abundant mitochondria and a basolateral Na+/K+-ATPase, characteristic of the proximal tubule's high energy requirements."
               },
               {
-                "question": "A drug blocks the Na+-K+-2Cl- cotransporter on the luminal membrane. Which immediate tubular effect best follows from the lecture material?",
+                "question": "A drug blocks the Na+-K+-2Cl- cotransporter on the luminal membrane. Which immediate tubular effect is expected?",
                 "options": {
                   "A": "Reduced sodium reabsorption in the proximal tubule",
                   "B": "Reduced sodium entry into principal cells",
@@ -23942,7 +23942,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The loop of Henle creates the medullary gradient by reabsorbing water and secreting urea, allowing the collecting duct to concentrate urine."
               },
               {
-                "question": "Which pairing of aquaporin isoform and nephron location is most consistent with the lecture?",
+                "question": "Which pairing of aquaporin isoform and nephron location is most consistent?",
                 "options": {
                   "A": "Aquaporin 2 in the proximal tubule luminal membrane",
                   "B": "Aquaporin 1 in the collecting duct principal cell luminal membrane",
@@ -24014,7 +24014,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Increased collecting duct urea reabsorption and recycling helps sustain medullary hyperosmolality in response to ADH."
               },
               {
-                "question": "Plasma ADH remains low below a plasma osmolality set point and rises linearly above it. Which approximate set point was given in the lecture?",
+                "question": "Plasma ADH remains low below a plasma osmolality set point and rises linearly above it. Which approximate set point was given?",
                 "options": {
                   "A": "280 mOsm/kg",
                   "B": "250 mOsm/kg",
@@ -24062,7 +24062,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Urinary sodium reflects unreabsorbed filtered load, while urinary potassium reflects distal secretion in the final urine."
               },
               {
-                "question": "A patient develops metabolic alkalosis. Based on the lecture, what effect would this tend to have on potassium secretion in the collecting duct?",
+                "question": "A patient develops metabolic alkalosis. What effect would this tend to have on potassium secretion in the collecting duct?",
                 "options": {
                   "A": "It inhibits secretion by increasing luminal H+ concentration",
                   "B": "It inhibits secretion by closing ENaC channels",
@@ -24182,7 +24182,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The proximal tubule reabsorbs approximately 65% of the filtered load of potassium mainly by passive paracellular movement linked to sodium and water reabsorption."
               },
               {
-                "question": "A high tubular flow rate reaches the collecting duct. Which effect on potassium secretion is most consistent with the lecture?",
+                "question": "A high tubular flow rate reaches the collecting duct. Which effect on potassium secretion is most consistent?",
                 "options": {
                   "A": "It decreases secretion by diluting aldosterone",
                   "B": "It decreases secretion by closing ROMK channels",
@@ -24206,7 +24206,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Na+/K+-ATPase provides the essential driving force for sodium reabsorption throughout multiple nephron segments by maintaining a high concentration gradient across the basolateral membrane."
               },
               {
-                "question": "In the lecture, the thick ascending limb differs from the descending limb because the thick ascending limb is:",
+                "question": "The thick ascending limb differs from the descending limb because the thick ascending limb is:",
                 "options": {
                   "A": "permeable to water and impermeable to sodium",
                   "B": "water impermeable and actively reabsorbs sodium chloride",
@@ -24230,7 +24230,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "ADH binding to V2 receptors on collecting duct principal cells leads to cAMP-mediated insertion of aquaporin 2 into the luminal membrane."
               },
               {
-                "question": "A patient has plasma osmolality 292 mOsm/kg and plasma volume reduced by 6%. Which regulators would tend to increase ADH secretion according to the lecture?",
+                "question": "A patient has plasma osmolality 292 mOsm/kg and plasma volume reduced by 6%. Which regulators would tend to increase ADH secretion?",
                 "options": {
                   "A": "Natriuretic peptides and low osmolality",
                   "B": "Low plasma osmolality and increased blood pressure",
@@ -24266,7 +24266,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "In the absence of ADH, collecting duct water permeability is low, resulting in dilute urine due to the inability to concentrate the urine."
               },
               {
-                "question": "Which luminal transporter mediates sodium reabsorption in the distal tubule in the lecture?",
+                "question": "Which luminal transporter mediates sodium reabsorption in the distal tubule?",
                 "options": {
                   "A": "Na+-H+ exchanger isoform 3",
                   "B": "Na+-Cl- cotransporter",
@@ -24278,7 +24278,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The Na+-Cl- cotransporter mediates sodium reabsorption in the distal tubule, allowing for the concentration of the medullary interstitium."
               },
               {
-                "question": "Which pair of factors contributes approximately equally to the high osmolality of renal medullary interstitial fluid in the lecture?",
+                "question": "Which pair of factors contributes approximately equally to the high osmolality of renal medullary interstitial fluid?",
                 "options": {
                   "A": "Glucose and potassium",
                   "B": "Bicarbonate and phosphate",
@@ -24326,7 +24326,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is A because reduced sodium entry through ENaC decreases the driving force for potassium secretion by collecting duct principal cells."
               },
               {
-                "question": "Which daily sodium filtered load follows from the lecture example of approximately 17.5 mmol/min of filtered sodium?",
+                "question": "Which daily sodium filtered load follows example of approximately 17.5 mmol/min of filtered sodium?",
                 "options": {
                   "A": "2,520 mmol/day",
                   "B": "25,200 mmol/day",
@@ -24362,7 +24362,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Principal cells secreting potassium into filtrate dominate net urinary potassium excretion due to their high expression of NKCC2 and low expression of Na-K-2Cl cotransporter."
               },
               {
-                "question": "A patient with head trauma develops polyuria, polydipsia, and nocturia. Urine remains very dilute because posterior pituitary ADH secretion is absent. Which additional feature best fits the lecture description?",
+                "question": "A patient with head trauma develops polyuria, polydipsia, and nocturia. Urine remains very dilute because posterior pituitary ADH secretion is absent. Which additional feature best fits the description?",
                 "options": {
                   "A": "Normal response to ADH with osmotic diuresis from glucose",
                   "B": "Mutated renal aquaporin 2 with normal ADH secretion",
@@ -24392,7 +24392,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Activation of hypothalamic osmoreceptors causing ADH release and thirst restores ECF osmolality toward normal by increasing water reabsorption in the collecting duct."
               },
               {
-                "question": "A student states that adding sodium chloride to the ECF must always increase plasma osmolality for a prolonged period. Which correction is most consistent with the lecture?",
+                "question": "A student states that adding sodium chloride to the ECF must always increase plasma osmolality for a prolonged period. Which correction is most consistent?",
                 "options": {
                   "A": "Water shifts from cells into ECF, expanding ECF volume while limiting the osmolality rise",
                   "B": "Sodium chloride rapidly enters cells, expanding ICF volume while lowering ECF volume",
@@ -24524,7 +24524,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Reduced GFR conserves sodium and water by decreasing the amount of filtrate in the nephron."
               },
               {
-                "question": "In the renin-angiotensin system, which step is rate-limited by renin availability according to the lecture?",
+                "question": "In the renin-angiotensin system, which step is rate-limited by renin availability?",
                 "options": {
                   "A": "Angiotensin I conversion to angiotensin II",
                   "B": "Angiotensinogen conversion to angiotensin I",
@@ -24620,7 +24620,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Small arteriolar vasoconstriction increases systemic resistance, supporting blood pressure restoration in low blood pressure with high angiotensin II."
               },
               {
-                "question": "During severe hypovolaemia, high angiotensin II acts on renal afferent and efferent arterioles. Which effect on GFR and excretion is most consistent with the lecture?",
+                "question": "During severe hypovolaemia, high angiotensin II acts on renal afferent and efferent arterioles. Which effect on GFR and excretion is most consistent?",
                 "options": {
                   "A": "Reduced GFR, reducing sodium and water excretion",
                   "B": "Increased GFR, increasing sodium and water excretion",
@@ -24692,7 +24692,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Inhibition of ADH release from the posterior pituitary decreases water reabsorption in the collecting duct, increasing water excretion."
               },
               {
-                "question": "Natriuretic peptides can lower blood pressure through renal and systemic actions. Which pair of effects best matches the lecture?",
+                "question": "Natriuretic peptides can lower blood pressure through renal and systemic actions. Which pair of effects is most accurate?",
                 "options": {
                   "A": "Systemic vasoconstriction and reduced GFR",
                   "B": "Systemic vasoconstriction and increased ADH release",
@@ -24728,7 +24728,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option describes the osmoregulatory reflex, where supraoptic/paraventricular osmoreceptors detect increased ECF osmolality and trigger posterior pituitary ADH release, increasing collecting duct water permeability to conserve water."
               },
               {
-                "question": "Which statement best distinguishes regulation of water intake from regulation of sodium intake in the lecture?",
+                "question": "Which statement best distinguishes regulation of water intake from regulation of sodium intake?",
                 "options": {
                   "A": "Both are strongly governed by conscious appetite in normal daily life",
                   "B": "Sodium intake is tightly governed by appetite, but water intake is not",
@@ -24788,7 +24788,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option suggests that increased sympathetic activity and afferent constriction would help preserve arterial pressure in hypovolaemic patients by reducing renal blood flow."
               },
               {
-                "question": "Which observation would most strongly indicate activation of pressure natriuresis as described in the lecture?",
+                "question": "Which observation would most strongly indicate activation of pressure natriuresis?",
                 "options": {
                   "A": "Low blood pressure, high angiotensin II, increased proximal sodium reabsorption",
                   "B": "High blood pressure, low angiotensin II, inhibited tubular sodium reabsorption",
@@ -24824,7 +24824,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "This option is correct because the myogenic response to increased arterial pressure involves the contraction of afferent arteriolar smooth muscle, which increases vascular resistance and reduces blood flow to the glomerulus."
               },
               {
-                "question": "A student argues that the kidney directly controls intracellular fluid composition. Which correction best matches the lecture?",
+                "question": "A student argues that the kidney directly controls intracellular fluid composition. Which correction is most accurate?",
                 "options": {
                   "A": "The kidney directly controls ICF, which then determines plasma and interstitial fluid composition",
                   "B": "The kidney controls plasma only, while interstitial and intracellular fluids remain unaffected",
@@ -24914,7 +24914,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Buffers reduce the size of pH changes by neutralizing excess H+, not eliminating it entirely."
               },
               {
-                "question": "Which pairing of body compartment and dominant buffer is most consistent with the lecture?",
+                "question": "Which pairing of body compartment and dominant buffer is most consistent?",
                 "options": {
                   "A": "Blood: phosphate; interstitial fluid: haemoglobin",
                   "B": "Blood: ammonia; intracellular fluid: bicarbonate",
@@ -24974,7 +24974,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Secreted H+ binds filtered HCO3-, forming CO2 and water, which is the sequence of events in the luminal part of bicarbonate reabsorption."
               },
               {
-                "question": "A patient has very high filtered bicarbonate delivery to the proximal tubule. Secreted H+ is entering the lumen normally. Which consequence follows from the lecture's description of renal H+ handling?",
+                "question": "A patient has very high filtered bicarbonate delivery to the proximal tubule. Secreted H+ is entering the lumen normally. Which consequence follows description of renal H+ handling?",
                 "options": {
                   "A": "H+ excretion rises because bicarbonate is the main urinary buffer",
                   "B": "H+ excretion rises because carbonic acid is trapped in urine",
@@ -25214,7 +25214,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A high pH and high HCO3- level in the blood indicate metabolic alkalosis before compensation, as the body retains bicarbonate from vomiting."
               },
               {
-                "question": "Hyperaldosteronism can produce metabolic alkalosis. Which tubular effect from the lecture best explains this?",
+                "question": "Hyperaldosteronism can produce metabolic alkalosis. Which tubular effect best explains this?",
                 "options": {
                   "A": "Inhibition of luminal H+ ATPase activity",
                   "B": "Stimulation of tubular H+ ATPase activity",
@@ -25310,7 +25310,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The patient has low bicarbonate levels, indicating a loss of bicarbonate from the body, which is characteristic of metabolic acidosis."
               },
               {
-                "question": "Which statement best describes compensation in acid-base disorders as presented in the lecture?",
+                "question": "Which statement best describes compensation in acid-base disorders?",
                 "options": {
                   "A": "It restores pH fully if the kidneys are intact",
                   "B": "It reduces the pH change without curing the primary disorder",
@@ -25467,7 +25467,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The posterior root joins the anterior root before the damage, so the most immediate expected consequence is loss of sensory input from that segment."
               },
               {
-                "question": "A transverse section through the spinal cord is shown to a student. Which statement correctly links grey and white matter as described in the lecture?",
+                "question": "A transverse section through the spinal cord is shown to a student. Which statement correctly links grey and white matter?",
                 "options": {
                   "A": "Grey matter surrounds white matter and carries descending tracts",
                   "B": "Grey matter lies laterally and forms the intervertebral foramina",
@@ -25491,7 +25491,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A dermatome refers to a strip of skin supplied by one spinal nerve, matching the patient's numbness and paraesthesia pattern."
               },
               {
-                "question": "A disc protrusion compresses a nerve root and the patient reports sensory symptoms over the lateral lower limb, anterior leg, and sole of the foot. Which combination best matches the lecture case?",
+                "question": "A disc protrusion compresses a nerve root and the patient reports sensory symptoms over the lateral lower limb, anterior leg, and sole of the foot. Which combination best matches the case?",
                 "options": {
                   "A": "L1, L2, and L3",
                   "B": "L2, L3, and L4",
@@ -25539,7 +25539,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The ligamentum flavum connects the laminae of adjacent vertebrae, forming a posterior longitudinal ligament."
               },
               {
-                "question": "Which set correctly states the vertebral column count described in the lecture?",
+                "question": "Which set correctly states the vertebral column count?",
                 "options": {
                   "A": "7 cervical, 12 thoracic, 5 lumbar, 5 fused sacral, 3-4 fused coccygeal",
                   "B": "8 cervical, 12 thoracic, 5 lumbar, 5 fused sacral, 1 coccygeal",
@@ -25551,7 +25551,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct vertebral column count is 7 cervical, 12 thoracic, 5 lumbar, 5 fused sacral, and 3-4 fused coccygeal vertebrae."
               },
               {
-                "question": "Which set correctly states the spinal nerve count described in the lecture?",
+                "question": "Which set correctly states the spinal nerve count?",
                 "options": {
                   "A": "7 cervical, 12 thoracic, 5 lumbar, 5 sacral, 2 coccygeal pairs",
                   "B": "8 cervical, 11 thoracic, 5 lumbar, 5 sacral, 2 coccygeal pairs",
@@ -25683,7 +25683,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is Myotome because it describes the motor distribution of a single spinal nerve level, which is affected in the patient."
               },
               {
-                "question": "In the lecturer's case, reduced right ankle reflex was associated with sensory symptoms including the sole of the foot. Which root level is most strongly implicated by the reflex change?",
+                "question": "In the case, reduced right ankle reflex was associated with sensory symptoms including the sole of the foot. Which root level is most strongly implicated by the reflex change?",
                 "options": {
                   "A": "L2",
                   "B": "L3",
@@ -25695,7 +25695,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is S1 because the reflex change at the right ankle is most strongly implicated by the sensory symptoms affecting the sole of the foot, which is innervated by the S1 dermatome."
               },
               {
-                "question": "A patient with shoulder trauma is in severe pain, so the examiner avoids asking them to move the shoulder initially. Which assessment best matches the lecture's recommended early neurological check?",
+                "question": "A patient with shoulder trauma is in severe pain, so the examiner avoids asking them to move the shoulder initially. Which assessment best matches the recommended early neurological check?",
                 "options": {
                   "A": "Test resisted abduction against maximal force",
                   "B": "Lightly assess sensation over relevant dermatomes",
@@ -25719,7 +25719,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is Mixed because a spinal nerve is classified as mixed before it divides into rami, containing both motor and sensory fibers."
               },
               {
-                "question": "Which structures form the major nerve plexuses discussed in the lecture?",
+                "question": "Which structures form the major nerve plexuses?",
                 "options": {
                   "A": "Anterior rami",
                   "B": "Posterior rami",
@@ -25731,7 +25731,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is Anterior rami because they form the major nerve plexuses discussed in the lecture, including the brachial plexus and lumbar plexus."
               },
               {
-                "question": "A patient has disc material protruding but no neurological symptoms. Which explanation best fits the lecture's account?",
+                "question": "A patient has disc material protruding but no neurological symptoms. Which explanation best fits the account?",
                 "options": {
                   "A": "The spinal cord cannot detect lumbar disc disease",
                   "B": "The annulus fibrosus has not ruptured in this case",
@@ -25815,7 +25815,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is E, as the thoracic and sacral regions have concave anterior primary curvatures at birth."
               },
               {
-                "question": "A patient with sciatica has nerve irritation in roots contributing to the sciatic nerve. Which root range is most consistent with the lecture?",
+                "question": "A patient with sciatica has nerve irritation in roots contributing to the sciatic nerve. Which root range is most consistent?",
                 "options": {
                   "A": "L1 to L4",
                   "B": "L4 to S3",
@@ -25965,7 +25965,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is E because T11 and T12 vertebrae often lack tubercle facets on their transverse processes, which can lead to a lack of costal facet development in the corresponding ribs."
               },
               {
-                "question": "A patient has sharp posterior thoracic pain that is reproducibly worse during deep inspiration, but cardiac and pulmonary tests are unremarkable. Which joint pathology best fits the mechanism discussed in the lecture?",
+                "question": "A patient has sharp posterior thoracic pain that is reproducibly worse during deep inspiration, but cardiac and pulmonary tests are unremarkable. Which joint pathology best fits the mechanism?",
                 "options": {
                   "A": "Costovertebral or costotransverse joint irritation",
                   "B": "Atlanto-occipital or median atlanto-axial irritation",
@@ -26025,7 +26025,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is E because whiplash sprain involving cervical soft tissues and facet joints best integrates the likely injured structures in a restrained driver with neck stiffness after a rear-end collision, as these injuries are common in such cases."
               },
               {
-                "question": "A patient reports pain mainly when extending the cervical spine after minor trauma. Using the lecture's rule of thumb, which structure is most suspicious?",
+                "question": "A patient reports pain mainly when extending the cervical spine after minor trauma. Using the rule of thumb, which structure is most suspicious?",
                 "options": {
                   "A": "Facet joint",
                   "B": "Vertebral body",
@@ -26097,7 +26097,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "A stress defect appearing as a collar on the 'Scotty dog' is indicative of pars interarticularis fracture."
               },
               {
-                "question": "A gymnast has lower back pain worsened by repeated hyperextension. Oblique radiograph shows a collar sign. Which diagnosis is most consistent with the lecture material?",
+                "question": "A gymnast has lower back pain worsened by repeated hyperextension. Oblique radiograph shows a collar sign. Which diagnosis is most consistent with the material?",
                 "options": {
                   "A": "Lumbar disc prolapse",
                   "B": "Spondylolysis",
@@ -26121,7 +26121,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The superior articular process is the part of the vertebra that articulates with the inferior articular process of the adjacent vertebra, forming the facet joint."
               },
               {
-                "question": "A student is asked to identify a thoracic vertebra from an osteoporotic specimen where spinous process shape is unreliable. Which feature is most dependable from the lecture?",
+                "question": "A student is asked to identify a thoracic vertebra from an osteoporotic specimen where spinous process shape is unreliable. Which feature is most dependable?",
                 "options": {
                   "A": "Mammillary processes",
                   "B": "Bifid spinous process",
@@ -26145,7 +26145,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Flexion-extension dominant motion profile is expected for the lumbar region with minimal rotation, as this type of loading tends to cause flexion and extension at the facet joints."
               },
               {
-                "question": "A lateral blow to the upper neck injures the structures passing through the transverse foramina. Which group of structures is most consistent with the lecture?",
+                "question": "A lateral blow to the upper neck injures the structures passing through the transverse foramina. Which group of structures is most consistent?",
                 "options": {
                   "A": "Vertebral artery, vertebral vein and sympathetic nerve",
                   "B": "Internal carotid artery, internal jugular vein and vagus nerve",
@@ -26289,7 +26289,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Facets articulate with rib heads and rib tubercles to transmit forces during sternochondral movement, allowing for flexibility in the thoracic spine."
               },
               {
-                "question": "A clinician distinguishes mechanical patterns of pain during spinal movement. Which pattern best suggests intervertebral disc involvement according to the lecture?",
+                "question": "A clinician distinguishes mechanical patterns of pain during spinal movement. Which pattern best suggests intervertebral disc involvement?",
                 "options": {
                   "A": "Pain mainly on resisted shoulder abduction",
                   "B": "Pain mainly during quiet respiration",
@@ -26691,7 +26691,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The radial nerve passes through the triangular interval with the profunda brachii artery."
               },
               {
-                "question": "A patient has rupture of the proximal long head of biceps. Which clinical appearance is most consistent with the lecture description?",
+                "question": "A patient has rupture of the proximal long head of biceps. Which clinical appearance is most consistent with the description?",
                 "options": {
                   "A": "Upward arm bulge with loss of elbow extension",
                   "B": "Lateral shoulder flattening with loss of abduction",
@@ -27225,7 +27225,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The floor of the cubital fossa is formed by the brachialis and supinator muscles."
               },
               {
-                "question": "During forearm pronation, the distal radius moves medially across the ulna. Which pair of muscles provides the principal pronating force described in the lecture?",
+                "question": "During forearm pronation, the distal radius moves medially across the ulna. Which pair of muscles provides the principal pronating force?",
                 "options": {
                   "A": "Supinator and biceps brachii",
                   "B": "Brachialis and brachioradialis",
@@ -27507,7 +27507,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The extensor pollicis longus muscle is responsible for extending the thumb metacarpophalangeal joint, making it the most specifically weak in this scenario."
               },
               {
-                "question": "A fracture through the hook of hamate is suspected after ulnar-sided palm trauma. Which adjacent neurovascular passage is most clinically relevant from the lecture?",
+                "question": "A fracture through the hook of hamate is suspected after ulnar-sided palm trauma. Which adjacent neurovascular passage is most clinically relevant?",
                 "options": {
                   "A": "Carpal tunnel",
                   "B": "Guyon's canal",
@@ -27747,7 +27747,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The annular ligament stabilizes the proximal radioulnar joint by holding the radial head against the radial notch of the ulna, preventing excessive pronation or supination."
               },
               {
-                "question": "A lesion affects the anterior interosseous nerve. Which movement would be expected to weaken based on the lecture's deep anterior forearm anatomy?",
+                "question": "A lesion affects the anterior interosseous nerve. Which movement would be expected to weaken?",
                 "options": {
                   "A": "Little finger MCP extension",
                   "B": "Wrist extension with ulnar deviation",
@@ -28125,7 +28125,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because impaired flexor tendon gliding within the fibrous digital sheath would cause a finger to lock in flexion during gripping and then release with a click when manipulated, due to tenderness at the palmar MCP region."
               },
               {
-                "question": "Which feature best distinguishes trigger finger from Dupuytren's contracture in the lecture's clinical comparison?",
+                "question": "Which feature best distinguishes trigger finger from Dupuytren's contracture in the clinical comparison?",
                 "options": {
                   "A": "Trigger finger preferentially affects the ring and little fingers",
                   "B": "Trigger finger causes progressive palmar aponeurosis nodules",
@@ -28245,7 +28245,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because the fibrous digital sheath surrounds and holds the flexor tendons close to the phalanges in the hand."
               },
               {
-                "question": "In the lecture, the first carpometacarpal joint is contrasted with the CMC joints of digits 2 to 5. Which statement best explains its functional importance?",
+                "question": "The first carpometacarpal joint is contrasted with the CMC joints of digits 2 to 5. Which statement best explains its functional importance?",
                 "options": {
                   "A": "It is a hinge joint that strengthens DIP extension",
                   "B": "It is a plane joint that stabilises the central metacarpals",
@@ -28419,7 +28419,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "Testing light touch in the dorsal first web space specifically assesses the radial nerve, which innervates this area."
               },
               {
-                "question": "During a procedure in the arm, the median nerve is followed in relation to the brachial artery. Which sequence of positions is described in the lecture as it descends?",
+                "question": "During a procedure in the arm, the median nerve is followed in relation to the brachial artery. Which sequence of positions occurs as it descends?",
                 "options": {
                   "A": "Lateral -> anterior -> medial",
                   "B": "Medial -> anterior -> lateral",
@@ -28587,7 +28587,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The posterior circumflex humeral artery accompanies the axillary nerve through the quadrangular space, making it susceptible to injury in a humeral surgical neck fracture."
               },
               {
-                "question": "A surgeon reviewing scapular collateral circulation identifies two branches of the thyrocervical trunk discussed in the lecture. Which pair is correct?",
+                "question": "A surgeon reviewing scapular collateral circulation identifies two branches of the thyrocervical trunk. Which pair is correct?",
                 "options": {
                   "A": "Transverse cervical and suprascapular arteries",
                   "B": "Thoracoacromial and lateral thoracic arteries",
@@ -28695,7 +28695,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The median cubital vein connects the cephalic and basilic veins in the superficial fascia, allowing for easy access for venepuncture."
               },
               {
-                "question": "Which statement best summarises the venous drainage principle emphasised in the lecture?",
+                "question": "Which statement best summarises the venous drainage principle emphasised?",
                 "options": {
                   "A": "Deep veins drain into superficial veins only at the wrist",
                   "B": "Superficial veins communicate with and drain toward deeper veins",
@@ -28731,7 +28731,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The posterior wall of the axilla is correctly described by subscapularis, teres major, latissimus dorsi, and long head of triceps muscles."
               },
               {
-                "question": "A patient loses sensation from the skin of the armpit after an axillary procedure. Which nerve named in the lecture most specifically supplies this region?",
+                "question": "A patient loses sensation from the skin of the armpit after an axillary procedure. Which nerve most specifically supplies this region?",
                 "options": {
                   "A": "Intercostobrachial nerve",
                   "B": "Medial cutaneous nerve of the arm",
@@ -29097,7 +29097,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The femoral nerve supplies anterior thigh muscles and cutaneous territory, making it the correct answer."
               },
               {
-                "question": "A student compares the sacral plexus with the lumbar plexus. Which root range best describes the sacral plexus as presented in the lecture?",
+                "question": "A student compares the sacral plexus with the lumbar plexus. Which root range best describes the sacral plexus?",
                 "options": {
                   "A": "L1-L4 anterior rami",
                   "B": "L2-L5 anterior rami",
@@ -29307,7 +29307,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct answer is E because the iliopsoas tendon blends with the tensor fasciae latae tendon to form the iliotibial tract, a fibrous band that runs along the lateral thigh."
               },
               {
-                "question": "A patient with an injured superior gluteal nerve is asked to abduct and medially rotate the hip. Which muscles are most responsible for the lost actions emphasized in the lecture?",
+                "question": "A patient with an injured superior gluteal nerve is asked to abduct and medially rotate the hip. Which muscles are most responsible for the lost actions?",
                 "options": {
                   "A": "Gluteus medius and gluteus minimus",
                   "B": "Piriformis and quadratus femoris",
@@ -29391,7 +29391,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The femoral vein lies medial to the femoral artery in the femoral triangle, guiding needle placement for insertion into the femoral vein."
               },
               {
-                "question": "Which set correctly describes the boundaries of the femoral triangle as presented in the lecture?",
+                "question": "Which set correctly describes the boundaries of the femoral triangle?",
                 "options": {
                   "A": "Inguinal ligament superiorly, sartorius laterally, adductor longus medially",
                   "B": "Inguinal ligament superiorly, gracilis laterally, sartorius medially",
@@ -29415,7 +29415,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The femoral nerve is located lateral to the femoral artery within the femoral triangle, making it more likely to be encountered by a needle placed too far laterally."
               },
               {
-                "question": "A student identifies the floor of the femoral triangle. Which group best matches the muscles named in the lecture as forming this floor region?",
+                "question": "A student identifies the floor of the femoral triangle. Which group best matches the muscles as forming this floor region?",
                 "options": {
                   "A": "Gluteus minimus, piriformis, quadratus femoris",
                   "B": "Iliopsoas, pectineus, adductor longus",
@@ -29499,7 +29499,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The medial compartment of the thigh is most affected by an obturator nerve injury, which affects adduction, making option A the correct answer."
               },
               {
-                "question": "Pectineus is treated in this lecture as an anterior compartment muscle despite having an action more typical of which compartment?",
+                "question": "Pectineus is treated as an anterior compartment muscle despite having an action more typical of which compartment?",
                 "options": {
                   "A": "Posterior compartment; knee flexion",
                   "B": "Medial compartment; hip adduction",
@@ -29523,7 +29523,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The adductor hiatus has been traversed by the femoral artery as it passes from the thigh to the leg, making option C the correct answer."
               },
               {
-                "question": "Which description best distinguishes the two functional parts of adductor magnus in the lecture?",
+                "question": "Which description best distinguishes the two functional parts of adductor magnus?",
                 "options": {
                   "A": "Both parts adduct the hip and are supplied by the femoral nerve",
                   "B": "The hamstring part adducts the hip; the adductor part extends the hip",
@@ -29595,7 +29595,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The lateral rotator muscles, such as the piriformis and obturator internus, share lateral rotation at the hip with the tensor fasciae latae muscle."
               },
               {
-                "question": "Which nerve-to-muscle pairing for the deep gluteal lateral rotators best follows the lecture's naming pattern and topographical exceptions?",
+                "question": "Which nerve-to-muscle pairing for the deep gluteal lateral rotators best follows the naming pattern and topographical exceptions?",
                 "options": {
                   "A": "Nerve to piriformis to piriformis; nerve to obturator internus to obturator internus and superior gemellus; nerve to quadratus femoris to quadratus femoris and inferior gemellus",
                   "B": "Superior gluteal nerve to piriformis; inferior gluteal nerve to obturator internus; femoral nerve to quadratus femoris and both gemelli",
@@ -29619,7 +29619,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The patella is embedded within the tendon of the quadriceps femoris, indicating it is a sesamoid bone that provides protection to the knee joint."
               },
               {
-                "question": "Which distal attachment is most characteristic of gluteus maximus in the lecture, especially for the inferior portion?",
+                "question": "Which distal attachment is most characteristic of gluteus maximus, especially for the inferior portion?",
                 "options": {
                   "A": "Greater trochanter",
                   "B": "Lesser trochanter",
@@ -29805,7 +29805,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The popliteus muscle is most responsible for unlocking the joint by rotating the femur on the tibia during flexion."
               },
               {
-                "question": "Which pair of articulations forms the knee joint described in the lecture?",
+                "question": "Which pair of articulations forms the knee joint?",
                 "options": {
                   "A": "Femorotibial and patellofemoral articulations",
                   "B": "Tibiofibular and femorotibial articulations",
@@ -30129,7 +30129,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is C because the semimembranosus and semitendinosus muscles are indeed attached to the lateral head of gastrocnemius, forming a superomedial boundary of the popliteal fossa."
               },
               {
-                "question": "In an anterior view of the knee, the anterior cruciate ligament is traced from its tibial attachment toward the femur. Which femoral region is most consistent with the lecture description?",
+                "question": "In an anterior view of the knee, the anterior cruciate ligament is traced from its tibial attachment toward the femur. Which femoral region is most consistent with the description?",
                 "options": {
                   "A": "Posterior part of the lateral femoral condyle",
                   "B": "Anterior part of the medial femoral condyle",
@@ -30153,7 +30153,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The correct option is B because the plantaris tendon accompanies the calcaneal tendon and may be absent in some individuals, making it a likely candidate for this small tendon."
               },
               {
-                "question": "A patient's medial collateral ligament is ruptured in a twisting injury. Which additional injury should be suspected based on the lecture anatomy?",
+                "question": "A patient's medial collateral ligament is ruptured in a twisting injury. Which additional injury should be suspected anatomy?",
                 "options": {
                   "A": "Lateral meniscal tear due to fusion with the fibular collateral ligament",
                   "B": "Patellar fracture due to continuity with the tibial collateral ligament",
@@ -30201,7 +30201,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
                 "explanation": "The tibialis posterior muscle is responsible for inversion and supports the medial arch, making it relevant to a patient's inability to invert the foot when plantarflexed."
               },
               {
-                "question": "A patient has an ACL rupture. Which biomechanical abnormality best corresponds to the positive clinical test described in the lecture?",
+                "question": "A patient has an ACL rupture. Which biomechanical abnormality best corresponds to the positive clinical test?",
                 "options": {
                   "A": "Excessive anterior translation of the tibia relative to the femur",
                   "B": "Excessive posterior translation of the tibia relative to the femur",
