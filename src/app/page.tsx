@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { type CSSProperties, useEffect, useMemo, useState } from "react";
 import {
   questionBankFolders,
   type Question,
@@ -503,6 +503,21 @@ type SavedQuestionSetAnswers = {
 
 const progressStorageKey = "questionBankProgressV1";
 const savedAnswersStorageKey = "questionBankSavedAnswersV1";
+const cardAccentColors = [
+  "#14b8a6",
+  "#f97316",
+  "#6366f1",
+  "#ec4899",
+  "#22c55e",
+  "#0ea5e9",
+  "#eab308",
+];
+
+function getAccentStyle(index: number): CSSProperties {
+  return {
+    "--card-accent": cardAccentColors[index % cardAccentColors.length],
+  } as CSSProperties;
+}
 
 function readStorageRecord<T>(storageKey: string): Record<string, T> {
   if (typeof window === "undefined") return {};
@@ -683,6 +698,8 @@ export default function Home() {
     setError("");
     setActiveQuestionSetId(null);
     setActiveQuestionSetTitle(null);
+    setSelectedBankSubmoduleId(null);
+    setQuestionBankSearch("");
     setCurrentView("question-bank");
   }
 
@@ -925,11 +942,11 @@ export default function Home() {
       <div key={folder.id} style={{ marginLeft: depth * 10 }}>
         <button
           onClick={() => toggleQuestionBankFolder(folder.id)}
-          className="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left font-semibold text-slate-100 transition hover:bg-white/10"
+          className="flex w-full items-center justify-between rounded-xl border border-[#facc15]/10 bg-white/5 px-3 py-2.5 text-left font-semibold text-slate-100 transition hover:bg-[#facc15]/20"
         >
           <span>{folder.title}</span>
           <span
-            className={`ml-3 text-teal-200 transition-transform duration-300 ${
+            className={`ml-3 text-[#facc15] transition-transform duration-300 ${
               isExpanded ? "rotate-90" : ""
             }`}
             aria-hidden="true"
@@ -964,8 +981,8 @@ export default function Home() {
                         onClick={() => loadQuestionSet(questionSet)}
                         className={`block w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium transition ${
                           activeQuestionSetId === questionSet.id
-                            ? "bg-teal-300 text-slate-950 shadow-sm"
-                            : "text-slate-300 hover:bg-white/10 hover:text-white"
+                            ? "bg-[#facc15] text-slate-950 shadow-sm"
+                            : "text-white/85 hover:bg-[#facc15]/20 hover:text-white"
                         }`}
                       >
                         <span className="block">{questionSet.title}</span>
@@ -993,6 +1010,7 @@ export default function Home() {
             <div
               key={questionIndex}
               className="interactiveCard p-4 sm:p-5"
+              style={getAccentStyle(questionIndex)}
             >
               <h2 className="font-semibold text-slate-950">
                 {questionIndex + 1}. {q.question}
@@ -1024,8 +1042,8 @@ export default function Home() {
                             : shouldShowCorrectAnswer
                               ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                               : isSelected
-                                ? "border-teal-500 bg-teal-50 text-slate-950"
-                                : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50"
+                                ? "border-pink-500 bg-pink-50 text-slate-950"
+                                : "border-pink-200 bg-pink-50/40 text-slate-800 hover:bg-pink-50"
                       }`}
                     >
                       <span className="font-semibold">{letter}.</span> {option}
@@ -1059,7 +1077,7 @@ export default function Home() {
         {questions.length > 0 && !showResults && !activeQuestionSetId && (
           <button
             onClick={checkAnswers}
-            className="mt-8 rounded-full bg-teal-600 px-5 py-3 font-semibold text-white shadow-lg shadow-teal-900/10 transition hover:bg-teal-700"
+            className="primaryButton mt-8 px-5 py-3 font-semibold text-white transition"
           >
             Check Answers
           </button>
@@ -1168,7 +1186,7 @@ export default function Home() {
           <button
             onClick={checkAnswers}
             disabled={showResults}
-            className="rounded-full bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-32"
+            className="primaryButton px-4 py-2.5 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60 sm:min-w-32"
           >
             {showResults ? "Marked" : "Mark Answers"}
           </button>
@@ -1194,12 +1212,16 @@ export default function Home() {
   function renderLectureCard(questionSet: QuestionSet) {
     const progress = getQuestionSetProgress(questionSet);
     const savedAt = savedAnswersByQuestionSet[questionSet.id]?.savedAt;
+    const lectureIndex = selectedBankSubmodule?.questionSets.findIndex(
+      (set) => set.id === questionSet.id
+    ) ?? 0;
 
     return (
       <button
         key={questionSet.id}
         onClick={() => loadQuestionSet(questionSet)}
         className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
+        style={getAccentStyle(lectureIndex)}
       >
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -1213,7 +1235,7 @@ export default function Home() {
               </p>
             )}
           </div>
-          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+          <span className="rounded-full bg-white/75 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
             {progress.percent}%
           </span>
         </div>
@@ -1228,13 +1250,40 @@ export default function Home() {
       <div className="mx-auto max-w-6xl">
         <div className="space-y-6">
           <section className="surfaceCard p-5 sm:p-8">
-            <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
-              Physiology and Anatomy of Systems
-            </h2>
-            <p className="mt-3 max-w-3xl text-slate-600">
-              Choose a PAS submodule from the bank, answer its lecture questions,
-              and build progress as you check your answers.
-            </p>
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+              <div>
+                <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
+                  Physiology and Anatomy of Systems
+                </h2>
+                <p className="mt-3 max-w-3xl text-slate-600">
+                  Choose a PAS submodule from the bank, answer its lecture questions,
+                  and build progress as you check your answers.
+                </p>
+              </div>
+
+              <div className="relative w-full lg:w-96">
+                <svg
+                  className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#ec4899]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m16.5 16.5 4 4" />
+                </svg>
+                <input
+                  type="search"
+                  value={questionBankSearch}
+                  onChange={(event) => setQuestionBankSearch(event.target.value)}
+                  placeholder="Search for a lecture..."
+                  className="w-full rounded-2xl border border-pink-200 bg-white/90 py-3 pl-11 pr-4 text-slate-950 shadow-inner outline-none placeholder:text-slate-400 focus:border-pink-400 focus:ring-2 focus:ring-pink-300/30"
+                />
+              </div>
+            </div>
 
             <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
               <div className="statTile p-3 sm:p-4">
@@ -1257,15 +1306,6 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-6">
-              <input
-                type="search"
-                value={questionBankSearch}
-                onChange={(event) => setQuestionBankSearch(event.target.value)}
-                placeholder="Search for a lecture..."
-                className="w-full rounded-2xl border border-slate-200 bg-white/85 px-4 py-3 text-slate-950 shadow-inner outline-none placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
-              />
-            </div>
           </section>
 
           {normalizedQuestionBankSearch ? (
@@ -1280,7 +1320,7 @@ export default function Home() {
                 </p>
               ) : (
                 <div className="mt-6 grid gap-4 lg:grid-cols-2">
-                  {lectureSearchResults.map(({ questionSet, submoduleTitle }) => {
+                  {lectureSearchResults.map(({ questionSet, submoduleTitle }, index) => {
                     const progress = getQuestionSetProgress(questionSet);
 
                     return (
@@ -1288,6 +1328,7 @@ export default function Home() {
                         key={questionSet.id}
                         onClick={() => loadQuestionSet(questionSet)}
                         className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
+                        style={getAccentStyle(index)}
                       >
                         <div className="flex items-start justify-between gap-4">
                           <div>
@@ -1302,7 +1343,7 @@ export default function Home() {
                               {progress.answered} answered
                             </p>
                           </div>
-                          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                          <span className="rounded-full bg-white/75 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
                             {progress.percent}%
                           </span>
                         </div>
@@ -1330,9 +1371,22 @@ export default function Home() {
 
                 <button
                   onClick={() => setSelectedBankSubmoduleId(null)}
-                  className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition"
+                  className="secondaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
                 >
-                  All PAS Submodules
+                  <svg
+                    className="h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                  </svg>
+                  Back to PAS submodules
                 </button>
               </div>
 
@@ -1342,7 +1396,7 @@ export default function Home() {
             </section>
           ) : (
             <section className="grid gap-4 lg:grid-cols-2">
-              {bankStats.submodules.map((submodule) => {
+              {bankStats.submodules.map((submodule, index) => {
                 const progress = getSubmoduleProgress(submodule);
 
                 return (
@@ -1350,6 +1404,7 @@ export default function Home() {
                     key={submodule.id}
                     onClick={() => openSubmodule(submodule.id)}
                     className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
+                    style={getAccentStyle(index)}
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
@@ -1361,7 +1416,7 @@ export default function Home() {
                           {progress.totalQuestions} questions
                         </p>
                       </div>
-                      <span className="rounded-full bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-700">
+                      <span className="rounded-full bg-white/75 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
                         {progress.percent}%
                       </span>
                     </div>
@@ -1397,9 +1452,22 @@ export default function Home() {
 
           <button
             onClick={returnToGenerator}
-            className="secondaryButton w-full px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
+            className="secondaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
           >
-            Back to Question Bank
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m12 19-7-7 7-7" />
+              <path d="M19 12H5" />
+            </svg>
+            Back to PAS submodules
           </button>
         </div>
 
@@ -1446,13 +1514,14 @@ export default function Home() {
         </div>
 
         <div className="space-y-4">
-          {bankStats.submodules.map((submodule) => {
+          {bankStats.submodules.map((submodule, index) => {
             const submoduleProgress = getSubmoduleProgress(submodule);
 
             return (
               <article
                 key={submodule.id}
                 className="surfaceCard p-5"
+                style={getAccentStyle(index)}
               >
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div>
@@ -1465,7 +1534,7 @@ export default function Home() {
                       {submoduleProgress.correct} best correct
                     </p>
                   </div>
-                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">
+                  <span className="rounded-full bg-white/75 px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm">
                     {submoduleProgress.percent}%
                   </span>
                 </div>
@@ -1475,7 +1544,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-5 space-y-3">
-                  {submodule.questionSets.map((questionSet) => {
+                  {submodule.questionSets.map((questionSet, lectureIndex) => {
                     const lectureProgress = getQuestionSetProgress(questionSet);
 
                     return (
@@ -1483,6 +1552,7 @@ export default function Home() {
                         key={questionSet.id}
                         onClick={() => loadQuestionSet(questionSet)}
                         className="interactiveCard w-full p-4 text-left transition hover:-translate-y-0.5"
+                        style={getAccentStyle(lectureIndex)}
                       >
                         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                           <div>
@@ -1495,7 +1565,7 @@ export default function Home() {
                               {lectureProgress.correct} best correct
                             </p>
                           </div>
-                          <span className="text-sm font-semibold text-emerald-700">
+                          <span className="rounded-full bg-white/75 px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm">
                             {lectureProgress.percent}%
                           </span>
                         </div>
@@ -1526,10 +1596,10 @@ export default function Home() {
                   setCurrentView("question-bank");
                 }}
                 aria-expanded={isQuestionBankOpen}
-                className="flex min-h-24 w-full items-center justify-between px-5 py-4 text-left font-semibold text-white transition hover:bg-white/10"
+                className="flex min-h-24 w-full items-center justify-between bg-[#facc15]/10 px-5 py-4 text-left font-semibold text-white transition hover:bg-[#facc15]/20"
               >
                 <span>Browse Question Bank</span>
-                <span className="text-teal-200" aria-hidden="true">
+                <span className="text-[#facc15]" aria-hidden="true">
                   {isQuestionBankOpen ? "v" : ">"}
                 </span>
               </button>
@@ -1552,7 +1622,7 @@ export default function Home() {
                 className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
                   currentView === "question-bank"
                     ? "bg-white text-slate-950 shadow-sm"
-                    : "bg-transparent text-white hover:bg-white/10"
+                    : "bg-white/10 text-white hover:bg-[#facc15]/20"
                 }`}
               >
                 <span className="sm:hidden">Bank</span>
@@ -1564,7 +1634,7 @@ export default function Home() {
                 className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
                   currentView === "progress"
                     ? "bg-white text-slate-950 shadow-sm"
-                    : "bg-transparent text-white hover:bg-white/10"
+                    : "bg-white/10 text-white hover:bg-[#facc15]/20"
                 }`}
               >
                 <span className="sm:hidden">Progress</span>
@@ -1576,7 +1646,7 @@ export default function Home() {
                 className={`navPill px-2 py-2.5 text-center text-sm font-semibold transition sm:px-4 sm:text-left ${
                   currentView === "generator"
                     ? "bg-white text-slate-950 shadow-sm"
-                    : "bg-transparent text-white hover:bg-white/10"
+                    : "bg-white/10 text-white hover:bg-[#facc15]/20"
                 }`}
               >
                 Generator

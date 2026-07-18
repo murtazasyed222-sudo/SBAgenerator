@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f7fb;
+  --background: #f8fbff;
   --foreground: #111827;
-  --navy: #07172b;
-  --navy-soft: #0c2340;
-  --teal: #0f766e;
-  --teal-bright: #2dd4bf;
-  --surface: rgba(255, 255, 255, 0.88);
+  --ink: #14213d;
+  --lagoon: #0f766e;
+  --coral: #f97316;
+  --iris: #6366f1;
+  --rose: #ec4899;
+  --sun: #facc15;
+  --surface: rgba(255, 255, 255, 0.9);
   --surface-solid: #ffffff;
   --line: rgba(15, 23, 42, 0.1);
+  --card-accent: #14b8a6;
 }
 
 @theme inline {
@@ -42,17 +45,17 @@ textarea:focus-visible {
 
 .appCanvas {
   background:
-    linear-gradient(180deg, #f8fafc 0%, #eef4f8 46%, #f6f8fb 100%);
+    linear-gradient(145deg, #f8fbff 0%, #ecfbf6 30%, #fff6ed 66%, #f7f3ff 100%);
 }
 
 .appHeader {
-  background: rgba(7, 23, 43, 0.94);
+  background: linear-gradient(112deg, rgba(20, 33, 61, 0.97) 0%, rgba(15, 118, 110, 0.95) 48%, rgba(124, 45, 85, 0.94) 100%);
   backdrop-filter: blur(24px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 18px 50px rgba(7, 23, 43, 0.18);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.14), 0 18px 50px rgba(20, 33, 61, 0.22);
 }
 
 .headerRail {
-  background: rgba(4, 16, 31, 0.72);
+  background: rgba(20, 33, 61, 0.58);
 }
 
 .navPill {
@@ -65,50 +68,53 @@ textarea:focus-visible {
   background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.72);
   border-radius: 8px;
-  box-shadow: 0 20px 70px rgba(15, 23, 42, 0.09), 0 1px 0 rgba(255, 255, 255, 0.9) inset;
+  box-shadow: 0 20px 70px rgba(15, 23, 42, 0.08), 0 1px 0 rgba(255, 255, 255, 0.92) inset;
 }
 
 .interactiveCard {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--card-accent) 16%, transparent) 0%, rgba(255, 255, 255, 0.92) 34%),
+    rgba(255, 255, 255, 0.92);
+  border: 1px solid color-mix(in srgb, var(--card-accent) 34%, rgba(15, 23, 42, 0.08));
+  border-left: 5px solid var(--card-accent);
   border-radius: 8px;
   box-shadow: 0 16px 50px rgba(15, 23, 42, 0.07);
 }
 
 .interactiveCard:hover {
-  border-color: rgba(20, 184, 166, 0.34);
-  box-shadow: 0 22px 65px rgba(15, 23, 42, 0.11);
+  border-color: color-mix(in srgb, var(--card-accent) 72%, white);
+  box-shadow: 0 22px 65px color-mix(in srgb, var(--card-accent) 22%, rgba(15, 23, 42, 0.1));
 }
 
 .statTile {
-  background: linear-gradient(180deg, rgba(248, 250, 252, 0.94), rgba(241, 245, 249, 0.92));
-  border: 1px solid rgba(15, 23, 42, 0.07);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.84));
+  border: 1px solid rgba(14, 165, 233, 0.16);
   border-radius: 8px;
 }
 
 .primaryButton {
-  background: #07172b;
+  background: linear-gradient(135deg, #0f766e 0%, #2563eb 58%, #ec4899 100%);
   border-radius: 9999px;
-  box-shadow: 0 12px 28px rgba(7, 23, 43, 0.22);
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.22);
 }
 
 .primaryButton:hover {
-  background: #0e2a4c;
+  filter: saturate(1.1) brightness(1.02);
 }
 
 .secondaryButton {
-  background: rgba(241, 245, 249, 0.9);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(135deg, rgba(255, 247, 237, 0.96), rgba(236, 253, 245, 0.96));
+  border: 1px solid rgba(249, 115, 22, 0.22);
   border-radius: 9999px;
 }
 
 .secondaryButton:hover {
-  background: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 237, 213, 0.98), rgba(204, 251, 241, 0.98));
 }
 
 .questionBankPanel {
-  background: linear-gradient(180deg, #08192f 0%, #0b1f3a 100%);
-  box-shadow: 18px 0 55px rgba(7, 23, 43, 0.14);
+  background: linear-gradient(180deg, #14213d 0%, #0f766e 54%, #7c2d55 100%);
+  box-shadow: 18px 0 55px rgba(20, 33, 61, 0.16);
 }
 
 .answerChoice {
@@ -122,7 +128,7 @@ textarea:focus-visible {
 .numberSlider {
   -webkit-appearance: none;
   appearance: none;
-  accent-color: #0d9488;
+  accent-color: #ec4899;
 }
 
 .numberSlider::-webkit-slider-runnable-track {
@@ -132,7 +138,7 @@ textarea:focus-visible {
 }
 
 .numberSlider::-webkit-slider-thumb {
-  background: #07172b;
+  background: linear-gradient(135deg, #0f766e, #ec4899);
   border: 3px solid white;
   border-radius: 9999px;
   box-shadow: 0 5px 14px rgba(15, 23, 42, 0.22);
@@ -146,7 +152,7 @@ textarea:focus-visible {
 }
 
 .questionBankScroll {
-  scrollbar-color: #5eead4 #08192f;
+  scrollbar-color: #facc15 #14213d;
   scrollbar-width: thin;
 }
 
@@ -155,18 +161,18 @@ textarea:focus-visible {
 }
 
 .questionBankScroll::-webkit-scrollbar-track {
-  background: #08192f;
+  background: #14213d;
 }
 
 .questionBankScroll::-webkit-scrollbar-thumb {
-  background: #5eead4;
-  border: 3px solid #08192f;
+  background: #facc15;
+  border: 3px solid #14213d;
   border-radius: 9999px;
 }
 
 @media (max-width: 639px) {
   .appCanvas {
-    background: linear-gradient(180deg, #f8fafc 0%, #f0f6fb 42%, #f8fafc 100%);
+    background: linear-gradient(150deg, #f8fbff 0%, #ecfbf6 38%, #fff7ed 74%, #f7f3ff 100%);
   }
 
   .appHeader {
