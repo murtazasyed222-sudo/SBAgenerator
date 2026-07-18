@@ -527,8 +527,6 @@ type CloudAnswersRow = {
   updated_at: string | null;
 };
 
-const progressStorageKey = "questionBankProgressV1";
-const savedAnswersStorageKey = "questionBankSavedAnswersV1";
 const cardAccentColors = [
   "#0f766e",
   "#2563eb",
@@ -540,18 +538,6 @@ function getAccentStyle(index: number): CSSProperties {
   return {
     "--card-accent": cardAccentColors[index % cardAccentColors.length],
   } as CSSProperties;
-}
-
-function readStorageRecord<T>(storageKey: string): Record<string, T> {
-  if (typeof window === "undefined") return {};
-
-  try {
-    const storedValue = window.localStorage.getItem(storageKey);
-
-    return storedValue ? JSON.parse(storedValue) : {};
-  } catch {
-    return {};
-  }
 }
 
 function normalizeSelectedAnswers(
@@ -616,10 +602,10 @@ export default function Home() {
   const [showResults, setShowResults] = useState(false);
   const [progressByQuestionSet, setProgressByQuestionSet] = useState<
     Record<string, QuestionProgress>
-  >(() => readStorageRecord<QuestionProgress>(progressStorageKey));
+  >({});
   const [savedAnswersByQuestionSet, setSavedAnswersByQuestionSet] = useState<
     Record<string, SavedQuestionSetAnswers>
-  >(() => readStorageRecord<SavedQuestionSetAnswers>(savedAnswersStorageKey));
+  >({});
   const isSupabaseConfigured = hasSupabaseConfig();
   const supabase = useMemo(
     () => (isSupabaseConfigured ? createClient() : null),
@@ -635,24 +621,6 @@ export default function Home() {
   const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    window.localStorage.setItem(
-      progressStorageKey,
-      JSON.stringify(progressByQuestionSet)
-    );
-  }, [progressByQuestionSet]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    window.localStorage.setItem(
-      savedAnswersStorageKey,
-      JSON.stringify(savedAnswersByQuestionSet)
-    );
-  }, [savedAnswersByQuestionSet]);
 
   useEffect(() => {
     if (!supabase) {
@@ -850,8 +818,10 @@ export default function Home() {
     setAuthLoading(true);
     await supabase.auth.signOut();
     setUser(null);
+    setProgressByQuestionSet({});
+    setSavedAnswersByQuestionSet({});
     setCloudSyncStatus("");
-    setAuthMessage("Signed out. This device will keep using local saves.");
+    setAuthMessage("Signed out. Sign in to save and track progress.");
     setIsAuthMenuOpen(false);
     setAuthLoading(false);
   }
@@ -881,7 +851,7 @@ export default function Home() {
 
     setCloudSyncStatus(
       progressError
-        ? "Cloud sync failed. Your local progress is still saved."
+        ? "Cloud sync failed. Try saving again."
         : "Marked answers synced."
     );
   }
@@ -909,7 +879,7 @@ export default function Home() {
 
     setCloudSyncStatus(
       answersError
-        ? "Cloud save failed. Your local answers are still saved."
+        ? "Cloud save failed. Try saving again."
         : "Answer choices synced."
     );
   }
@@ -967,7 +937,11 @@ export default function Home() {
   }
 
   function autosaveActiveLectureAnswers() {
-    if (!activeQuestionSetId || Object.keys(selectedAnswers).length === 0) {
+    if (
+      !user ||
+      !activeQuestionSetId ||
+      Object.keys(selectedAnswers).length === 0
+    ) {
       return;
     }
 
@@ -1052,6 +1026,11 @@ export default function Home() {
 
     if (!activeQuestionSetId) return;
 
+    if (!user) {
+      setAuthMessage("Sign in to save and track progress.");
+      return;
+    }
+
     const answered = questions.filter(
       (_question, questionIndex) => selectedAnswers[questionIndex]
     ).length;
@@ -1080,6 +1059,12 @@ export default function Home() {
 
   function saveCurrentLectureAnswers() {
     if (!activeQuestionSetId) return;
+
+    if (!user) {
+      setAuthMessage("Sign in to save and track progress.");
+      setIsAuthMenuOpen(true);
+      return;
+    }
 
     const nextSavedAnswers = {
       selectedAnswers,
@@ -1260,9 +1245,6 @@ export default function Home() {
           >
             Local saves
           </button>
-          <span className="mt-1 whitespace-nowrap text-center text-[0.68rem] font-bold leading-none text-white/72">
-            to sync progress across devices
-          </span>
 
           {isAuthMenuOpen && (
             <div className="headerAccountPopover">
@@ -1278,8 +1260,7 @@ export default function Home() {
                 Cloud login not connected
               </p>
               <p className="mt-1 text-sm leading-snug text-slate-600">
-                Add Supabase environment variables to enable account sync across
-                devices.
+                Sign in to save and track progress once accounts are connected.
               </p>
             </div>
           )}
@@ -1341,9 +1322,6 @@ export default function Home() {
         >
           Sign in
         </button>
-        <span className="mt-1 whitespace-nowrap text-center text-[0.68rem] font-bold leading-none text-white/72">
-          to sync progress across devices
-        </span>
 
         {isAuthMenuOpen && (
           <div className="headerAccountPopover">
@@ -1356,11 +1334,11 @@ export default function Home() {
               X
             </button>
             <p className="text-sm font-bold text-slate-950">
-              Sync your progress
+              Sign in to save and track progress
             </p>
             <p className="mt-1 text-sm leading-snug text-slate-600">
-              Without an account, your progress will still be saved to this
-              device.
+              You can still answer questions without an account, but progress
+              will not be saved.
             </p>
 
             <form onSubmit={handleAuthSubmit} className="mt-4 space-y-3">
@@ -1747,7 +1725,7 @@ export default function Home() {
 
           <button
             onClick={saveCurrentLectureAnswers}
-            disabled={showResults}
+            disabled={!user || showResults}
             className="secondaryButton px-3 py-2 text-xs font-bold text-slate-900 transition disabled:cursor-not-allowed disabled:opacity-60 sm:px-4 sm:text-sm"
           >
             Save
@@ -2002,6 +1980,11 @@ export default function Home() {
             <p className="mt-2 text-slate-600">
               {answeredCount} of {questions.length} answered
             </p>
+            {!user && (
+              <p className="mt-2 rounded-full bg-amber-100 px-3 py-1.5 text-sm font-bold text-amber-950">
+                Sign in to save and track progress.
+              </p>
+            )}
           </div>
 
           <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
@@ -2048,8 +2031,7 @@ export default function Home() {
             PAS Question Bank Progress
           </h2>
           <p className="mt-3 text-slate-600">
-            Progress is saved locally, and signed-in users also sync marked
-            scores and saved answer choices to Supabase.
+            Sign in to save and track progress.
           </p>
 
           <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
@@ -2170,7 +2152,7 @@ export default function Home() {
           )}
 
           <div className="relative grid flex-1 gap-3 px-4 py-4 sm:min-h-24 sm:px-8 sm:py-4 xl:grid-cols-[minmax(12rem,1fr)_minmax(24rem,31rem)_minmax(18rem,1fr)] xl:items-center">
-            <div className="min-w-0 pr-40 xl:pr-0">
+            <div className="min-w-0 pr-28 xl:pr-0">
               <h1 className="text-3xl font-bold leading-none text-white sm:text-3xl">
                 SBAgen
               </h1>
