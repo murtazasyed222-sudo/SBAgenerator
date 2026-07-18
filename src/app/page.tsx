@@ -1260,7 +1260,7 @@ export default function Home() {
           >
             Local saves
           </button>
-          <span className="mt-1 text-center text-[0.68rem] font-bold leading-none text-white/72">
+          <span className="mt-1 whitespace-nowrap text-center text-[0.68rem] font-bold leading-none text-white/72">
             to sync progress across devices
           </span>
 
@@ -1341,7 +1341,7 @@ export default function Home() {
         >
           Sign in
         </button>
-        <span className="mt-1 text-center text-[0.68rem] font-bold leading-none text-white/72">
+        <span className="mt-1 whitespace-nowrap text-center text-[0.68rem] font-bold leading-none text-white/72">
           to sync progress across devices
         </span>
 
@@ -1730,7 +1730,7 @@ export default function Home() {
       : null;
 
     return (
-      <div className="studyDock fixed inset-x-3 bottom-3 z-30 px-3 py-2 sm:inset-x-auto sm:bottom-5 sm:right-5">
+      <div className="studyDock fixed bottom-3 right-3 z-30 w-fit max-w-[calc(100vw-1.5rem)] px-3 py-2 sm:bottom-5 sm:right-5">
         <div className="flex items-center gap-2">
           <div className="min-w-0 px-1 text-xs font-bold text-slate-600 sm:min-w-24">
             {answeredCount}/{questions.length}
@@ -1755,7 +1755,7 @@ export default function Home() {
         </div>
 
         {savedAt && (
-          <p className="mt-1 truncate px-1 text-center text-[0.68rem] font-semibold text-slate-500 sm:text-left">
+          <p className="mt-1 hidden truncate px-1 text-center text-[0.68rem] font-semibold text-slate-500 sm:block sm:text-left">
             Saved {new Date(savedAt).toLocaleString()}
           </p>
         )}
@@ -2169,8 +2169,8 @@ export default function Home() {
             </div>
           )}
 
-          <div className="grid flex-1 grid-cols-[minmax(0,1fr)_auto] gap-4 px-4 py-5 sm:min-h-24 sm:px-8 sm:py-4 xl:grid-cols-[minmax(12rem,1fr)_minmax(24rem,31rem)_minmax(18rem,1fr)] xl:items-center">
-            <div className="min-w-0">
+          <div className="relative grid flex-1 gap-3 px-4 py-4 sm:min-h-24 sm:px-8 sm:py-4 xl:grid-cols-[minmax(12rem,1fr)_minmax(24rem,31rem)_minmax(18rem,1fr)] xl:items-center">
+            <div className="min-w-0 pr-40 xl:pr-0">
               <h1 className="text-3xl font-bold leading-none text-white sm:text-3xl">
                 SBAgen
               </h1>
@@ -2180,7 +2180,7 @@ export default function Home() {
             </div>
 
             <div
-              className="tabSwitcher relative col-span-2 grid w-full grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-1 sm:mx-auto sm:w-[31rem] sm:rounded-full xl:col-span-1 xl:col-start-2 xl:row-start-1"
+              className="tabSwitcher relative grid w-full grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-1 sm:mx-auto sm:w-[31rem] sm:rounded-full xl:col-start-2 xl:row-start-1"
               style={{ "--active-tab-index": activeTabIndex } as CSSProperties}
             >
               <span className="tabIndicator" aria-hidden="true" />
@@ -2221,7 +2221,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="justify-self-end xl:col-start-3 xl:row-start-1 xl:justify-self-end">
+            <div className="absolute right-4 top-4 z-20 xl:static xl:col-start-3 xl:row-start-1 xl:justify-self-end">
               {renderAccountPanel()}
             </div>
           </div>
