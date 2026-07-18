@@ -595,6 +595,8 @@ export default function Home() {
   const [error, setError] = useState("");
   const [numberOfQuestions, setNumberOfQuestions] = useState(5);
   const [isQuestionBankOpen, setIsQuestionBankOpen] = useState(true);
+  const [isMobileQuestionBankOpen, setIsMobileQuestionBankOpen] =
+    useState(false);
   const [currentView, setCurrentView] = useState<AppView>("question-bank");
   const [selectedBankSubmoduleId, setSelectedBankSubmoduleId] = useState<
     string | null
@@ -966,6 +968,7 @@ export default function Home() {
 
   function loadQuestionSet(questionSet: QuestionSet) {
     setIsQuestionBankOpen(true);
+    setIsMobileQuestionBankOpen(false);
     setQuestions(questionSet.questions);
     setSelectedAnswers(
       savedAnswersByQuestionSet[questionSet.id]?.selectedAnswers ?? {}
@@ -986,6 +989,7 @@ export default function Home() {
     setActiveQuestionSetTitle(null);
     setSelectedBankSubmoduleId(null);
     setQuestionBankSearch("");
+    setIsMobileQuestionBankOpen(false);
     setCurrentView("question-bank");
   }
 
@@ -1011,6 +1015,7 @@ export default function Home() {
       setShowResults(false);
       setActiveQuestionSetId(null);
       setActiveQuestionSetTitle(null);
+      setIsMobileQuestionBankOpen(false);
     }
   }
 
@@ -1457,6 +1462,52 @@ export default function Home() {
           </div>
         </div>
       </div>
+    );
+  }
+
+  function renderQuestionBankBrowser(isMobile = false) {
+    return (
+      <nav className="space-y-3">
+        {isMobile && (
+          <button
+            onClick={() => setIsMobileQuestionBankOpen(false)}
+            className="mb-2 flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-3 font-bold text-slate-950 shadow-sm transition hover:bg-amber-100"
+          >
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m12 19-7-7 7-7" />
+              <path d="M19 12H5" />
+            </svg>
+            Back to questions
+          </button>
+        )}
+
+        <input
+          type="search"
+          value={questionBankSearch}
+          onChange={(event) => setQuestionBankSearch(event.target.value)}
+          placeholder="Search lectures..."
+          className="w-full rounded-2xl border border-white/10 bg-white/10 px-3 py-2.5 text-sm text-white outline-none placeholder:text-slate-400 focus:border-teal-300 focus:ring-2 focus:ring-teal-300/30"
+        />
+
+        {visibleQuestionBankFolders.length === 0 && (
+          <p className="rounded-xl bg-white/10 px-3 py-2 text-sm text-slate-300">
+            No matching lecture sets.
+          </p>
+        )}
+
+        {visibleQuestionBankFolders.map((folder) =>
+          renderQuestionBankFolder(folder)
+        )}
+      </nav>
     );
   }
 
@@ -1909,25 +1960,34 @@ export default function Home() {
             </p>
           </div>
 
-          <button
-            onClick={returnToGenerator}
-            className="secondaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
-          >
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
+          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+            <button
+              onClick={() => setIsMobileQuestionBankOpen(true)}
+              className="primaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-white transition sm:hidden"
             >
-              <path d="m12 19-7-7 7-7" />
-              <path d="M19 12H5" />
-            </svg>
-            Back to PAS submodules
-          </button>
+              Browse Question Bank
+            </button>
+
+            <button
+              onClick={returnToGenerator}
+              className="secondaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
+            >
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+              Back to PAS submodules
+            </button>
+          </div>
         </div>
 
         {renderQuestionList()}
@@ -2048,7 +2108,7 @@ export default function Home() {
       <header className="appHeader border-b border-white/10 text-white">
         <div className="flex flex-col sm:flex-row">
           {currentView === "question-bank" && activeQuestionSetId && (
-            <div className="headerRail w-full shrink-0 border-b border-white/10 sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
+            <div className="headerRail hidden w-full shrink-0 border-b border-white/10 sm:block sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
               <button
                 onClick={() => {
                   setIsQuestionBankOpen(!isQuestionBankOpen);
@@ -2065,7 +2125,7 @@ export default function Home() {
             </div>
           )}
 
-          <div className="grid flex-1 gap-4 px-4 py-5 sm:min-h-24 sm:px-8 sm:py-4 xl:grid-cols-[minmax(12rem,1fr)_minmax(24rem,31rem)_minmax(18rem,1fr)] xl:items-center">
+          <div className="grid flex-1 grid-cols-[minmax(0,1fr)_auto] gap-4 px-4 py-5 sm:min-h-24 sm:px-8 sm:py-4 xl:grid-cols-[minmax(12rem,1fr)_minmax(24rem,31rem)_minmax(18rem,1fr)] xl:items-center">
             <div className="min-w-0">
               <h1 className="text-3xl font-bold leading-none text-white sm:text-3xl">
                 SBAgen
@@ -2076,7 +2136,7 @@ export default function Home() {
             </div>
 
             <div
-              className="tabSwitcher relative grid w-full grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-1 sm:mx-auto sm:w-[31rem] sm:rounded-full"
+              className="tabSwitcher relative col-span-2 grid w-full grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-1 sm:mx-auto sm:w-[31rem] sm:rounded-full xl:col-span-1 xl:col-start-2 xl:row-start-1"
               style={{ "--active-tab-index": activeTabIndex } as CSSProperties}
             >
               <span className="tabIndicator" aria-hidden="true" />
@@ -2117,7 +2177,7 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="justify-self-stretch xl:justify-self-end">
+            <div className="justify-self-end xl:col-start-3 xl:row-start-1 xl:justify-self-end">
               {renderAccountPanel()}
             </div>
           </div>
@@ -2126,26 +2186,16 @@ export default function Home() {
 
       <div className="flex min-h-[calc(100vh-97px)] flex-col sm:flex-row">
         {currentView === "question-bank" && activeQuestionSetId && isQuestionBankOpen && (
-          <aside className="questionBankPanel questionBankScroll max-h-[48vh] w-full shrink-0 overflow-y-auto border-b border-white/10 p-4 sm:sticky sm:top-0 sm:h-screen sm:max-h-none sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
-            <nav className="space-y-3">
-              <input
-                type="search"
-                value={questionBankSearch}
-                onChange={(event) => setQuestionBankSearch(event.target.value)}
-                placeholder="Search lectures..."
-                className="w-full rounded-2xl border border-white/10 bg-white/10 px-3 py-2.5 text-sm text-white outline-none placeholder:text-slate-400 focus:border-teal-300 focus:ring-2 focus:ring-teal-300/30"
-              />
+          <aside className="questionBankPanel questionBankScroll hidden w-full shrink-0 overflow-y-auto border-b border-white/10 p-4 sm:sticky sm:top-0 sm:block sm:h-screen sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
+            {renderQuestionBankBrowser()}
+          </aside>
+        )}
 
-              {visibleQuestionBankFolders.length === 0 && (
-                <p className="rounded-xl bg-white/10 px-3 py-2 text-sm text-slate-300">
-                  No matching lecture sets.
-                </p>
-              )}
-
-              {visibleQuestionBankFolders.map((folder) =>
-                renderQuestionBankFolder(folder)
-              )}
-            </nav>
+        {currentView === "question-bank" &&
+          activeQuestionSetId &&
+          isMobileQuestionBankOpen && (
+          <aside className="questionBankPanel questionBankScroll fixed inset-0 z-[90] h-dvh w-screen overflow-y-auto p-4 sm:hidden">
+            {renderQuestionBankBrowser(true)}
           </aside>
         )}
 

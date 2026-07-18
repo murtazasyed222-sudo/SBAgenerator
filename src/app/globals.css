@@ -280,8 +280,6 @@ textarea:focus-visible {
   }
 
   .headerAccountPopover {
-    left: 0;
-    right: auto;
     width: min(22rem, calc(100vw - 2rem));
   }
 }
