@@ -620,6 +620,7 @@ export default function Home() {
   const [authMessage, setAuthMessage] = useState("");
   const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false);
   const [isSavePromptOpen, setIsSavePromptOpen] = useState(false);
+  const [isAuthButtonHighlighted, setIsAuthButtonHighlighted] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
 
@@ -753,6 +754,16 @@ export default function Home() {
     };
   }, [supabase, user]);
 
+  useEffect(() => {
+    if (!isAuthButtonHighlighted) return;
+
+    const timeoutId = window.setTimeout(() => {
+      setIsAuthButtonHighlighted(false);
+    }, 2400);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [isAuthButtonHighlighted]);
+
   const bankStats = useMemo(() => {
     const pasFolder = questionBankFolders.find(
       (folder) => folder.id === "physiology-and-anatomy-of-systems"
@@ -885,10 +896,16 @@ export default function Home() {
     );
   }
 
+  function promptSignInForGenerator() {
+    setAuthMessage("Sign in to use the question generator.");
+    setIsAuthMenuOpen(true);
+    setIsAuthButtonHighlighted(false);
+    window.setTimeout(() => setIsAuthButtonHighlighted(true), 20);
+  }
+
   async function generateQuestions() {
     if (!user) {
-      setAuthMessage("Sign in to use the question generator.");
-      setIsAuthMenuOpen(true);
+      promptSignInForGenerator();
       return;
     }
 
@@ -1007,8 +1024,7 @@ export default function Home() {
 
   function openGeneratorView() {
     if (!user) {
-      setAuthMessage("Sign in to use the question generator.");
-      setIsAuthMenuOpen(true);
+      promptSignInForGenerator();
       return;
     }
 
@@ -1247,13 +1263,17 @@ export default function Home() {
   }
 
   function renderAccountPanel() {
+    const accountButtonClassName = `headerAccountButton ${
+      !user && isAuthButtonHighlighted ? "headerAccountButtonAttention" : ""
+    }`;
+
     if (!isSupabaseConfigured) {
       return (
         <div className="relative flex flex-col items-end">
           <button
             type="button"
             onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
-            className="headerAccountButton"
+            className={accountButtonClassName}
             aria-expanded={isAuthMenuOpen}
           >
             Local saves
@@ -1330,7 +1350,7 @@ export default function Home() {
         <button
           type="button"
           onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
-          className="headerAccountButton"
+          className={accountButtonClassName}
           aria-expanded={isAuthMenuOpen}
         >
           Sign in
@@ -2088,9 +2108,11 @@ export default function Home() {
           <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
             PAS Question Bank Progress
           </h2>
-          <p className="mt-3 text-slate-600">
-            Sign in to save and track progress.
-          </p>
+          {!user && (
+            <p className="mt-3 text-slate-600">
+              Sign in to save and track progress.
+            </p>
+          )}
 
           <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
             <div className="statTile p-3 sm:p-4">
