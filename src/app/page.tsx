@@ -824,7 +824,12 @@ export default function Home() {
     };
     const result =
       authMode === "sign-up"
-        ? await supabase.auth.signUp(credentials)
+        ? await supabase.auth.signUp({
+            ...credentials,
+            options: {
+              emailRedirectTo: `${window.location.origin}/auth/confirm`,
+            },
+          })
         : await supabase.auth.signInWithPassword(credentials);
 
     if (result.error) {
