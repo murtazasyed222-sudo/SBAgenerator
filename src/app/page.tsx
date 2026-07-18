@@ -897,7 +897,7 @@ export default function Home() {
   }
 
   function promptSignInForGenerator() {
-    setAuthMessage("Sign in to use the question generator.");
+    setAuthMessage("Sign in to use Question Generator.");
     setIsAuthMenuOpen(true);
     setIsAuthButtonHighlighted(false);
     window.setTimeout(() => setIsAuthButtonHighlighted(true), 20);
@@ -1266,6 +1266,9 @@ export default function Home() {
     const accountButtonClassName = `headerAccountButton ${
       !user && isAuthButtonHighlighted ? "headerAccountButtonAttention" : ""
     }`;
+    const isGeneratorAuthPrompt =
+      authMessage === "Sign in to use Question Generator.";
+    const footerAuthMessage = isGeneratorAuthPrompt ? "" : authMessage;
 
     if (!isSupabaseConfigured) {
       return (
@@ -1369,6 +1372,11 @@ export default function Home() {
             <p className="text-sm font-bold text-slate-950">
               Sign in to save and track progress
             </p>
+            {isGeneratorAuthPrompt && (
+              <p className="mt-1 text-sm font-bold text-teal-700">
+                Sign in to use Question Generator.
+              </p>
+            )}
             <p className="mt-1 text-sm leading-snug text-slate-600">
               You can still answer questions without an account, but progress
               will not be saved.
@@ -1407,7 +1415,7 @@ export default function Home() {
               </button>
             </form>
 
-            <div className="mt-3 flex items-center justify-between gap-3">
+            <div className="mt-3 flex items-center justify-center">
               <div className="flex rounded-full border border-slate-200 bg-slate-50 p-0.5">
                 <button
                   onClick={() => setAuthMode("sign-in")}
@@ -1432,15 +1440,11 @@ export default function Home() {
                   Create
                 </button>
               </div>
-
-              <span className="text-xs font-semibold text-teal-700">
-                Cloud sync
-              </span>
             </div>
 
-            {(authMessage || cloudSyncStatus) && (
+            {(footerAuthMessage || cloudSyncStatus) && (
               <p className="mt-3 text-xs font-semibold text-slate-600">
-                {authMessage || cloudSyncStatus}
+                {footerAuthMessage || cloudSyncStatus}
               </p>
             )}
           </div>
@@ -1733,7 +1737,7 @@ export default function Home() {
             value={lectureNotes}
             onChange={(e) => setLectureNotes(e.target.value)}
             className="mt-6 h-56 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 text-slate-950 shadow-inner outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 sm:h-72"
-            placeholder="Paste lecture notes here..."
+            placeholder="Paste lecture notes or transcript here..."
           />
 
           <div className="mt-4 w-full max-w-xl">
