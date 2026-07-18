@@ -664,6 +664,7 @@ export default function Home() {
   }
 
   function loadQuestionSet(questionSet: QuestionSet) {
+    setIsQuestionBankOpen(true);
     setQuestions(questionSet.questions);
     setSelectedAnswers(
       savedAnswersByQuestionSet[questionSet.id]?.selectedAnswers ?? {}
@@ -686,7 +687,6 @@ export default function Home() {
   }
 
   function openSubmodule(submoduleId: string) {
-    setIsQuestionBankOpen(true);
     setCurrentView("question-bank");
     setSelectedBankSubmoduleId(submoduleId);
     setActiveQuestionSetId(null);
@@ -893,6 +893,15 @@ export default function Home() {
   const visibleQuestionBankFolders = questionBankFolders
     .map(filterQuestionBankFolder)
     .filter((folder): folder is QuestionBankFolder => Boolean(folder));
+  const lectureSearchResults = normalizedQuestionBankSearch
+    ? bankStats.submodules.flatMap((submodule) =>
+        submodule.questionSets
+          .filter((questionSet) =>
+            questionSet.title.toLowerCase().includes(normalizedQuestionBankSearch)
+          )
+          .map((questionSet) => ({ questionSet, submoduleTitle: submodule.title }))
+      )
+    : [];
 
   function renderProgressMeter(percent: number) {
     return (
@@ -1085,10 +1094,7 @@ export default function Home() {
     return (
       <section className="mx-auto max-w-5xl space-y-6">
         <div className="surfaceCard p-6 sm:p-8">
-          <p className="text-sm font-semibold uppercase text-teal-700">
-            Generator
-          </p>
-          <h2 className="mt-2 text-3xl font-bold text-slate-950 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-slate-950 sm:text-4xl">
             Generate SBA Questions
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
@@ -1136,10 +1142,7 @@ export default function Home() {
 
         {questions.length > 0 && !activeQuestionSetId && (
           <section className="surfaceCard p-6">
-            <p className="text-sm font-semibold uppercase text-teal-700">
-              Generated Practice
-            </p>
-            <h2 className="mt-1 text-2xl font-bold text-slate-950">
+            <h2 className="text-2xl font-bold text-slate-950">
               New SBA Questions
             </h2>
             {renderQuestionList()}
@@ -1225,10 +1228,7 @@ export default function Home() {
       <div className="mx-auto max-w-6xl">
         <div className="space-y-6">
           <section className="surfaceCard p-6 sm:p-8">
-            <p className="text-sm font-semibold uppercase text-teal-700">
-              Question Bank
-            </p>
-            <h2 className="mt-2 text-3xl font-bold text-slate-950 sm:text-4xl">
+            <h2 className="text-3xl font-bold text-slate-950 sm:text-4xl">
               Physiology and Anatomy of Systems
             </h2>
             <p className="mt-3 max-w-3xl text-slate-600">
@@ -1256,16 +1256,71 @@ export default function Home() {
                 <p className="text-sm text-slate-600">Questions</p>
               </div>
             </div>
+
+            <div className="mt-6">
+              <input
+                type="search"
+                value={questionBankSearch}
+                onChange={(event) => setQuestionBankSearch(event.target.value)}
+                placeholder="Search for a lecture..."
+                className="w-full rounded-2xl border border-slate-200 bg-white/85 px-4 py-3 text-slate-950 shadow-inner outline-none placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
+              />
+            </div>
           </section>
 
-          {selectedBankSubmodule ? (
+          {normalizedQuestionBankSearch ? (
+            <section className="surfaceCard p-6">
+              <h2 className="text-2xl font-bold text-slate-950">
+                Lecture Search Results
+              </h2>
+
+              {lectureSearchResults.length === 0 ? (
+                <p className="mt-3 text-slate-600">
+                  No matching lectures found.
+                </p>
+              ) : (
+                <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                  {lectureSearchResults.map(({ questionSet, submoduleTitle }) => {
+                    const progress = getQuestionSetProgress(questionSet);
+
+                    return (
+                      <button
+                        key={questionSet.id}
+                        onClick={() => loadQuestionSet(questionSet)}
+                        className="interactiveCard p-5 text-left transition hover:-translate-y-0.5"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <h3 className="font-bold text-slate-950">
+                              {questionSet.title}
+                            </h3>
+                            <p className="mt-1 text-sm text-slate-600">
+                              {submoduleTitle}
+                            </p>
+                            <p className="mt-1 text-sm text-slate-600">
+                              {questionSet.questions.length} questions |{" "}
+                              {progress.answered} answered
+                            </p>
+                          </div>
+                          <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                            {progress.percent}%
+                          </span>
+                        </div>
+
+                        <div className="mt-4">
+                          {renderProgressMeter(progress.percent)}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </section>
+          ) : selectedBankSubmodule ? (
             <section className="surfaceCard p-6">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <p className="text-sm font-semibold uppercase text-teal-700">
-                    PAS Submodule
-                  </p>
-                  <h2 className="mt-1 text-2xl font-bold text-slate-950">
+                  <h2 className="text-2xl font-bold text-slate-950">
                     {selectedBankSubmodule.title}
                   </h2>
                   <p className="mt-2 text-slate-600">
@@ -1332,10 +1387,7 @@ export default function Home() {
       <section className="surfaceCard mx-auto max-w-5xl p-6 pb-28 sm:p-8 sm:pb-28">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase text-teal-700">
-              Question Bank
-            </p>
-            <h2 className="mt-1 text-2xl font-bold text-slate-950">
+            <h2 className="text-2xl font-bold text-slate-950">
               {activeQuestionSetTitle}
             </h2>
             <p className="mt-2 text-slate-600">
@@ -1347,7 +1399,7 @@ export default function Home() {
             onClick={returnToGenerator}
             className="secondaryButton px-5 py-3 font-semibold text-slate-900 transition"
           >
-            Back to Generator
+            Back to Question Bank
           </button>
         </div>
 
@@ -1361,10 +1413,7 @@ export default function Home() {
     return (
       <section className="mx-auto max-w-6xl space-y-6">
         <div className="surfaceCard p-6 sm:p-8">
-          <p className="text-sm font-semibold uppercase text-teal-700">
-            Progress Tracker
-          </p>
-          <h2 className="mt-2 text-3xl font-bold text-slate-950 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-slate-950 sm:text-4xl">
             PAS Question Bank Progress
           </h2>
           <p className="mt-3 text-slate-600">
@@ -1469,29 +1518,31 @@ export default function Home() {
     <main className="appCanvas min-h-screen">
       <header className="appHeader border-b border-white/10 text-white">
         <div className="flex flex-col sm:flex-row">
-          <div className="headerRail w-full shrink-0 border-b border-white/10 sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
-            <button
-              onClick={() => {
-                setIsQuestionBankOpen(!isQuestionBankOpen);
-                setCurrentView("question-bank");
-              }}
-              aria-expanded={isQuestionBankOpen}
-              className="flex min-h-24 w-full items-center justify-between px-5 py-4 text-left font-semibold text-white transition hover:bg-white/10"
-            >
-              <span>Browse Question Bank</span>
-              <span className="text-teal-200" aria-hidden="true">
-                {isQuestionBankOpen ? "v" : ">"}
-              </span>
-            </button>
-          </div>
+          {currentView === "question-bank" && activeQuestionSetId && (
+            <div className="headerRail w-full shrink-0 border-b border-white/10 sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
+              <button
+                onClick={() => {
+                  setIsQuestionBankOpen(!isQuestionBankOpen);
+                  setCurrentView("question-bank");
+                }}
+                aria-expanded={isQuestionBankOpen}
+                className="flex min-h-24 w-full items-center justify-between px-5 py-4 text-left font-semibold text-white transition hover:bg-white/10"
+              >
+                <span>Browse Question Bank</span>
+                <span className="text-teal-200" aria-hidden="true">
+                  {isQuestionBankOpen ? "v" : ">"}
+                </span>
+              </button>
+            </div>
+          )}
 
           <div className="flex flex-1 flex-col gap-4 px-4 py-4 sm:min-h-24 sm:flex-row sm:items-center sm:justify-between sm:px-8">
             <div>
               <h1 className="text-2xl font-bold text-white sm:text-3xl">
-                Medicine Question Generator
+                SBAgen
               </h1>
               <p className="mt-1 text-sm text-slate-300">
-                A PAS-first question bank with optional SBA generation.
+                Question bank and single-best answer question generator
               </p>
             </div>
 
@@ -1508,17 +1559,6 @@ export default function Home() {
               </button>
 
               <button
-                onClick={openGeneratorView}
-                className={`navPill px-4 py-2.5 text-left font-semibold transition ${
-                  currentView === "generator"
-                    ? "bg-white text-slate-950 shadow-sm"
-                    : "bg-transparent text-white hover:bg-white/10"
-                }`}
-              >
-                Generator
-              </button>
-
-              <button
                 onClick={() => setCurrentView("progress")}
                 className={`navPill px-4 py-2.5 text-left font-semibold transition ${
                   currentView === "progress"
@@ -1528,19 +1568,26 @@ export default function Home() {
               >
                 Progress Tracker
               </button>
+
+              <button
+                onClick={openGeneratorView}
+                className={`navPill px-4 py-2.5 text-left font-semibold transition ${
+                  currentView === "generator"
+                    ? "bg-white text-slate-950 shadow-sm"
+                    : "bg-transparent text-white hover:bg-white/10"
+                }`}
+              >
+                Generator
+              </button>
             </div>
           </div>
         </div>
       </header>
 
       <div className="flex min-h-[calc(100vh-97px)] flex-col sm:flex-row">
-        {isQuestionBankOpen && (
+        {currentView === "question-bank" && activeQuestionSetId && isQuestionBankOpen && (
           <aside className="questionBankPanel questionBankScroll w-full shrink-0 overflow-y-auto border-r border-white/10 p-4 sm:sticky sm:top-0 sm:h-screen sm:w-72 lg:w-1/6">
             <nav className="space-y-3">
-              <h2 className="text-sm font-bold uppercase text-teal-200">
-                Question Bank
-              </h2>
-
               <input
                 type="search"
                 value={questionBankSearch}

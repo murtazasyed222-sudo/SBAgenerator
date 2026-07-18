@@ -9,8 +9,8 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "Medicine Question Generator",
-  description: "PAS question bank and SBA question generator",
+  title: "SBAgen",
+  description: "Question bank and single-best answer question generator",
 };
 
 export default function RootLayout({
