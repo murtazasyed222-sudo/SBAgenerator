@@ -42,7 +42,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
         "questionSets": [
           {
             "id": "fah01l-introduction",
-            "title": "FAH01L Introduction",
+            "title": "FAH01L Introduction to Anatomy and Dissection",
             "questions": [
               {
                 "question": "A first-year student says anatomy is mainly the memorisation of Latin names and that dissection is a historical curiosity rather than part of the meaning of the discipline. Which response best captures the lecture's explanation of the word \"anatomy\"?",
@@ -528,7 +528,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fah02l-anatomical-te",
-            "title": "FAH02L Anatomical Te",
+            "title": "FAH02L Anatomical Terminology",
             "questions": [
               {
                 "question": "During a practical, a cadaver is lying prone with the hands internally rotated so that the palms face backward. A student is asked whether the thumb is medial or lateral to the little finger. Which response applies anatomical terminology correctly?",
@@ -1014,7 +1014,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fah03l-the-basic-tis",
-            "title": "FAH03L The Basic Tis",
+            "title": "FAH03L The Basic Tissues and Body Layers",
             "questions": [
               {
                 "question": "During dissection, a student removes a thin, semi-translucent layer overlying a group of forearm muscles and then finds the muscle bellies beneath it. Which tissue and function best describe the layer removed?",
@@ -1500,7 +1500,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fah04l-skeleton-and",
-            "title": "FAH04L Skeleton and",
+            "title": "FAH04L Skeleton and Joints",
             "questions": [
               {
                 "question": "A 10-year-old has clear radiolucent gaps between several hand bones on an X-ray, but there is no tenderness or history of trauma. Which interpretation best fits the developmental anatomy described in the lecture?",
@@ -1986,7 +1986,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fah05l-skeletal-mus",
-            "title": "FAH05L Skeletal Mus",
+            "title": "FAH05L Skeletal Muscle and Nerve",
             "questions": [
               {
                 "question": "A biopsy from a muscle in the anterior thigh shows long cylindrical fibres with transverse striations and multiple nuclei displaced to the periphery. Which classification best fits this tissue?",
@@ -2472,7 +2472,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fah06l-nervous-syste",
-            "title": "FAH06L Nervous Syste",
+            "title": "FAH06L Nervous System",
             "questions": [
               {
                 "question": "A student states that the peripheral nervous system is defined by \u201call neural tissue outside the skull.\u201d Which correction best matches the anatomical classification used in this lecture?",
@@ -2958,7 +2958,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fah07l-imaging-tech",
-            "title": "FAH07L Imaging Tech",
+            "title": "FAH07L Imaging Technologies",
             "questions": [
               {
                 "question": "A clinician compares two axial head images. In image 1, the skull forms a bright rim; in image 2, the expected skull location is a dark band and grey-white matter contrast is prominent. Which interpretation best follows from the lecture?",
@@ -3451,7 +3451,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
         "questionSets": [
           {
             "id": "fpp-1-homeostasis-an",
-            "title": "FPP-1 Homeostasis an",
+            "title": "FPP-1 Homeostasis and Physiological Variables",
             "questions": [
               {
                 "question": "A patient with septic shock has a fall in arterial pressure, followed within seconds by increased sympathetic outflow to the heart and arterioles. In the negative feedback framework described in the lecture, what is the best description of the initial fall in arterial pressure?",
@@ -3937,7 +3937,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-2-fundamental-p",
-            "title": "FPP-2 Fundamental p",
+            "title": "FPP-2 Fundamental principles of pharmacology 1",
             "questions": [
               {
                 "question": "A student describes pharmacology as \"the professional activity of preserving, dispensing, and supplying medicines after a prescription is written.\" Which correction best aligns this statement with the lecture terminology?",
@@ -4423,7 +4423,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-3-fundamental-p",
-            "title": "FPP-3 Fundamental p",
+            "title": "FPP-3 Fundamental principles of pharmacology 2",
             "questions": [
               {
                 "question": "A researcher plots drug concentration on a linear x-axis against receptor occupancy on the y-axis. The curve rises steeply at low concentrations and then plateaus as concentration increases. Which interpretation best explains the plateau?",
@@ -4909,7 +4909,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-4-pharmakokinet",
-            "title": "FPP-4 Pharmakokinet",
+            "title": "FPP-4 Pharmakokinetics",
             "questions": [
               {
                 "question": "An IV bolus dose of a new drug produces a plasma concentration of 32 mg/L at 1 hour and 8 mg/L at 5 hours. Assuming first-order monoexponential elimination, what is the approximate half-life?",
@@ -5395,7 +5395,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-5-toxicology-an",
-            "title": "FPP-5 Toxicology an",
+            "title": "FPP-5 Toxicology and Drug safety",
             "questions": [
               {
                 "question": "A new oral drug causes hair loss, nausea, and vomiting in 35% of recipients. Which licensing decision best reflects the benefit:risk reasoning described in the lecture?",
@@ -5881,7 +5881,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-6-establishing-e",
-            "title": "FPP-6 Establishing e",
+            "title": "FPP-6 Establishing electrochemical potentials and action potentials",
             "questions": [
               {
                 "question": "A researcher impales a large axon with an intracellular microelectrode while the reference electrode remains in the extracellular fluid. Which finding is most consistent with a healthy resting neuron?",
@@ -6367,7 +6367,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-7-synapses-and-s",
-            "title": "FPP-7 Synapses and s",
+            "title": "FPP-7 Synapses and synaptic transmission",
             "questions": [
               {
                 "question": "A cardiac muscle preparation continues to show near-synchronous depolarization after extracellular calcium is modestly reduced, whereas a motor nerve-muscle preparation rapidly loses transmission. Which difference best explains this contrast?",
@@ -6853,7 +6853,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-8-physiology-pha",
-            "title": "FPP-8 Physiology Pha",
+            "title": "FPP-8 Physiology/Pharmacology of the autonomic nervous system",
             "questions": [
               {
                 "question": "A patient has selective damage to autonomic ganglia, with intact alpha motor neurons to skeletal muscle. Which function would be most immediately impaired?",
@@ -7339,7 +7339,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-9-skeletal-and-c",
-            "title": "FPP-9 Skeletal and c",
+            "title": "FPP-9 Skeletal and cardiac muscle physiology",
             "questions": [
               {
                 "question": "A researcher compares electron micrographs of ventricular myocardium and limb skeletal muscle. Which observation most strongly supports that the ventricular sample is cardiac rather than skeletal muscle?",
@@ -7825,7 +7825,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "fpp-10-smooth-muscle",
-            "title": "FPP-10 Smooth Muscle",
+            "title": "FPP-10 Smooth Muscle Physiology",
             "questions": [
               {
                 "question": "A pharmacologist applies a vasoconstrictor to an isolated arteriole that does not generate action potentials. Increasing concentrations of the agonist produce progressively larger contractions. Which electrical event best explains this concentration-response relationship?",
@@ -8804,7 +8804,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "acrs02l-respiratory",
-            "title": "ACRS02L Respiratory",
+            "title": "ACRS02L Respiratory System 1: Anatomy Introduction",
             "questions": [
               {
                 "question": "During bronchoscopy teaching, a student states that the lower respiratory tract begins immediately after the pharynx. Which correction best matches the lecture's arrangement of the tract?",
@@ -9290,7 +9290,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "acrs03l-respiratory",
-            "title": "ACRS03L Respiratory",
+            "title": "ACRS03L Respiratory System 2: Anatomy of Breathing",
             "questions": [
               {
                 "question": "A patient with severe fatigue is breathing quietly while seated upright. Which anatomical event is most responsible for the inspiratory phase of this quiet breathing?",
@@ -9776,7 +9776,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "acrs04l-respiratory",
-            "title": "ACRS04L Respiratory",
+            "title": "ACRS04L Respiratory System 3: Upper Airways",
             "questions": [
               {
                 "question": "A patient with severe nasal mucosal atrophy complains that inspired air feels cold and dry despite normal oral breathing. Which lost nasal feature best explains the respiratory problem?",
@@ -10262,7 +10262,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "acrs05l-respiratory",
-            "title": "ACRS05L Respiratory",
+            "title": "ACRS05L Respiratory System 4: Lungs and Pleurae",
             "questions": [
               {
                 "question": "A cadaveric lung has a horizontal fissure, a shallow cardiac impression, and grooves for the superior vena cava and arch of the azygos vein. Which identification is most appropriate?",
@@ -10748,7 +10748,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "acrs06l-cardiovascul",
-            "title": "ACRS06L Cardiovascul",
+            "title": "ACRS06L Cardiovascular System 1: Anatomy Introduction",
             "questions": [
               {
                 "question": "A clinician attempts to locate the apex beat in an adult with no known cardiac displacement. Which surface landmark best corresponds to the expected position of the cardiac apex?",
@@ -11234,7 +11234,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "acrs07l-cardiovascul",
-            "title": "ACRS07L Cardiovascul",
+            "title": "ACRS07L Cardiovascular System 2: Anatomy of the Heart 1",
             "questions": [
               {
                 "question": "During dissection of an intact heart, a student identifies a groove encircling the heart between the atria and ventricles. Which additional finding would best confirm that this is the coronary sulcus?",
@@ -11720,7 +11720,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "acrs08l-cardiovascul",
-            "title": "ACRS08L Cardiovascul",
+            "title": "ACRS08L Cardiovascular System 3: Anatomy of the Heart 2",
             "questions": [
               {
                 "question": "During left ventricular systole, a patient's mitral valve cusps balloon into the left atrium and blood regurgitates despite intact valve leaflets. Which failed action best explains this finding?",
@@ -12699,7 +12699,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
         "questionSets": [
           {
             "id": "pcrs-1-introduction",
-            "title": "PCRS-1 Introduction",
+            "title": "PCRS-1: Introduction to cardiovascular function",
             "questions": [
               {
                 "question": "A spherical aquatic organism increases in diameter from 0.5 mm to 5 mm while retaining the same cellular metabolic rate and relying on diffusion through its external surface. Which change best explains why this organism now requires a circulatory system?",
@@ -13185,7 +13185,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-2-the-cardiac-c",
-            "title": "PCRS-2 The cardiac c",
+            "title": "PCRS-2 The cardiac cycle",
             "questions": [
               {
                 "question": "A researcher isolates four human cardiac tissues and records spontaneous action potentials. Which finding best identifies the primary pacemaker tissue?",
@@ -14157,7 +14157,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-4-control-of-b",
-            "title": "PCRS-4 Control of b",
+            "title": "PCRS-4 Control of blood flow",
             "questions": [
               {
                 "question": "During moderate exercise, skeletal muscle blood flow rises markedly, while cerebral blood flow remains relatively constant. Which explanation best accounts for this difference?",
@@ -14643,7 +14643,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-5-regulation-o",
-            "title": "PCRS-5 Regulation o",
+            "title": "PCRS-5 Regulation of Fluid balance in the microcirculation",
             "questions": [
               {
                 "question": "A patient is given a drug that constricts terminal arterioles supplying a skeletal muscle capillary bed, while plasma protein concentration is unchanged. Which change best predicts the immediate effect on transcapillary fluid movement?",
@@ -15129,7 +15129,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-6-coordinated",
-            "title": "PCRS-6 Coordinated",
+            "title": "PCRS-6 Coordinated cardiovascular responses",
             "questions": [
               {
                 "question": "A standing patient has a mean arterial pressure at the heart of 92 mmHg and a central venous pressure near 5 mmHg. Cerebral arterial pressure is measured below atmospheric pressure, yet cerebral blood flow continues. Which explanation best accounts for this?",
@@ -15615,7 +15615,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-7-blood-cells-a",
-            "title": "PCRS-7 Blood cells a",
+            "title": "PCRS-7 Blood cells and haematopoiesis",
             "questions": [
               {
                 "question": "A patient receives an ablative chemotherapy regimen that destroys the marrow stem-cell compartment. Which transplanted cell population would best reconstitute red cells, platelets, granulocytes, monocytes, and lymphocytes over the long term?",
@@ -16101,7 +16101,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-8-lung-mechanic",
-            "title": "PCRS-8 Lung mechanic",
+            "title": "PCRS-8 Lung mechanics",
             "questions": [
               {
                 "question": "A student measures pressures during quiet breathing with barometric pressure set to 0 cmH2O. At functional residual capacity, alveolar pressure is 0 cmH2O and intrapleural pressure is -5 cmH2O. What is the transpulmonary pressure?",
@@ -16587,7 +16587,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-9-gaseous-diffu",
-            "title": "PCRS-9 Gaseous diffu",
+            "title": "PCRS-9 Gaseous diffusion and transport",
             "questions": [
               {
                 "question": "A healthy student breathes room air at sea level. Barometric pressure is 101 kPa, fractional inspired oxygen is 0.21, and saturated water vapour pressure at 37 C is 6.3 kPa. What is the best estimate of inspired PO2 at the end of the trachea?",
@@ -17073,7 +17073,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-10-control-of",
-            "title": "PCRS-10 Control of",
+            "title": "PCRS-10 Control of Ventilation",
             "questions": [
               {
                 "question": "During experimental brainstem transection in an animal with vagal afferents cut, a section through the lower pons produces brief inspiratory gasps followed by prolonged expiration. Which interpretation best fits this pattern?",
@@ -17559,7 +17559,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pcrs-11-ventilation",
-            "title": "PCRS-11 Ventilation",
+            "title": "PCRS-11 Ventilation perfusion relationships",
             "questions": [
               {
                 "question": "A healthy adult has a tidal volume of 500 mL, an anatomical dead space of 150 mL, and a respiratory rate of 15 breaths/min. Which value best estimates alveolar ventilation?",
@@ -18052,7 +18052,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
         "questionSets": [
           {
             "id": "agrs01l-anterior-ab",
-            "title": "AGRS01L Anterior Ab",
+            "title": "AGRS01L Anterior Abdominal Wall",
             "questions": [
               {
                 "question": "During abdominal examination, a clinician wants to divide the abdomen into four quadrants before documenting tenderness. Which pair of surface planes should be used?",
@@ -18538,7 +18538,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "agrs02l-inguinal-re",
-            "title": "AGRS02L Inguinal Re",
+            "title": "AGRS02L Inguinal Region and Hernias",
             "questions": [
               {
                 "question": "During dissection of the anterior abdominal wall, a student identifies a thickened band forming the inferior border of the external oblique aponeurosis. Which structure has been identified?",
@@ -19510,7 +19510,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "agrs04l-stomach-and",
-            "title": "AGRS04L Stomach and",
+            "title": "AGRS04L Stomach and Spleen",
             "questions": [
               {
                 "question": "During an upper abdominal dissection, a student expects the pylorus to move freely with the rest of the stomach when the body wall is retracted. Which anatomical fact best explains why this expectation is incorrect?",
@@ -19996,7 +19996,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "agrs05l-liver-and-h",
-            "title": "AGRS05L Liver and H",
+            "title": "AGRS05L Liver and Hepatobiliary system",
             "questions": [
               {
                 "question": "During abdominal examination, a clinician estimates the normal surface projection of the liver before palpation. Which description best matches the lecture's surface anatomy of a normal liver?",
@@ -20968,7 +20968,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "agrs07l-posterior-a",
-            "title": "AGRS07L Posterior A",
+            "title": "AGRS07L Posterior Abdominal Wall and Retroperitoneal Organs",
             "questions": [
               {
                 "question": "During dissection of the posterior abdominal wall, a student asks why the kidneys are described as retroperitoneal rather than simply extraperitoneal. Which explanation is most accurate?",
@@ -21454,7 +21454,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "agrs08l-the-ureter",
-            "title": "AGRS08L The Ureter,",
+            "title": "AGRS08L The Ureter, Prostate and Bladder",
             "questions": [
               {
                 "question": "During posterior abdominal wall dissection, two pale tubular structures are found close to the gonadal vessels. Which observation would most strongly support identifying one of them as a ureter rather than a gonadal vessel?",
@@ -21947,7 +21947,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
         "questionSets": [
           {
             "id": "pgrs-1-mechanisms-o",
-            "title": "PGRS-1 Mechanisms o",
+            "title": "PGRS-1: Mechanisms of GI tract motility and its control",
             "questions": [
               {
                 "question": "A patient with selective damage to neurons located between the longitudinal and circular muscle layers of the small intestine would most likely have the greatest impairment in which function?",
@@ -22433,7 +22433,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pgrs-2-gastrointest",
-            "title": "PGRS-2 gastrointest",
+            "title": "PGRS-2: gastrointestinal secretions and their control",
             "questions": [
               {
                 "question": "A patient has impaired salivary duct epithelial reabsorption but preserved acinar secretion. Compared with normal resting saliva, the final saliva reaching the mouth would most likely show which change?",
@@ -22919,7 +22919,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pgrs-3-digestion-and-absorp",
-            "title": "PGRS-3 Digestion and absorp",
+            "title": "PGRS-3: Digestion and Absorption in the GI Tract",
             "questions": [
               {
                 "question": "A patient has a congenital absence of enteropeptidase activity on the duodenal brush border. Which immediate biochemical defect best explains the resulting protein maldigestion?",
@@ -23405,7 +23405,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pgrs-4-kidney-funct",
-            "title": "PGRS-4 Kidney Funct",
+            "title": "PGRS-4 Kidney Function I: Filtration, Reabsorption and Secretion",
             "questions": [
               {
                 "question": "A patient develops selective damage to the fixed negative charges in the glomerular basement membrane, while fenestration size and slit diaphragm structure remain largely preserved. Which change in filtrate composition is most expected?",
@@ -23891,7 +23891,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pgrs-5-kidney-funct",
-            "title": "PGRS-5 Kidney funct",
+            "title": "PGRS-5 Kidney function II: Control of osmolality",
             "questions": [
               {
                 "question": "A patient has a plasma sodium concentration of 140 mmol/L and a GFR of 125 mL/min. Assuming sodium is freely filtered, what is the approximate filtered load of sodium?",
@@ -24377,7 +24377,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pgrs-6-kidney-funct",
-            "title": "PGRS-6 Kidney funct",
+            "title": "PGRS-6: Kidney function III - regulation of ECF and blood volume",
             "questions": [
               {
                 "question": "A 70 kg man loses hypotonic fluid during prolonged sweating but replaces it with very little water. His plasma osmolality rises from 290 to 302 mOsm/kg. Which response best restores ECF osmolality toward normal?",
@@ -24863,7 +24863,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "pgrs-7-kidney-funct",
-            "title": "PGRS-7 Kidney funct",
+            "title": "PGRS-7: Kidney function IV - Acid-base regulation",
             "questions": [
               {
                 "question": "A patient's arterial plasma pH falls from 7.40 to 7.10 during an acute acid-base disturbance. Which change in free plasma H+ concentration best explains why this small numerical pH change is physiologically serious?",
@@ -25356,7 +25356,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
         "questionSets": [
           {
             "id": "ams01l-osteology-of",
-            "title": "AMS01L Osteology of",
+            "title": "AMS01L Osteology of the Vertebral Column",
             "questions": [
               {
                 "question": "A clinician plans an epidural for labour analgesia and chooses an interspace below L3. Which anatomical fact from vertebral development best justifies this choice in an adult?",
@@ -25842,7 +25842,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams02l-joints-and-m",
-            "title": "AMS02L Joints and M",
+            "title": "AMS02L Joints and Movements of the Vertebral Column",
             "questions": [
               {
                 "question": "A patient has pain arising from the joint between adjacent vertebral bodies rather than from the posterior elements. Which structural description best identifies the affected joint?",
@@ -26328,7 +26328,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams03l-shoulder-and",
-            "title": "AMS03L Shoulder and",
+            "title": "AMS03L Shoulder and Arm",
             "questions": [
               {
                 "question": "A shoulder radiograph is being labelled. A rounded articular surface on the lateral distal humerus articulates with the head of the radius, while the spool-shaped surface medial to it articulates with the ulna. Which labelling is correct?",
@@ -26814,7 +26814,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams04l-elbow-and-rad",
-            "title": "AMS04L Elbow and Rad",
+            "title": "AMS04L Elbow and Radioulnar Joints",
             "questions": [
               {
                 "question": "A radiograph of the anterior elbow is being labelled. The examiner asks which distal humeral surface articulates with the radial head and which articulates with the trochlear notch of the ulna. Which pairing is correct?",
@@ -27300,7 +27300,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams05l-forearm-and-w",
-            "title": "AMS05L Forearm and W",
+            "title": "AMS05L Forearm and Wrist",
             "questions": [
               {
                 "question": "A patient falls on an outstretched hand and has marked tenderness in the anatomical snuff box. Initial wrist radiographs are normal, but the clinician remains concerned about avascular necrosis after an occult fracture. Which structure is most likely at risk?",
@@ -28272,7 +28272,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams07l-neurology-of",
-            "title": "AMS07L Neurology of",
+            "title": "AMS07L Neurology of Upper Limb",
             "questions": [
               {
                 "question": "A student is asked to reconstruct the brachial plexus from proximal to distal during a viva. Which sequence is correct?",
@@ -28758,7 +28758,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams08l-overview-of-l",
-            "title": "AMS08L Overview of L",
+            "title": "AMS08L Overview of Lower Limb and Hip Joint",
             "questions": [
               {
                 "question": "A paediatric pelvic radiograph shows a Y-shaped radiolucent region at the centre of the acetabulum. Which interpretation best explains this finding?",
@@ -29244,7 +29244,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams09l-gluteal-regio",
-            "title": "AMS09L Gluteal Regio",
+            "title": "AMS09L Gluteal Region and Thigh",
             "questions": [
               {
                 "question": "A patient has difficulty rising from a low chair and climbing stairs after an injection-related injury to a nerve in the gluteal region. Hip abduction and medial rotation are relatively preserved. Which muscle and nerve are most likely impaired?",
@@ -29730,7 +29730,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams10l-knee-joint-an",
-            "title": "AMS10L Knee Joint an",
+            "title": "AMS10L Knee Joint and Leg",
             "questions": [
               {
                 "question": "A patient stands with both knees fully extended and relaxed. Which movement best explains the passive locking that reduces the need for continuous thigh and leg muscle contraction?",
@@ -30216,7 +30216,7 @@ export const questionBankFolders: QuestionBankFolder[] = [
           },
           {
             "id": "ams11l-ankle-joint-a",
-            "title": "AMS11L Ankle Joint a",
+            "title": "AMS11L Ankle Joint and Foot",
             "questions": [
               {
                 "question": "A footballer lands with the foot plantarflexed and inverted. Examination suggests the first ligament of the lateral collateral complex to fail in the usual ankle sprain pattern. Which ligament is most likely injured?",
