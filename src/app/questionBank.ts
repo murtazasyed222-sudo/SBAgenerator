@@ -29,7 +29,26 @@ export const questionBankFolders: QuestionBankFolder[] = [
     "id": "foundations-of-biomedical-science",
     "title": "Foundations of Biomedical Science",
     "questionSets": [],
-    "subfolders": []
+    "subfolders": [
+      {
+        "id": "molecular-cell-biology-question-bank",
+        "title": "Molecular Cell Biology Question Bank",
+        "questionSets": [],
+        "subfolders": []
+      },
+      {
+        "id": "nutrition-and-metabolism-question-bank",
+        "title": "Nutrition and Metabolism Question Bank",
+        "questionSets": [],
+        "subfolders": []
+      },
+      {
+        "id": "immunity-and-infection-question-bank",
+        "title": "Immunity and Infection Question Bank",
+        "questionSets": [],
+        "subfolders": []
+      }
+    ]
   },
   {
     "id": "physiology-and-anatomy-of-systems",

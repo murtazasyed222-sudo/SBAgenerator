@@ -5,6 +5,21 @@ const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
+function getErrorStatus(error: unknown) {
+  if (typeof error !== "object" || error === null || !("status" in error)) {
+    return undefined;
+  }
+
+  return error.status;
+}
+
+function getErrorMessage(error: unknown) {
+  if (error instanceof Error) return error.message;
+  if (typeof error === "string") return error;
+
+  return "";
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -85,30 +100,75 @@ ${lectureNotes}
       .replace(/```/g, "")
       .trim();
 
-    const parsed = JSON.parse(cleanedText);
+    let parsed;
+
+    try {
+      parsed = JSON.parse(cleanedText);
+    } catch (parseError) {
+      console.error("Gemini returned invalid JSON:", parseError, cleanedText);
+
+      return NextResponse.json(
+        {
+          error:
+            "Gemini replied, but not in the question format the app expected. Try fewer questions or a shorter transcript.",
+        },
+        { status: 502 }
+      );
+    }
 
     return NextResponse.json(parsed);
   } catch (error: unknown) {
-  console.error(error);
+    console.error("Gemini generation failed:", error);
 
-  const errorStatus =
-    typeof error === "object" && error !== null && "status" in error
-      ? error.status
-      : undefined;
+    const errorStatus = getErrorStatus(error);
+    const errorMessage = getErrorMessage(error).toLowerCase();
 
-  if (errorStatus === 429) {
+    if (errorStatus === 429) {
+      return NextResponse.json(
+        {
+          error:
+            "Gemini quota exceeded. Try again later, reduce the number of questions, use shorter notes, or switch to another model/API provider.",
+        },
+        { status: 429 }
+      );
+    }
+
+    if (errorMessage.includes("reported as leaked")) {
+      return NextResponse.json(
+        {
+          error:
+            "Gemini rejected this API key because it was reported as leaked. Create a new Gemini API key, update your environment variables, then restart the server.",
+        },
+        { status: 403 }
+      );
+    }
+
+    if (errorStatus === 403) {
+      return NextResponse.json(
+        {
+          error:
+            "Gemini rejected the API key permissions. Check the key is enabled for the Gemini API.",
+        },
+        { status: 403 }
+      );
+    }
+
+    if (errorStatus === 400 || errorMessage.includes("api key")) {
+      return NextResponse.json(
+        {
+          error:
+            "Gemini rejected the request. Check that your Gemini API key is valid, then restart the local server.",
+        },
+        { status: 400 }
+      );
+    }
+
     return NextResponse.json(
       {
         error:
-          "Gemini quota exceeded. Try again later, reduce the number of questions, use shorter notes, or switch to another model/API provider.",
+          "Failed to generate questions using Gemini. Try fewer questions or a shorter transcript.",
       },
-      { status: 429 }
+      { status: 500 }
     );
   }
-
-  return NextResponse.json(
-    { error: "Failed to generate questions using Gemini." },
-    { status: 500 }
-  );
-}
 }

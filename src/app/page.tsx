@@ -496,6 +496,7 @@ function isMedicalText(text: string) {
 }
 
 type AppView = "question-bank" | "generator" | "progress";
+type PerformanceBand = "urgent" | "revisit" | "steady" | "strong";
 
 type QuestionProgress = {
   answered: number;
@@ -528,10 +529,11 @@ type CloudAnswersRow = {
 };
 
 const cardAccentColors = [
-  "#0f766e",
-  "#2563eb",
-  "#b7791f",
-  "#475569",
+  "#7c3aed",
+  "#6d28d9",
+  "#8b5cf6",
+  "#4c1d95",
+  "#a78bfa",
 ];
 
 function getAccentStyle(index: number): CSSProperties {
@@ -574,22 +576,31 @@ function getLectureCount(folder: QuestionBankFolder): number {
   return ownLectures + subfolderLectures;
 }
 
+function getQuestionSets(folder: QuestionBankFolder): QuestionSet[] {
+  return [
+    ...folder.questionSets,
+    ...folder.subfolders.flatMap((subfolder) => getQuestionSets(subfolder)),
+  ];
+}
+
 export default function Home() {
   const [lectureNotes, setLectureNotes] = useState("");
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [numberOfQuestions, setNumberOfQuestions] = useState(5);
-  const [isQuestionBankOpen, setIsQuestionBankOpen] = useState(true);
-  const [isMobileQuestionBankOpen, setIsMobileQuestionBankOpen] =
-    useState(false);
+  const [questionCountInput, setQuestionCountInput] = useState("5");
+  const [questionSliderValue, setQuestionSliderValue] = useState(5);
   const [currentView, setCurrentView] = useState<AppView>("question-bank");
   const [selectedBankSubmoduleId, setSelectedBankSubmoduleId] = useState<
     string | null
   >(null);
   const [questionBankSearch, setQuestionBankSearch] = useState("");
-  const [expandedQuestionBankFolders, setExpandedQuestionBankFolders] =
-    useState<Record<string, boolean>>({});
+  const [expandedBankModules, setExpandedBankModules] = useState<
+    Record<string, boolean>
+  >({});
+  const [isPerformanceAnalyticsOpen, setIsPerformanceAnalyticsOpen] =
+    useState(true);
   const [activeQuestionSetId, setActiveQuestionSetId] = useState<string | null>(
     null
   );
@@ -620,9 +631,13 @@ export default function Home() {
   const [authLoading, setAuthLoading] = useState(false);
   const [authMessage, setAuthMessage] = useState("");
   const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false);
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
   const [isSavePromptOpen, setIsSavePromptOpen] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
+  const [retestSourceTitle, setRetestSourceTitle] = useState<string | null>(
+    null
+  );
 
   useEffect(() => {
     if (!supabase) {
@@ -755,13 +770,18 @@ export default function Home() {
   }, [supabase, user]);
 
   const bankStats = useMemo(() => {
-    const pasFolder = questionBankFolders.find(
-      (folder) => folder.id === "physiology-and-anatomy-of-systems"
+    const submodules = questionBankFolders.flatMap((moduleFolder) =>
+      moduleFolder.subfolders.map((submodule) => ({
+        ...submodule,
+        parentModuleId: moduleFolder.id,
+        parentModuleTitle: moduleFolder.title,
+      }))
     );
-    const submodules = pasFolder?.subfolders ?? [];
 
     return {
+      modules: questionBankFolders,
       submodules,
+      totalSubmodules: submodules.length,
       totalLectures: submodules.reduce(
         (total, submodule) => total + getLectureCount(submodule),
         0
@@ -942,10 +962,10 @@ export default function Home() {
     });
   }
 
-  function toggleQuestionBankFolder(folderId: string) {
-    setExpandedQuestionBankFolders({
-      ...expandedQuestionBankFolders,
-      [folderId]: !expandedQuestionBankFolders[folderId],
+  function toggleBankModule(moduleId: string) {
+    setExpandedBankModules({
+      ...expandedBankModules,
+      [moduleId]: !expandedBankModules[moduleId],
     });
   }
 
@@ -972,8 +992,6 @@ export default function Home() {
 
   function loadQuestionSet(questionSet: QuestionSet) {
     autosaveActiveLectureAnswers();
-    setIsQuestionBankOpen(true);
-    setIsMobileQuestionBankOpen(false);
     setQuestions(questionSet.questions);
     setSelectedAnswers(
       savedAnswersByQuestionSet[questionSet.id]?.selectedAnswers ?? {}
@@ -983,10 +1001,20 @@ export default function Home() {
     setError("");
     setActiveQuestionSetId(questionSet.id);
     setActiveQuestionSetTitle(questionSet.title);
+    setQuestionBankSearch("");
     setCurrentView("question-bank");
   }
 
-  function returnToGenerator() {
+  function startRetestFramework(questionSet: QuestionSet) {
+    setRetestSourceTitle(questionSet.title);
+
+    window.setTimeout(() => {
+      setRetestSourceTitle(null);
+      loadQuestionSet(questionSet);
+    }, 850);
+  }
+
+  function returnToQuestionBankHome() {
     autosaveActiveLectureAnswers();
     setQuestions([]);
     setSelectedAnswers({});
@@ -997,20 +1025,49 @@ export default function Home() {
     setActiveQuestionSetTitle(null);
     setSelectedBankSubmoduleId(null);
     setQuestionBankSearch("");
-    setIsMobileQuestionBankOpen(false);
+    setCurrentView("question-bank");
+  }
+
+  function returnToActiveSubmodule() {
+    autosaveActiveLectureAnswers();
+
+    const parentSubmodule = bankStats.submodules.find((submodule) =>
+      submodule.questionSets.some(
+        (questionSet) => questionSet.id === activeQuestionSetId
+      )
+    );
+
+    if (!parentSubmodule) {
+      returnToQuestionBankHome();
+      return;
+    }
+
+    setQuestions([]);
+    setSelectedAnswers({});
+    setMarkedAnswers({});
+    setShowResults(false);
+    setError("");
+    setActiveQuestionSetId(null);
+    setActiveQuestionSetTitle(null);
+    setSelectedBankSubmoduleId(parentSubmodule.id);
+    setQuestionBankSearch("");
     setCurrentView("question-bank");
   }
 
   function openSubmodule(submoduleId: string) {
+    const submodule = bankStats.submodules.find(
+      (candidate) => candidate.id === submoduleId
+    );
+
     setCurrentView("question-bank");
     setSelectedBankSubmoduleId(submoduleId);
     setActiveQuestionSetId(null);
     setActiveQuestionSetTitle(null);
-    setExpandedQuestionBankFolders({
-      ...expandedQuestionBankFolders,
-      "physiology-and-anatomy-of-systems": true,
-      [submoduleId]: true,
-    });
+    setExpandedBankModules(
+      submodule
+        ? { ...expandedBankModules, [submodule.parentModuleId]: true }
+        : expandedBankModules
+    );
   }
 
   function openGeneratorView() {
@@ -1030,7 +1087,6 @@ export default function Home() {
       setShowResults(false);
       setActiveQuestionSetId(null);
       setActiveQuestionSetTitle(null);
-      setIsMobileQuestionBankOpen(false);
     }
   }
 
@@ -1141,32 +1197,9 @@ export default function Home() {
 
   const wrongQuestions = getWrongQuestions();
   const normalizedQuestionBankSearch = questionBankSearch.trim().toLowerCase();
-  const overallAnswered = bankStats.submodules.reduce(
-    (total, submodule) =>
-      total +
-      submodule.questionSets.reduce((setTotal, questionSet) => {
-        const progress = progressByQuestionSet[questionSet.id];
-
-        return setTotal + Math.min(progress?.answered ?? 0, questionSet.questions.length);
-      }, 0),
-    0
-  );
-  const overallCorrect = bankStats.submodules.reduce(
-    (total, submodule) =>
-      total +
-      submodule.questionSets.reduce(
-        (setTotal, questionSet) =>
-          setTotal + (progressByQuestionSet[questionSet.id]?.correct ?? 0),
-        0
-      ),
-    0
-  );
-  const overallProgressPercent =
-    bankStats.totalQuestions > 0
-      ? Math.round((overallAnswered / bankStats.totalQuestions) * 100)
-      : 0;
-  const activeTabIndex =
+  const verticalNavIndex =
     currentView === "question-bank" ? 0 : currentView === "progress" ? 1 : 2;
+  const questionSliderPercent = ((questionSliderValue - 1) / 24) * 100;
 
   function getQuestionSetProgress(questionSet: QuestionSet) {
     const savedProgress = progressByQuestionSet[questionSet.id];
@@ -1185,12 +1218,13 @@ export default function Home() {
 
   function getSubmoduleProgress(submodule: QuestionBankFolder) {
     const totalQuestions = getQuestionCount(submodule);
-    const answered = submodule.questionSets.reduce((total, questionSet) => {
+    const questionSets = getQuestionSets(submodule);
+    const answered = questionSets.reduce((total, questionSet) => {
       const progress = getQuestionSetProgress(questionSet);
 
       return total + progress.answered;
     }, 0);
-    const correct = submodule.questionSets.reduce((total, questionSet) => {
+    const correct = questionSets.reduce((total, questionSet) => {
       const progress = getQuestionSetProgress(questionSet);
 
       return total + progress.correct;
@@ -1201,57 +1235,106 @@ export default function Home() {
     return { answered, correct, percent, totalQuestions };
   }
 
-  function filterQuestionBankFolder(
-    folder: QuestionBankFolder
-  ): QuestionBankFolder | null {
-    if (!normalizedQuestionBankSearch) return folder;
-
-    const folderMatchesSearch = folder.title
-      .toLowerCase()
-      .includes(normalizedQuestionBankSearch);
-    const visibleQuestionSets = folder.questionSets.filter((questionSet) =>
-      questionSet.title.toLowerCase().includes(normalizedQuestionBankSearch)
-    );
-    const visibleSubfolders = folder.subfolders
-      .map(filterQuestionBankFolder)
-      .filter((subfolder): subfolder is QuestionBankFolder =>
-        Boolean(subfolder)
-      );
-
-    if (folderMatchesSearch) return folder;
-
-    if (visibleQuestionSets.length > 0 || visibleSubfolders.length > 0) {
-      return {
-        ...folder,
-        questionSets: visibleQuestionSets,
-        subfolders: visibleSubfolders,
-      };
-    }
-
-    return null;
+  function getPerformanceBand(accuracy: number): PerformanceBand {
+    if (accuracy < 50) return "urgent";
+    if (accuracy < 75) return "revisit";
+    if (accuracy < 90) return "steady";
+    return "strong";
   }
 
-  const visibleQuestionBankFolders = questionBankFolders
-    .map(filterQuestionBankFolder)
-    .filter((folder): folder is QuestionBankFolder => Boolean(folder));
+  function getPerformanceLabel(band: PerformanceBand) {
+    if (band === "urgent") return "High priority";
+    if (band === "revisit") return "Revisit soon";
+    if (band === "steady") return "Building well";
+    return "Strong";
+  }
+
+  function getPerformanceStyle(accuracy: number): CSSProperties {
+    const hue = Math.round(Math.min(128, Math.max(0, accuracy * 1.28)));
+
+    return {
+      "--performance-accent": `hsl(${hue} 72% 39%)`,
+      "--performance-bg": `hsl(${hue} 86% 96%)`,
+      "--performance-soft": `hsl(${hue} 72% 90%)`,
+    } as CSSProperties;
+  }
+
+  const performanceTopics = bankStats.submodules
+    .flatMap((submodule) =>
+      submodule.questionSets.map((questionSet) => {
+        const progress = getQuestionSetProgress(questionSet);
+        const accuracy =
+          progress.answered > 0
+            ? Math.round((progress.correct / progress.answered) * 100)
+            : null;
+        const band = accuracy === null ? null : getPerformanceBand(accuracy);
+
+        return {
+          questionSet,
+          submoduleTitle: submodule.title,
+          answered: progress.answered,
+          correct: progress.correct,
+          total: questionSet.questions.length,
+          accuracy,
+          band,
+        };
+      })
+    )
+    .filter((topic) => topic.accuracy !== null)
+    .sort((firstTopic, secondTopic) => {
+      if (firstTopic.accuracy !== secondTopic.accuracy) {
+        return (firstTopic.accuracy ?? 0) - (secondTopic.accuracy ?? 0);
+      }
+
+      return secondTopic.answered - firstTopic.answered;
+    });
+
+  const priorityTopics = performanceTopics.slice(0, 6);
+
   const lectureSearchResults = normalizedQuestionBankSearch
     ? bankStats.submodules.flatMap((submodule) =>
         submodule.questionSets
           .filter((questionSet) =>
             questionSet.title.toLowerCase().includes(normalizedQuestionBankSearch)
           )
-          .map((questionSet) => ({ questionSet, submoduleTitle: submodule.title }))
+          .map((questionSet) => ({
+            questionSet,
+            moduleTitle: submodule.parentModuleTitle,
+            submoduleTitle: submodule.title,
+          }))
       )
     : [];
 
   function renderProgressMeter(percent: number) {
     return (
-      <div className="h-2.5 overflow-hidden rounded-full bg-slate-200/80 shadow-inner">
+      <div className="progressTrack h-2.5 overflow-hidden rounded-full shadow-inner">
         <div
-          className="h-full rounded-full bg-emerald-500 transition-all duration-500"
+          className="progressFill h-full rounded-full transition-all duration-500"
           style={{ width: `${Math.min(percent, 100)}%` }}
         />
       </div>
+    );
+  }
+
+  function renderProgressSignInDisclaimer() {
+    return (
+      <p className="progressDisclaimer mt-2 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold">
+        <svg
+          className="h-4 w-4 shrink-0"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M12 9v4" />
+          <path d="M12 17h.01" />
+          <path d="M10.3 4.2 2.6 17.5A2 2 0 0 0 4.3 20h15.4a2 2 0 0 0 1.7-2.5L13.7 4.2a2 2 0 0 0-3.4 0Z" />
+        </svg>
+        Sign in to save and track progress.
+      </p>
     );
   }
 
@@ -1290,6 +1373,20 @@ export default function Home() {
               </p>
             </div>
           )}
+        </div>
+      );
+    }
+
+    if (!isAuthReady) {
+      return (
+        <div className="relative flex flex-col items-end">
+          <button
+            type="button"
+            className="headerAccountButton max-w-full"
+            disabled
+          >
+            Checking...
+          </button>
         </div>
       );
     }
@@ -1339,14 +1436,29 @@ export default function Home() {
     }
 
     return (
-      <div className="relative flex flex-col items-end">
+      <div className="relative flex items-center gap-2">
         <button
           type="button"
-          onClick={() => setIsAuthMenuOpen(!isAuthMenuOpen)}
+          onClick={() => {
+            setAuthMode("sign-in");
+            setIsAuthMenuOpen(authMode === "sign-in" ? !isAuthMenuOpen : true);
+          }}
           className="headerAccountButton"
           aria-expanded={isAuthMenuOpen}
         >
           Sign in
+        </button>
+
+        <button
+          type="button"
+          onClick={() => {
+            setAuthMode("sign-up");
+            setIsAuthMenuOpen(authMode === "sign-up" ? !isAuthMenuOpen : true);
+          }}
+          className="headerAccountButton headerAccountButtonSecondary"
+          aria-expanded={isAuthMenuOpen}
+        >
+          Sign up
         </button>
 
         {isAuthMenuOpen && (
@@ -1360,13 +1472,8 @@ export default function Home() {
               X
             </button>
             <p className="text-sm font-bold text-slate-950">
-              Sign in to save and track progress
+              Sign in to track progress and use generator
             </p>
-            {isGeneratorAuthPrompt && (
-              <p className="mt-1 text-sm font-bold text-teal-700">
-                Sign in to use Question Generator.
-              </p>
-            )}
             <p className="mt-1 text-sm leading-snug text-slate-600">
               You can still answer questions without an account, but progress
               will not be saved.
@@ -1448,7 +1555,7 @@ export default function Home() {
 
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 px-4 py-6 backdrop-blur-sm">
-        <div className="relative w-full max-w-sm rounded-[1.75rem] border border-white/70 bg-white p-6 shadow-2xl">
+        <div className="glassModal relative w-full max-w-sm rounded-[1.75rem] p-6">
           <button
             type="button"
             onClick={() => setIsSavePromptOpen(false)}
@@ -1479,123 +1586,6 @@ export default function Home() {
           </button>
         </div>
       </div>
-    );
-  }
-
-  function renderQuestionBankFolder(folder: QuestionBankFolder, depth = 0) {
-    const isExpanded =
-      Boolean(normalizedQuestionBankSearch) ||
-      Boolean(expandedQuestionBankFolders[folder.id]);
-    const hasContent =
-      folder.questionSets.length > 0 || folder.subfolders.length > 0;
-
-    return (
-      <div key={folder.id} style={{ marginLeft: depth * 10 }}>
-        <button
-          onClick={() => toggleQuestionBankFolder(folder.id)}
-          className="flex w-full items-center justify-between rounded-xl border border-amber-300/10 bg-white/5 px-3 py-2.5 text-left font-semibold text-slate-100 transition hover:bg-amber-300/14"
-        >
-          <span>{folder.title}</span>
-          <span
-            className={`ml-3 text-amber-300 transition-transform duration-300 ${
-              isExpanded ? "rotate-90" : ""
-            }`}
-            aria-hidden="true"
-          >
-            &gt;
-          </span>
-        </button>
-
-        <div
-          className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
-            isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-          }`}
-        >
-          <div className="overflow-hidden">
-            <div className="mt-2 space-y-1 pl-3">
-              {!hasContent ? (
-                <p className="rounded-xl bg-white/10 px-3 py-2 text-sm text-slate-300">
-                  No lecture sets yet.
-                </p>
-              ) : (
-                <>
-                  {folder.subfolders.map((subfolder) =>
-                    renderQuestionBankFolder(subfolder, depth + 1)
-                  )}
-
-                  {folder.questionSets.map((questionSet) => {
-                    const progress = getQuestionSetProgress(questionSet);
-
-                    return (
-                      <button
-                        key={questionSet.id}
-                        onClick={() => loadQuestionSet(questionSet)}
-                        className={`block w-full rounded-xl px-3 py-2.5 text-left text-sm font-medium transition ${
-                          activeQuestionSetId === questionSet.id
-                            ? "bg-amber-300 text-slate-950 shadow-sm"
-                            : "text-white/85 hover:bg-amber-300/14 hover:text-white"
-                        }`}
-                      >
-                        <span className="block">{questionSet.title}</span>
-                        <span className="mt-1 block text-xs opacity-75">
-                          {questionSet.questions.length} questions
-                          {progress.percent > 0 ? ` | ${progress.percent}% done` : ""}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  function renderQuestionBankBrowser(isMobile = false) {
-    return (
-      <nav className="space-y-3">
-        {isMobile && (
-          <button
-            onClick={() => setIsMobileQuestionBankOpen(false)}
-            className="mb-2 flex w-full items-center justify-center gap-2 rounded-full bg-white px-4 py-3 font-bold text-slate-950 shadow-sm transition hover:bg-amber-100"
-          >
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="m12 19-7-7 7-7" />
-              <path d="M19 12H5" />
-            </svg>
-            Back to questions
-          </button>
-        )}
-
-        <input
-          type="search"
-          value={questionBankSearch}
-          onChange={(event) => setQuestionBankSearch(event.target.value)}
-          placeholder="Search lectures..."
-          className="w-full rounded-2xl border border-white/10 bg-white/10 px-3 py-2.5 text-sm text-white outline-none placeholder:text-slate-400 focus:border-teal-300 focus:ring-2 focus:ring-teal-300/30"
-        />
-
-        {visibleQuestionBankFolders.length === 0 && (
-          <p className="rounded-xl bg-white/10 px-3 py-2 text-sm text-slate-300">
-            No matching lecture sets.
-          </p>
-        )}
-
-        {visibleQuestionBankFolders.map((folder) =>
-          renderQuestionBankFolder(folder)
-        )}
-      </nav>
     );
   }
 
@@ -1640,8 +1630,8 @@ export default function Home() {
                             : shouldShowCorrectAnswer
                               ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                               : isSelected
-                                ? "border-teal-600 bg-teal-50 text-slate-950"
-                                : "border-teal-200 bg-teal-50/35 text-slate-800 hover:bg-teal-50"
+                                ? "border-purple-600 bg-purple-50 text-slate-950"
+                                : "border-purple-200 bg-purple-50/35 text-slate-800 hover:bg-purple-50"
                       }`}
                     >
                       <span className="font-semibold">{letter}.</span> {option}
@@ -1715,12 +1705,11 @@ export default function Home() {
             Generate SBA Questions
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Use this when you want extra practice beyond the permanent question
-            bank.
+            Use this when you want extra practice beyond the question bank.
           </p>
 
           {!user && (
-            <p className="mt-4 rounded-full bg-amber-100 px-4 py-2 text-sm font-bold text-amber-950">
+            <p className="mt-4 rounded-full bg-purple-100 px-4 py-2 text-sm font-bold text-purple-950">
               Sign in to use the question generator.
             </p>
           )}
@@ -1728,24 +1717,70 @@ export default function Home() {
           <textarea
             value={lectureNotes}
             onChange={(e) => setLectureNotes(e.target.value)}
-            className="mt-6 h-56 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 text-slate-950 shadow-inner outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 sm:h-72"
+            className="mt-6 h-56 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 text-slate-950 shadow-inner outline-none transition placeholder:text-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 sm:h-72"
             placeholder="Paste lecture notes or transcript here..."
           />
 
-          <div className="mt-4 w-full max-w-xl">
-            <label className="mb-2 block font-semibold text-slate-900">
-              Number of questions: {numberOfQuestions}
-            </label>
+          <div className="sliderBubblePanel mt-4 w-full max-w-xl px-4 py-3">
+            <div className="mb-2 flex items-center gap-2">
+              <label className="text-sm font-semibold text-slate-700">
+                Number of questions
+              </label>
+              <input
+                type="number"
+                min="1"
+                max="25"
+                step="1"
+                value={questionCountInput}
+                onChange={(event) => {
+                  const rawValue = event.target.value;
+
+                  setQuestionCountInput(rawValue);
+
+                  if (rawValue === "") return;
+
+                  const nextValue = Math.min(
+                    25,
+                    Math.max(1, Math.round(Number(rawValue)))
+                  );
+
+                  if (!Number.isFinite(nextValue)) return;
+
+                  setQuestionCountInput(String(nextValue));
+                  setQuestionSliderValue(nextValue);
+                  setNumberOfQuestions(nextValue);
+                }}
+                onBlur={() => {
+                  if (questionCountInput === "") {
+                    setQuestionCountInput(String(numberOfQuestions));
+                  }
+                }}
+                className="questionCountInput inline-flex min-h-7 w-12 items-center justify-center rounded-lg px-2 py-1 text-center text-sm font-semibold shadow-sm outline-none"
+                aria-label="Number of questions"
+              />
+            </div>
 
             <input
               type="range"
               min="1"
               max="25"
               step="1"
-              value={numberOfQuestions}
-              onChange={(e) => setNumberOfQuestions(Number(e.target.value))}
+              value={questionSliderValue}
+              onChange={(e) => {
+                const nextValue = Math.round(Number(e.target.value));
+
+                setQuestionSliderValue(nextValue);
+                setNumberOfQuestions(nextValue);
+                setQuestionCountInput(String(nextValue));
+              }}
               className="numberSlider w-full"
+              style={{ "--slider-fill": `${questionSliderPercent}%` } as CSSProperties}
             />
+
+            <div className="mt-1.5 flex justify-between px-1 text-[0.7rem] font-medium text-slate-500">
+              <span>1</span>
+              <span>25</span>
+            </div>
           </div>
 
           <button
@@ -1786,7 +1821,7 @@ export default function Home() {
       : null;
 
     return (
-      <div className="studyDock fixed bottom-3 right-3 z-30 w-fit max-w-[calc(100vw-1.5rem)] px-3 py-2 sm:bottom-5 sm:right-5">
+      <div className="studyDock w-fit max-w-[calc(100vw-1.5rem)] px-3 py-2">
         <div className="flex items-center gap-2">
           <div className="min-w-0 px-1 text-xs font-bold text-slate-600 sm:min-w-24">
             {answeredCount}/{questions.length}
@@ -1855,65 +1890,134 @@ export default function Home() {
     );
   }
 
+  function renderActiveLectureSearch() {
+    return (
+      <div className="mt-6 rounded-3xl border border-white/10 bg-black/30 p-3 shadow-[0_0_24px_rgba(109,40,217,0.12)]">
+        <div className="relative">
+          <svg
+            className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-300"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="m16.5 16.5 4 4" />
+          </svg>
+          <input
+            type="search"
+            value={questionBankSearch}
+            onChange={(event) => setQuestionBankSearch(event.target.value)}
+            placeholder="Search for another lecture..."
+            className="w-full rounded-2xl border border-white/10 bg-white/10 py-2.5 pl-10 pr-4 text-sm text-white outline-none placeholder:text-slate-400 focus:border-purple-300 focus:ring-2 focus:ring-purple-300/20"
+          />
+        </div>
+
+        {normalizedQuestionBankSearch && (
+          <div className="mt-3 max-h-72 space-y-2 overflow-y-auto pr-1">
+            {lectureSearchResults.length === 0 ? (
+              <p className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300">
+                No matching lectures found.
+              </p>
+            ) : (
+              lectureSearchResults.map(
+                ({ questionSet, moduleTitle, submoduleTitle }) => (
+                  <button
+                    key={questionSet.id}
+                    type="button"
+                    onClick={() => loadQuestionSet(questionSet)}
+                    className={`w-full rounded-2xl border px-4 py-3 text-left transition ${
+                      activeQuestionSetId === questionSet.id
+                        ? "border-purple-300 bg-purple-300/18 text-white"
+                        : "border-white/10 bg-white/5 text-white hover:border-purple-300/70 hover:bg-purple-300/12"
+                    }`}
+                  >
+                    <span className="block text-sm font-semibold">
+                      {questionSet.title}
+                    </span>
+                    <span className="mt-1 block text-xs text-slate-300">
+                      {moduleTitle} | {submoduleTitle} |{" "}
+                      {questionSet.questions.length} questions
+                    </span>
+                  </button>
+                )
+              )
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
+
   function renderQuestionBankHome() {
     return (
       <div className="mx-auto max-w-6xl">
         <div className="space-y-6">
-          <section className="surfaceCard p-5 sm:p-8">
-            <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
-              <div>
-                <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
-                  Physiology and Anatomy of Systems
-                </h2>
-                <p className="mt-3 max-w-3xl text-slate-600">
-                  Choose a PAS submodule from the bank, answer its lecture questions,
-                  and build progress as you check your answers.
-                </p>
-              </div>
+          <section className="surfaceCard summaryPanel p-4 sm:p-5">
+            <div>
+              <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(26rem,0.9fr)] lg:items-center">
+                <div>
+                  <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-3xl">
+                    Question Bank
+                  </h2>
+                  <p className="mt-2 max-w-xl text-sm text-slate-600">
+                    Choose a module and answer its lecture questions.
+                  </p>
+                </div>
 
-              <div className="relative w-full lg:w-96">
-                <svg
-                  className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-teal-700"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m16.5 16.5 4 4" />
-                </svg>
-                <input
-                  type="search"
-                  value={questionBankSearch}
-                  onChange={(event) => setQuestionBankSearch(event.target.value)}
-                  placeholder="Search for a lecture..."
-                  className="w-full rounded-2xl border border-teal-200 bg-white/90 py-3 pl-11 pr-4 text-slate-950 shadow-inner outline-none placeholder:text-slate-400 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
-                />
+                <div className="quietStat grid min-h-14 w-full grid-cols-3 overflow-hidden rounded-full lg:min-h-16">
+                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-3">
+                    <span className="text-base font-semibold text-slate-950 sm:text-lg">
+                      {bankStats.totalSubmodules}
+                    </span>
+                    <span className="text-xs font-medium text-slate-500 sm:text-sm">
+                      Submodules
+                    </span>
+                  </div>
+                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-3">
+                    <span className="text-base font-semibold text-slate-950 sm:text-lg">
+                      {bankStats.totalLectures}
+                    </span>
+                    <span className="text-xs font-medium text-slate-500 sm:text-sm">
+                      Lectures
+                    </span>
+                  </div>
+                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-3">
+                    <span className="text-base font-semibold text-slate-950 sm:text-lg">
+                      {bankStats.totalQuestions}
+                    </span>
+                    <span className="text-xs font-medium text-slate-500 sm:text-sm">
+                      Questions
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
-              <div className="statTile p-3 sm:p-4">
-                <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
-                  {bankStats.submodules.length}
-                </p>
-                <p className="text-sm text-slate-600">Submodules</p>
-              </div>
-              <div className="statTile p-3 sm:p-4">
-                <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
-                  {bankStats.totalLectures}
-                </p>
-                <p className="text-sm text-slate-600">Lectures</p>
-              </div>
-              <div className="statTile p-3 sm:p-4">
-                <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
-                  {bankStats.totalQuestions}
-                </p>
-                <p className="text-sm text-slate-600">Questions</p>
-              </div>
+            <div className="relative mt-4 w-full">
+              <svg
+                className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-700"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m16.5 16.5 4 4" />
+              </svg>
+              <input
+                type="search"
+                value={questionBankSearch}
+                onChange={(event) => setQuestionBankSearch(event.target.value)}
+                placeholder="Search for a lecture..."
+                className="w-full rounded-2xl border border-purple-200 bg-white/90 py-2.5 pl-10 pr-4 text-sm text-slate-950 shadow-inner outline-none placeholder:text-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
+              />
             </div>
 
           </section>
@@ -1930,7 +2034,7 @@ export default function Home() {
                 </p>
               ) : (
                 <div className="mt-6 grid gap-4 lg:grid-cols-2">
-                  {lectureSearchResults.map(({ questionSet, submoduleTitle }, index) => {
+                  {lectureSearchResults.map(({ questionSet, moduleTitle, submoduleTitle }, index) => {
                     const progress = getQuestionSetProgress(questionSet);
 
                     return (
@@ -1946,7 +2050,7 @@ export default function Home() {
                               {questionSet.title}
                             </h3>
                             <p className="mt-1 text-sm text-slate-600">
-                              {submoduleTitle}
+                              {moduleTitle} | {submoduleTitle}
                             </p>
                             <p className="mt-1 text-sm text-slate-600">
                               {questionSet.questions.length} questions |{" "}
@@ -1996,7 +2100,7 @@ export default function Home() {
                     <path d="m12 19-7-7 7-7" />
                     <path d="M19 12H5" />
                   </svg>
-                  Back to PAS submodules
+                  Back to question bank
                 </button>
               </div>
 
@@ -2005,36 +2109,95 @@ export default function Home() {
               </div>
             </section>
           ) : (
-            <section className="grid gap-4 lg:grid-cols-2">
-              {bankStats.submodules.map((submodule, index) => {
-                const progress = getSubmoduleProgress(submodule);
+            <section className="space-y-4">
+              {bankStats.modules.map((moduleFolder, moduleIndex) => {
+                const moduleProgress = getSubmoduleProgress(moduleFolder);
+                const isExpanded = Boolean(expandedBankModules[moduleFolder.id]);
 
                 return (
-                  <button
-                    key={submodule.id}
-                    onClick={() => openSubmodule(submodule.id)}
-                    className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
-                    style={getAccentStyle(index)}
+                  <article
+                    key={moduleFolder.id}
+                    className="surfaceCard p-5"
+                    style={getAccentStyle(moduleIndex)}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h3 className="font-bold text-slate-950">
-                          {submodule.title}
-                        </h3>
-                        <p className="mt-1 text-sm text-slate-600">
-                          {getLectureCount(submodule)} lectures |{" "}
-                          {progress.totalQuestions} questions
-                        </p>
+                    <button
+                      type="button"
+                      onClick={() => toggleBankModule(moduleFolder.id)}
+                      className="group w-full text-left"
+                      aria-expanded={isExpanded}
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="min-w-0">
+                          <h3 className="text-lg font-bold text-slate-950 sm:text-xl">
+                            {moduleFolder.title}
+                          </h3>
+                          <p className="mt-1 text-sm text-slate-600">
+                            {moduleFolder.subfolders.length} submodules |{" "}
+                            {getLectureCount(moduleFolder)} lectures |{" "}
+                            {moduleProgress.totalQuestions} questions
+                          </p>
+                          <span className="mt-3 inline-flex min-h-9 items-center justify-center rounded-full bg-white/75 px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm">
+                            {moduleProgress.percent}%
+                          </span>
+                        </div>
+
+                        <span
+                          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/85 text-xl font-semibold leading-none text-slate-700 shadow-sm transition group-hover:bg-purple-50"
+                          aria-hidden="true"
+                        >
+                          {isExpanded ? "-" : "+"}
+                        </span>
                       </div>
-                      <span className="rounded-full bg-white/75 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
-                        {progress.percent}%
-                      </span>
-                    </div>
+                    </button>
 
                     <div className="mt-4">
-                      {renderProgressMeter(progress.percent)}
+                      {renderProgressMeter(moduleProgress.percent)}
                     </div>
-                  </button>
+
+                    <div
+                      className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                        isExpanded
+                          ? "grid-rows-[1fr] opacity-100"
+                          : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <div className="mt-5 grid gap-4 lg:grid-cols-2">
+                          {moduleFolder.subfolders.map((submodule, submoduleIndex) => {
+                            const progress = getSubmoduleProgress(submodule);
+
+                            return (
+                              <button
+                                key={submodule.id}
+                                onClick={() => openSubmodule(submodule.id)}
+                                className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
+                                style={getAccentStyle(submoduleIndex)}
+                              >
+                                <div className="flex items-start justify-between gap-4">
+                                  <div>
+                                    <h4 className="font-bold text-slate-950">
+                                      {submodule.title}
+                                    </h4>
+                                    <p className="mt-1 text-sm text-slate-600">
+                                      {getLectureCount(submodule)} lectures |{" "}
+                                      {progress.totalQuestions} questions
+                                    </p>
+                                  </div>
+                                  <span className="rounded-full bg-white/75 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
+                                    {progress.percent}%
+                                  </span>
+                                </div>
+
+                                <div className="mt-4">
+                                  {renderProgressMeter(progress.percent)}
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  </article>
                 );
               })}
             </section>
@@ -2058,23 +2221,12 @@ export default function Home() {
             <p className="mt-2 text-slate-600">
               {answeredCount} of {questions.length} answered
             </p>
-            {!user && (
-              <p className="mt-2 rounded-full bg-amber-100 px-3 py-1.5 text-sm font-bold text-amber-950">
-                Sign in to save and track progress.
-              </p>
-            )}
+            {!user && renderProgressSignInDisclaimer()}
           </div>
 
-          <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
+          <div className="flex w-full flex-col gap-2 sm:w-auto">
             <button
-              onClick={() => setIsMobileQuestionBankOpen(true)}
-              className="primaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-white transition sm:hidden"
-            >
-              Browse Question Bank
-            </button>
-
-            <button
-              onClick={returnToGenerator}
+              onClick={returnToQuestionBankHome}
               className="secondaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
             >
               <svg
@@ -2090,13 +2242,169 @@ export default function Home() {
                 <path d="m12 19-7-7 7-7" />
                 <path d="M19 12H5" />
               </svg>
-              Back to PAS submodules
+              Back to question bank
+            </button>
+
+            <button
+              onClick={returnToActiveSubmodule}
+              className="secondaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
+            >
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+              Back to submodule
             </button>
           </div>
         </div>
 
+        {renderActiveLectureSearch()}
         {renderQuestionList()}
         {renderFloatingStudyActions()}
+      </section>
+    );
+  }
+
+  function renderPerformanceAnalytics() {
+    return (
+      <section className="surfaceCard overflow-hidden">
+        <button
+          type="button"
+          onClick={() => setIsPerformanceAnalyticsOpen(!isPerformanceAnalyticsOpen)}
+          className="group flex w-full items-start justify-between gap-4 p-5 text-left sm:p-6"
+          aria-expanded={isPerformanceAnalyticsOpen}
+        >
+          <div>
+            <h3 className="text-xl font-bold text-slate-950 sm:text-2xl">
+              Performance analytics
+            </h3>
+            <p className="mt-1 text-sm text-slate-600">
+              Priorities are based only on lectures you have answered and marked.
+            </p>
+            <span className="mt-3 inline-flex w-fit rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-800">
+              {performanceTopics.length} active topics
+            </span>
+          </div>
+
+          <span
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/85 text-xl font-semibold leading-none text-slate-700 shadow-sm transition group-hover:bg-purple-50"
+            aria-hidden="true"
+          >
+            {isPerformanceAnalyticsOpen ? "-" : "+"}
+          </span>
+        </button>
+
+        <div
+          className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+            isPerformanceAnalyticsOpen
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0"
+          }`}
+        >
+          <div className="overflow-hidden">
+            <div className="px-5 pb-5 sm:px-6 sm:pb-6">
+              {!user ? (
+                <div className="rounded-2xl border border-dashed border-purple-200 bg-white/80 p-5 text-sm text-slate-600">
+                  Sign in before marking lecture sets to save progress and unlock
+                  performance analytics.
+                </div>
+              ) : priorityTopics.length === 0 ? (
+                <div className="rounded-2xl border border-dashed border-slate-300 bg-white/70 p-5 text-sm text-slate-600">
+                  Mark at least one lecture set to unlock weakest-topic analytics.
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {priorityTopics.map((topic) => {
+                    const accuracy = topic.accuracy ?? 0;
+                    const band = topic.band ?? "urgent";
+                    const canRetest = band === "urgent" || band === "revisit";
+
+                    return (
+                      <article
+                        key={topic.questionSet.id}
+                        className="performanceCard rounded-2xl border p-4"
+                        style={{
+                          ...getPerformanceStyle(accuracy),
+                          background:
+                            "linear-gradient(90deg, var(--performance-bg), rgba(255,255,255,0.96))",
+                          borderColor: "var(--performance-soft)",
+                        }}
+                      >
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span
+                            className="performancePill inline-flex min-h-9 items-center justify-center rounded-full px-4 py-2 text-sm text-white shadow-sm"
+                            style={{ backgroundColor: "var(--performance-accent)" }}
+                          >
+                            {getPerformanceLabel(band)}
+                          </span>
+                          <span
+                            className="performancePill inline-flex min-h-9 items-center justify-center rounded-full bg-white/85 px-4 py-2 text-sm shadow-sm"
+                            style={{ color: "var(--performance-accent)" }}
+                          >
+                            {accuracy}%
+                          </span>
+                          <span className="performancePill inline-flex min-h-9 items-center justify-center rounded-full bg-white/85 px-4 py-2 text-sm text-slate-800 shadow-sm">
+                            {topic.correct}/{topic.answered}
+                          </span>
+                        </div>
+
+                        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                          <div className="min-w-0">
+                            <p className="text-xs font-medium text-slate-500">
+                              {topic.submoduleTitle}
+                            </p>
+                            <h4 className="mt-2 leading-snug">
+                              {topic.questionSet.title}
+                            </h4>
+                          </div>
+
+                          <div className="shrink-0 sm:border-l sm:border-slate-200/70 sm:pl-4">
+                            {canRetest ? (
+                              <button
+                                type="button"
+                                onClick={() => startRetestFramework(topic.questionSet)}
+                                className="primaryButton inline-flex min-h-9 w-full items-center justify-center px-4 py-2 text-sm font-semibold text-white transition sm:w-auto"
+                              >
+                                Retest?
+                              </button>
+                            ) : (
+                              <button
+                                type="button"
+                                onClick={() => loadQuestionSet(topic.questionSet)}
+                                className="secondaryButton inline-flex min-h-9 w-full items-center justify-center px-4 py-2 text-sm font-semibold text-slate-900 transition sm:w-auto"
+                              >
+                                Review
+                              </button>
+                            )}
+                          </div>
+                        </div>
+
+                        <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/75">
+                          <div
+                            className="h-full rounded-full transition-all duration-500"
+                            style={{
+                              width: `${accuracy}%`,
+                              backgroundColor: "var(--performance-accent)",
+                            }}
+                          />
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </section>
     );
   }
@@ -2104,108 +2412,85 @@ export default function Home() {
   function renderProgressTracker() {
     return (
       <section className="mx-auto max-w-6xl space-y-6">
-        <div className="surfaceCard p-5 sm:p-8">
-          <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
-            PAS Question Bank Progress
-          </h2>
-          {!user && (
-            <p className="mt-3 text-slate-600">
-              Sign in to save and track progress.
-            </p>
-          )}
+        {renderPerformanceAnalytics()}
+      </section>
+    );
+  }
 
-          <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
-            <div className="statTile p-3 sm:p-4">
-              <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
-                {overallProgressPercent}%
-              </p>
-              <p className="text-sm text-slate-600">Question progress</p>
-            </div>
-            <div className="statTile p-3 sm:p-4">
-              <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
-                {overallAnswered}/{bankStats.totalQuestions}
-              </p>
-              <p className="text-sm text-slate-600">Answered</p>
-            </div>
-            <div className="statTile p-3 sm:p-4">
-              <p className="text-xl font-bold text-[#0b1f3a] sm:text-2xl">
-                {overallCorrect}
-              </p>
-              <p className="text-sm text-slate-600">Best correct answers</p>
-            </div>
+  function renderRetestFramework() {
+    if (!retestSourceTitle) return null;
+
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 px-4 py-6 backdrop-blur-sm">
+        <div className="glassModal w-full max-w-sm rounded-[1.75rem] p-6 text-center">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-purple-50">
+            <span className="h-5 w-5 animate-spin rounded-full border-2 border-purple-600 border-t-transparent" />
           </div>
-
-          <div className="mt-5">{renderProgressMeter(overallProgressPercent)}</div>
+          <p className="mt-4 text-lg font-black text-slate-950">
+            Generating new test
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            Retest framework started for {retestSourceTitle}. For now, this will
+            open the original lecture questions.
+          </p>
         </div>
+      </div>
+    );
+  }
 
-        <div className="space-y-4">
-          {bankStats.submodules.map((submodule, index) => {
-            const submoduleProgress = getSubmoduleProgress(submodule);
+  function openNavigationView(nextView: AppView) {
+    setIsNavMenuOpen(false);
+
+    if (nextView === "generator") {
+      openGeneratorView();
+      return;
+    }
+
+    if (nextView === "progress") {
+      setIsPerformanceAnalyticsOpen(true);
+    }
+
+    setCurrentView(nextView);
+  }
+
+  function renderHeaderNavigation() {
+    const navItems: Array<{ label: string; view: AppView }> = [
+      { label: "Question Bank", view: "question-bank" },
+      { label: "Performance Analytics", view: "progress" },
+      { label: "Generator", view: "generator" },
+    ];
+
+    return (
+      <div className="headerNavLayer absolute left-0 top-full z-[70]">
+        <div
+          className="verticalTabSwitcher relative grid w-64 gap-1 overflow-hidden rounded-b-3xl border-x border-b p-1"
+          style={{ "--active-tab-index": verticalNavIndex } as CSSProperties}
+        >
+          <span className="verticalTabIndicator" aria-hidden="true" />
+
+          {navItems.map((item) => {
+            const isActive = currentView === item.view;
+            const isLockedGenerator = item.view === "generator" && !user;
 
             return (
-              <article
-                key={submodule.id}
-                className="surfaceCard p-5"
-                style={getAccentStyle(index)}
+              <button
+                key={item.view}
+                type="button"
+                onClick={() => openNavigationView(item.view)}
+                className={`navPill relative z-10 min-h-12 px-4 py-3 text-center text-sm transition-colors duration-300 ${
+                  isActive
+                    ? "text-slate-950"
+                    : isLockedGenerator
+                      ? "text-white/50"
+                      : "text-white hover:text-purple-100"
+                }`}
               >
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div>
-                    <h3 className="text-lg font-bold text-slate-950">
-                      {submodule.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-slate-600">
-                      {submoduleProgress.answered}/
-                      {submoduleProgress.totalQuestions} answered |{" "}
-                      {submoduleProgress.correct} best correct
-                    </p>
-                  </div>
-                  <span className="rounded-full bg-white/75 px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm">
-                    {submoduleProgress.percent}%
-                  </span>
-                </div>
-
-                <div className="mt-4">
-                  {renderProgressMeter(submoduleProgress.percent)}
-                </div>
-
-                <div className="mt-5 space-y-3">
-                  {submodule.questionSets.map((questionSet, lectureIndex) => {
-                    const lectureProgress = getQuestionSetProgress(questionSet);
-
-                    return (
-                      <button
-                        key={questionSet.id}
-                        onClick={() => loadQuestionSet(questionSet)}
-                        className="interactiveCard w-full p-4 text-left transition hover:-translate-y-0.5"
-                        style={getAccentStyle(lectureIndex)}
-                      >
-                        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                          <div>
-                            <p className="font-semibold text-slate-950">
-                              {questionSet.title}
-                            </p>
-                            <p className="text-sm text-slate-600">
-                              {lectureProgress.answered}/
-                              {questionSet.questions.length} answered |{" "}
-                              {lectureProgress.correct} best correct
-                            </p>
-                          </div>
-                          <span className="rounded-full bg-white/75 px-3 py-1 text-sm font-semibold text-slate-800 shadow-sm">
-                            {lectureProgress.percent}%
-                          </span>
-                        </div>
-                        <div className="mt-3">
-                          {renderProgressMeter(lectureProgress.percent)}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </article>
+                {item.label}
+              </button>
             );
           })}
         </div>
-      </section>
+      </div>
     );
   }
 
@@ -2213,100 +2498,38 @@ export default function Home() {
     <main className="appCanvas min-h-screen">
       <header className="appHeader border-b border-white/10 text-white">
         <div className="flex flex-col sm:flex-row">
-          {currentView === "question-bank" && activeQuestionSetId && (
-            <div className="headerRail hidden w-full shrink-0 border-b border-white/10 sm:block sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
-              <button
-                onClick={() => {
-                  setIsQuestionBankOpen(!isQuestionBankOpen);
-                  setCurrentView("question-bank");
-                }}
-                aria-expanded={isQuestionBankOpen}
-                className="flex min-h-24 w-full items-center justify-between bg-amber-300/10 px-5 py-4 text-left font-semibold text-white transition hover:bg-amber-300/16"
-              >
-                <span>Browse Question Bank</span>
-                <span className="text-amber-200" aria-hidden="true">
-                  {isQuestionBankOpen ? "v" : ">"}
-                </span>
-              </button>
-            </div>
-          )}
+          <div className="relative flex flex-1 items-center gap-3 px-4 py-2.5 sm:min-h-16 sm:px-8 sm:py-2.5">
+            <button
+              type="button"
+              onClick={() => setIsNavMenuOpen(!isNavMenuOpen)}
+              className="navMenuButton flex h-11 w-11 shrink-0 items-center justify-center"
+              aria-label="Open navigation menu"
+              aria-expanded={isNavMenuOpen}
+            >
+              <span className="sr-only">Open navigation menu</span>
+              <span className="hamburgerIcon" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </span>
+            </button>
 
-          <div className="relative grid flex-1 gap-3 px-4 py-4 sm:min-h-24 sm:px-8 sm:py-4 xl:grid-cols-[minmax(12rem,1fr)_minmax(24rem,31rem)_minmax(18rem,1fr)] xl:items-center">
-            <div className="min-w-0 pr-28 xl:pr-0">
-              <h1 className="text-3xl font-bold leading-none text-white sm:text-3xl">
+            <div className="min-w-0">
+              <h1 className="brandTitle text-3xl leading-none sm:text-[1.7rem]">
                 SBAgen
               </h1>
-              <p className="mt-2 max-w-sm text-sm leading-snug text-slate-300 sm:mt-1">
-                Question bank and single-best answer question generator
-              </p>
             </div>
 
-            <div
-              className="tabSwitcher relative grid w-full grid-cols-3 gap-1 overflow-hidden rounded-2xl border border-white/10 bg-white/10 p-1 sm:mx-auto sm:w-[31rem] sm:rounded-full xl:col-start-2 xl:row-start-1"
-              style={{ "--active-tab-index": activeTabIndex } as CSSProperties}
-            >
-              <span className="tabIndicator" aria-hidden="true" />
-
-              <button
-                onClick={() => setCurrentView("question-bank")}
-                className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
-                  currentView === "question-bank"
-                    ? "text-slate-950"
-                    : "text-white hover:text-amber-200"
-                }`}
-              >
-                <span className="sm:hidden">Bank</span>
-                <span className="hidden sm:inline">Question Bank</span>
-              </button>
-
-              <button
-                onClick={() => setCurrentView("progress")}
-                className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
-                  currentView === "progress"
-                    ? "text-slate-950"
-                    : "text-white hover:text-amber-200"
-                }`}
-              >
-                <span className="sm:hidden">Progress</span>
-                <span className="hidden sm:inline">Progress Tracker</span>
-              </button>
-
-              <button
-                onClick={openGeneratorView}
-                className={`navPill relative z-10 px-2 py-2.5 text-center text-sm font-semibold transition-colors duration-300 sm:px-4 ${
-                  currentView === "generator"
-                    ? "text-slate-950"
-                    : user
-                      ? "text-white hover:text-amber-200"
-                      : "text-white/50"
-                }`}
-              >
-                Generator
-              </button>
-            </div>
-
-            <div className="absolute right-4 top-4 z-20 xl:static xl:col-start-3 xl:row-start-1 xl:justify-self-end">
+            <div className="ml-auto shrink-0">
               {renderAccountPanel()}
             </div>
+
+            {isNavMenuOpen && renderHeaderNavigation()}
           </div>
         </div>
       </header>
 
       <div className="flex min-h-[calc(100vh-97px)] flex-col sm:flex-row">
-        {currentView === "question-bank" && activeQuestionSetId && isQuestionBankOpen && (
-          <aside className="questionBankPanel questionBankScroll hidden w-full shrink-0 overflow-y-auto border-b border-white/10 p-4 sm:sticky sm:top-0 sm:block sm:h-screen sm:w-72 sm:border-b-0 sm:border-r lg:w-1/6">
-            {renderQuestionBankBrowser()}
-          </aside>
-        )}
-
-        {currentView === "question-bank" &&
-          activeQuestionSetId &&
-          isMobileQuestionBankOpen && (
-          <aside className="questionBankPanel questionBankScroll fixed inset-0 z-[90] h-dvh w-screen overflow-y-auto p-4 sm:hidden">
-            {renderQuestionBankBrowser(true)}
-          </aside>
-        )}
-
         <section className="flex-1 p-3 sm:p-8">
           {currentView === "progress"
             ? renderProgressTracker()
@@ -2317,6 +2540,7 @@ export default function Home() {
                 : renderQuestionBankHome()}
         </section>
       </div>
+      {renderRetestFramework()}
       {renderSavePrompt()}
     </main>
   );
