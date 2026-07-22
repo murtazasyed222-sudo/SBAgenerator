@@ -636,9 +636,6 @@ export default function Home() {
   const [isFbsComingSoonOpen, setIsFbsComingSoonOpen] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
-  const [retestSourceTitle, setRetestSourceTitle] = useState<string | null>(
-    null
-  );
 
   useEffect(() => {
     if (!supabase) {
@@ -1012,12 +1009,7 @@ export default function Home() {
   }
 
   function startRetestFramework(questionSet: QuestionSet) {
-    setRetestSourceTitle(questionSet.title);
-
-    window.setTimeout(() => {
-      setRetestSourceTitle(null);
-      loadQuestionSet(questionSet);
-    }, 850);
+    loadQuestionSet(questionSet);
   }
 
   function returnToQuestionBankHome() {
@@ -2505,27 +2497,6 @@ export default function Home() {
     );
   }
 
-  function renderRetestFramework() {
-    if (!retestSourceTitle) return null;
-
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/45 px-4 py-6 backdrop-blur-sm">
-        <div className="glassModal w-full max-w-sm rounded-[1.75rem] p-6 text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-purple-50">
-            <span className="h-5 w-5 animate-spin rounded-full border-2 border-purple-600 border-t-transparent" />
-          </div>
-          <p className="mt-4 text-lg font-black text-slate-950">
-            Generating new test
-          </p>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600">
-            Retest framework started for {retestSourceTitle}. For now, this will
-            open the original lecture questions.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   function openNavigationView(nextView: AppView) {
     setIsNavMenuOpen(false);
 
@@ -2631,7 +2602,6 @@ export default function Home() {
       {currentView === "question-bank" &&
         activeQuestionSetId &&
         renderFloatingStudyActions()}
-      {renderRetestFramework()}
       {renderFbsComingSoonPrompt()}
       {renderSavePrompt()}
     </main>
