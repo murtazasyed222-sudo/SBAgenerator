@@ -633,6 +633,7 @@ export default function Home() {
   const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false);
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
   const [isSavePromptOpen, setIsSavePromptOpen] = useState(false);
+  const [isFbsComingSoonOpen, setIsFbsComingSoonOpen] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
   const [retestSourceTitle, setRetestSourceTitle] = useState<string | null>(
@@ -963,6 +964,11 @@ export default function Home() {
   }
 
   function toggleBankModule(moduleId: string) {
+    if (moduleId === "foundations-of-biomedical-science") {
+      setIsFbsComingSoonOpen(true);
+      return;
+    }
+
     setExpandedBankModules({
       ...expandedBankModules,
       [moduleId]: !expandedBankModules[moduleId],
@@ -1583,6 +1589,38 @@ export default function Home() {
             className="primaryButton mt-5 w-full px-5 py-3 text-sm font-bold text-white transition"
           >
             Sign in
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  function renderFbsComingSoonPrompt() {
+    if (!isFbsComingSoonOpen) return null;
+
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 px-4 py-6 backdrop-blur-sm">
+        <div className="glassModal relative w-full max-w-sm rounded-[1.75rem] p-6 text-center">
+          <button
+            type="button"
+            onClick={() => setIsFbsComingSoonOpen(false)}
+            className="absolute -right-3 -top-3 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-sm font-black text-white shadow-lg transition hover:scale-105"
+            aria-label="Close FBS coming soon message"
+          >
+            X
+          </button>
+
+          <p className="text-xl font-black text-slate-950">Coming soon</p>
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
+            Foundations of Biomedical Science questions are being added soon.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => setIsFbsComingSoonOpen(false)}
+            className="primaryButton mt-5 w-full px-5 py-3 text-sm font-bold text-white transition"
+          >
+            Got it
           </button>
         </div>
       </div>
@@ -2592,6 +2630,7 @@ export default function Home() {
         </section>
       </div>
       {renderRetestFramework()}
+      {renderFbsComingSoonPrompt()}
       {renderSavePrompt()}
     </main>
   );
