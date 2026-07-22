@@ -2333,7 +2333,6 @@ export default function Home() {
 
         {renderActiveLectureSearch()}
         {renderQuestionList()}
-        {renderFloatingStudyActions()}
       </section>
     );
   }
@@ -2629,6 +2628,9 @@ export default function Home() {
                 : renderQuestionBankHome()}
         </section>
       </div>
+      {currentView === "question-bank" &&
+        activeQuestionSetId &&
+        renderFloatingStudyActions()}
       {renderRetestFramework()}
       {renderFbsComingSoonPrompt()}
       {renderSavePrompt()}
