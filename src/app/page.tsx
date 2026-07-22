@@ -1930,10 +1930,10 @@ export default function Home() {
 
   function renderActiveLectureSearch() {
     return (
-      <div className="mt-6 rounded-3xl border border-purple-200/20 bg-purple-950/10 p-3 shadow-[0_0_34px_rgba(124,58,237,0.2)]">
+      <div className="mt-6 rounded-3xl border border-white/[0.16] bg-white/[0.06] p-3 shadow-[0_0_34px_rgba(124,58,237,0.16)]">
         <div className="relative">
           <svg
-            className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-200"
+            className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-100"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
