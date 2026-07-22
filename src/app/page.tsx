@@ -1956,40 +1956,40 @@ export default function Home() {
     return (
       <div className="mx-auto max-w-6xl">
         <div className="space-y-6">
-          <section className="surfaceCard summaryPanel p-4 sm:p-5">
+          <section className="questionBankHero p-5 sm:p-7">
             <div>
-              <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(26rem,0.9fr)] lg:items-center">
+              <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(27rem,0.9fr)] lg:items-center">
                 <div>
-                  <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-3xl">
+                  <h2 className="text-4xl font-semibold leading-none text-purple-100 sm:text-5xl">
                     Question Bank
                   </h2>
-                  <p className="mt-2 max-w-xl text-sm text-slate-600">
+                  <p className="mt-3 max-w-xl text-base leading-relaxed text-purple-200/80">
                     Choose a module and answer its lecture questions.
                   </p>
                 </div>
 
-                <div className="quietStat grid min-h-14 w-full grid-cols-3 overflow-hidden rounded-full lg:min-h-16">
-                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-3">
-                    <span className="text-base font-semibold text-slate-950 sm:text-lg">
+                <div className="quietStat questionBankStatsPill grid min-h-16 w-full grid-cols-3 overflow-hidden rounded-full lg:min-h-20">
+                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-4">
+                    <span className="text-lg font-semibold text-purple-50 sm:text-2xl">
                       {bankStats.totalSubmodules}
                     </span>
-                    <span className="text-xs font-medium text-slate-500 sm:text-sm">
+                    <span className="text-xs font-medium text-purple-200 sm:text-sm">
                       Submodules
                     </span>
                   </div>
-                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-3">
-                    <span className="text-base font-semibold text-slate-950 sm:text-lg">
+                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-4">
+                    <span className="text-lg font-semibold text-purple-50 sm:text-2xl">
                       {bankStats.totalLectures}
                     </span>
-                    <span className="text-xs font-medium text-slate-500 sm:text-sm">
+                    <span className="text-xs font-medium text-purple-200 sm:text-sm">
                       Lectures
                     </span>
                   </div>
-                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-3">
-                    <span className="text-base font-semibold text-slate-950 sm:text-lg">
+                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-4">
+                    <span className="text-lg font-semibold text-purple-50 sm:text-2xl">
                       {bankStats.totalQuestions}
                     </span>
-                    <span className="text-xs font-medium text-slate-500 sm:text-sm">
+                    <span className="text-xs font-medium text-purple-200 sm:text-sm">
                       Questions
                     </span>
                   </div>
@@ -1997,27 +1997,53 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative mt-4 w-full">
-              <svg
-                className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-700"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
+            <div className="mt-6 grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+              <div className="relative w-full">
+                <svg
+                  className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-300"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m16.5 16.5 4 4" />
+                </svg>
+                <input
+                  type="search"
+                  value={questionBankSearch}
+                  onChange={(event) => setQuestionBankSearch(event.target.value)}
+                  placeholder="Search for a lecture..."
+                  className="questionBankSearchInput w-full rounded-2xl py-3 pl-10 pr-4 text-sm outline-none transition"
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setIsPerformanceAnalyticsOpen(true);
+                  setCurrentView("progress");
+                }}
+                className="performanceShortcut inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition lg:w-auto"
               >
-                <circle cx="11" cy="11" r="7" />
-                <path d="m16.5 16.5 4 4" />
-              </svg>
-              <input
-                type="search"
-                value={questionBankSearch}
-                onChange={(event) => setQuestionBankSearch(event.target.value)}
-                placeholder="Search for a lecture..."
-                className="w-full rounded-2xl border border-purple-200 bg-white/90 py-2.5 pl-10 pr-4 text-sm text-slate-950 shadow-inner outline-none placeholder:text-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20"
-              />
+                <span>View Your Performance</span>
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </button>
             </div>
 
           </section>
@@ -2277,12 +2303,7 @@ export default function Home() {
   function renderPerformanceAnalytics() {
     return (
       <section className="surfaceCard overflow-hidden">
-        <button
-          type="button"
-          onClick={() => setIsPerformanceAnalyticsOpen(!isPerformanceAnalyticsOpen)}
-          className="group flex w-full items-start justify-between gap-4 p-5 text-left sm:p-6"
-          aria-expanded={isPerformanceAnalyticsOpen}
-        >
+        <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-start sm:justify-between sm:p-6">
           <div>
             <h3 className="text-xl font-bold text-slate-950 sm:text-2xl">
               Performance analytics
@@ -2290,18 +2311,48 @@ export default function Home() {
             <p className="mt-1 text-sm text-slate-600">
               Priorities are based only on lectures you have answered and marked.
             </p>
-            <span className="mt-3 inline-flex w-fit rounded-full bg-purple-50 px-3 py-1 text-xs font-semibold text-purple-800">
+            <span className="activeTopicsPill mt-3 inline-flex w-fit items-center rounded-full px-4 py-2 text-xs font-semibold">
               {performanceTopics.length} active topics
             </span>
           </div>
 
-          <span
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/85 text-xl font-semibold leading-none text-slate-700 shadow-sm transition group-hover:bg-purple-50"
-            aria-hidden="true"
-          >
-            {isPerformanceAnalyticsOpen ? "-" : "+"}
-          </span>
-        </button>
+          <div className="flex w-full gap-2 sm:w-auto">
+            <button
+              type="button"
+              onClick={() => setCurrentView("question-bank")}
+              className="secondaryButton inline-flex min-h-10 flex-1 items-center justify-center gap-2 px-4 py-2 text-sm font-semibold text-slate-900 transition sm:flex-none"
+            >
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+              Back to Question Bank
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setIsPerformanceAnalyticsOpen(!isPerformanceAnalyticsOpen)}
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/85 text-xl font-semibold leading-none text-slate-700 shadow-sm transition hover:bg-purple-50"
+              aria-expanded={isPerformanceAnalyticsOpen}
+              aria-label={
+                isPerformanceAnalyticsOpen
+                  ? "Collapse performance analytics"
+                  : "Expand performance analytics"
+              }
+            >
+              {isPerformanceAnalyticsOpen ? "-" : "+"}
+            </button>
+          </div>
+        </div>
 
         <div
           className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
