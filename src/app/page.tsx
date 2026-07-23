@@ -3,8 +3,10 @@
 import {
   type CSSProperties,
   type FormEvent,
+  type PointerEvent,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import type { User } from "@supabase/supabase-js";
@@ -495,7 +497,11 @@ function isMedicalText(text: string) {
   return new Set(foundTerms).size >= 5;
 }
 
-type AppView = "question-bank" | "generator" | "progress";
+type AppView = "question-bank" | "progress" | "practice-paper" | "generator";
+type ThemeMode = "dark" | "light";
+type PracticePaperModuleId =
+  | "foundations-of-biomedical-science"
+  | "physiology-and-anatomy-of-systems";
 type PerformanceBand = "urgent" | "revisit" | "steady" | "strong";
 type PerformanceTopic = {
   questionSet: QuestionSet;
@@ -515,6 +521,11 @@ type InProgressLecture = {
   total: number;
   percent: number;
   updatedAt: string;
+};
+type SavedWrongQuestion = {
+  question: Question;
+  questionSet: QuestionSet;
+  submoduleTitle: string;
 };
 
 type QuestionProgress = {
@@ -608,6 +619,47 @@ function getQuestionSets(folder: QuestionBankFolder): QuestionSet[] {
   ];
 }
 
+function formatSubmoduleTitle(title: string) {
+  return title.replace(/\s+Question Bank$/i, "");
+}
+
+function renderChevronIcon(isOpen: boolean) {
+  return (
+    <svg
+      className={`h-4 w-4 transition-transform duration-300 ${
+        isOpen ? "rotate-90" : ""
+      }`}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m9 18 6-6-6-6" />
+    </svg>
+  );
+}
+
+function renderLockIcon(className = "h-4 w-4") {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="5" y="10" width="14" height="10" rx="2" />
+      <path d="M8 10V8a4 4 0 0 1 8 0v2" />
+    </svg>
+  );
+}
+
 function getStudyCacheKey(userId: string) {
   return `${studyCachePrefix}:${userId}`;
 }
@@ -689,11 +741,29 @@ function clearCachedStudyData(userId: string) {
 export default function Home() {
   const [lectureNotes, setLectureNotes] = useState("");
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [hasGeneratedQuestions, setHasGeneratedQuestions] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [numberOfQuestions, setNumberOfQuestions] = useState(5);
   const [questionCountInput, setQuestionCountInput] = useState("5");
   const [questionSliderValue, setQuestionSliderValue] = useState(5);
+  const [practicePaperModuleId, setPracticePaperModuleId] =
+    useState<PracticePaperModuleId>("foundations-of-biomedical-science");
+  const [practicePaperQuestionInput, setPracticePaperQuestionInput] =
+    useState("100");
+  const [practicePaperTimeInput, setPracticePaperTimeInput] = useState("120");
+  const [practicePaperError, setPracticePaperError] = useState("");
+  const [activePracticeTimeLimitMinutes, setActivePracticeTimeLimitMinutes] =
+    useState<number | null>(null);
+  const [activePracticeStartedAt, setActivePracticeStartedAt] = useState<
+    string | null
+  >(null);
+  const [practiceTimerNow, setPracticeTimerNow] = useState(Date.now());
+  const [activePracticeQuestionIndex, setActivePracticeQuestionIndex] =
+    useState(0);
+  const [struckAnswersByQuestion, setStruckAnswersByQuestion] = useState<
+    Record<number, Record<string, boolean>>
+  >({});
   const [currentView, setCurrentView] = useState<AppView>("question-bank");
   const [selectedBankSubmoduleId, setSelectedBankSubmoduleId] = useState<
     string | null
@@ -702,7 +772,8 @@ export default function Home() {
   const [expandedBankModules, setExpandedBankModules] = useState<
     Record<string, boolean>
   >({});
-  const [isResumePanelOpen, setIsResumePanelOpen] = useState(true);
+  const [isResumePanelOpen, setIsResumePanelOpen] = useState(false);
+  const [isDashboardOpen, setIsDashboardOpen] = useState(true);
   const [activeQuestionSetId, setActiveQuestionSetId] = useState<string | null>(
     null
   );
@@ -738,6 +809,64 @@ export default function Home() {
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
   const [isStudyCacheReady, setIsStudyCacheReady] = useState(false);
+  const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
+    if (typeof window === "undefined") return "dark";
+
+    try {
+      const savedTheme = window.localStorage.getItem("sba-theme-mode");
+
+      return savedTheme === "light" || savedTheme === "dark"
+        ? savedTheme
+        : "dark";
+    } catch {
+      return "dark";
+    }
+  });
+  const submoduleScrollPositions = useRef<Record<string, number>>({});
+  const pendingSubmoduleScrollRestore = useRef<string | null>(null);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = themeMode;
+
+    try {
+      window.localStorage.setItem("sba-theme-mode", themeMode);
+    } catch {
+      // Nothing to do if storage is unavailable.
+    }
+  }, [themeMode]);
+
+  useEffect(() => {
+    if (
+      !activePracticeTimeLimitMinutes ||
+      !activePracticeStartedAt ||
+      showResults
+    ) {
+      return;
+    }
+
+    const deadline =
+      Date.parse(activePracticeStartedAt) +
+      activePracticeTimeLimitMinutes * 60 * 1000;
+    const intervalId = window.setInterval(() => {
+      const now = Date.now();
+
+      setPracticeTimerNow(now);
+
+      if (now < deadline) return;
+
+      setShowResults(true);
+      setMarkedAnswers(selectedAnswers);
+      setActivePracticeTimeLimitMinutes(null);
+      setActivePracticeStartedAt(null);
+    }, 1000);
+
+    return () => window.clearInterval(intervalId);
+  }, [
+    activePracticeStartedAt,
+    activePracticeTimeLimitMinutes,
+    selectedAnswers,
+    showResults,
+  ]);
 
   useEffect(() => {
     if (!supabase) {
@@ -890,6 +1019,30 @@ export default function Home() {
     savedAnswersByQuestionSet,
   ]);
 
+  useEffect(() => {
+    if (
+      !selectedBankSubmoduleId ||
+      activeQuestionSetId ||
+      pendingSubmoduleScrollRestore.current !== selectedBankSubmoduleId
+    ) {
+      return;
+    }
+
+    const savedScrollPosition =
+      submoduleScrollPositions.current[selectedBankSubmoduleId];
+    pendingSubmoduleScrollRestore.current = null;
+
+    if (typeof savedScrollPosition !== "number") {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: savedScrollPosition, left: 0, behavior: "auto" });
+      });
+    });
+  }, [activeQuestionSetId, selectedBankSubmoduleId]);
+
   const bankStats = useMemo(() => {
     const submodules = questionBankFolders.flatMap((moduleFolder) =>
       moduleFolder.subfolders.map((submodule) => ({
@@ -913,6 +1066,12 @@ export default function Home() {
       ),
     };
   }, []);
+  const allQuestionSets = bankStats.submodules.flatMap((submodule) =>
+    submodule.questionSets.map((questionSet) => ({
+      questionSet,
+      submodule,
+    }))
+  );
   const selectedBankSubmodule =
     bankStats.submodules.find(
       (submodule) => submodule.id === selectedBankSubmoduleId
@@ -1051,11 +1210,14 @@ export default function Home() {
     setLoading(true);
     setError("");
     setQuestions([]);
+    setHasGeneratedQuestions(false);
     setSelectedAnswers({});
     setMarkedAnswers({});
     setShowResults(false);
     setActiveQuestionSetId(null);
     setActiveQuestionSetTitle(null);
+    setActivePracticeQuestionIndex(0);
+    setStruckAnswersByQuestion({});
     setCurrentView("generator");
 
     try {
@@ -1074,6 +1236,7 @@ export default function Home() {
       }
 
       setQuestions(data.questions);
+      setHasGeneratedQuestions(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong.");
     } finally {
@@ -1086,6 +1249,16 @@ export default function Home() {
       ...selectedAnswers,
       [questionIndex]: letter,
     });
+  }
+
+  function toggleStruckAnswer(questionIndex: number, letter: string) {
+    setStruckAnswersByQuestion((currentAnswers) => ({
+      ...currentAnswers,
+      [questionIndex]: {
+        ...(currentAnswers[questionIndex] ?? {}),
+        [letter]: !currentAnswers[questionIndex]?.[letter],
+      },
+    }));
   }
 
   function toggleBankModule(moduleId: string) {
@@ -1118,7 +1291,13 @@ export default function Home() {
 
   function loadQuestionSet(questionSet: QuestionSet) {
     autosaveActiveLectureAnswers();
+
+    if (selectedBankSubmoduleId && !activeQuestionSetId) {
+      submoduleScrollPositions.current[selectedBankSubmoduleId] = window.scrollY;
+    }
+
     setQuestions(questionSet.questions);
+    setHasGeneratedQuestions(false);
     setSelectedAnswers(
       savedAnswersByQuestionSet[questionSet.id]?.selectedAnswers ?? {}
     );
@@ -1127,6 +1306,10 @@ export default function Home() {
     setError("");
     setActiveQuestionSetId(questionSet.id);
     setActiveQuestionSetTitle(questionSet.title);
+    setActivePracticeTimeLimitMinutes(null);
+    setActivePracticeStartedAt(null);
+    setActivePracticeQuestionIndex(0);
+    setStruckAnswersByQuestion({});
     setQuestionBankSearch("");
     setCurrentView("question-bank");
   }
@@ -1135,9 +1318,156 @@ export default function Home() {
     loadQuestionSet(questionSet);
   }
 
+  function startPracticeSession(
+    title: string,
+    practiceQuestions: Question[],
+    timeLimitMinutes: number | null = null
+  ) {
+    autosaveActiveLectureAnswers();
+    setQuestions(practiceQuestions);
+    setHasGeneratedQuestions(false);
+    setSelectedAnswers({});
+    setMarkedAnswers({});
+    setShowResults(false);
+    setError("");
+    setActiveQuestionSetId(null);
+    setActiveQuestionSetTitle(title);
+    setSelectedBankSubmoduleId(null);
+    setQuestionBankSearch("");
+    setActivePracticeTimeLimitMinutes(timeLimitMinutes);
+    setActivePracticeStartedAt(timeLimitMinutes ? new Date().toISOString() : null);
+    setPracticeTimerNow(Date.now());
+    setActivePracticeQuestionIndex(0);
+    setStruckAnswersByQuestion({});
+    setCurrentView("question-bank");
+  }
+
+  function reviewSavedWrongQuestions() {
+    if (savedWrongQuestions.length === 0) return;
+
+    startPracticeSession(
+      "Wrong question review",
+      savedWrongQuestions.map(({ question }) => ({ ...question }))
+    );
+  }
+
+  function updatePracticePaperQuestionCount(value: string) {
+    setPracticePaperQuestionInput(value);
+
+    const parsedValue = Number(value);
+
+    if (!Number.isFinite(parsedValue)) return;
+  }
+
+  function updatePracticePaperTime(value: string) {
+    setPracticePaperTimeInput(value);
+
+    const parsedValue = Number(value);
+
+    if (!Number.isFinite(parsedValue)) return;
+  }
+
+  function normalizePracticePaperSettings() {
+    const normalizedQuestionCount = Math.min(
+      200,
+      Math.max(1, Math.round(Number(practicePaperQuestionInput) || 100))
+    );
+    const normalizedTime = Math.min(
+      300,
+      Math.max(1, Math.round(Number(practicePaperTimeInput) || 120))
+    );
+
+    setPracticePaperQuestionInput(String(normalizedQuestionCount));
+    setPracticePaperTimeInput(String(normalizedTime));
+
+    return {
+      questionCount: normalizedQuestionCount,
+      timeMinutes: normalizedTime,
+    };
+  }
+
+  function buildBalancedPracticePaper(
+    moduleId: PracticePaperModuleId,
+    questionCount: number
+  ) {
+    const moduleFolder = bankStats.modules.find(
+      (candidate) => candidate.id === moduleId
+    );
+
+    if (!moduleFolder) return [];
+
+    const topicBuckets = moduleFolder.subfolders
+      .map((submodule) =>
+        getQuestionSets(submodule).flatMap((questionSet) =>
+          questionSet.questions.map((question) => ({ ...question }))
+        )
+      )
+      .filter((bucket) => bucket.length > 0)
+      .map((bucket) => [...bucket].sort(() => Math.random() - 0.5));
+
+    if (topicBuckets.length === 0) return [];
+
+    const targetCount = Math.min(
+      questionCount,
+      topicBuckets.reduce((total, bucket) => total + bucket.length, 0)
+    );
+    const basePerTopic = Math.floor(targetCount / topicBuckets.length);
+    let remainder = targetCount % topicBuckets.length;
+    const selectedQuestions: Question[] = [];
+
+    topicBuckets.forEach((bucket) => {
+      const takeCount = Math.min(
+        bucket.length,
+        basePerTopic + (remainder > 0 ? 1 : 0)
+      );
+
+      if (remainder > 0) remainder -= 1;
+
+      selectedQuestions.push(...bucket.splice(0, takeCount));
+    });
+
+    let bucketIndex = 0;
+
+    while (selectedQuestions.length < targetCount) {
+      const bucket = topicBuckets[bucketIndex % topicBuckets.length];
+      const nextQuestion = bucket.shift();
+
+      if (nextQuestion) {
+        selectedQuestions.push(nextQuestion);
+      }
+
+      bucketIndex += 1;
+
+      if (bucketIndex > topicBuckets.length * targetCount) break;
+    }
+
+    return selectedQuestions.sort(() => Math.random() - 0.5);
+  }
+
+  function startPracticePaper() {
+    const { questionCount, timeMinutes } = normalizePracticePaperSettings();
+    const paperQuestions = buildBalancedPracticePaper(
+      practicePaperModuleId,
+      questionCount
+    );
+
+    if (paperQuestions.length === 0) {
+      setPracticePaperError("No questions are available for that module yet.");
+      return;
+    }
+
+    setPracticePaperError("");
+    startPracticeSession(
+      `${paperQuestions.length}-question practice paper`,
+      paperQuestions,
+      timeMinutes
+    );
+  }
+
   function returnToQuestionBankHome() {
     autosaveActiveLectureAnswers();
     setQuestions([]);
+    setHasGeneratedQuestions(false);
     setSelectedAnswers({});
     setMarkedAnswers({});
     setShowResults(false);
@@ -1145,6 +1475,10 @@ export default function Home() {
     setActiveQuestionSetId(null);
     setActiveQuestionSetTitle(null);
     setSelectedBankSubmoduleId(null);
+    setActivePracticeTimeLimitMinutes(null);
+    setActivePracticeStartedAt(null);
+    setActivePracticeQuestionIndex(0);
+    setStruckAnswersByQuestion({});
     setQuestionBankSearch("");
     setCurrentView("question-bank");
   }
@@ -1164,13 +1498,19 @@ export default function Home() {
     }
 
     setQuestions([]);
+    setHasGeneratedQuestions(false);
     setSelectedAnswers({});
     setMarkedAnswers({});
     setShowResults(false);
     setError("");
     setActiveQuestionSetId(null);
     setActiveQuestionSetTitle(null);
+    setActivePracticeTimeLimitMinutes(null);
+    setActivePracticeStartedAt(null);
+    setActivePracticeQuestionIndex(0);
+    setStruckAnswersByQuestion({});
     setSelectedBankSubmoduleId(parentSubmodule.id);
+    pendingSubmoduleScrollRestore.current = parentSubmodule.id;
     setQuestionBankSearch("");
     setCurrentView("question-bank");
   }
@@ -1192,11 +1532,6 @@ export default function Home() {
   }
 
   function openGeneratorView() {
-    if (!user) {
-      promptSignInForGenerator();
-      return;
-    }
-
     setCurrentView("generator");
     setError("");
 
@@ -1208,6 +1543,8 @@ export default function Home() {
       setShowResults(false);
       setActiveQuestionSetId(null);
       setActiveQuestionSetTitle(null);
+      setActivePracticeQuestionIndex(0);
+      setStruckAnswersByQuestion({});
     }
   }
 
@@ -1223,7 +1560,11 @@ export default function Home() {
     setShowResults(true);
     setMarkedAnswers(selectedAnswers);
 
-    if (!activeQuestionSetId) return;
+    if (!activeQuestionSetId) {
+      setActivePracticeTimeLimitMinutes(null);
+      setActivePracticeStartedAt(null);
+      return;
+    }
 
     if (!user) {
       setAuthMessage("Sign in to save and track progress.");
@@ -1319,7 +1660,13 @@ export default function Home() {
   const wrongQuestions = getWrongQuestions();
   const normalizedQuestionBankSearch = questionBankSearch.trim().toLowerCase();
   const verticalNavIndex =
-    currentView === "question-bank" ? 0 : currentView === "progress" ? 1 : 2;
+    currentView === "question-bank"
+      ? 0
+      : currentView === "practice-paper"
+        ? 1
+        : currentView === "progress"
+          ? 2
+          : 3;
   const questionSliderPercent = ((questionSliderValue - 1) / 24) * 100;
 
   function getQuestionSetProgress(questionSet: QuestionSet) {
@@ -1435,6 +1782,9 @@ export default function Home() {
       return secondTopic.answered - firstTopic.answered;
     });
 
+  const highestPriorityTopic = performanceTopics.find(
+    (topic) => topic.band === "urgent" || topic.band === "revisit"
+  );
   const performanceBandCounts = performanceTopics.reduce(
     (counts, topic) => {
       if (topic.band) {
@@ -1532,7 +1882,32 @@ export default function Home() {
 
       return secondTime - firstTime;
     });
+  const moduleProgressSummaries = bankStats.modules.map((moduleFolder) => ({
+    moduleFolder,
+    progress: getSubmoduleProgress(moduleFolder),
+  }));
+  const savedWrongQuestions: SavedWrongQuestion[] = allQuestionSets.flatMap(
+    ({ questionSet, submodule }) => {
+      const savedAnswers =
+        savedAnswersByQuestionSet[questionSet.id]?.selectedAnswers ?? {};
 
+      return Object.entries(savedAnswers)
+        .map(([questionIndex, selectedAnswer]) => {
+          const question = questionSet.questions[Number(questionIndex)];
+
+          if (!question || selectedAnswer === question.correctAnswer) {
+            return null;
+          }
+
+          return {
+            question,
+            questionSet,
+            submoduleTitle: submodule.title,
+          };
+        })
+        .filter((item): item is SavedWrongQuestion => Boolean(item));
+    }
+  );
   const lectureSearchResults = normalizedQuestionBankSearch
     ? bankStats.submodules.flatMap((submodule) =>
         submodule.questionSets
@@ -1545,6 +1920,18 @@ export default function Home() {
             submoduleTitle: submodule.title,
           }))
       )
+    : [];
+  const submoduleSearchResults = normalizedQuestionBankSearch
+    ? bankStats.submodules
+        .filter((submodule) =>
+          formatSubmoduleTitle(submodule.title)
+            .toLowerCase()
+            .includes(normalizedQuestionBankSearch)
+        )
+        .map((submodule) => ({
+          submodule,
+          progress: getSubmoduleProgress(submodule),
+        }))
     : [];
 
   function renderProgressMeter(percent: number) {
@@ -1865,6 +2252,8 @@ export default function Home() {
                       key={letter}
                       onClick={() => selectAnswer(questionIndex, letter)}
                       className={`answerChoice block w-full border p-3 text-left text-sm leading-relaxed transition sm:text-base ${
+                        isSelected && !showResults ? "isAnswerSelected" : ""
+                      } ${
                         isCorrectSelected
                           ? "border-emerald-500 bg-emerald-50 text-emerald-950"
                           : isWrongSelected
@@ -1940,6 +2329,8 @@ export default function Home() {
   }
 
   function renderGeneratorView() {
+    const isGeneratorLocked = !user;
+
     return (
       <section className="mx-auto max-w-5xl space-y-6">
         <div className="surfaceCard p-5 sm:p-8">
@@ -1950,18 +2341,29 @@ export default function Home() {
             Use this when you want extra practice beyond the question bank.
           </p>
 
-          {!user && (
-            <p className="mt-4 rounded-full bg-purple-100 px-4 py-2 text-sm font-bold text-purple-950">
-              Sign in to use the question generator.
-            </p>
-          )}
+          <div className="relative mt-6">
+            {isGeneratorLocked && (
+              <div className="generatorLockPrompt absolute inset-x-4 top-4 z-10 flex items-start gap-2 rounded-2xl px-4 py-3 text-sm font-semibold">
+                {renderLockIcon("mt-0.5 h-4 w-4 shrink-0")}
+                <span>
+                  Sign in to use generate questions using lecture notes or
+                  transcripts.
+                </span>
+              </div>
+            )}
 
-          <textarea
-            value={lectureNotes}
-            onChange={(e) => setLectureNotes(e.target.value)}
-            className="mt-6 h-56 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 text-slate-950 shadow-inner outline-none transition placeholder:text-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 sm:h-72"
-            placeholder="Paste lecture notes or transcript here..."
-          />
+            <textarea
+              value={isGeneratorLocked ? "" : lectureNotes}
+              onChange={(e) => setLectureNotes(e.target.value)}
+              disabled={isGeneratorLocked}
+              className={`h-56 w-full rounded-2xl border border-slate-200 bg-white/80 p-4 text-slate-950 shadow-inner outline-none transition placeholder:text-slate-400 focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 disabled:cursor-not-allowed sm:h-72 ${
+                isGeneratorLocked
+                  ? "pt-24 opacity-75 placeholder:text-transparent"
+                  : ""
+              }`}
+              placeholder="Paste lecture notes or transcript here..."
+            />
+          </div>
 
           <div className="sliderBubblePanel mt-4 w-full max-w-xl px-4 py-3">
             <div className="mb-2 flex items-center gap-2">
@@ -2028,8 +2430,9 @@ export default function Home() {
           <button
             onClick={generateQuestions}
             disabled={!user || loading || lectureNotes.trim().length === 0}
-            className="primaryButton mt-5 w-full px-6 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+            className="primaryButton mt-5 inline-flex w-full items-center justify-center gap-2 px-6 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
           >
+            {isGeneratorLocked && renderLockIcon()}
             {loading ? "Generating..." : "Generate Questions"}
           </button>
 
@@ -2040,7 +2443,7 @@ export default function Home() {
           )}
         </div>
 
-        {questions.length > 0 && !activeQuestionSetId && (
+        {hasGeneratedQuestions && questions.length > 0 && !activeQuestionSetId && (
           <section className="surfaceCard p-5 sm:p-6">
             <h2 className="text-xl font-bold text-slate-950 sm:text-2xl">
               New SBA Questions
@@ -2134,7 +2537,7 @@ export default function Home() {
 
   function renderActiveLectureSearch() {
     return (
-      <div className="mt-6 rounded-3xl border border-white/[0.16] bg-white/[0.06] p-3 shadow-[0_0_34px_rgba(124,58,237,0.16)]">
+      <div className="rounded-3xl border border-white/[0.16] bg-white/[0.06] p-3 shadow-[0_0_34px_rgba(124,58,237,0.16)]">
         <div className="relative">
           <svg
             className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-100"
@@ -2160,13 +2563,42 @@ export default function Home() {
 
         {normalizedQuestionBankSearch && (
           <div className="mt-3 max-h-72 space-y-2 overflow-y-auto pr-1">
-            {lectureSearchResults.length === 0 ? (
+            {lectureSearchResults.length === 0 &&
+            submoduleSearchResults.length === 0 ? (
               <p className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300">
-                No matching lectures found.
+                No matching lectures or submodules found.
               </p>
             ) : (
-              lectureSearchResults.map(
-                ({ questionSet, moduleTitle, submoduleTitle }) => (
+              <>
+                {submoduleSearchResults.map(({ submodule }) => (
+                  <button
+                    key={submodule.id}
+                    type="button"
+                    onClick={() => {
+                      autosaveActiveLectureAnswers();
+                      setQuestions([]);
+                      setSelectedAnswers({});
+                      setMarkedAnswers({});
+                      setShowResults(false);
+                      setActiveQuestionSetId(null);
+                      setActiveQuestionSetTitle(null);
+                      setQuestionBankSearch("");
+                      openSubmodule(submodule.id);
+                    }}
+                    className="w-full rounded-2xl border border-purple-300/30 bg-purple-300/12 px-4 py-3 text-left text-white transition hover:border-purple-300/70 hover:bg-purple-300/18"
+                  >
+                    <span className="block text-sm font-semibold">
+                      {formatSubmoduleTitle(submodule.title)}
+                    </span>
+                    <span className="mt-1 block text-xs text-slate-300">
+                      {submodule.parentModuleTitle} |{" "}
+                      {getLectureCount(submodule)} lectures
+                    </span>
+                  </button>
+                ))}
+
+                {lectureSearchResults.map(
+                  ({ questionSet, moduleTitle, submoduleTitle }) => (
                   <button
                     key={questionSet.id}
                     type="button"
@@ -2181,12 +2613,13 @@ export default function Home() {
                       {questionSet.title}
                     </span>
                     <span className="mt-1 block text-xs text-slate-300">
-                      {moduleTitle} | {submoduleTitle} |{" "}
+                      {moduleTitle} | {formatSubmoduleTitle(submoduleTitle)} |{" "}
                       {questionSet.questions.length} questions
                     </span>
                   </button>
-                )
-              )
+                  )
+                )}
+              </>
             )}
           </div>
         )}
@@ -2197,35 +2630,72 @@ export default function Home() {
   function renderResumeLectures() {
     if (!user) return null;
 
-    const lecturesToResume = inProgressLectures.slice(0, 4);
+    const resumeLectureCount = inProgressLectures.length;
+    const lastWorkedLecture = inProgressLectures[0];
+    const renderResumeLectureCard = (lecture: (typeof inProgressLectures)[number]) => (
+      <button
+        key={lecture.questionSet.id}
+        type="button"
+        onClick={() => loadQuestionSet(lecture.questionSet)}
+        className="resumeLectureCard w-full rounded-[1.15rem] p-3 text-left transition"
+      >
+        <div className="resumeLectureHeader flex items-start justify-between gap-3">
+          <div className="min-w-0">
+            <h4 className="resumeLectureTitle text-sm font-semibold text-purple-50 sm:text-base">
+              {lecture.questionSet.title}
+            </h4>
+            <p className="resumeLectureMeta mt-1 text-xs text-purple-200/70">
+              {lecture.moduleTitle} | {formatSubmoduleTitle(lecture.submoduleTitle)}
+            </p>
+          </div>
 
-    if (lecturesToResume.length === 0) return null;
+          <span className="resumePercentPill shrink-0 rounded-full px-3 py-1 text-xs font-semibold">
+            {lecture.percent}%
+          </span>
+        </div>
+
+        <div className="mt-3">{renderProgressMeter(lecture.percent)}</div>
+
+        <div className="mt-2 text-xs text-purple-200/70">
+          {lecture.answered}/{lecture.total} answered
+        </div>
+      </button>
+    );
 
     return (
-      <section className="resumePanel mt-5 p-4 sm:p-5">
+      <section className="resumePanel dashboardSquareTile p-3 sm:p-4">
         <button
           type="button"
           onClick={() => setIsResumePanelOpen(!isResumePanelOpen)}
-          className="group flex w-full items-center justify-between gap-4 text-left"
+          className="group flex w-full items-center justify-between gap-3 text-left"
           aria-expanded={isResumePanelOpen}
         >
           <div className="min-w-0">
-            <h3 className="text-xl font-semibold text-purple-100">
+            <h3 className="text-base font-semibold text-purple-100 sm:text-lg">
               Questions in progress
             </h3>
-            <p className="mt-1 text-sm text-purple-200/75">
-              Pick up where you left off |{" "}
-              {lecturesToResume.length}{" "}
-              {lecturesToResume.length === 1 ? "lecture" : "lectures"}
+            <p className="mt-1 text-xs text-purple-200/70 sm:text-sm">
+              {resumeLectureCount}{" "}
+              {resumeLectureCount === 1
+                ? "lecture in progress"
+                : "lectures in progress"}
             </p>
           </div>
           <span
-            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/8 text-lg font-semibold leading-none text-purple-100 transition group-hover:border-purple-200/40 group-hover:bg-purple-300/12"
+            className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/8 text-base font-semibold leading-none text-purple-100 transition group-hover:border-purple-200/40 group-hover:bg-purple-300/12"
             aria-hidden="true"
           >
-            {isResumePanelOpen ? "-" : "+"}
+            {renderChevronIcon(isResumePanelOpen)}
           </span>
         </button>
+
+        {lastWorkedLecture ? (
+          <div className="mt-3">{renderResumeLectureCard(lastWorkedLecture)}</div>
+        ) : (
+          <p className="mt-4 rounded-[1.15rem] border border-white/10 bg-white/6 p-4 text-sm text-purple-200/75">
+            Start answering a lecture set and it will appear here.
+          </p>
+        )}
 
         <div
           className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
@@ -2235,42 +2705,201 @@ export default function Home() {
           }`}
         >
           <div className="overflow-hidden">
-            <div className="mt-4 grid gap-3 lg:grid-cols-2">
-              {lecturesToResume.map((lecture) => (
-                <button
-                  key={lecture.questionSet.id}
-                  type="button"
-                  onClick={() => loadQuestionSet(lecture.questionSet)}
-                  className="resumeLectureCard rounded-3xl p-4 text-left transition"
-                >
-                  <div className="resumeLectureHeader flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <h4 className="resumeLectureTitle text-sm font-semibold text-purple-50 sm:text-base">
-                        {lecture.questionSet.title}
-                      </h4>
-                      <p className="resumeLectureMeta mt-1 text-xs text-purple-200/70">
-                        {lecture.moduleTitle} | {lecture.submoduleTitle}
-                      </p>
-                    </div>
-
-                    <span className="resumePercentPill shrink-0 rounded-full px-3 py-1 text-xs font-semibold">
-                      {lecture.percent}%
-                    </span>
-                  </div>
-
-                  <div className="mt-4">
-                    {renderProgressMeter(lecture.percent)}
-                  </div>
-
-                  <div className="mt-3 text-xs text-purple-200/70">
-                    {lecture.answered}/{lecture.total} answered
-                  </div>
-                </button>
-              ))}
-            </div>
+            {inProgressLectures.length > 1 ? (
+              <div className="mt-3 grid gap-2">
+                {inProgressLectures.slice(1).map(renderResumeLectureCard)}
+              </div>
+            ) : null}
           </div>
         </div>
       </section>
+    );
+  }
+
+  function scrollToQuestionBankModule(moduleId: string) {
+    setSelectedBankSubmoduleId(null);
+    setQuestionBankSearch("");
+    setExpandedBankModules((currentModules) => ({
+      ...currentModules,
+      [moduleId]: true,
+    }));
+
+    window.requestAnimationFrame(() => {
+      document
+        .getElementById(`question-bank-module-${moduleId}`)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
+  function renderModuleProgressRings() {
+    return (
+      <section className="moduleProgressPanel rounded-[1.35rem] p-3 sm:p-4">
+        <div className="mb-3 flex items-center gap-3">
+          <h3 className="text-sm font-semibold text-purple-100 sm:text-base">
+            Module progress
+          </h3>
+        </div>
+        <div className="moduleProgressGrid grid grid-cols-2 gap-2 sm:gap-3">
+          {moduleProgressSummaries.map(({ moduleFolder, progress }) => (
+            <button
+              key={moduleFolder.id}
+              type="button"
+              onClick={() => scrollToQuestionBankModule(moduleFolder.id)}
+              className="moduleProgressCard rounded-[1.25rem] p-3 text-left transition hover:-translate-y-0.5 sm:p-4"
+            >
+              <div className="flex items-center gap-2.5 sm:gap-4">
+                <div
+                  className="moduleProgressRing grid h-12 w-12 shrink-0 place-items-center rounded-full sm:h-14 sm:w-14"
+                  style={
+                    {
+                      "--ring-progress": `${progress.percent * 3.6}deg`,
+                    } as CSSProperties
+                  }
+                  aria-label={`${moduleFolder.title} ${progress.percent}% complete`}
+                >
+                  <span className="text-xs font-semibold sm:text-sm">
+                    {progress.percent}%
+                  </span>
+                </div>
+                <div className="min-w-0">
+                  <h4 className="truncate text-sm font-semibold text-purple-50">
+                    {moduleFolder.id === "foundations-of-biomedical-science"
+                      ? "FBS"
+                      : "PAS"}
+                  </h4>
+                  <p className="mt-1 text-xs text-purple-200/70">
+                    {progress.answered}/{progress.totalQuestions} questions
+                  </p>
+                </div>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  function renderPriorityLectureTile() {
+    return (
+      <article
+        className="priorityLectureCard dashboardSquareTile rounded-[1.35rem] p-3 sm:p-4"
+        style={
+          highestPriorityTopic
+            ? getPerformanceStyle(highestPriorityTopic.accuracy ?? 0)
+            : undefined
+        }
+      >
+        {highestPriorityTopic ? (
+          <div className="flex h-full flex-col gap-3">
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2">
+                <span
+                  className="inline-flex rounded-full px-3 py-1 text-xs font-semibold text-white"
+                  style={{ backgroundColor: "var(--performance-accent)" }}
+                >
+                  {getPerformanceLabel(highestPriorityTopic.band ?? "urgent")}
+                </span>
+                <span
+                  className="inline-flex items-center gap-1.5 rounded-full bg-white/85 px-3 py-1 text-xs font-semibold"
+                  style={{ color: "var(--performance-accent)" }}
+                >
+                  <span>{highestPriorityTopic.accuracy}%</span>
+                  <span className="opacity-60" aria-hidden="true">
+                    ·
+                  </span>
+                  <span>
+                    {highestPriorityTopic.correct}/{highestPriorityTopic.answered}
+                  </span>
+                </span>
+              </div>
+              <p className="mt-2 text-xs font-medium text-purple-200/75">
+                Revisit this next
+              </p>
+              <h3 className="mt-1 line-clamp-3 text-base font-semibold leading-snug text-purple-50">
+                {highestPriorityTopic.questionSet.title}
+              </h3>
+              <p className="mt-1 text-xs text-purple-200/70">
+                {formatSubmoduleTitle(highestPriorityTopic.submoduleTitle)}
+              </p>
+            </div>
+
+            <div className="mt-auto">
+              <button
+                type="button"
+                onClick={() => loadQuestionSet(highestPriorityTopic.questionSet)}
+                className="performanceShortcut inline-flex min-h-9 w-full items-center justify-center rounded-2xl px-4 py-2 text-sm font-semibold transition"
+              >
+                Retest
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="flex h-full flex-col">
+            <span className="inline-flex w-fit rounded-full border border-purple-200/20 bg-white/8 px-3 py-1 text-xs font-semibold text-purple-100">
+              Revisit priority
+            </span>
+            <h3 className="mt-3 text-lg font-semibold leading-snug text-purple-50">
+              No lectures to revisit.
+            </h3>
+            <p className="mt-1 text-sm text-purple-200/70">Keep it up!</p>
+          </div>
+        )}
+      </article>
+    );
+  }
+
+  function renderDashboardQuickActions() {
+    return (
+      <div className="quickActionGrid grid grid-cols-2 gap-1.5">
+        <button
+          type="button"
+          onClick={reviewSavedWrongQuestions}
+          disabled={savedWrongQuestions.length === 0}
+          className="dashboardActionButton dashboardFeaturedAction min-h-9 rounded-xl px-2 py-1.5 text-center text-[0.62rem] font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 sm:px-2.5 sm:text-[0.7rem]"
+        >
+          Review wrong questions
+          <span className="wrongQuestionCount ml-1 inline-flex min-w-4 items-center justify-center rounded-full px-1 py-0.5 text-[0.62rem] font-semibold sm:text-[0.68rem]">
+            {savedWrongQuestions.length}
+          </span>
+        </button>
+        <button
+          type="button"
+          onClick={() => setCurrentView("progress")}
+          className="dashboardActionButton dashboardFeaturedAction min-h-9 rounded-xl px-2 py-1.5 text-center text-[0.62rem] font-semibold transition sm:px-2.5 sm:text-[0.7rem]"
+        >
+          View your performance
+          <svg
+            className="ml-1 inline-block h-3 w-3"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </button>
+      </div>
+    );
+  }
+
+  function renderUnlockedInsightsCard() {
+    if (!user || performanceTopics.length > 0) return null;
+
+    return (
+      <div className="insightUnlockCard mt-4 rounded-3xl p-4">
+        <h3 className="text-sm font-semibold text-purple-50">
+          Unlock performance insights
+        </h3>
+        <p className="mt-2 text-sm text-purple-200/75">
+          {user
+            ? "Answer and mark one lecture set to unlock priorities, accuracy, and suggested next steps."
+            : "Sign in, then mark lecture sets to track progress and unlock personalised insights."}
+        </p>
+      </div>
     );
   }
 
@@ -2278,111 +2907,175 @@ export default function Home() {
     return (
       <div className="mx-auto max-w-6xl">
         <div className="space-y-6">
-          <section className="questionBankHero p-5 sm:p-7">
+          <section
+            className="questionBankHero p-4 sm:p-5"
+            onPointerMove={updateDashboardDots}
+            onPointerLeave={clearDashboardDots}
+          >
             <div>
-              <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(27rem,0.9fr)] lg:items-center">
-                <div>
-                  <h2 className="text-4xl font-semibold leading-none text-purple-100 sm:text-5xl">
-                    Question Bank
-                  </h2>
-                  <p className="mt-3 max-w-xl text-base leading-relaxed text-purple-200/80">
-                    Choose a module and answer its lecture questions.
-                  </p>
+              <div className="min-w-0">
+                <div className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-center">
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-3xl font-semibold leading-none text-purple-100 sm:text-4xl">
+                      Welcome
+                    </h2>
+                    <button
+                      type="button"
+                      onClick={() => setIsDashboardOpen(!isDashboardOpen)}
+                      className="dashboardHeroToggle inline-flex h-8 w-8 shrink-0 items-center justify-center text-purple-100 transition"
+                      aria-label={
+                        isDashboardOpen ? "Collapse dashboard" : "Expand dashboard"
+                      }
+                      aria-expanded={isDashboardOpen}
+                    >
+                      {renderChevronIcon(isDashboardOpen)}
+                    </button>
+                  </div>
+
+                  <div className="relative w-full">
+                    <svg
+                      className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-300"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m16.5 16.5 4 4" />
+                    </svg>
+                    <input
+                      type="search"
+                      value={questionBankSearch}
+                      onChange={(event) => setQuestionBankSearch(event.target.value)}
+                      placeholder="Search for a lecture..."
+                      className="questionBankSearchInput w-full rounded-2xl py-3 pl-10 pr-4 text-sm outline-none transition"
+                    />
+                  </div>
                 </div>
 
-                <div className="quietStat questionBankStatsPill grid min-h-16 w-full grid-cols-3 overflow-hidden rounded-full lg:min-h-20">
-                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-4">
-                    <span className="text-lg font-semibold text-purple-50 sm:text-2xl">
-                      {bankStats.totalSubmodules}
-                    </span>
-                    <span className="text-xs font-medium text-purple-200 sm:text-sm">
-                      Submodules
-                    </span>
+                <div
+                  className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                    isDashboardOpen
+                      ? "mt-3 grid-rows-[1fr] opacity-100"
+                      : "mt-0 grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                <div className="dashboardCompactStack space-y-3">
+                  {user && (
+                    <div className="quietStat questionBankStatsPill dashboardMiniStats grid min-h-14 w-full grid-cols-3 overflow-hidden rounded-[1.25rem]">
+                      <div className="quietStatSegment flex min-w-0 items-center justify-center gap-1.5 px-2 py-2 sm:px-3">
+                        <span className="text-base font-semibold text-purple-50 sm:text-xl">
+                          {completedLectureCount}/{bankStats.totalLectures}
+                        </span>
+                        <span className="text-[0.68rem] font-medium text-purple-200 sm:text-xs">
+                          Lectures completed
+                        </span>
+                      </div>
+                      <div className="quietStatSegment flex min-w-0 items-center justify-center gap-1.5 px-2 py-2 sm:px-3">
+                        <span className="text-base font-semibold text-purple-50 sm:text-xl">
+                          {performanceAnsweredTotal}/{bankStats.totalQuestions}
+                        </span>
+                        <span className="text-[0.68rem] font-medium text-purple-200 sm:text-xs">
+                          Questions answered
+                        </span>
+                      </div>
+                      <div className="quietStatSegment flex min-w-0 items-center justify-center gap-1.5 px-2 py-2 sm:px-3">
+                        <span className="text-base font-semibold text-purple-50 sm:text-xl">
+                          {performanceAverageAccuracy}%
+                        </span>
+                        <span className="text-[0.68rem] font-medium text-purple-200 sm:text-xs">
+                          Average accuracy
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {renderModuleProgressRings()}
+
+                  {renderDashboardQuickActions()}
+
+                  <div className="dashboardTileGrid grid gap-3 md:grid-cols-2">
+                    {renderPriorityLectureTile()}
+
+                    {!normalizedQuestionBankSearch &&
+                      !selectedBankSubmodule &&
+                      renderResumeLectures()}
                   </div>
-                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-4">
-                    <span className="text-lg font-semibold text-purple-50 sm:text-2xl">
-                      {bankStats.totalLectures}
-                    </span>
-                    <span className="text-xs font-medium text-purple-200 sm:text-sm">
-                      Lectures
-                    </span>
-                  </div>
-                  <div className="quietStatSegment flex min-w-0 items-center justify-center gap-2 px-3 py-2 sm:px-4 lg:py-4">
-                    <span className="text-lg font-semibold text-purple-50 sm:text-2xl">
-                      {bankStats.totalQuestions}
-                    </span>
-                    <span className="text-xs font-medium text-purple-200 sm:text-sm">
-                      Questions
-                    </span>
+
+                  {renderUnlockedInsightsCard()}
+                </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div className="mt-6 grid gap-3 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
-              <div className="relative w-full">
-                <svg
-                  className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-purple-300"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m16.5 16.5 4 4" />
-                </svg>
-                <input
-                  type="search"
-                  value={questionBankSearch}
-                  onChange={(event) => setQuestionBankSearch(event.target.value)}
-                  placeholder="Search for a lecture..."
-                  className="questionBankSearchInput w-full rounded-2xl py-3 pl-10 pr-4 text-sm outline-none transition"
-                />
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setCurrentView("progress")}
-                className="performanceShortcut inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition lg:w-auto"
-              >
-                <span>View Your Performance</span>
-                <svg
-                  className="h-4 w-4"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m13 6 6 6-6 6" />
-                </svg>
-              </button>
-            </div>
-
-            {!normalizedQuestionBankSearch &&
-              !selectedBankSubmodule &&
-              renderResumeLectures()}
-
           </section>
 
           {normalizedQuestionBankSearch ? (
             <section className="surfaceCard p-5 sm:p-6">
               <h2 className="text-xl font-bold text-slate-950 sm:text-2xl">
-                Lecture Search Results
+                Search Results
               </h2>
 
-              {lectureSearchResults.length === 0 ? (
+              {lectureSearchResults.length === 0 &&
+              submoduleSearchResults.length === 0 ? (
                 <p className="mt-3 text-slate-600">
-                  No matching lectures found.
+                  No matching lectures or submodules found.
                 </p>
               ) : (
-                <div className="mt-6 grid gap-4 lg:grid-cols-2">
+                <div className="mt-6 space-y-6">
+                  {submoduleSearchResults.length > 0 && (
+                    <div>
+                      <p className="text-sm font-semibold text-slate-600">
+                        Submodules
+                      </p>
+                      <div className="mt-3 grid gap-4 lg:grid-cols-2">
+                        {submoduleSearchResults.map(
+                          ({ submodule, progress }, index) => (
+                            <button
+                              key={submodule.id}
+                              onClick={() => {
+                                setQuestionBankSearch("");
+                                openSubmodule(submodule.id);
+                              }}
+                              className="interactiveCard p-4 text-left transition hover:-translate-y-0.5 sm:p-5"
+                              style={getAccentStyle(index)}
+                            >
+                              <div className="flex items-start justify-between gap-4">
+                                <div>
+                                  <h3 className="font-bold text-slate-950">
+                                    {formatSubmoduleTitle(submodule.title)}
+                                  </h3>
+                                  <p className="mt-1 text-sm text-slate-600">
+                                    {submodule.parentModuleTitle} |{" "}
+                                    {getLectureCount(submodule)} lectures |{" "}
+                                    {progress.totalQuestions} questions
+                                  </p>
+                                </div>
+                                <span className="rounded-full bg-white/75 px-3 py-1 text-xs font-semibold text-slate-800 shadow-sm">
+                                  {progress.percent}%
+                                </span>
+                              </div>
+
+                              <div className="mt-4">
+                                {renderProgressMeter(progress.percent)}
+                              </div>
+                            </button>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {lectureSearchResults.length > 0 && (
+                    <div>
+                      <p className="text-sm font-semibold text-slate-600">
+                        Lectures
+                      </p>
+                      <div className="mt-3 grid gap-4 lg:grid-cols-2">
                   {lectureSearchResults.map(({ questionSet, moduleTitle, submoduleTitle }, index) => {
                     const progress = getQuestionSetProgress(questionSet);
 
@@ -2399,7 +3092,8 @@ export default function Home() {
                               {questionSet.title}
                             </h3>
                             <p className="mt-1 text-sm text-slate-600">
-                              {moduleTitle} | {submoduleTitle}
+                              {moduleTitle} |{" "}
+                              {formatSubmoduleTitle(submoduleTitle)}
                             </p>
                             <p className="mt-1 text-sm text-slate-600">
                               {questionSet.questions.length} questions |{" "}
@@ -2417,6 +3111,9 @@ export default function Home() {
                       </button>
                     );
                   })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </section>
@@ -2425,7 +3122,7 @@ export default function Home() {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <h2 className="text-xl font-bold text-slate-950 sm:text-2xl">
-                    {selectedBankSubmodule.title}
+                    {formatSubmoduleTitle(selectedBankSubmodule.title)}
                   </h2>
                   <p className="mt-2 text-slate-600">
                     Choose a lecture to start answering its saved questions.
@@ -2434,7 +3131,7 @@ export default function Home() {
 
                 <button
                   onClick={() => setSelectedBankSubmoduleId(null)}
-                  className="secondaryButton flex w-full items-center justify-center gap-2 px-5 py-3 font-semibold text-slate-900 transition sm:w-auto"
+                  className="performanceShortcut flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold transition sm:w-auto"
                 >
                   <svg
                     className="h-4 w-4"
@@ -2466,6 +3163,7 @@ export default function Home() {
                 return (
                   <article
                     key={moduleFolder.id}
+                    id={`question-bank-module-${moduleFolder.id}`}
                     className="surfaceCard p-5"
                     style={getAccentStyle(moduleIndex)}
                   >
@@ -2494,7 +3192,7 @@ export default function Home() {
                           className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/85 text-xl font-semibold leading-none text-slate-700 shadow-sm transition group-hover:bg-purple-50"
                           aria-hidden="true"
                         >
-                          {isExpanded ? "-" : "+"}
+                          {renderChevronIcon(isExpanded)}
                         </span>
                       </div>
                     </button>
@@ -2525,7 +3223,7 @@ export default function Home() {
                                 <div className="flex items-start justify-between gap-4">
                                   <div>
                                     <h4 className="font-bold text-slate-950">
-                                      {submodule.title}
+                              {formatSubmoduleTitle(submodule.title)}
                                     </h4>
                                     <p className="mt-1 text-sm text-slate-600">
                                       {getLectureCount(submodule)} lectures |{" "}
@@ -2557,68 +3255,334 @@ export default function Home() {
     );
   }
 
+  function renderPracticeQuestionPanel() {
+    const question = questions[activePracticeQuestionIndex];
+
+    if (!question) return null;
+
+    const answeredCount = Object.keys(selectedAnswers).length;
+    const selectedAnswer = selectedAnswers[activePracticeQuestionIndex];
+    const markedAnswer = markedAnswers[activePracticeQuestionIndex];
+    const hasMarkedAnswer = Boolean(markedAnswer);
+
+    return (
+      <div className="practiceExamLayout mt-6 grid gap-4 lg:grid-cols-[minmax(0,1fr)_13rem]">
+        <article className="interactiveCard min-w-0 p-4 sm:p-6">
+          <div className="flex items-center justify-between gap-3">
+            <span className="practiceQuestionCount rounded-full px-3 py-1 text-xs font-semibold">
+              Question {activePracticeQuestionIndex + 1} of {questions.length}
+            </span>
+            <span className="text-xs font-medium text-slate-500">
+              {answeredCount} answered
+            </span>
+          </div>
+
+          <h3 className="mt-5 text-base font-semibold leading-relaxed text-slate-950 sm:text-lg">
+            {question.question}
+          </h3>
+
+          <div className="mt-5 space-y-2">
+            {Object.entries(question.options).map(([letter, option]) => {
+              const isSelected = selectedAnswer === letter;
+              const isMarkedSelection = markedAnswer === letter;
+              const isCorrect = question.correctAnswer === letter;
+              const isWrongSelected =
+                showResults && isMarkedSelection && !isCorrect;
+              const isCorrectSelected =
+                showResults && isMarkedSelection && isCorrect;
+              const shouldShowCorrectAnswer =
+                showResults && hasMarkedAnswer && isCorrect;
+              const isStruck = Boolean(
+                struckAnswersByQuestion[activePracticeQuestionIndex]?.[letter]
+              );
+
+              return (
+                <div
+                  key={letter}
+                  className={`practiceAnswerRow flex items-stretch gap-2 rounded-2xl ${
+                    isStruck ? "isStruck" : ""
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => selectAnswer(activePracticeQuestionIndex, letter)}
+                    className={`answerChoice min-w-0 flex-1 border p-3 text-left text-sm leading-relaxed transition sm:text-base ${
+                      isSelected && !showResults ? "isAnswerSelected" : ""
+                    } ${
+                      isCorrectSelected
+                        ? "border-emerald-500 bg-emerald-50 text-emerald-950"
+                        : isWrongSelected
+                          ? "border-rose-500 bg-rose-50 text-rose-950"
+                          : shouldShowCorrectAnswer
+                            ? "border-emerald-500 bg-emerald-50 text-emerald-950"
+                            : isSelected
+                              ? "border-purple-600 bg-purple-50 text-slate-950"
+                              : "border-purple-200 bg-purple-50/35 text-slate-800 hover:bg-purple-50"
+                    }`}
+                  >
+                    <span className="font-semibold">{letter}.</span> {option}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() =>
+                      toggleStruckAnswer(activePracticeQuestionIndex, letter)
+                    }
+                    aria-pressed={isStruck}
+                    className={`performanceShortcut practicePaperActionButton strikeAnswerButton shrink-0 rounded-2xl px-3 text-sm font-medium transition ${
+                      isStruck ? "isStruck" : ""
+                    }`}
+                  >
+                    {isStruck ? "Include" : "Exclude"}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+
+          {showResults && markedAnswer && (
+            <div className="mt-5 rounded-2xl bg-slate-50 p-4 text-sm leading-relaxed text-slate-800">
+              <p>
+                <span className="font-semibold">Correct answer:</span>{" "}
+                {question.correctAnswer}
+              </p>
+              <p className="mt-2">
+                <span className="font-semibold">Your answer:</span>{" "}
+                {markedAnswer}
+              </p>
+              <p className="mt-2">
+                <span className="font-semibold">Explanation:</span>{" "}
+                {question.explanation}
+              </p>
+            </div>
+          )}
+
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+            <button
+              type="button"
+              onClick={() =>
+                setActivePracticeQuestionIndex((currentIndex) =>
+                  Math.max(0, currentIndex - 1)
+                )
+              }
+              disabled={activePracticeQuestionIndex === 0}
+              className="performanceShortcut practicePaperActionButton inline-flex min-h-10 items-center justify-center rounded-2xl px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-45"
+            >
+              Previous question
+            </button>
+
+            <button
+              type="button"
+              onClick={() =>
+                setActivePracticeQuestionIndex((currentIndex) =>
+                  Math.min(questions.length - 1, currentIndex + 1)
+                )
+              }
+              disabled={activePracticeQuestionIndex === questions.length - 1}
+              className="performanceShortcut practicePaperActionButton inline-flex min-h-10 items-center justify-center rounded-2xl px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-45"
+            >
+              Next question
+            </button>
+          </div>
+
+          {!showResults ? (
+            <button
+              type="button"
+              onClick={checkAnswers}
+              disabled={answeredCount === 0}
+              className="performanceShortcut practicePaperActionButton mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-2xl px-4 py-2 text-sm font-medium transition disabled:cursor-not-allowed disabled:opacity-45"
+            >
+              Mark paper
+            </button>
+          ) : (
+            <div className="mt-4 flex flex-wrap gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedAnswers({});
+                  setMarkedAnswers({});
+                  setStruckAnswersByQuestion({});
+                  setShowResults(false);
+                }}
+                className="secondaryButton inline-flex min-h-10 items-center justify-center rounded-2xl px-4 py-2 text-sm font-semibold transition"
+              >
+                Try again
+              </button>
+              <button
+                type="button"
+                onClick={exportWrongQuestionsToAnkiCSV}
+                disabled={wrongQuestions.length === 0}
+                className="primaryButton inline-flex min-h-10 items-center justify-center rounded-2xl px-4 py-2 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-45"
+              >
+                Export wrong questions
+              </button>
+            </div>
+          )}
+        </article>
+
+        <aside className="practiceQuestionNavigator rounded-[1.35rem] p-3 sm:p-4">
+          <p className="text-sm font-semibold text-purple-100">Questions</p>
+          <div className="practiceQuestionNumberGrid mt-3 grid gap-1">
+            {questions.map((_question, questionIndex) => {
+              const isCurrentQuestion =
+                questionIndex === activePracticeQuestionIndex;
+              const isAnswered = Boolean(selectedAnswers[questionIndex]);
+
+              return (
+                <button
+                  key={questionIndex}
+                  type="button"
+                  onClick={() => setActivePracticeQuestionIndex(questionIndex)}
+                  aria-label={`Go to question ${questionIndex + 1}`}
+                  aria-current={isCurrentQuestion ? "step" : undefined}
+                  className={`practiceQuestionNumber h-7 w-9 rounded-lg text-[0.7rem] font-semibold transition ${
+                    isCurrentQuestion
+                      ? "isCurrent"
+                      : isAnswered
+                        ? "isAnswered"
+                        : ""
+                  }`}
+                >
+                  {questionIndex + 1}
+                </button>
+              );
+            })}
+          </div>
+        </aside>
+      </div>
+    );
+  }
+
+  function renderPracticeSession() {
+    const remainingSeconds =
+      activePracticeTimeLimitMinutes && activePracticeStartedAt
+        ? Math.max(
+            0,
+            Math.ceil(
+              (Date.parse(activePracticeStartedAt) +
+                activePracticeTimeLimitMinutes * 60 * 1000 -
+                practiceTimerNow) /
+                1000
+            )
+          )
+        : null;
+    const timerMinutes =
+      remainingSeconds === null ? 0 : Math.floor(remainingSeconds / 60);
+    const timerSeconds = remainingSeconds === null ? 0 : remainingSeconds % 60;
+
+    return (
+      <section className="surfaceCard mx-auto max-w-5xl p-5 sm:p-8">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            {remainingSeconds !== null && (
+              <span className="practiceTimerPill inline-flex rounded-full px-4 py-2 text-sm font-semibold">
+                {remainingSeconds === 0
+                  ? "Time up"
+                  : `${timerMinutes}:${String(timerSeconds).padStart(2, "0")} remaining`}
+              </span>
+            )}
+            {showResults && remainingSeconds === null && (
+              <span className="practiceTimerPill inline-flex rounded-full px-4 py-2 text-sm font-semibold">
+                Paper marked
+              </span>
+            )}
+            <h2 className="mt-3 text-xl font-bold leading-tight text-slate-950 sm:text-2xl">
+              {activeQuestionSetTitle ?? "Practice session"}
+            </h2>
+          </div>
+
+          <button
+            type="button"
+            onClick={returnToQuestionBankHome}
+            className="performanceShortcut inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-semibold transition sm:w-auto"
+          >
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m12 19-7-7 7-7" />
+              <path d="M19 12H5" />
+            </svg>
+            Back to dashboard
+          </button>
+        </div>
+
+        {renderPracticeQuestionPanel()}
+      </section>
+    );
+  }
+
   function renderActiveQuestionSet() {
     const answeredCount = Object.keys(selectedAnswers).length;
 
     return (
-      <section className="surfaceCard mx-auto max-w-5xl p-5 pb-28 sm:p-8 sm:pb-24">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <h2 className="text-xl font-bold leading-tight text-slate-950 sm:text-2xl">
-              {activeQuestionSetTitle}
-            </h2>
-            <p className="mt-2 text-slate-600">
-              {answeredCount} of {questions.length} answered
-            </p>
-            {!user && renderProgressSignInDisclaimer()}
-          </div>
-
-          <div className="flex w-full flex-col gap-2 sm:w-auto">
-            <button
-              onClick={returnToQuestionBankHome}
-              className="performanceShortcut lectureNavButton flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold transition sm:w-auto"
-            >
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="m12 19-7-7 7-7" />
-                <path d="M19 12H5" />
-              </svg>
-              Back to question bank
-            </button>
-
-            <button
-              onClick={returnToActiveSubmodule}
-              className="performanceShortcut lectureNavButton flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold transition sm:w-auto"
-            >
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="m12 19-7-7 7-7" />
-                <path d="M19 12H5" />
-              </svg>
-              Back to submodule
-            </button>
-          </div>
-        </div>
-
+      <div className="mx-auto max-w-5xl space-y-4">
         {renderActiveLectureSearch()}
-        {renderQuestionList()}
-      </section>
+
+        <section className="surfaceCard p-5 pb-28 sm:p-8 sm:pb-24">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h2 className="text-xl font-bold leading-tight text-slate-950 sm:text-2xl">
+                {activeQuestionSetTitle}
+              </h2>
+              <p className="mt-2 text-slate-600">
+                {answeredCount} of {questions.length} answered
+              </p>
+              {!user && renderProgressSignInDisclaimer()}
+            </div>
+
+            <div className="flex w-full flex-col gap-2 sm:w-auto">
+              <button
+                onClick={returnToQuestionBankHome}
+                className="performanceShortcut lectureNavButton flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold transition sm:w-auto"
+              >
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m12 19-7-7 7-7" />
+                  <path d="M19 12H5" />
+                </svg>
+                Back to question bank
+              </button>
+
+              <button
+                onClick={returnToActiveSubmodule}
+                className="performanceShortcut lectureNavButton flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 font-semibold transition sm:w-auto"
+              >
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m12 19-7-7 7-7" />
+                  <path d="M19 12H5" />
+                </svg>
+                Back to submodule
+              </button>
+            </div>
+          </div>
+
+          {renderQuestionList()}
+        </section>
+      </div>
     );
   }
 
@@ -2661,7 +3625,7 @@ export default function Home() {
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className="min-w-0">
             <p className="text-xs font-medium text-slate-500">
-              {topic.submoduleTitle}
+              {formatSubmoduleTitle(topic.submoduleTitle)}
             </p>
             <h4 className="mt-2 leading-snug">{topic.questionSet.title}</h4>
           </div>
@@ -2771,6 +3735,142 @@ export default function Home() {
       >
         {renderPerformanceAnalytics()}
         {shouldShowGraphPanel && renderPerformanceGraphs()}
+      </section>
+    );
+  }
+
+  function renderPracticePaperView() {
+    const isPracticePaperLocked = !user;
+
+    return (
+      <section className="mx-auto max-w-5xl space-y-6">
+        <div className="surfaceCard p-5 sm:p-8">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h2 className="text-2xl font-bold leading-tight text-slate-950 sm:text-4xl">
+                Practice Paper Mode
+              </h2>
+              <p className="mt-3 max-w-3xl text-slate-600">
+                Build an exam-style paper from random question bank questions,
+                balanced as evenly as possible across topics.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative mt-6">
+            {isPracticePaperLocked && (
+              <div className="generatorLockPrompt absolute inset-x-4 top-4 z-10 flex items-start gap-2 rounded-2xl px-4 py-3 text-sm font-semibold">
+                {renderLockIcon("mt-0.5 h-4 w-4 shrink-0")}
+                <span>Sign in to use Practice Paper Mode.</span>
+              </div>
+            )}
+
+            <div
+              className={`practicePaperGrid grid gap-4 lg:grid-cols-2 ${
+                isPracticePaperLocked ? "pointer-events-none select-none opacity-50" : ""
+              }`}
+            >
+              <div className="practicePaperPanel rounded-3xl p-4">
+              <p className="text-sm font-semibold text-slate-950">
+                Choose module
+              </p>
+              <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                {bankStats.modules.map((moduleFolder) => {
+                  const isSelected = practicePaperModuleId === moduleFolder.id;
+
+                  return (
+                    <button
+                      key={moduleFolder.id}
+                      type="button"
+                      onClick={() =>
+                        setPracticePaperModuleId(
+                          moduleFolder.id as PracticePaperModuleId
+                        )
+                      }
+                      disabled={isPracticePaperLocked}
+                      className={`practiceModuleButton rounded-2xl px-4 py-3 text-left text-sm font-semibold transition ${
+                        isSelected ? "isSelected" : ""
+                      }`}
+                    >
+                      <span>
+                        {moduleFolder.id === "foundations-of-biomedical-science"
+                          ? "FBS"
+                          : "PAS"}
+                      </span>
+                      <span className="mt-1 block text-xs font-medium">
+                        {getLectureCount(moduleFolder)} lectures |{" "}
+                        {getQuestionCount(moduleFolder)} questions
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+              <div className="practicePaperPanel rounded-3xl p-4">
+              <div className="grid gap-3 sm:grid-cols-2">
+                <label className="block">
+                  <span className="text-xs font-semibold text-slate-600">
+                    Number of questions
+                  </span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={200}
+                    value={practicePaperQuestionInput}
+                    onChange={(event) =>
+                      updatePracticePaperQuestionCount(event.target.value)
+                    }
+                    onBlur={normalizePracticePaperSettings}
+                    disabled={isPracticePaperLocked}
+                    className="questionCountInput mt-2 w-full rounded-2xl px-4 py-3 text-sm font-semibold outline-none"
+                  />
+                  <span className="mt-1 block text-xs text-slate-500">
+                    Max 200
+                  </span>
+                </label>
+
+                <label className="block">
+                  <span className="text-xs font-semibold text-slate-600">
+                    Time limit (minutes)
+                  </span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={300}
+                    value={practicePaperTimeInput}
+                    onChange={(event) =>
+                      updatePracticePaperTime(event.target.value)
+                    }
+                    onBlur={normalizePracticePaperSettings}
+                    disabled={isPracticePaperLocked}
+                    className="questionCountInput mt-2 w-full rounded-2xl px-4 py-3 text-sm font-semibold outline-none"
+                  />
+                  <span className="mt-1 block text-xs text-slate-500">
+                    Max 300 minutes
+                  </span>
+                </label>
+              </div>
+              </div>
+            </div>
+
+            {practicePaperError && (
+              <p className="mt-4 rounded-2xl bg-rose-50 p-3 text-sm font-semibold text-rose-700">
+                {practicePaperError}
+              </p>
+            )}
+
+            <button
+              type="button"
+              onClick={startPracticePaper}
+              disabled={isPracticePaperLocked}
+              className="primaryButton mt-5 inline-flex w-full items-center justify-center gap-2 rounded-2xl px-6 py-3 font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+            >
+              {isPracticePaperLocked && renderLockIcon()}
+              Start Practice Paper
+            </button>
+          </div>
+        </div>
       </section>
     );
   }
@@ -2925,7 +4025,7 @@ export default function Home() {
                 <div key={submodule.id}>
                   <div className="mb-1 flex items-center justify-between gap-3 text-xs">
                     <span className="truncate font-semibold">
-                      {submodule.title.replace(" Question Bank", "")}
+                      {formatSubmoduleTitle(submodule.title)}
                     </span>
                     <span>
                       {submodule.accuracy}% · {submodule.activeLectures}
@@ -2961,42 +4061,88 @@ export default function Home() {
     setCurrentView(nextView);
   }
 
+  function updateDashboardDots(event: PointerEvent<HTMLElement>) {
+    const bounds = event.currentTarget.getBoundingClientRect();
+
+    event.currentTarget.style.setProperty(
+      "--dashboard-pointer-x",
+      `${event.clientX - bounds.left}px`
+    );
+    event.currentTarget.style.setProperty(
+      "--dashboard-pointer-y",
+      `${event.clientY - bounds.top}px`
+    );
+  }
+
+  function clearDashboardDots(event: PointerEvent<HTMLElement>) {
+    event.currentTarget.style.setProperty("--dashboard-pointer-x", "-12rem");
+    event.currentTarget.style.setProperty("--dashboard-pointer-y", "-12rem");
+  }
+
+  function toggleThemeMode() {
+    setThemeMode((currentTheme) =>
+      currentTheme === "dark" ? "light" : "dark"
+    );
+  }
+
   function renderHeaderNavigation() {
     const navItems: Array<{ label: string; view: AppView }> = [
       { label: "Question Bank", view: "question-bank" },
+      { label: "Practice Paper Mode", view: "practice-paper" },
       { label: "Performance Analytics", view: "progress" },
       { label: "Generator", view: "generator" },
     ];
 
     return (
       <div className="headerNavLayer absolute left-0 top-full z-[70]">
-        <div
-          className="verticalTabSwitcher relative grid w-64 gap-1 overflow-hidden rounded-b-3xl border-x border-b p-1"
-          style={{ "--active-tab-index": verticalNavIndex } as CSSProperties}
-        >
-          <span className="verticalTabIndicator" aria-hidden="true" />
+        <div className="headerNavPanel w-64 overflow-hidden rounded-b-3xl border-x border-b p-1">
+          <div
+            className="verticalTabSwitcher relative grid gap-1"
+            style={{ "--active-tab-index": verticalNavIndex } as CSSProperties}
+          >
+            <span className="verticalTabIndicator" aria-hidden="true" />
 
-          {navItems.map((item) => {
-            const isActive = currentView === item.view;
-            const isLockedGenerator = item.view === "generator" && !user;
+            {navItems.map((item) => {
+              const isActive = currentView === item.view;
 
-            return (
-              <button
-                key={item.view}
-                type="button"
-                onClick={() => openNavigationView(item.view)}
-                className={`navPill relative z-10 min-h-12 px-4 py-3 text-center text-sm transition-colors duration-300 ${
-                  isActive
-                    ? "text-slate-950"
-                    : isLockedGenerator
-                      ? "text-white/50"
+              return (
+                <button
+                  key={item.view}
+                  type="button"
+                  onClick={() => openNavigationView(item.view)}
+                  className={`navPill relative z-10 min-h-12 px-4 py-3 text-center text-sm transition-colors duration-300 ${
+                    isActive
+                      ? "text-slate-950"
                       : "text-white hover:text-purple-100"
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            onClick={toggleThemeMode}
+            className="themeToggleButton mt-1 flex w-full items-center justify-between gap-3 rounded-2xl px-3 py-3 text-sm transition"
+            aria-pressed={themeMode === "light"}
+          >
+            <span className="font-semibold">Theme</span>
+            <span className="flex items-center gap-2">
+              <span className="text-xs font-semibold">
+                {themeMode === "dark" ? "Dark" : "Light"}
+              </span>
+              <span
+                className={`themeSwitch relative inline-flex h-7 w-12 items-center rounded-full p-1 ${
+                  themeMode === "light" ? "isLight" : ""
                 }`}
+                aria-hidden="true"
               >
-                {item.label}
-              </button>
-            );
-          })}
+                <span className="themeSwitchThumb h-5 w-5 rounded-full" />
+              </span>
+            </span>
+          </button>
         </div>
       </div>
     );
@@ -3041,11 +4187,15 @@ export default function Home() {
         <section className="flex-1 p-3 sm:p-8">
           {currentView === "progress"
             ? renderProgressTracker()
+            : currentView === "practice-paper"
+              ? renderPracticePaperView()
             : currentView === "generator"
               ? renderGeneratorView()
               : activeQuestionSetId
                 ? renderActiveQuestionSet()
-                : renderQuestionBankHome()}
+                : questions.length > 0 && activeQuestionSetTitle
+                  ? renderPracticeSession()
+                  : renderQuestionBankHome()}
         </section>
       </div>
       {currentView === "question-bank" &&
