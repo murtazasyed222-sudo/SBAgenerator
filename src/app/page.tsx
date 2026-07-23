@@ -2091,7 +2091,7 @@ export default function Home() {
     if (lecturesToResume.length === 0) return null;
 
     return (
-      <section className="resumePanel p-5 sm:p-6">
+      <section className="resumePanel mt-5 p-4 sm:p-5">
         <button
           type="button"
           onClick={() => setIsResumePanelOpen(!isResumePanelOpen)}
@@ -2132,12 +2132,12 @@ export default function Home() {
                   onClick={() => loadQuestionSet(lecture.questionSet)}
                   className="resumeLectureCard rounded-3xl p-4 text-left transition"
                 >
-                  <div className="flex items-start justify-between gap-4">
+                  <div className="resumeLectureHeader flex items-start justify-between gap-4">
                     <div className="min-w-0">
-                      <h4 className="truncate text-sm font-semibold text-purple-50 sm:text-base">
+                      <h4 className="resumeLectureTitle text-sm font-semibold text-purple-50 sm:text-base">
                         {lecture.questionSet.title}
                       </h4>
-                      <p className="mt-1 truncate text-xs text-purple-200/70">
+                      <p className="resumeLectureMeta mt-1 text-xs text-purple-200/70">
                         {lecture.moduleTitle} | {lecture.submoduleTitle}
                       </p>
                     </div>
@@ -2254,11 +2254,11 @@ export default function Home() {
               </button>
             </div>
 
-          </section>
+            {!normalizedQuestionBankSearch &&
+              !selectedBankSubmodule &&
+              renderResumeLectures()}
 
-          {!normalizedQuestionBankSearch &&
-            !selectedBankSubmodule &&
-            renderResumeLectures()}
+          </section>
 
           {normalizedQuestionBankSearch ? (
             <section className="surfaceCard p-5 sm:p-6">
