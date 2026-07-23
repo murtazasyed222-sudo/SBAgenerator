@@ -529,6 +529,11 @@ type SavedQuestionSetAnswers = {
   savedAt: string;
 };
 
+type CachedStudyData = {
+  progressByQuestionSet: Record<string, QuestionProgress>;
+  savedAnswersByQuestionSet: Record<string, SavedQuestionSetAnswers>;
+};
+
 type AuthMode = "sign-in" | "sign-up";
 
 type CloudProgressRow = {
@@ -554,6 +559,7 @@ const cardAccentColors = [
   "#4c1d95",
   "#a78bfa",
 ];
+const studyCachePrefix = "sbagen-study-cache";
 
 function getAccentStyle(index: number): CSSProperties {
   return {
@@ -600,6 +606,84 @@ function getQuestionSets(folder: QuestionBankFolder): QuestionSet[] {
     ...folder.questionSets,
     ...folder.subfolders.flatMap((subfolder) => getQuestionSets(subfolder)),
   ];
+}
+
+function getStudyCacheKey(userId: string) {
+  return `${studyCachePrefix}:${userId}`;
+}
+
+function mergeProgressRecords(
+  currentProgress: Record<string, QuestionProgress>,
+  nextProgress: Record<string, QuestionProgress>
+) {
+  const mergedProgress = { ...currentProgress };
+
+  Object.entries(nextProgress).forEach(([questionSetId, progress]) => {
+    const existingProgress = mergedProgress[questionSetId];
+
+    mergedProgress[questionSetId] = {
+      answered: Math.max(existingProgress?.answered ?? 0, progress.answered),
+      correct: Math.max(existingProgress?.correct ?? 0, progress.correct),
+      total: Math.max(existingProgress?.total ?? 0, progress.total),
+      completedAt:
+        existingProgress &&
+        Date.parse(existingProgress.completedAt) > Date.parse(progress.completedAt)
+          ? existingProgress.completedAt
+          : progress.completedAt,
+    };
+  });
+
+  return mergedProgress;
+}
+
+function mergeSavedAnswerRecords(
+  currentAnswers: Record<string, SavedQuestionSetAnswers>,
+  nextAnswers: Record<string, SavedQuestionSetAnswers>
+) {
+  const mergedAnswers = { ...currentAnswers };
+
+  Object.entries(nextAnswers).forEach(([questionSetId, answers]) => {
+    const existingAnswers = mergedAnswers[questionSetId];
+
+    if (
+      !existingAnswers ||
+      Date.parse(answers.savedAt) >= Date.parse(existingAnswers.savedAt)
+    ) {
+      mergedAnswers[questionSetId] = answers;
+    }
+  });
+
+  return mergedAnswers;
+}
+
+function readCachedStudyData(userId: string): CachedStudyData | null {
+  try {
+    const cachedData = window.localStorage.getItem(getStudyCacheKey(userId));
+    if (!cachedData) return null;
+
+    return JSON.parse(cachedData) as CachedStudyData;
+  } catch {
+    return null;
+  }
+}
+
+function writeCachedStudyData(userId: string, studyData: CachedStudyData) {
+  try {
+    window.localStorage.setItem(
+      getStudyCacheKey(userId),
+      JSON.stringify(studyData)
+    );
+  } catch {
+    // Local cache is just a speed boost; cloud sync remains authoritative.
+  }
+}
+
+function clearCachedStudyData(userId: string) {
+  try {
+    window.localStorage.removeItem(getStudyCacheKey(userId));
+  } catch {
+    // Nothing to do if storage is unavailable.
+  }
 }
 
 export default function Home() {
@@ -653,6 +737,7 @@ export default function Home() {
   const [isSavePromptOpen, setIsSavePromptOpen] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
+  const [isStudyCacheReady, setIsStudyCacheReady] = useState(false);
 
   useEffect(() => {
     if (!supabase) {
@@ -701,6 +786,24 @@ export default function Home() {
       setIsCloudProgressLoading(true);
       setCloudSyncStatus("Loading cloud progress...");
 
+      const cachedStudyData = readCachedStudyData(userId);
+
+      if (cachedStudyData) {
+        setProgressByQuestionSet((currentProgress) =>
+          mergeProgressRecords(
+            currentProgress,
+            cachedStudyData.progressByQuestionSet ?? {}
+          )
+        );
+        setSavedAnswersByQuestionSet((currentAnswers) =>
+          mergeSavedAnswerRecords(
+            currentAnswers,
+            cachedStudyData.savedAnswersByQuestionSet ?? {}
+          )
+        );
+      }
+      setIsStudyCacheReady(true);
+
       const [progressResult, answersResult] = await Promise.all([
         supabaseClient
           .from("user_question_progress")
@@ -722,56 +825,43 @@ export default function Home() {
 
       const progressRows = (progressResult.data ?? []) as CloudProgressRow[];
       const answersRows = (answersResult.data ?? []) as CloudAnswersRow[];
-
-      setProgressByQuestionSet((currentProgress) => {
-        const mergedProgress = { ...currentProgress };
-
-        progressRows.forEach((row) => {
-          const questionSetId = row.question_set_id;
-          const localProgress = mergedProgress[questionSetId];
+      const cloudProgressByQuestionSet = Object.fromEntries(
+        progressRows.map((row) => {
           const cloudCompletedAt =
             row.completed_at ?? row.updated_at ?? new Date().toISOString();
 
-          mergedProgress[questionSetId] = {
-            answered: Math.max(
-              localProgress?.answered ?? 0,
-              row.answered ?? 0
-            ),
-            correct: Math.max(localProgress?.correct ?? 0, row.correct ?? 0),
-            total: Math.max(localProgress?.total ?? 0, row.total ?? 0),
-            completedAt:
-              localProgress &&
-              Date.parse(localProgress.completedAt) > Date.parse(cloudCompletedAt)
-                ? localProgress.completedAt
-                : cloudCompletedAt,
-          };
-        });
-
-        return mergedProgress;
-      });
-
-      setSavedAnswersByQuestionSet((currentAnswers) => {
-        const mergedAnswers = { ...currentAnswers };
-
-        answersRows.forEach((row) => {
-          const questionSetId = row.question_set_id;
-          const localAnswers = mergedAnswers[questionSetId];
+          return [
+            row.question_set_id,
+            {
+              answered: row.answered ?? 0,
+              correct: row.correct ?? 0,
+              total: row.total ?? 0,
+              completedAt: cloudCompletedAt,
+            },
+          ];
+        })
+      ) as Record<string, QuestionProgress>;
+      const cloudAnswersByQuestionSet = Object.fromEntries(
+        answersRows.map((row) => {
           const cloudSavedAt =
             row.saved_at ?? row.updated_at ?? new Date().toISOString();
 
-          if (
-            !localAnswers ||
-            Date.parse(cloudSavedAt) >= Date.parse(localAnswers.savedAt)
-          ) {
-            mergedAnswers[questionSetId] = {
+          return [
+            row.question_set_id,
+            {
               selectedAnswers: normalizeSelectedAnswers(row.selected_answers),
               savedAt: cloudSavedAt,
-            };
-          }
-        });
+            },
+          ];
+        })
+      ) as Record<string, SavedQuestionSetAnswers>;
 
-        return mergedAnswers;
-      });
+      setProgressByQuestionSet((currentProgress) =>
+        mergeProgressRecords(currentProgress, cloudProgressByQuestionSet)
+      );
+      setSavedAnswersByQuestionSet((currentAnswers) =>
+        mergeSavedAnswerRecords(currentAnswers, cloudAnswersByQuestionSet)
+      );
 
       setCloudSyncStatus("Cloud progress loaded.");
       setIsCloudProgressLoading(false);
@@ -783,6 +873,22 @@ export default function Home() {
       isMounted = false;
     };
   }, [supabase, user]);
+
+  useEffect(() => {
+    if (!user || !isStudyCacheReady) {
+      return;
+    }
+
+    writeCachedStudyData(user.id, {
+      progressByQuestionSet,
+      savedAnswersByQuestionSet,
+    });
+  }, [
+    user,
+    isStudyCacheReady,
+    progressByQuestionSet,
+    savedAnswersByQuestionSet,
+  ]);
 
   const bankStats = useMemo(() => {
     const submodules = questionBankFolders.flatMap((moduleFolder) =>
@@ -852,11 +958,16 @@ export default function Home() {
   async function handleSignOut() {
     if (!supabase) return;
 
+    if (user) {
+      clearCachedStudyData(user.id);
+    }
+
     setAuthLoading(true);
     await supabase.auth.signOut();
     setUser(null);
     setProgressByQuestionSet({});
     setSavedAnswersByQuestionSet({});
+    setIsStudyCacheReady(false);
     setCloudSyncStatus("");
     setAuthMessage("Signed out. Sign in to save and track progress.");
     setIsAuthMenuOpen(false);
