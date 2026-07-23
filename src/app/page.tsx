@@ -497,6 +497,25 @@ function isMedicalText(text: string) {
 
 type AppView = "question-bank" | "generator" | "progress";
 type PerformanceBand = "urgent" | "revisit" | "steady" | "strong";
+type PerformanceTopic = {
+  questionSet: QuestionSet;
+  submoduleId: string;
+  submoduleTitle: string;
+  answered: number;
+  correct: number;
+  total: number;
+  accuracy: number | null;
+  band: PerformanceBand | null;
+};
+type InProgressLecture = {
+  questionSet: QuestionSet;
+  moduleTitle: string;
+  submoduleTitle: string;
+  answered: number;
+  total: number;
+  percent: number;
+  updatedAt: string;
+};
 
 type QuestionProgress = {
   answered: number;
@@ -599,8 +618,7 @@ export default function Home() {
   const [expandedBankModules, setExpandedBankModules] = useState<
     Record<string, boolean>
   >({});
-  const [isPerformanceAnalyticsOpen, setIsPerformanceAnalyticsOpen] =
-    useState(true);
+  const [isResumePanelOpen, setIsResumePanelOpen] = useState(true);
   const [activeQuestionSetId, setActiveQuestionSetId] = useState<string | null>(
     null
   );
@@ -633,7 +651,6 @@ export default function Home() {
   const [isAuthMenuOpen, setIsAuthMenuOpen] = useState(false);
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
   const [isSavePromptOpen, setIsSavePromptOpen] = useState(false);
-  const [isFbsComingSoonOpen, setIsFbsComingSoonOpen] = useState(false);
   const [cloudSyncStatus, setCloudSyncStatus] = useState("");
   const [isCloudProgressLoading, setIsCloudProgressLoading] = useState(false);
 
@@ -961,11 +978,6 @@ export default function Home() {
   }
 
   function toggleBankModule(moduleId: string) {
-    if (moduleId === "foundations-of-biomedical-science") {
-      setIsFbsComingSoonOpen(true);
-      return;
-    }
-
     setExpandedBankModules({
       ...expandedBankModules,
       [moduleId]: !expandedBankModules[moduleId],
@@ -1233,6 +1245,30 @@ export default function Home() {
     return { answered, correct, percent, totalQuestions };
   }
 
+  function getQuestionSetStudyProgress(questionSet: QuestionSet) {
+    const markedProgress = getQuestionSetProgress(questionSet);
+    const savedAnswers =
+      savedAnswersByQuestionSet[questionSet.id]?.selectedAnswers ?? {};
+    const savedAnswerCount = Object.keys(savedAnswers).length;
+    const answered = Math.min(
+      Math.max(markedProgress.answered, savedAnswerCount),
+      questionSet.questions.length
+    );
+    const percent =
+      questionSet.questions.length > 0
+        ? Math.round((answered / questionSet.questions.length) * 100)
+        : 0;
+
+    return {
+      answered,
+      percent,
+      updatedAt:
+        savedAnswersByQuestionSet[questionSet.id]?.savedAt ??
+        progressByQuestionSet[questionSet.id]?.completedAt ??
+        "",
+    };
+  }
+
   function getPerformanceBand(accuracy: number): PerformanceBand {
     if (accuracy < 50) return "urgent";
     if (accuracy < 75) return "revisit";
@@ -1257,7 +1293,7 @@ export default function Home() {
     } as CSSProperties;
   }
 
-  const performanceTopics = bankStats.submodules
+  const performanceTopics: PerformanceTopic[] = bankStats.submodules
     .flatMap((submodule) =>
       submodule.questionSets.map((questionSet) => {
         const progress = getQuestionSetProgress(questionSet);
@@ -1269,6 +1305,7 @@ export default function Home() {
 
         return {
           questionSet,
+          submoduleId: submodule.id,
           submoduleTitle: submodule.title,
           answered: progress.answered,
           correct: progress.correct,
@@ -1287,7 +1324,103 @@ export default function Home() {
       return secondTopic.answered - firstTopic.answered;
     });
 
-  const priorityTopics = performanceTopics.slice(0, 6);
+  const performanceBandCounts = performanceTopics.reduce(
+    (counts, topic) => {
+      if (topic.band) {
+        counts[topic.band] += 1;
+      }
+
+      return counts;
+    },
+    { urgent: 0, revisit: 0, steady: 0, strong: 0 } as Record<
+      PerformanceBand,
+      number
+    >
+  );
+  const performanceAnsweredTotal = performanceTopics.reduce(
+    (total, topic) => total + topic.answered,
+    0
+  );
+  const performanceCorrectTotal = performanceTopics.reduce(
+    (total, topic) => total + topic.correct,
+    0
+  );
+  const performanceAverageAccuracy =
+    performanceAnsweredTotal > 0
+      ? Math.round((performanceCorrectTotal / performanceAnsweredTotal) * 100)
+      : 0;
+  const completedLectureCount = bankStats.submodules.reduce(
+    (total, submodule) =>
+      total +
+      submodule.questionSets.filter((questionSet) => {
+        const progress = getQuestionSetProgress(questionSet);
+
+        return (
+          questionSet.questions.length > 0 &&
+          progress.answered >= questionSet.questions.length
+        );
+      }).length,
+    0
+  );
+  const submodulePerformance = bankStats.submodules
+    .map((submodule) => {
+      const attemptedSets = submodule.questionSets
+        .map((questionSet) => ({
+          questionSet,
+          progress: getQuestionSetProgress(questionSet),
+        }))
+        .filter(({ progress }) => progress.answered > 0);
+      const answered = attemptedSets.reduce(
+        (total, item) => total + item.progress.answered,
+        0
+      );
+      const correct = attemptedSets.reduce(
+        (total, item) => total + item.progress.correct,
+        0
+      );
+
+      return {
+        id: submodule.id,
+        title: submodule.title,
+        activeLectures: attemptedSets.length,
+        answered,
+        correct,
+        accuracy: answered > 0 ? Math.round((correct / answered) * 100) : 0,
+      };
+    })
+    .filter((submodule) => submodule.answered > 0)
+    .sort((firstSubmodule, secondSubmodule) => {
+      if (firstSubmodule.accuracy !== secondSubmodule.accuracy) {
+        return firstSubmodule.accuracy - secondSubmodule.accuracy;
+      }
+
+      return secondSubmodule.answered - firstSubmodule.answered;
+    });
+  const inProgressLectures: InProgressLecture[] = bankStats.submodules
+    .flatMap((submodule) =>
+      submodule.questionSets.map((questionSet) => {
+        const studyProgress = getQuestionSetStudyProgress(questionSet);
+
+        return {
+          questionSet,
+          moduleTitle: submodule.parentModuleTitle,
+          submoduleTitle: submodule.title,
+          answered: studyProgress.answered,
+          total: questionSet.questions.length,
+          percent: studyProgress.percent,
+          updatedAt: studyProgress.updatedAt,
+        };
+      })
+    )
+    .filter(
+      (lecture) => lecture.answered > 0 && lecture.answered < lecture.total
+    )
+    .sort((firstLecture, secondLecture) => {
+      const firstTime = Date.parse(firstLecture.updatedAt) || 0;
+      const secondTime = Date.parse(secondLecture.updatedAt) || 0;
+
+      return secondTime - firstTime;
+    });
 
   const lectureSearchResults = normalizedQuestionBankSearch
     ? bankStats.submodules.flatMap((submodule) =>
@@ -1581,38 +1714,6 @@ export default function Home() {
             className="primaryButton mt-5 w-full px-5 py-3 text-sm font-bold text-white transition"
           >
             Sign in
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  function renderFbsComingSoonPrompt() {
-    if (!isFbsComingSoonOpen) return null;
-
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/55 px-4 py-6 backdrop-blur-sm">
-        <div className="glassModal relative w-full max-w-sm rounded-[1.75rem] p-6 text-center">
-          <button
-            type="button"
-            onClick={() => setIsFbsComingSoonOpen(false)}
-            className="absolute -right-3 -top-3 flex h-9 w-9 items-center justify-center rounded-full bg-slate-950 text-sm font-black text-white shadow-lg transition hover:scale-105"
-            aria-label="Close FBS coming soon message"
-          >
-            X
-          </button>
-
-          <p className="text-xl font-black text-slate-950">Coming soon</p>
-          <p className="mt-2 text-sm leading-relaxed text-slate-600">
-            Foundations of Biomedical Science questions are being added soon.
-          </p>
-
-          <button
-            type="button"
-            onClick={() => setIsFbsComingSoonOpen(false)}
-            className="primaryButton mt-5 w-full px-5 py-3 text-sm font-bold text-white transition"
-          >
-            Got it
           </button>
         </div>
       </div>
@@ -1982,6 +2083,86 @@ export default function Home() {
     );
   }
 
+  function renderResumeLectures() {
+    if (!user) return null;
+
+    const lecturesToResume = inProgressLectures.slice(0, 4);
+
+    if (lecturesToResume.length === 0) return null;
+
+    return (
+      <section className="resumePanel p-5 sm:p-6">
+        <button
+          type="button"
+          onClick={() => setIsResumePanelOpen(!isResumePanelOpen)}
+          className="group flex w-full items-center justify-between gap-4 text-left"
+          aria-expanded={isResumePanelOpen}
+        >
+          <div className="min-w-0">
+            <h3 className="text-xl font-semibold text-purple-100">
+              Questions in progress
+            </h3>
+            <p className="mt-1 text-sm text-purple-200/75">
+              Pick up where you left off |{" "}
+              {lecturesToResume.length}{" "}
+              {lecturesToResume.length === 1 ? "lecture" : "lectures"}
+            </p>
+          </div>
+          <span
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/8 text-lg font-semibold leading-none text-purple-100 transition group-hover:border-purple-200/40 group-hover:bg-purple-300/12"
+            aria-hidden="true"
+          >
+            {isResumePanelOpen ? "-" : "+"}
+          </span>
+        </button>
+
+        <div
+          className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+            isResumePanelOpen
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0"
+          }`}
+        >
+          <div className="overflow-hidden">
+            <div className="mt-4 grid gap-3 lg:grid-cols-2">
+              {lecturesToResume.map((lecture) => (
+                <button
+                  key={lecture.questionSet.id}
+                  type="button"
+                  onClick={() => loadQuestionSet(lecture.questionSet)}
+                  className="resumeLectureCard rounded-3xl p-4 text-left transition"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <h4 className="truncate text-sm font-semibold text-purple-50 sm:text-base">
+                        {lecture.questionSet.title}
+                      </h4>
+                      <p className="mt-1 truncate text-xs text-purple-200/70">
+                        {lecture.moduleTitle} | {lecture.submoduleTitle}
+                      </p>
+                    </div>
+
+                    <span className="resumePercentPill shrink-0 rounded-full px-3 py-1 text-xs font-semibold">
+                      {lecture.percent}%
+                    </span>
+                  </div>
+
+                  <div className="mt-4">
+                    {renderProgressMeter(lecture.percent)}
+                  </div>
+
+                  <div className="mt-3 text-xs text-purple-200/70">
+                    {lecture.answered}/{lecture.total} answered
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   function renderQuestionBankHome() {
     return (
       <div className="mx-auto max-w-6xl">
@@ -2053,10 +2234,7 @@ export default function Home() {
 
               <button
                 type="button"
-                onClick={() => {
-                  setIsPerformanceAnalyticsOpen(true);
-                  setCurrentView("progress");
-                }}
+                onClick={() => setCurrentView("progress")}
                 className="performanceShortcut inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold transition lg:w-auto"
               >
                 <span>View Your Performance</span>
@@ -2077,6 +2255,10 @@ export default function Home() {
             </div>
 
           </section>
+
+          {!normalizedQuestionBankSearch &&
+            !selectedBankSubmodule &&
+            renderResumeLectures()}
 
           {normalizedQuestionBankSearch ? (
             <section className="surfaceCard p-5 sm:p-6">
@@ -2329,6 +2511,84 @@ export default function Home() {
     );
   }
 
+  function renderPerformanceTopicCard(topic: PerformanceTopic) {
+    const accuracy = topic.accuracy ?? 0;
+    const band = topic.band ?? "urgent";
+    const canRetest = band === "urgent" || band === "revisit";
+
+    return (
+      <article
+        key={topic.questionSet.id}
+        className="performanceCard rounded-2xl border p-4"
+        style={{
+          ...getPerformanceStyle(accuracy),
+          background:
+            "linear-gradient(90deg, var(--performance-bg), rgba(255,255,255,0.96))",
+          borderColor: "var(--performance-soft)",
+        }}
+      >
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className="performancePill inline-flex min-h-9 items-center justify-center rounded-full px-4 py-2 text-sm text-white shadow-sm"
+            style={{
+              backgroundColor: "var(--performance-accent)",
+            }}
+          >
+            {getPerformanceLabel(band)}
+          </span>
+          <span
+            className="performancePill inline-flex min-h-9 items-center justify-center rounded-full bg-white/85 px-4 py-2 text-sm shadow-sm"
+            style={{ color: "var(--performance-accent)" }}
+          >
+            {accuracy}%
+          </span>
+          <span className="performancePill inline-flex min-h-9 items-center justify-center rounded-full bg-white/85 px-4 py-2 text-sm text-slate-800 shadow-sm">
+            {topic.correct}/{topic.answered}
+          </span>
+        </div>
+
+        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div className="min-w-0">
+            <p className="text-xs font-medium text-slate-500">
+              {topic.submoduleTitle}
+            </p>
+            <h4 className="mt-2 leading-snug">{topic.questionSet.title}</h4>
+          </div>
+
+          <div className="shrink-0 sm:border-l sm:border-slate-200/70 sm:pl-4">
+            {canRetest ? (
+              <button
+                type="button"
+                onClick={() => startRetestFramework(topic.questionSet)}
+                className="primaryButton inline-flex min-h-9 w-full items-center justify-center px-4 py-2 text-sm font-semibold text-white transition sm:w-auto"
+              >
+                Retest?
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={() => loadQuestionSet(topic.questionSet)}
+                className="secondaryButton inline-flex min-h-9 w-full items-center justify-center px-4 py-2 text-sm font-semibold text-slate-900 transition sm:w-auto"
+              >
+                Review
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/75">
+          <div
+            className="h-full rounded-full transition-all duration-500"
+            style={{
+              width: `${accuracy}%`,
+              backgroundColor: "var(--performance-accent)",
+            }}
+          />
+        </div>
+      </article>
+    );
+  }
+
   function renderPerformanceAnalytics() {
     return (
       <section className="surfaceCard overflow-hidden">
@@ -2345,155 +2605,237 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="flex w-full gap-2 sm:w-auto">
-            <button
-              type="button"
-              onClick={() => setCurrentView("question-bank")}
-              className="performanceShortcut inline-flex min-h-10 flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-semibold transition sm:flex-none"
+          <button
+            type="button"
+            onClick={() => setCurrentView("question-bank")}
+            className="performanceShortcut inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-2xl px-4 py-2 text-sm font-semibold transition sm:w-auto"
+          >
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
             >
-              <svg
-                className="h-4 w-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="m12 19-7-7 7-7" />
-                <path d="M19 12H5" />
-              </svg>
-              Back to Question Bank
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setIsPerformanceAnalyticsOpen(!isPerformanceAnalyticsOpen)}
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/85 text-xl font-semibold leading-none text-slate-700 shadow-sm transition hover:bg-purple-50"
-              aria-expanded={isPerformanceAnalyticsOpen}
-              aria-label={
-                isPerformanceAnalyticsOpen
-                  ? "Collapse performance analytics"
-                  : "Expand performance analytics"
-              }
-            >
-              {isPerformanceAnalyticsOpen ? "-" : "+"}
-            </button>
-          </div>
+              <path d="m12 19-7-7 7-7" />
+              <path d="M19 12H5" />
+            </svg>
+            Back to Question Bank
+          </button>
         </div>
 
-        <div
-          className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
-            isPerformanceAnalyticsOpen
-              ? "grid-rows-[1fr] opacity-100"
-              : "grid-rows-[0fr] opacity-0"
-          }`}
-        >
-          <div className="overflow-hidden">
-            <div className="px-5 pb-5 sm:px-6 sm:pb-6">
-              {!user ? (
-                <div className="rounded-2xl border border-dashed border-purple-200 bg-white/80 p-5 text-sm text-slate-600">
-                  Sign in before marking lecture sets to save progress and unlock
-                  performance analytics.
-                </div>
-              ) : priorityTopics.length === 0 ? (
-                <div className="rounded-2xl border border-dashed border-slate-300 bg-white/70 p-5 text-sm text-slate-600">
-                  Mark at least one lecture set to unlock weakest-topic analytics.
-                </div>
-              ) : (
-                <div className="space-y-3">
-                  {priorityTopics.map((topic) => {
-                    const accuracy = topic.accuracy ?? 0;
-                    const band = topic.band ?? "urgent";
-                    const canRetest = band === "urgent" || band === "revisit";
-
-                    return (
-                      <article
-                        key={topic.questionSet.id}
-                        className="performanceCard rounded-2xl border p-4"
-                        style={{
-                          ...getPerformanceStyle(accuracy),
-                          background:
-                            "linear-gradient(90deg, var(--performance-bg), rgba(255,255,255,0.96))",
-                          borderColor: "var(--performance-soft)",
-                        }}
-                      >
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span
-                            className="performancePill inline-flex min-h-9 items-center justify-center rounded-full px-4 py-2 text-sm text-white shadow-sm"
-                            style={{ backgroundColor: "var(--performance-accent)" }}
-                          >
-                            {getPerformanceLabel(band)}
-                          </span>
-                          <span
-                            className="performancePill inline-flex min-h-9 items-center justify-center rounded-full bg-white/85 px-4 py-2 text-sm shadow-sm"
-                            style={{ color: "var(--performance-accent)" }}
-                          >
-                            {accuracy}%
-                          </span>
-                          <span className="performancePill inline-flex min-h-9 items-center justify-center rounded-full bg-white/85 px-4 py-2 text-sm text-slate-800 shadow-sm">
-                            {topic.correct}/{topic.answered}
-                          </span>
-                        </div>
-
-                        <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                          <div className="min-w-0">
-                            <p className="text-xs font-medium text-slate-500">
-                              {topic.submoduleTitle}
-                            </p>
-                            <h4 className="mt-2 leading-snug">
-                              {topic.questionSet.title}
-                            </h4>
-                          </div>
-
-                          <div className="shrink-0 sm:border-l sm:border-slate-200/70 sm:pl-4">
-                            {canRetest ? (
-                              <button
-                                type="button"
-                                onClick={() => startRetestFramework(topic.questionSet)}
-                                className="primaryButton inline-flex min-h-9 w-full items-center justify-center px-4 py-2 text-sm font-semibold text-white transition sm:w-auto"
-                              >
-                                Retest?
-                              </button>
-                            ) : (
-                              <button
-                                type="button"
-                                onClick={() => loadQuestionSet(topic.questionSet)}
-                                className="secondaryButton inline-flex min-h-9 w-full items-center justify-center px-4 py-2 text-sm font-semibold text-slate-900 transition sm:w-auto"
-                              >
-                                Review
-                              </button>
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="mt-4 h-2.5 overflow-hidden rounded-full bg-white/75">
-                          <div
-                            className="h-full rounded-full transition-all duration-500"
-                            style={{
-                              width: `${accuracy}%`,
-                              backgroundColor: "var(--performance-accent)",
-                            }}
-                          />
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              )}
+        <div className="px-5 pb-5 sm:px-6 sm:pb-6">
+          {!user ? (
+            <div className="rounded-2xl border border-dashed border-purple-200 bg-white/80 p-5 text-sm text-slate-600">
+              Sign in before marking lecture sets to save progress and unlock
+              performance analytics.
             </div>
-          </div>
+          ) : performanceTopics.length === 0 ? (
+            <div className="rounded-2xl border border-dashed border-slate-300 bg-white/70 p-5 text-sm text-slate-600">
+              Mark at least one lecture set to unlock weakest-topic analytics.
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {performanceTopics.map(renderPerformanceTopicCard)}
+            </div>
+          )}
         </div>
       </section>
     );
   }
 
   function renderProgressTracker() {
+    const shouldShowGraphPanel = Boolean(user && performanceTopics.length > 0);
+
     return (
-      <section className="mx-auto max-w-6xl space-y-6">
+      <section
+        className={`mx-auto grid max-w-6xl gap-4 ${
+          shouldShowGraphPanel
+            ? "xl:grid-cols-[minmax(0,1fr)_minmax(20rem,0.72fr)] xl:items-start"
+            : ""
+        }`}
+      >
         {renderPerformanceAnalytics()}
+        {shouldShowGraphPanel && renderPerformanceGraphs()}
       </section>
+    );
+  }
+
+  function renderPerformanceGraphs() {
+    const bandOrder: Array<{
+      band: PerformanceBand;
+      label: string;
+      color: string;
+    }> = [
+      { band: "urgent", label: "High priority", color: "#ef4444" },
+      { band: "revisit", label: "Revisit", color: "#f59e0b" },
+      { band: "steady", label: "Building", color: "#84cc16" },
+      { band: "strong", label: "Strong", color: "#22c55e" },
+    ];
+    let pieStartAngle = -90;
+    const getPiePoint = (angle: number, radius: number) => {
+      const radians = (angle * Math.PI) / 180;
+
+      return {
+        x: 50 + Math.cos(radians) * radius,
+        y: 50 + Math.sin(radians) * radius,
+      };
+    };
+    const pieSlices = bandOrder
+      .map(({ band, label, color }) => {
+        const count = performanceBandCounts[band];
+        const sweep =
+          performanceTopics.length > 0
+            ? (count / performanceTopics.length) * 360
+            : 0;
+        const startAngle = pieStartAngle;
+        const endAngle = pieStartAngle + sweep;
+        pieStartAngle = endAngle;
+
+        return {
+          band,
+          count,
+          color,
+          label: label === "High priority" ? "High" : label,
+          percentage:
+            performanceTopics.length > 0
+              ? Math.round((count / performanceTopics.length) * 100)
+              : 0,
+          path:
+            sweep >= 359.9
+              ? ""
+              : (() => {
+                  const start = getPiePoint(startAngle, 40);
+                  const end = getPiePoint(endAngle, 40);
+                  const largeArcFlag = sweep > 180 ? 1 : 0;
+
+                  return `M 50 50 L ${start.x} ${start.y} A 40 40 0 ${largeArcFlag} 1 ${end.x} ${end.y} Z`;
+                })(),
+          isFullCircle: sweep >= 359.9,
+        };
+      })
+      .filter((slice) => slice.count > 0);
+
+    return (
+      <aside className="performanceGraphPanel rounded-3xl p-4 sm:p-5">
+        <div className="grid grid-cols-3 gap-2">
+          <div className="analyticsMetric rounded-2xl px-3 py-3 text-center">
+            <p className="text-xl font-semibold">{performanceAverageAccuracy}%</p>
+            <p className="mt-1 text-[0.68rem] font-medium">Accuracy</p>
+          </div>
+          <div className="analyticsMetric rounded-2xl px-3 py-3 text-center">
+            <p className="text-xl font-semibold">{performanceAnsweredTotal}</p>
+            <p className="mt-1 text-[0.68rem] font-medium">
+              Questions answered
+            </p>
+          </div>
+          <div className="analyticsMetric rounded-2xl px-3 py-3 text-center">
+            <p className="text-xl font-semibold">{completedLectureCount}</p>
+            <p className="mt-1 text-[0.68rem] font-medium">
+              Lectures completed
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <div className="mb-2 flex items-center justify-between gap-3">
+            <p className="text-sm font-semibold">Topic performance</p>
+            <p className="text-xs">{performanceTopics.length} active</p>
+          </div>
+          <div className="analyticsPieWrap grid gap-3 rounded-2xl p-3 sm:grid-cols-[minmax(0,1fr)_minmax(8.5rem,0.9fr)] sm:items-center">
+            <svg
+              viewBox="0 0 100 100"
+              className="mx-auto h-44 w-full max-w-52"
+              role="img"
+              aria-label="Pie chart showing topic performance"
+            >
+              <circle cx="50" cy="50" r="40" className="analyticsPieBase" />
+              {pieSlices.map((slice) =>
+                slice.isFullCircle ? (
+                  <circle
+                    key={slice.band}
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill={slice.color}
+                  />
+                ) : (
+                  <path key={slice.band} d={slice.path} fill={slice.color} />
+                )
+              )}
+            </svg>
+            <div className="grid gap-2">
+              {bandOrder.map(({ band, label, color }) => {
+                const count = performanceBandCounts[band];
+                const percentage =
+                  performanceTopics.length > 0
+                    ? Math.round((count / performanceTopics.length) * 100)
+                    : 0;
+
+                return (
+                <div
+                  key={band}
+                  className={`analyticsPieLegend flex items-center justify-between gap-2 rounded-2xl px-3 py-2 text-xs ${
+                    count === 0 ? "opacity-55" : ""
+                  }`}
+                >
+                  <span className="flex min-w-0 items-center gap-2">
+                    <span
+                      className="h-2.5 w-2.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: color }}
+                      aria-hidden="true"
+                    />
+                    <span className="truncate">{label}</span>
+                  </span>
+                  <span className="shrink-0">
+                    {count} · {percentage}%
+                  </span>
+                </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-5">
+          <div className="mb-3 flex items-center justify-between gap-3">
+            <p className="text-sm font-semibold">Topic accuracy</p>
+            <p className="text-xs">Weakest first</p>
+          </div>
+
+          <div className="space-y-3">
+            {submodulePerformance.slice(0, 6).map((submodule) => {
+              const barStyle = getPerformanceStyle(submodule.accuracy);
+
+              return (
+                <div key={submodule.id}>
+                  <div className="mb-1 flex items-center justify-between gap-3 text-xs">
+                    <span className="truncate font-semibold">
+                      {submodule.title.replace(" Question Bank", "")}
+                    </span>
+                    <span>
+                      {submodule.accuracy}% · {submodule.activeLectures}
+                    </span>
+                  </div>
+                  <div className="analyticsMiniTrack h-2.5 overflow-hidden rounded-full">
+                    <div
+                      className="h-full rounded-full transition-all duration-500"
+                      style={{
+                        ...barStyle,
+                        width: `${submodule.accuracy}%`,
+                        backgroundColor: "var(--performance-accent)",
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </aside>
     );
   }
 
@@ -2503,10 +2845,6 @@ export default function Home() {
     if (nextView === "generator") {
       openGeneratorView();
       return;
-    }
-
-    if (nextView === "progress") {
-      setIsPerformanceAnalyticsOpen(true);
     }
 
     setCurrentView(nextView);
@@ -2602,7 +2940,6 @@ export default function Home() {
       {currentView === "question-bank" &&
         activeQuestionSetId &&
         renderFloatingStudyActions()}
-      {renderFbsComingSoonPrompt()}
       {renderSavePrompt()}
     </main>
   );

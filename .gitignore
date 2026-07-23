@@ -24,6 +24,7 @@
 .DS_Store
 *.pem
 src/app/questionBank.fbs.backup.json
+src/app/questionBank.eab-live-sessions.backup.json
 
 # debug
 npm-debug.log*
