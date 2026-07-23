@@ -6842,6 +6842,6817 @@ export const questionBankFolders: QuestionBankFolder[] = [
         "subfolders": []
       },
       {
+        "id": "genetics-and-genomics-question-bank",
+        "title": "Genetics and Genomics Question Bank",
+        "questionSets": [
+          {
+            "id": "gng01-introduction-to-genetics-and-genomics",
+            "title": "GNG01 - Introduction to Genetics and Genomics",
+            "questions": [
+              {
+                "question": "The genome is best defined as:",
+                "options": {
+                  "A": "All protein-coding genes in a nucleus",
+                  "B": "All chromosomes visible on a karyotype",
+                  "C": "All genetic material in an organism",
+                  "D": "All mRNA transcripts in one cell type",
+                  "E": "All inherited variants causing disease"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: All genetic material in an organism."
+              },
+              {
+                "question": "A gene is best described as a DNA sequence that:",
+                "options": {
+                  "A": "Encodes a functional product",
+                  "B": "Always encodes a membrane protein",
+                  "C": "Contains only translated exons",
+                  "D": "Is always inherited as one allele",
+                  "E": "Occupies a complete chromosome arm"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Encodes a functional product."
+              },
+              {
+                "question": "The central dogma of molecular biology is usually summarised as:",
+                "options": {
+                  "A": "RNA -> DNA -> protein",
+                  "B": "Protein -> RNA -> DNA",
+                  "C": "DNA -> protein -> RNA",
+                  "D": "DNA -> RNA -> protein",
+                  "E": "RNA -> protein -> DNA"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: DNA -> RNA -> protein."
+              },
+              {
+                "question": "Reverse transcription describes conversion of:",
+                "options": {
+                  "A": "DNA into RNA",
+                  "B": "RNA into DNA",
+                  "C": "RNA into protein",
+                  "D": "Protein into RNA",
+                  "E": "DNA into protein"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: RNA into DNA."
+              },
+              {
+                "question": "Genetics is mainly concerned with:",
+                "options": {
+                  "A": "All genes interacting across the genome",
+                  "B": "Clinical management of inherited disorders",
+                  "C": "Genome-wide testing in patient care",
+                  "D": "Drug response in prescribing practice",
+                  "E": "Individual genes and their inheritance"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Individual genes and their inheritance."
+              },
+              {
+                "question": "Genomics is mainly concerned with:",
+                "options": {
+                  "A": "Single-gene inheritance patterns",
+                  "B": "Pedigree symbols across generations",
+                  "C": "All genes and their interactions",
+                  "D": "One mutation in one disease gene",
+                  "E": "Carrier status in one family"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: All genes and their interactions."
+              },
+              {
+                "question": "Clinical genetics most accurately refers to:",
+                "options": {
+                  "A": "Diagnosing and managing inherited disorders",
+                  "B": "Studying inheritance in all organisms",
+                  "C": "Sequencing every gene in a population",
+                  "D": "Measuring all RNA made by a tissue",
+                  "E": "Testing ancestry using saliva samples"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Diagnosing and managing inherited disorders."
+              },
+              {
+                "question": "Medical genomics is best described as the study of:",
+                "options": {
+                  "A": "Genes in bacterial reproduction",
+                  "B": "Alleles in classical pea crosses",
+                  "C": "Chromosomes during mitosis",
+                  "D": "Genomes in human health and disease",
+                  "E": "Proteins in drug metabolism"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Genomes in human health and disease."
+              },
+              {
+                "question": "A promoter is the region of a gene most associated with:",
+                "options": {
+                  "A": "Termination of translation",
+                  "B": "Initiation of transcription",
+                  "C": "Removal of introns",
+                  "D": "Export of proteins",
+                  "E": "Replication of telomeres"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Initiation of transcription."
+              },
+              {
+                "question": "A terminator region is most associated with:",
+                "options": {
+                  "A": "Starting transcription",
+                  "B": "Joining exons",
+                  "C": "Reading codons",
+                  "D": "Binding ribosomes",
+                  "E": "Stopping transcription"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Stopping transcription."
+              },
+              {
+                "question": "Introns in protein-coding genes are usually:",
+                "options": {
+                  "A": "Translated into the final polypeptide",
+                  "B": "Used as the only promoter sequences",
+                  "C": "Removed from the primary RNA transcript",
+                  "D": "Copied into amino acid side chains",
+                  "E": "Absent from all human nuclear genes"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Removed from the primary RNA transcript."
+              },
+              {
+                "question": "Alternative splicing can produce different protein isoforms because:",
+                "options": {
+                  "A": "Different exon combinations are retained",
+                  "B": "Different chromosomes are duplicated",
+                  "C": "Different stop codons are ignored",
+                  "D": "Different bases are copied as proteins",
+                  "E": "Different alleles become chromosomes"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Different exon combinations are retained."
+              },
+              {
+                "question": "Enhancers and silencers can affect transcription despite being far from a promoter because:",
+                "options": {
+                  "A": "They are always inside the first exon",
+                  "B": "They replace the ribosome during translation",
+                  "C": "They delete introns before transcription starts",
+                  "D": "DNA folding can bring them near the promoter",
+                  "E": "They convert mRNA back into genomic DNA"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: DNA folding can bring them near the promoter."
+              },
+              {
+                "question": "A silent point mutation is one that:",
+                "options": {
+                  "A": "Creates a premature stop codon",
+                  "B": "Does not change the encoded amino acid",
+                  "C": "Deletes one nucleotide from a codon",
+                  "D": "Inserts two nucleotides into a gene",
+                  "E": "Replaces an exon with an intron"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Does not change the encoded amino acid."
+              },
+              {
+                "question": "A nonsense point mutation is one that:",
+                "options": {
+                  "A": "Preserves the same amino acid",
+                  "B": "Changes one amino acid to another",
+                  "C": "Deletes a whole chromosome",
+                  "D": "Duplicates a complete gene",
+                  "E": "Creates a premature stop codon"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Creates a premature stop codon."
+              },
+              {
+                "question": "A missense mutation is one that:",
+                "options": {
+                  "A": "Produces no amino acid change",
+                  "B": "Removes an entire chromosome",
+                  "C": "Changes the encoded amino acid",
+                  "D": "Prevents all DNA replication",
+                  "E": "Copies RNA into DNA"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Changes the encoded amino acid."
+              },
+              {
+                "question": "A transition mutation is a substitution between:",
+                "options": {
+                  "A": "Two purines or two pyrimidines",
+                  "B": "A purine and a pyrimidine",
+                  "C": "Two codons and one amino acid",
+                  "D": "An exon and an intron",
+                  "E": "A promoter and a terminator"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Two purines or two pyrimidines."
+              },
+              {
+                "question": "A transversion mutation is a substitution between:",
+                "options": {
+                  "A": "Two purines only",
+                  "B": "Two pyrimidines only",
+                  "C": "Two alleles at one locus",
+                  "D": "A purine and a pyrimidine",
+                  "E": "Two exons in one transcript"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A purine and a pyrimidine."
+              },
+              {
+                "question": "A one-nucleotide deletion in a coding sequence usually causes:",
+                "options": {
+                  "A": "A silent substitution",
+                  "B": "A frameshift mutation",
+                  "C": "A balanced translocation",
+                  "D": "A codon-preserving deletion",
+                  "E": "A mitochondrial inheritance pattern"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A frameshift mutation."
+              },
+              {
+                "question": "Deletion of three nucleotides from a coding sequence is most likely to:",
+                "options": {
+                  "A": "Shift every codon after the deletion",
+                  "B": "Create a new chromosome number",
+                  "C": "Convert DNA into mature RNA",
+                  "D": "Prevent segregation in meiosis",
+                  "E": "Remove one amino acid without a frameshift"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Remove one amino acid without a frameshift."
+              },
+              {
+                "question": "Alleles are best described as:",
+                "options": {
+                  "A": "Different chromosomes in a karyotype",
+                  "B": "Protein products of transcription",
+                  "C": "Alternative versions of a gene",
+                  "D": "Introns removed from RNA",
+                  "E": "Codons that signal termination"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Alternative versions of a gene."
+              },
+              {
+                "question": "A haplotype is best described as:",
+                "options": {
+                  "A": "A set of DNA variants inherited together",
+                  "B": "A single mutation causing a disorder",
+                  "C": "A complete list of expressed proteins",
+                  "D": "A diagram of relatives in a family",
+                  "E": "A ratio from a dihybrid cross"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A set of DNA variants inherited together."
+              },
+              {
+                "question": "A person with two identical mutant alleles at a locus is:",
+                "options": {
+                  "A": "Heterozygous for that mutation",
+                  "B": "Hemizygous for that mutation",
+                  "C": "Mosaic for that mutation",
+                  "D": "Homozygous for that mutation",
+                  "E": "A carrier without alleles"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Homozygous for that mutation."
+              },
+              {
+                "question": "Mendel's law of segregation is explained by:",
+                "options": {
+                  "A": "Random fertilisation of unrelated gametes",
+                  "B": "Separation of homologous chromosomes in meiosis",
+                  "C": "Exchange of exons during transcription",
+                  "D": "Pairing of codons during translation",
+                  "E": "Duplication of chromatids in mitosis"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Separation of homologous chromosomes in meiosis."
+              },
+              {
+                "question": "Independent assortment contributes to variation because:",
+                "options": {
+                  "A": "All dominant alleles enter the same gamete",
+                  "B": "All recessive alleles are removed in meiosis",
+                  "C": "Each codon is read in three different frames",
+                  "D": "Each intron is translated into a protein",
+                  "E": "Different chromosome pairs segregate randomly"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Different chromosome pairs segregate randomly."
+              },
+              {
+                "question": "With 23 chromosome pairs, independent assortment can generate approximately:",
+                "options": {
+                  "A": "Exactly 23 gamete combinations",
+                  "B": "Exactly 46 gamete combinations",
+                  "C": "More than 8 million gamete combinations",
+                  "D": "About 1000 gamete combinations",
+                  "E": "One gamete combination per person"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: More than 8 million gamete combinations."
+              },
+              {
+                "question": "A patient receives a direct-to-consumer result showing increased Alzheimer disease risk and asks whether disease is inevitable. The best interpretation is:",
+                "options": {
+                  "A": "Predisposition increases risk but does not guarantee disease",
+                  "B": "Predisposition proves the disease will occur soon",
+                  "C": "Predisposition excludes environmental influences",
+                  "D": "Predisposition means the variant is always monogenic",
+                  "E": "Predisposition confirms the result is diagnostic"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Predisposition increases risk but does not guarantee disease."
+              },
+              {
+                "question": "A GP notices several relatives with early-onset breast cancer in one family. The most appropriate genetic role of the GP is to:",
+                "options": {
+                  "A": "Exclude inherited risk because cancer is common",
+                  "B": "Start sequencing every family member in clinic",
+                  "C": "Assume the pattern is mitochondrial inheritance",
+                  "D": "Take a family history and consider referral",
+                  "E": "Tell relatives that risk is the same as average"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Take a family history and consider referral."
+              },
+              {
+                "question": "A cystic fibrosis variant produces no CFTR protein at the cell membrane. A drug that improves CFTR channel opening would be least useful because:",
+                "options": {
+                  "A": "The mutation is necessarily silent",
+                  "B": "There is little target protein to potentiate",
+                  "C": "The patient must have a normal genotype",
+                  "D": "The disease is caused by extra chromosomes",
+                  "E": "CFTR is not involved in cystic fibrosis"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: There is little target protein to potentiate."
+              },
+              {
+                "question": "A CFTR variant produces a membrane protein that reaches the cell surface but has reduced function. This molecular finding is most relevant because it may:",
+                "options": {
+                  "A": "Show that genetic testing is unnecessary",
+                  "B": "Prove that the mutation is harmless",
+                  "C": "Exclude cystic fibrosis as a diagnosis",
+                  "D": "Mean the protein cannot bind any drug",
+                  "E": "Support use of a function-improving therapy"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Support use of a function-improving therapy."
+              },
+              {
+                "question": "A coding DNA change alters the third base of a codon but the amino acid is unchanged. This is best classified as:",
+                "options": {
+                  "A": "Nonsense mutation",
+                  "B": "Frameshift mutation",
+                  "C": "Silent mutation",
+                  "D": "Translocation",
+                  "E": "Aneuploidy"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Silent mutation."
+              },
+              {
+                "question": "A coding DNA change creates a premature stop codon, producing a truncated protein. This is best classified as:",
+                "options": {
+                  "A": "Nonsense mutation",
+                  "B": "Silent mutation",
+                  "C": "Conservative missense mutation",
+                  "D": "Codon-preserving insertion",
+                  "E": "Balanced inversion"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Nonsense mutation."
+              },
+              {
+                "question": "A single-base insertion early in a coding sequence changes many downstream amino acids. The most likely mechanism is:",
+                "options": {
+                  "A": "Independent assortment",
+                  "B": "Dominant inheritance",
+                  "C": "Reverse transcription",
+                  "D": "Reading-frame disruption",
+                  "E": "Exon skipping without coding change"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Reading-frame disruption."
+              },
+              {
+                "question": "A substitution changes adenine to guanine. This is best described as a:",
+                "options": {
+                  "A": "Transversion",
+                  "B": "Transition",
+                  "C": "Frameshift",
+                  "D": "Deletion",
+                  "E": "Nonsense change"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Transition."
+              },
+              {
+                "question": "A substitution changes adenine to cytosine. This is best described as a:",
+                "options": {
+                  "A": "Transition",
+                  "B": "Frameshift",
+                  "C": "Duplication",
+                  "D": "Silent deletion",
+                  "E": "Transversion"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Transversion."
+              },
+              {
+                "question": "A variant lies in a distant enhancer rather than in an exon. It could still contribute to disease by:",
+                "options": {
+                  "A": "Changing every codon in the coding sequence",
+                  "B": "Preventing all homologous chromosome pairing",
+                  "C": "Altering transcriptional regulation of a gene",
+                  "D": "Replacing the nuclear genome with mitochondrial DNA",
+                  "E": "Forcing all introns to become translated exons"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Altering transcriptional regulation of a gene."
+              },
+              {
+                "question": "A newborn has a congenital disorder and a suspected metabolic syndrome. The specialty area most likely to use genetics early in evaluation is:",
+                "options": {
+                  "A": "Paediatrics",
+                  "B": "Dermatology",
+                  "C": "Orthopaedics",
+                  "D": "Ophthalmology",
+                  "E": "Anaesthetics"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Paediatrics."
+              },
+              {
+                "question": "A patient is being considered for a drug with a serious adverse reaction in people carrying a specific variant. The most relevant genomic application is:",
+                "options": {
+                  "A": "Pedigree symbol drawing",
+                  "B": "Carrier screening for embryos",
+                  "C": "Dihybrid ratio calculation",
+                  "D": "Pharmacogenomic testing",
+                  "E": "Karyotype sex determination"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Pharmacogenomic testing."
+              },
+              {
+                "question": "A couple are planning pregnancy and both have a family history of the same recessive disorder. Genetic knowledge is most useful for:",
+                "options": {
+                  "A": "Predicting exact eye colour in all children",
+                  "B": "Carrier detection and reproductive counselling",
+                  "C": "Eliminating all environmental risk factors",
+                  "D": "Guaranteeing unaffected natural conception",
+                  "E": "Replacing prenatal care with ancestry testing"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Carrier detection and reproductive counselling."
+              },
+              {
+                "question": "A research team wants to select participants more likely to respond to a targeted therapy. The most relevant use of genomics is:",
+                "options": {
+                  "A": "Counting chromosomes in every blood cell",
+                  "B": "Replacing trial consent with sequencing",
+                  "C": "Assuming one dose works for all genotypes",
+                  "D": "Ignoring variants outside protein-coding genes",
+                  "E": "Stratifying patients for precision medicine"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Stratifying patients for precision medicine."
+              }
+            ]
+          },
+          {
+            "id": "gng02-clinical-perspectives-on-genetic-variation",
+            "title": "GNG02 - Clinical Perspectives on Genetic Variation",
+            "questions": [
+              {
+                "question": "A single nucleotide variant is best described as:",
+                "options": {
+                  "A": "Addition or removal of a short DNA segment",
+                  "B": "Repeated DNA units arranged next to each other",
+                  "C": "A one-base difference at a genomic position",
+                  "D": "A larger rearrangement affecting genomic architecture",
+                  "E": "A gain or loss of DNA copy number"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A one-base difference at a genomic position."
+              },
+              {
+                "question": "An insertion-deletion variant is best described as:",
+                "options": {
+                  "A": "Addition or removal of a short DNA segment",
+                  "B": "Repeated DNA units arranged next to each other",
+                  "C": "A larger rearrangement affecting genomic architecture",
+                  "D": "A gain or loss of DNA copy number",
+                  "E": "A group of variants inherited together"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Addition or removal of a short DNA segment."
+              },
+              {
+                "question": "A tandem repeat is best described as:",
+                "options": {
+                  "A": "A larger rearrangement affecting genomic architecture",
+                  "B": "A gain or loss of DNA copy number",
+                  "C": "A group of variants inherited together",
+                  "D": "Repeated DNA units arranged next to each other",
+                  "E": "Non-random association of alleles at nearby loci"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Repeated DNA units arranged next to each other."
+              },
+              {
+                "question": "A structural variant is best described as:",
+                "options": {
+                  "A": "A gain or loss of DNA copy number",
+                  "B": "A larger rearrangement affecting genomic architecture",
+                  "C": "A group of variants inherited together",
+                  "D": "Non-random association of alleles at nearby loci",
+                  "E": "The allele combination carried by an individual"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A larger rearrangement affecting genomic architecture."
+              },
+              {
+                "question": "A copy number variant is best described as:",
+                "options": {
+                  "A": "A group of variants inherited together",
+                  "B": "Non-random association of alleles at nearby loci",
+                  "C": "The allele combination carried by an individual",
+                  "D": "The observable characteristic or disease state",
+                  "E": "A gain or loss of DNA copy number"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A gain or loss of DNA copy number."
+              },
+              {
+                "question": "A haplotype is best described as:",
+                "options": {
+                  "A": "Non-random association of alleles at nearby loci",
+                  "B": "The allele combination carried by an individual",
+                  "C": "A group of variants inherited together",
+                  "D": "The observable characteristic or disease state",
+                  "E": "An allele associated with altered disease probability"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A group of variants inherited together."
+              },
+              {
+                "question": "Linkage disequilibrium is best described as:",
+                "options": {
+                  "A": "Non-random association of alleles at nearby loci",
+                  "B": "The allele combination carried by an individual",
+                  "C": "The observable characteristic or disease state",
+                  "D": "An allele associated with altered disease probability",
+                  "E": "An allele associated with reduced disease probability"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Non-random association of alleles at nearby loci."
+              },
+              {
+                "question": "A genotype is best described as:",
+                "options": {
+                  "A": "The observable characteristic or disease state",
+                  "B": "An allele associated with altered disease probability",
+                  "C": "An allele associated with reduced disease probability",
+                  "D": "The allele combination carried by an individual",
+                  "E": "The proportion with a genotype who show the phenotype"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: The allele combination carried by an individual."
+              },
+              {
+                "question": "A phenotype is best described as:",
+                "options": {
+                  "A": "An allele associated with altered disease probability",
+                  "B": "The observable characteristic or disease state",
+                  "C": "An allele associated with reduced disease probability",
+                  "D": "The proportion with a genotype who show the phenotype",
+                  "E": "The degree to which a phenotype is expressed"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: The observable characteristic or disease state."
+              },
+              {
+                "question": "A risk allele is best described as:",
+                "options": {
+                  "A": "An allele associated with reduced disease probability",
+                  "B": "The proportion with a genotype who show the phenotype",
+                  "C": "The degree to which a phenotype is expressed",
+                  "D": "A genetic effect that varies with exposure",
+                  "E": "An allele associated with altered disease probability"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: An allele associated with altered disease probability."
+              },
+              {
+                "question": "A protective allele is best described as:",
+                "options": {
+                  "A": "The proportion with a genotype who show the phenotype",
+                  "B": "The degree to which a phenotype is expressed",
+                  "C": "An allele associated with reduced disease probability",
+                  "D": "A genetic effect that varies with exposure",
+                  "E": "A disease mainly caused by one gene"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: An allele associated with reduced disease probability."
+              },
+              {
+                "question": "Penetrance is best described as:",
+                "options": {
+                  "A": "The proportion with a genotype who show the phenotype",
+                  "B": "The degree to which a phenotype is expressed",
+                  "C": "A genetic effect that varies with exposure",
+                  "D": "A disease mainly caused by one gene",
+                  "E": "A disease influenced by many loci and environment"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: The proportion with a genotype who show the phenotype."
+              },
+              {
+                "question": "Expressivity is best described as:",
+                "options": {
+                  "A": "A genetic effect that varies with exposure",
+                  "B": "A disease mainly caused by one gene",
+                  "C": "A disease influenced by many loci and environment",
+                  "D": "The degree to which a phenotype is expressed",
+                  "E": "The proportion of alleles of one type in a population"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: The degree to which a phenotype is expressed."
+              },
+              {
+                "question": "A gene-environment interaction is best described as:",
+                "options": {
+                  "A": "A disease mainly caused by one gene",
+                  "B": "A genetic effect that varies with exposure",
+                  "C": "A disease influenced by many loci and environment",
+                  "D": "The proportion of alleles of one type in a population",
+                  "E": "A variant common enough to be seen in a population"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A genetic effect that varies with exposure."
+              },
+              {
+                "question": "A monogenic disorder is best described as:",
+                "options": {
+                  "A": "A disease influenced by many loci and environment",
+                  "B": "The proportion of alleles of one type in a population",
+                  "C": "A variant common enough to be seen in a population",
+                  "D": "A variant present at low population frequency",
+                  "E": "A disease mainly caused by one gene"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A disease mainly caused by one gene."
+              },
+              {
+                "question": "A complex disorder is best described as:",
+                "options": {
+                  "A": "The proportion of alleles of one type in a population",
+                  "B": "A variant common enough to be seen in a population",
+                  "C": "A disease influenced by many loci and environment",
+                  "D": "A variant present at low population frequency",
+                  "E": "Replacement of one nucleotide pair by another"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A disease influenced by many loci and environment."
+              },
+              {
+                "question": "An allele frequency is best described as:",
+                "options": {
+                  "A": "The proportion of alleles of one type in a population",
+                  "B": "A variant common enough to be seen in a population",
+                  "C": "A variant present at low population frequency",
+                  "D": "Replacement of one nucleotide pair by another",
+                  "E": "Loss of DNA sequence from the genome"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: The proportion of alleles of one type in a population."
+              },
+              {
+                "question": "A polymorphism is best described as:",
+                "options": {
+                  "A": "A variant present at low population frequency",
+                  "B": "Replacement of one nucleotide pair by another",
+                  "C": "Loss of DNA sequence from the genome",
+                  "D": "A variant common enough to be seen in a population",
+                  "E": "Extra copy of a DNA segment"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A variant common enough to be seen in a population."
+              },
+              {
+                "question": "A rare variant is best described as:",
+                "options": {
+                  "A": "Replacement of one nucleotide pair by another",
+                  "B": "A variant present at low population frequency",
+                  "C": "Loss of DNA sequence from the genome",
+                  "D": "Extra copy of a DNA segment",
+                  "E": "Movement of DNA between chromosomal locations"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A variant present at low population frequency."
+              },
+              {
+                "question": "A base-pair substitution is best described as:",
+                "options": {
+                  "A": "Loss of DNA sequence from the genome",
+                  "B": "Extra copy of a DNA segment",
+                  "C": "Movement of DNA between chromosomal locations",
+                  "D": "A specific genomic position",
+                  "E": "Replacement of one nucleotide pair by another"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Replacement of one nucleotide pair by another."
+              },
+              {
+                "question": "A deletion is best described as:",
+                "options": {
+                  "A": "Extra copy of a DNA segment",
+                  "B": "Movement of DNA between chromosomal locations",
+                  "C": "Loss of DNA sequence from the genome",
+                  "D": "A specific genomic position",
+                  "E": "An alternative version at a locus"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Loss of DNA sequence from the genome."
+              },
+              {
+                "question": "A duplication is best described as:",
+                "options": {
+                  "A": "Extra copy of a DNA segment",
+                  "B": "Movement of DNA between chromosomal locations",
+                  "C": "A specific genomic position",
+                  "D": "An alternative version at a locus",
+                  "E": "A variant with unclear clinical meaning"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Extra copy of a DNA segment."
+              },
+              {
+                "question": "A translocation is best described as:",
+                "options": {
+                  "A": "A specific genomic position",
+                  "B": "An alternative version at a locus",
+                  "C": "A variant with unclear clinical meaning",
+                  "D": "Movement of DNA between chromosomal locations",
+                  "E": "A one-base difference at a genomic position"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Movement of DNA between chromosomal locations."
+              },
+              {
+                "question": "A locus is best described as:",
+                "options": {
+                  "A": "An alternative version at a locus",
+                  "B": "A specific genomic position",
+                  "C": "A variant with unclear clinical meaning",
+                  "D": "A one-base difference at a genomic position",
+                  "E": "Addition or removal of a short DNA segment"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A specific genomic position."
+              },
+              {
+                "question": "An allele is best described as:",
+                "options": {
+                  "A": "A variant with unclear clinical meaning",
+                  "B": "A one-base difference at a genomic position",
+                  "C": "Addition or removal of a short DNA segment",
+                  "D": "Repeated DNA units arranged next to each other",
+                  "E": "An alternative version at a locus"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: An alternative version at a locus."
+              },
+              {
+                "question": "A variant of uncertain significance is best described as:",
+                "options": {
+                  "A": "A one-base difference at a genomic position",
+                  "B": "Addition or removal of a short DNA segment",
+                  "C": "A variant with unclear clinical meaning",
+                  "D": "Repeated DNA units arranged next to each other",
+                  "E": "A larger rearrangement affecting genomic architecture"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A variant with unclear clinical meaning."
+              },
+              {
+                "question": "Two variants are usually inherited together more often than expected by chance. This pattern is called:",
+                "options": {
+                  "A": "Linkage disequilibrium",
+                  "B": "Penetrance",
+                  "C": "Expressivity",
+                  "D": "Nondisjunction",
+                  "E": "Codominance"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Linkage disequilibrium."
+              },
+              {
+                "question": "A patient carries a variant associated with disease only when combined with smoking exposure. This is an example of:",
+                "options": {
+                  "A": "Autosomal recessive inheritance",
+                  "B": "Chromosomal nondisjunction",
+                  "C": "Mitochondrial inheritance",
+                  "D": "Gene-environment interaction",
+                  "E": "X-linked dominance"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Gene-environment interaction."
+              },
+              {
+                "question": "A family member has the disease-causing genotype but no symptoms. The best term is reduced:",
+                "options": {
+                  "A": "Allele frequency",
+                  "B": "Penetrance",
+                  "C": "Linkage disequilibrium",
+                  "D": "Copy number",
+                  "E": "Recombination"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Penetrance."
+              },
+              {
+                "question": "Two siblings with the same pathogenic variant have different severity of disease. The best explanation is variable:",
+                "options": {
+                  "A": "Homozygosity",
+                  "B": "Aneuploidy",
+                  "C": "Transversion",
+                  "D": "Translation",
+                  "E": "Expressivity"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Expressivity."
+              },
+              {
+                "question": "A variant is found in 20% of a population and has no proven disease effect. It is best described as:",
+                "options": {
+                  "A": "A pathogenic mutation",
+                  "B": "A de novo deletion",
+                  "C": "A polymorphism",
+                  "D": "A balanced translocation",
+                  "E": "A frameshift variant"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A polymorphism."
+              },
+              {
+                "question": "A genetic report describes a gain of one copy across a genomic region. The variant type is:",
+                "options": {
+                  "A": "Copy number variant",
+                  "B": "Single nucleotide variant",
+                  "C": "Tandem repeat contraction",
+                  "D": "Silent substitution",
+                  "E": "Methylation mark"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Copy number variant."
+              },
+              {
+                "question": "A disease is influenced by dozens of loci and diet. It is best classified as:",
+                "options": {
+                  "A": "Single-gene disease",
+                  "B": "Chromosomal disease",
+                  "C": "Mitochondrial disease",
+                  "D": "Complex disease",
+                  "E": "Contiguous gene syndrome"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Complex disease."
+              },
+              {
+                "question": "A clinician wants to know which alleles sit together on one inherited chromosome segment. The most relevant concept is:",
+                "options": {
+                  "A": "Phenotype",
+                  "B": "Haplotype",
+                  "C": "Karyotype",
+                  "D": "Transcriptome",
+                  "E": "Proteome"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Haplotype."
+              },
+              {
+                "question": "A variant changes one base pair but does not alter chromosome structure. It is most likely a:",
+                "options": {
+                  "A": "Translocation",
+                  "B": "Large inversion",
+                  "C": "Whole chromosome trisomy",
+                  "D": "Segmental duplication",
+                  "E": "Single nucleotide variant"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Single nucleotide variant."
+              },
+              {
+                "question": "A child has a disease caused by a new variant not present in either parent. The variant is:",
+                "options": {
+                  "A": "Homozygous",
+                  "B": "Protective",
+                  "C": "De novo",
+                  "D": "Synonymous",
+                  "E": "Imprinted"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: De novo."
+              },
+              {
+                "question": "A case-control study finds an allele more common in unaffected controls than cases. The allele is most likely:",
+                "options": {
+                  "A": "Protective",
+                  "B": "Dominant",
+                  "C": "Penetrant",
+                  "D": "Somatic",
+                  "E": "Frameshift"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Protective."
+              },
+              {
+                "question": "A repeat tract expands across generations and disease worsens earlier in life. The variant class is most consistent with:",
+                "options": {
+                  "A": "Balanced inversion",
+                  "B": "Silent substitution",
+                  "C": "Gene conversion",
+                  "D": "Tandem repeat expansion",
+                  "E": "Copy-neutral LOH"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Tandem repeat expansion."
+              },
+              {
+                "question": "A sequence change is seen in a patient but current evidence cannot classify it as harmful or benign. The report should call it:",
+                "options": {
+                  "A": "Pathogenic deletion",
+                  "B": "Variant of uncertain significance",
+                  "C": "Likely benign polymorphism",
+                  "D": "Autosomal dominant allele",
+                  "E": "Actionable biomarker"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Variant of uncertain significance."
+              },
+              {
+                "question": "A study compares genotypes with measured blood pressure values. Blood pressure in this study is the:",
+                "options": {
+                  "A": "Haplotype",
+                  "B": "Locus",
+                  "C": "Exon",
+                  "D": "Allele",
+                  "E": "Phenotype"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Phenotype."
+              }
+            ]
+          },
+          {
+            "id": "gng03-principles-of-genetic-inheritance",
+            "title": "GNG03 - Principles of Genetic Inheritance",
+            "questions": [
+              {
+                "question": "The usual human female karyotype is best described as:",
+                "options": {
+                  "A": "46,XY",
+                  "B": "A cell with two sets of chromosomes",
+                  "C": "46,XX",
+                  "D": "A cell with one set of chromosomes",
+                  "E": "A maternal and paternal chromosome pair"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: 46,XX."
+              },
+              {
+                "question": "The usual human male karyotype is best described as:",
+                "options": {
+                  "A": "46,XY",
+                  "B": "A cell with two sets of chromosomes",
+                  "C": "A cell with one set of chromosomes",
+                  "D": "A maternal and paternal chromosome pair",
+                  "E": "Cell division producing genetically different gametes"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: 46,XY."
+              },
+              {
+                "question": "A diploid cell is best described as:",
+                "options": {
+                  "A": "A cell with one set of chromosomes",
+                  "B": "A maternal and paternal chromosome pair",
+                  "C": "Cell division producing genetically different gametes",
+                  "D": "A cell with two sets of chromosomes",
+                  "E": "Cell division producing genetically similar daughter cells"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A cell with two sets of chromosomes."
+              },
+              {
+                "question": "A haploid gamete is best described as:",
+                "options": {
+                  "A": "A maternal and paternal chromosome pair",
+                  "B": "A cell with one set of chromosomes",
+                  "C": "Cell division producing genetically different gametes",
+                  "D": "Cell division producing genetically similar daughter cells",
+                  "E": "Separation of homologous chromosomes into gametes"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A cell with one set of chromosomes."
+              },
+              {
+                "question": "Homologous chromosomes is best described as:",
+                "options": {
+                  "A": "Cell division producing genetically different gametes",
+                  "B": "Cell division producing genetically similar daughter cells",
+                  "C": "Separation of homologous chromosomes into gametes",
+                  "D": "Random distribution of chromosome pairs into gametes",
+                  "E": "A maternal and paternal chromosome pair"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A maternal and paternal chromosome pair."
+              },
+              {
+                "question": "Meiosis is best described as:",
+                "options": {
+                  "A": "Cell division producing genetically similar daughter cells",
+                  "B": "Separation of homologous chromosomes into gametes",
+                  "C": "Cell division producing genetically different gametes",
+                  "D": "Random distribution of chromosome pairs into gametes",
+                  "E": "Exchange of DNA between homologous chromosomes"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Cell division producing genetically different gametes."
+              },
+              {
+                "question": "Mitosis is best described as:",
+                "options": {
+                  "A": "Cell division producing genetically similar daughter cells",
+                  "B": "Separation of homologous chromosomes into gametes",
+                  "C": "Random distribution of chromosome pairs into gametes",
+                  "D": "Exchange of DNA between homologous chromosomes",
+                  "E": "One altered allele on an autosome can cause disease"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Cell division producing genetically similar daughter cells."
+              },
+              {
+                "question": "Segregation is best described as:",
+                "options": {
+                  "A": "Random distribution of chromosome pairs into gametes",
+                  "B": "Exchange of DNA between homologous chromosomes",
+                  "C": "One altered allele on an autosome can cause disease",
+                  "D": "Separation of homologous chromosomes into gametes",
+                  "E": "Two altered alleles are usually required for disease"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Separation of homologous chromosomes into gametes."
+              },
+              {
+                "question": "Independent assortment is best described as:",
+                "options": {
+                  "A": "Exchange of DNA between homologous chromosomes",
+                  "B": "Random distribution of chromosome pairs into gametes",
+                  "C": "One altered allele on an autosome can cause disease",
+                  "D": "Two altered alleles are usually required for disease",
+                  "E": "A recessive variant on the X chromosome affects males more often"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Random distribution of chromosome pairs into gametes."
+              },
+              {
+                "question": "Recombination is best described as:",
+                "options": {
+                  "A": "One altered allele on an autosome can cause disease",
+                  "B": "Two altered alleles are usually required for disease",
+                  "C": "A recessive variant on the X chromosome affects males more often",
+                  "D": "A dominant X-linked variant can affect both sexes",
+                  "E": "Exchange of DNA between homologous chromosomes"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Exchange of DNA between homologous chromosomes."
+              },
+              {
+                "question": "Autosomal dominant inheritance is best described as:",
+                "options": {
+                  "A": "Two altered alleles are usually required for disease",
+                  "B": "A recessive variant on the X chromosome affects males more often",
+                  "C": "One altered allele on an autosome can cause disease",
+                  "D": "A dominant X-linked variant can affect both sexes",
+                  "E": "An unaffected person with one recessive pathogenic allele"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: One altered allele on an autosome can cause disease."
+              },
+              {
+                "question": "Autosomal recessive inheritance is best described as:",
+                "options": {
+                  "A": "Two altered alleles are usually required for disease",
+                  "B": "A recessive variant on the X chromosome affects males more often",
+                  "C": "A dominant X-linked variant can affect both sexes",
+                  "D": "An unaffected person with one recessive pathogenic allele",
+                  "E": "Two identical alleles at a locus"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Two altered alleles are usually required for disease."
+              },
+              {
+                "question": "X-linked recessive inheritance is best described as:",
+                "options": {
+                  "A": "A dominant X-linked variant can affect both sexes",
+                  "B": "An unaffected person with one recessive pathogenic allele",
+                  "C": "Two identical alleles at a locus",
+                  "D": "A recessive variant on the X chromosome affects males more often",
+                  "E": "Two different alleles at a locus"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A recessive variant on the X chromosome affects males more often."
+              },
+              {
+                "question": "X-linked dominant inheritance is best described as:",
+                "options": {
+                  "A": "An unaffected person with one recessive pathogenic allele",
+                  "B": "A dominant X-linked variant can affect both sexes",
+                  "C": "Two identical alleles at a locus",
+                  "D": "Two different alleles at a locus",
+                  "E": "One allele present where two are not carried"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A dominant X-linked variant can affect both sexes."
+              },
+              {
+                "question": "A carrier is best described as:",
+                "options": {
+                  "A": "Two identical alleles at a locus",
+                  "B": "Two different alleles at a locus",
+                  "C": "One allele present where two are not carried",
+                  "D": "Both alleles are expressed in the phenotype",
+                  "E": "An unaffected person with one recessive pathogenic allele"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: An unaffected person with one recessive pathogenic allele."
+              },
+              {
+                "question": "Homozygous is best described as:",
+                "options": {
+                  "A": "Two different alleles at a locus",
+                  "B": "One allele present where two are not carried",
+                  "C": "Two identical alleles at a locus",
+                  "D": "Both alleles are expressed in the phenotype",
+                  "E": "A heterozygote has an intermediate phenotype"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Two identical alleles at a locus."
+              },
+              {
+                "question": "Heterozygous is best described as:",
+                "options": {
+                  "A": "Two different alleles at a locus",
+                  "B": "One allele present where two are not carried",
+                  "C": "Both alleles are expressed in the phenotype",
+                  "D": "A heterozygote has an intermediate phenotype",
+                  "E": "A new variant not inherited from either parent"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Two different alleles at a locus."
+              },
+              {
+                "question": "Hemizygous is best described as:",
+                "options": {
+                  "A": "Both alleles are expressed in the phenotype",
+                  "B": "A heterozygote has an intermediate phenotype",
+                  "C": "A new variant not inherited from either parent",
+                  "D": "One allele present where two are not carried",
+                  "E": "Assessment of inheritance patterns in a family"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: One allele present where two are not carried."
+              },
+              {
+                "question": "Codominance is best described as:",
+                "options": {
+                  "A": "A heterozygote has an intermediate phenotype",
+                  "B": "Both alleles are expressed in the phenotype",
+                  "C": "A new variant not inherited from either parent",
+                  "D": "Assessment of inheritance patterns in a family",
+                  "E": "Reproduction between biologically related individuals"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Both alleles are expressed in the phenotype."
+              },
+              {
+                "question": "Incomplete dominance is best described as:",
+                "options": {
+                  "A": "A new variant not inherited from either parent",
+                  "B": "Assessment of inheritance patterns in a family",
+                  "C": "Reproduction between biologically related individuals",
+                  "D": "Probability a disorder will occur again in a family",
+                  "E": "A heterozygote has an intermediate phenotype"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A heterozygote has an intermediate phenotype."
+              },
+              {
+                "question": "De novo mutation is best described as:",
+                "options": {
+                  "A": "Assessment of inheritance patterns in a family",
+                  "B": "Reproduction between biologically related individuals",
+                  "C": "A new variant not inherited from either parent",
+                  "D": "Probability a disorder will occur again in a family",
+                  "E": "Failure of chromosomes to separate correctly"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A new variant not inherited from either parent."
+              },
+              {
+                "question": "Pedigree analysis is best described as:",
+                "options": {
+                  "A": "Assessment of inheritance patterns in a family",
+                  "B": "Reproduction between biologically related individuals",
+                  "C": "Probability a disorder will occur again in a family",
+                  "D": "Failure of chromosomes to separate correctly",
+                  "E": "An abnormal number of chromosomes"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Assessment of inheritance patterns in a family."
+              },
+              {
+                "question": "Consanguinity is best described as:",
+                "options": {
+                  "A": "Probability a disorder will occur again in a family",
+                  "B": "Failure of chromosomes to separate correctly",
+                  "C": "An abnormal number of chromosomes",
+                  "D": "Reproduction between biologically related individuals",
+                  "E": "46,XX"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Reproduction between biologically related individuals."
+              },
+              {
+                "question": "Recurrence risk is best described as:",
+                "options": {
+                  "A": "Failure of chromosomes to separate correctly",
+                  "B": "Probability a disorder will occur again in a family",
+                  "C": "An abnormal number of chromosomes",
+                  "D": "46,XX",
+                  "E": "46,XY"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Probability a disorder will occur again in a family."
+              },
+              {
+                "question": "Nondisjunction is best described as:",
+                "options": {
+                  "A": "An abnormal number of chromosomes",
+                  "B": "46,XX",
+                  "C": "46,XY",
+                  "D": "A cell with two sets of chromosomes",
+                  "E": "Failure of chromosomes to separate correctly"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Failure of chromosomes to separate correctly."
+              },
+              {
+                "question": "Aneuploidy is best described as:",
+                "options": {
+                  "A": "46,XX",
+                  "B": "46,XY",
+                  "C": "An abnormal number of chromosomes",
+                  "D": "A cell with two sets of chromosomes",
+                  "E": "A cell with one set of chromosomes"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: An abnormal number of chromosomes."
+              },
+              {
+                "question": "Unaffected parents have two children with the same rare disease. The pattern most strongly suggests:",
+                "options": {
+                  "A": "Autosomal recessive inheritance",
+                  "B": "Autosomal dominant inheritance",
+                  "C": "Y-linked inheritance",
+                  "D": "Mitochondrial inheritance",
+                  "E": "X-linked dominant inheritance"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Autosomal recessive inheritance."
+              },
+              {
+                "question": "A disease appears in every generation and affected people have an affected parent. The most likely pattern is:",
+                "options": {
+                  "A": "Autosomal recessive inheritance",
+                  "B": "Maternal inheritance",
+                  "C": "Chromosomal nondisjunction",
+                  "D": "Autosomal dominant inheritance",
+                  "E": "Multifactorial inheritance"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Autosomal dominant inheritance."
+              },
+              {
+                "question": "A male has an X-linked recessive disorder. His sons are usually unaffected because:",
+                "options": {
+                  "A": "They inherit his affected X chromosome",
+                  "B": "They inherit his Y chromosome",
+                  "C": "They inherit two maternal X chromosomes",
+                  "D": "They cannot inherit recessive variants",
+                  "E": "They always receive a normal paternal allele"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: They inherit his Y chromosome."
+              },
+              {
+                "question": "A woman is a carrier for an autosomal recessive disorder and her partner is also a carrier. The chance of an affected child is:",
+                "options": {
+                  "A": "0%",
+                  "B": "10%",
+                  "C": "50%",
+                  "D": "75%",
+                  "E": "25%"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: 25%."
+              },
+              {
+                "question": "A heterozygous parent has an autosomal dominant disorder with full penetrance. The chance each child inherits the variant is:",
+                "options": {
+                  "A": "0%",
+                  "B": "25%",
+                  "C": "50%",
+                  "D": "75%",
+                  "E": "100%"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: 50%."
+              },
+              {
+                "question": "A pedigree shows only males affected and transmission through carrier females. The best fit is:",
+                "options": {
+                  "A": "X-linked recessive inheritance",
+                  "B": "Autosomal dominant inheritance",
+                  "C": "Mitochondrial inheritance",
+                  "D": "Y-linked inheritance",
+                  "E": "Autosomal recessive inheritance"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: X-linked recessive inheritance."
+              },
+              {
+                "question": "A child has trisomy 21 due to gamete formation error. The most likely mechanism is:",
+                "options": {
+                  "A": "Recombination",
+                  "B": "Independent assortment",
+                  "C": "Codominance",
+                  "D": "Nondisjunction",
+                  "E": "Transcription"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Nondisjunction."
+              },
+              {
+                "question": "Two loci on different chromosomes are inherited into gametes in multiple combinations. This illustrates:",
+                "options": {
+                  "A": "Penetrance",
+                  "B": "Independent assortment",
+                  "C": "Expressivity",
+                  "D": "Linkage disequilibrium",
+                  "E": "Nondisjunction"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Independent assortment."
+              },
+              {
+                "question": "A heterozygote shows both A and B blood group antigens. This is an example of:",
+                "options": {
+                  "A": "Incomplete dominance",
+                  "B": "Recessive inheritance",
+                  "C": "Mosaicism",
+                  "D": "Anticipation",
+                  "E": "Codominance"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Codominance."
+              },
+              {
+                "question": "A phenotype in heterozygotes is between the two homozygous phenotypes. This is:",
+                "options": {
+                  "A": "Codominance",
+                  "B": "Dominant negative inheritance",
+                  "C": "Incomplete dominance",
+                  "D": "Maternal inheritance",
+                  "E": "Genomic imprinting"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Incomplete dominance."
+              },
+              {
+                "question": "A child is affected by a dominant condition but both biological parents test negative in blood. The simplest explanation is:",
+                "options": {
+                  "A": "De novo mutation",
+                  "B": "Autosomal recessive inheritance",
+                  "C": "Balanced translocation",
+                  "D": "Polygenic risk",
+                  "E": "Linkage disequilibrium"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: De novo mutation."
+              },
+              {
+                "question": "A rare recessive disorder is more common in offspring of related parents because they are more likely to:",
+                "options": {
+                  "A": "Have more chromosomes",
+                  "B": "Produce only affected gametes",
+                  "C": "Express both alleles equally",
+                  "D": "Share the same pathogenic allele",
+                  "E": "Avoid recombination"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Share the same pathogenic allele."
+              },
+              {
+                "question": "A male with one pathogenic allele on the X chromosome expresses disease. His genotype is best called:",
+                "options": {
+                  "A": "Homozygous",
+                  "B": "Hemizygous",
+                  "C": "Compound heterozygous",
+                  "D": "Polygenic",
+                  "E": "Codominant"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Hemizygous."
+              },
+              {
+                "question": "A pedigree is used before genetic testing mainly to:",
+                "options": {
+                  "A": "Measure DNA concentration",
+                  "B": "Detect methylation marks",
+                  "C": "Sequence a whole genome",
+                  "D": "Calculate sequencing depth",
+                  "E": "Infer the likely inheritance pattern"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Infer the likely inheritance pattern."
+              }
+            ]
+          },
+          {
+            "id": "gng04-molecular-mechanisms-of-genetic-disease",
+            "title": "GNG04 - Molecular Mechanisms of Genetic Disease",
+            "questions": [
+              {
+                "question": "Linkage analysis is best described as:",
+                "options": {
+                  "A": "A detectable variant used to follow inheritance",
+                  "B": "The proportion of meioses with crossover between loci",
+                  "C": "Tracking co-inheritance of markers and disease in families",
+                  "D": "A statistic comparing linkage with no linkage",
+                  "E": "Finding a disease gene from its chromosomal location"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Tracking co-inheritance of markers and disease in families."
+              },
+              {
+                "question": "A genetic marker is best described as:",
+                "options": {
+                  "A": "A detectable variant used to follow inheritance",
+                  "B": "The proportion of meioses with crossover between loci",
+                  "C": "A statistic comparing linkage with no linkage",
+                  "D": "Finding a disease gene from its chromosomal location",
+                  "E": "Testing a biologically plausible gene for disease variants"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A detectable variant used to follow inheritance."
+              },
+              {
+                "question": "Recombination fraction is best described as:",
+                "options": {
+                  "A": "A statistic comparing linkage with no linkage",
+                  "B": "Finding a disease gene from its chromosomal location",
+                  "C": "Testing a biologically plausible gene for disease variants",
+                  "D": "The proportion of meioses with crossover between loci",
+                  "E": "Checking whether a variant follows disease in a family"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: The proportion of meioses with crossover between loci."
+              },
+              {
+                "question": "A LOD score is best described as:",
+                "options": {
+                  "A": "Finding a disease gene from its chromosomal location",
+                  "B": "A statistic comparing linkage with no linkage",
+                  "C": "Testing a biologically plausible gene for disease variants",
+                  "D": "Checking whether a variant follows disease in a family",
+                  "E": "Chain-termination sequencing of targeted DNA"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A statistic comparing linkage with no linkage."
+              },
+              {
+                "question": "Positional cloning is best described as:",
+                "options": {
+                  "A": "Testing a biologically plausible gene for disease variants",
+                  "B": "Checking whether a variant follows disease in a family",
+                  "C": "Chain-termination sequencing of targeted DNA",
+                  "D": "Massively parallel sequencing of many DNA fragments",
+                  "E": "Finding a disease gene from its chromosomal location"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Finding a disease gene from its chromosomal location."
+              },
+              {
+                "question": "Candidate gene analysis is best described as:",
+                "options": {
+                  "A": "Checking whether a variant follows disease in a family",
+                  "B": "Chain-termination sequencing of targeted DNA",
+                  "C": "Testing a biologically plausible gene for disease variants",
+                  "D": "Massively parallel sequencing of many DNA fragments",
+                  "E": "Sequencing mainly protein-coding regions"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Testing a biologically plausible gene for disease variants."
+              },
+              {
+                "question": "Segregation analysis is best described as:",
+                "options": {
+                  "A": "Checking whether a variant follows disease in a family",
+                  "B": "Chain-termination sequencing of targeted DNA",
+                  "C": "Massively parallel sequencing of many DNA fragments",
+                  "D": "Sequencing mainly protein-coding regions",
+                  "E": "Sequencing coding and non-coding genomic DNA"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Checking whether a variant follows disease in a family."
+              },
+              {
+                "question": "Sanger sequencing is best described as:",
+                "options": {
+                  "A": "Massively parallel sequencing of many DNA fragments",
+                  "B": "Sequencing mainly protein-coding regions",
+                  "C": "Sequencing coding and non-coding genomic DNA",
+                  "D": "Chain-termination sequencing of targeted DNA",
+                  "E": "A change reducing or abolishing gene product function"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Chain-termination sequencing of targeted DNA."
+              },
+              {
+                "question": "Next-generation sequencing is best described as:",
+                "options": {
+                  "A": "Sequencing mainly protein-coding regions",
+                  "B": "Massively parallel sequencing of many DNA fragments",
+                  "C": "Sequencing coding and non-coding genomic DNA",
+                  "D": "A change reducing or abolishing gene product function",
+                  "E": "A change increasing or altering gene product activity"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Massively parallel sequencing of many DNA fragments."
+              },
+              {
+                "question": "Whole exome sequencing is best described as:",
+                "options": {
+                  "A": "Sequencing coding and non-coding genomic DNA",
+                  "B": "A change reducing or abolishing gene product function",
+                  "C": "A change increasing or altering gene product activity",
+                  "D": "One functional gene copy is insufficient",
+                  "E": "Sequencing mainly protein-coding regions"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Sequencing mainly protein-coding regions."
+              },
+              {
+                "question": "Whole genome sequencing is best described as:",
+                "options": {
+                  "A": "A change reducing or abolishing gene product function",
+                  "B": "A change increasing or altering gene product activity",
+                  "C": "Sequencing coding and non-coding genomic DNA",
+                  "D": "One functional gene copy is insufficient",
+                  "E": "A mutant product interferes with normal product"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Sequencing coding and non-coding genomic DNA."
+              },
+              {
+                "question": "Loss-of-function variant is best described as:",
+                "options": {
+                  "A": "A change reducing or abolishing gene product function",
+                  "B": "A change increasing or altering gene product activity",
+                  "C": "One functional gene copy is insufficient",
+                  "D": "A mutant product interferes with normal product",
+                  "E": "A change disrupting RNA splicing signals"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A change reducing or abolishing gene product function."
+              },
+              {
+                "question": "Gain-of-function variant is best described as:",
+                "options": {
+                  "A": "One functional gene copy is insufficient",
+                  "B": "A mutant product interferes with normal product",
+                  "C": "A change disrupting RNA splicing signals",
+                  "D": "A change increasing or altering gene product activity",
+                  "E": "An insertion or deletion that changes the reading frame"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A change increasing or altering gene product activity."
+              },
+              {
+                "question": "Haploinsufficiency is best described as:",
+                "options": {
+                  "A": "A mutant product interferes with normal product",
+                  "B": "One functional gene copy is insufficient",
+                  "C": "A change disrupting RNA splicing signals",
+                  "D": "An insertion or deletion that changes the reading frame",
+                  "E": "A change creating a premature stop codon"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: One functional gene copy is insufficient."
+              },
+              {
+                "question": "Dominant negative effect is best described as:",
+                "options": {
+                  "A": "A change disrupting RNA splicing signals",
+                  "B": "An insertion or deletion that changes the reading frame",
+                  "C": "A change creating a premature stop codon",
+                  "D": "A change substituting one amino acid for another",
+                  "E": "A mutant product interferes with normal product"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A mutant product interferes with normal product."
+              },
+              {
+                "question": "A splice-site variant is best described as:",
+                "options": {
+                  "A": "An insertion or deletion that changes the reading frame",
+                  "B": "A change creating a premature stop codon",
+                  "C": "A change disrupting RNA splicing signals",
+                  "D": "A change substituting one amino acid for another",
+                  "E": "A coding change that preserves the amino acid"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A change disrupting RNA splicing signals."
+              },
+              {
+                "question": "A frameshift variant is best described as:",
+                "options": {
+                  "A": "An insertion or deletion that changes the reading frame",
+                  "B": "A change creating a premature stop codon",
+                  "C": "A change substituting one amino acid for another",
+                  "D": "A coding change that preserves the amino acid",
+                  "E": "High variant frequency due to ancestry from few founders"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: An insertion or deletion that changes the reading frame."
+              },
+              {
+                "question": "A nonsense variant is best described as:",
+                "options": {
+                  "A": "A change substituting one amino acid for another",
+                  "B": "A coding change that preserves the amino acid",
+                  "C": "High variant frequency due to ancestry from few founders",
+                  "D": "A change creating a premature stop codon",
+                  "E": "Variants in different genes causing a similar disease"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A change creating a premature stop codon."
+              },
+              {
+                "question": "A missense variant is best described as:",
+                "options": {
+                  "A": "A coding change that preserves the amino acid",
+                  "B": "A change substituting one amino acid for another",
+                  "C": "High variant frequency due to ancestry from few founders",
+                  "D": "Variants in different genes causing a similar disease",
+                  "E": "Different variants in one gene causing a disease"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A change substituting one amino acid for another."
+              },
+              {
+                "question": "A synonymous variant is best described as:",
+                "options": {
+                  "A": "High variant frequency due to ancestry from few founders",
+                  "B": "Variants in different genes causing a similar disease",
+                  "C": "Different variants in one gene causing a disease",
+                  "D": "An environmental mimic of a genetic disease",
+                  "E": "A coding change that preserves the amino acid"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A coding change that preserves the amino acid."
+              },
+              {
+                "question": "Founder effect is best described as:",
+                "options": {
+                  "A": "Variants in different genes causing a similar disease",
+                  "B": "Different variants in one gene causing a disease",
+                  "C": "High variant frequency due to ancestry from few founders",
+                  "D": "An environmental mimic of a genetic disease",
+                  "E": "Data supporting whether a variant causes disease"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: High variant frequency due to ancestry from few founders."
+              },
+              {
+                "question": "Locus heterogeneity is best described as:",
+                "options": {
+                  "A": "Variants in different genes causing a similar disease",
+                  "B": "Different variants in one gene causing a disease",
+                  "C": "An environmental mimic of a genetic disease",
+                  "D": "Data supporting whether a variant causes disease",
+                  "E": "The biological effect of a DNA variant"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Variants in different genes causing a similar disease."
+              },
+              {
+                "question": "Allelic heterogeneity is best described as:",
+                "options": {
+                  "A": "An environmental mimic of a genetic disease",
+                  "B": "Data supporting whether a variant causes disease",
+                  "C": "The biological effect of a DNA variant",
+                  "D": "Different variants in one gene causing a disease",
+                  "E": "Tracking co-inheritance of markers and disease in families"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Different variants in one gene causing a disease."
+              },
+              {
+                "question": "Phenocopy is best described as:",
+                "options": {
+                  "A": "Data supporting whether a variant causes disease",
+                  "B": "An environmental mimic of a genetic disease",
+                  "C": "The biological effect of a DNA variant",
+                  "D": "Tracking co-inheritance of markers and disease in families",
+                  "E": "A detectable variant used to follow inheritance"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: An environmental mimic of a genetic disease."
+              },
+              {
+                "question": "Pathogenicity evidence is best described as:",
+                "options": {
+                  "A": "The biological effect of a DNA variant",
+                  "B": "Tracking co-inheritance of markers and disease in families",
+                  "C": "A detectable variant used to follow inheritance",
+                  "D": "The proportion of meioses with crossover between loci",
+                  "E": "Data supporting whether a variant causes disease"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Data supporting whether a variant causes disease."
+              },
+              {
+                "question": "Functional consequence is best described as:",
+                "options": {
+                  "A": "Tracking co-inheritance of markers and disease in families",
+                  "B": "A detectable variant used to follow inheritance",
+                  "C": "The biological effect of a DNA variant",
+                  "D": "The proportion of meioses with crossover between loci",
+                  "E": "A statistic comparing linkage with no linkage"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: The biological effect of a DNA variant."
+              },
+              {
+                "question": "A disease variant and a nearby marker are usually inherited together in a large pedigree. This supports:",
+                "options": {
+                  "A": "Linkage",
+                  "B": "Independent assortment",
+                  "C": "Nondisjunction",
+                  "D": "Reverse transcription",
+                  "E": "Mitochondrial inheritance"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Linkage."
+              },
+              {
+                "question": "A variant is present in all affected relatives and absent from unaffected relatives. This provides evidence for:",
+                "options": {
+                  "A": "Low sequencing depth",
+                  "B": "Population stratification",
+                  "C": "Synonymous coding",
+                  "D": "Segregation with disease",
+                  "E": "Chromosomal trisomy"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Segregation with disease."
+              },
+              {
+                "question": "A family maps disease to a genomic interval before a gene is known. The next approach is closest to:",
+                "options": {
+                  "A": "Karyotype banding",
+                  "B": "Positional cloning",
+                  "C": "Pharmacogenetic dosing",
+                  "D": "Methylation profiling",
+                  "E": "Proteomic screening"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Positional cloning."
+              },
+              {
+                "question": "A premature stop codon in a gene causes absence of functional protein. The mechanism is most likely:",
+                "options": {
+                  "A": "Gain of function",
+                  "B": "Codominance",
+                  "C": "Balanced translocation",
+                  "D": "Linkage equilibrium",
+                  "E": "Loss of function"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Loss of function."
+              },
+              {
+                "question": "A mutant protein binds the normal protein and prevents its function. This is:",
+                "options": {
+                  "A": "Haploinsufficiency",
+                  "B": "Silent variation",
+                  "C": "Dominant negative effect",
+                  "D": "Reduced penetrance",
+                  "E": "Founder effect"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Dominant negative effect."
+              },
+              {
+                "question": "A patient has a disease because one normal allele does not produce enough product. This is:",
+                "options": {
+                  "A": "Haploinsufficiency",
+                  "B": "Codominance",
+                  "C": "Anticipation",
+                  "D": "Imprinting",
+                  "E": "Compound heterozygosity"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Haploinsufficiency."
+              },
+              {
+                "question": "A condition can be caused by variants in several different genes. This is:",
+                "options": {
+                  "A": "Allelic heterogeneity",
+                  "B": "Founder effect",
+                  "C": "Phenocopy",
+                  "D": "Locus heterogeneity",
+                  "E": "Mosaicism"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Locus heterogeneity."
+              },
+              {
+                "question": "Several different pathogenic variants in the same gene cause the same disorder. This is:",
+                "options": {
+                  "A": "Locus heterogeneity",
+                  "B": "Allelic heterogeneity",
+                  "C": "Nondisjunction",
+                  "D": "Linkage equilibrium",
+                  "E": "Balanced inheritance"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Allelic heterogeneity."
+              },
+              {
+                "question": "An exome test misses a deep intronic pathogenic variant. The limitation is that exome sequencing mainly targets:",
+                "options": {
+                  "A": "All regulatory DNA",
+                  "B": "Mitochondrial heteroplasmy",
+                  "C": "Chromosome number",
+                  "D": "All epigenetic marks",
+                  "E": "Protein-coding regions"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Protein-coding regions."
+              },
+              {
+                "question": "A small family has too few informative meioses for linkage. The main problem is reduced:",
+                "options": {
+                  "A": "RNA translation accuracy",
+                  "B": "Chromosome number stability",
+                  "C": "Power to detect co-segregation",
+                  "D": "Drug metabolism",
+                  "E": "ATP production"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Power to detect co-segregation."
+              },
+              {
+                "question": "A variant changes a canonical splice donor site. The likely consequence is abnormal:",
+                "options": {
+                  "A": "RNA splicing",
+                  "B": "Chromosome segregation",
+                  "C": "Protein glycosylation",
+                  "D": "Mitochondrial replication",
+                  "E": "Antibody recombination"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: RNA splicing."
+              },
+              {
+                "question": "A genetic disease is suspected but the same clinical picture can be caused by an exposure. The exposure-related case is a:",
+                "options": {
+                  "A": "Haplotype",
+                  "B": "Founder variant",
+                  "C": "Marker allele",
+                  "D": "Phenocopy",
+                  "E": "Somatic clone"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Phenocopy."
+              },
+              {
+                "question": "A targeted test sequences one candidate gene because the protein function matches the phenotype. This is:",
+                "options": {
+                  "A": "Genome-wide association",
+                  "B": "Candidate gene analysis",
+                  "C": "Karyotype analysis",
+                  "D": "Faecal microbiota transfer",
+                  "E": "Cell-free DNA testing"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Candidate gene analysis."
+              },
+              {
+                "question": "A variant is common in a small isolated population because descendants share a limited ancestral pool. This is:",
+                "options": {
+                  "A": "Transversion",
+                  "B": "Penetrance",
+                  "C": "Linkage equilibrium",
+                  "D": "Mosaicism",
+                  "E": "Founder effect"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Founder effect."
+              }
+            ]
+          },
+          {
+            "id": "gng05-investigating-the-genome",
+            "title": "GNG05 - Investigating the Genome",
+            "questions": [
+              {
+                "question": "Whole genome sequencing is best described as:",
+                "options": {
+                  "A": "Sequencing mostly protein-coding exons",
+                  "B": "Sequencing selected genes linked to a phenotype",
+                  "C": "Sequencing nearly all nuclear and mitochondrial DNA",
+                  "D": "The number of reads covering a genomic position",
+                  "E": "The proportion or extent of bases adequately sequenced"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Sequencing nearly all nuclear and mitochondrial DNA."
+              },
+              {
+                "question": "Whole exome sequencing is best described as:",
+                "options": {
+                  "A": "Sequencing mostly protein-coding exons",
+                  "B": "Sequencing selected genes linked to a phenotype",
+                  "C": "The number of reads covering a genomic position",
+                  "D": "The proportion or extent of bases adequately sequenced",
+                  "E": "Mapping sequence reads to a reference genome"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Sequencing mostly protein-coding exons."
+              },
+              {
+                "question": "Targeted gene panel is best described as:",
+                "options": {
+                  "A": "The number of reads covering a genomic position",
+                  "B": "The proportion or extent of bases adequately sequenced",
+                  "C": "Mapping sequence reads to a reference genome",
+                  "D": "Sequencing selected genes linked to a phenotype",
+                  "E": "Identifying differences from a reference sequence"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Sequencing selected genes linked to a phenotype."
+              },
+              {
+                "question": "Sequencing depth is best described as:",
+                "options": {
+                  "A": "The proportion or extent of bases adequately sequenced",
+                  "B": "The number of reads covering a genomic position",
+                  "C": "Mapping sequence reads to a reference genome",
+                  "D": "Identifying differences from a reference sequence",
+                  "E": "Computational analysis of genomic data"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: The number of reads covering a genomic position."
+              },
+              {
+                "question": "Coverage is best described as:",
+                "options": {
+                  "A": "Mapping sequence reads to a reference genome",
+                  "B": "Identifying differences from a reference sequence",
+                  "C": "Computational analysis of genomic data",
+                  "D": "Sequencing reads with base quality information",
+                  "E": "The proportion or extent of bases adequately sequenced"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: The proportion or extent of bases adequately sequenced."
+              },
+              {
+                "question": "Read alignment is best described as:",
+                "options": {
+                  "A": "Identifying differences from a reference sequence",
+                  "B": "Computational analysis of genomic data",
+                  "C": "Mapping sequence reads to a reference genome",
+                  "D": "Sequencing reads with base quality information",
+                  "E": "Aligned sequencing reads stored compactly"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Mapping sequence reads to a reference genome."
+              },
+              {
+                "question": "Variant calling is best described as:",
+                "options": {
+                  "A": "Identifying differences from a reference sequence",
+                  "B": "Computational analysis of genomic data",
+                  "C": "Sequencing reads with base quality information",
+                  "D": "Aligned sequencing reads stored compactly",
+                  "E": "A file format listing called variants"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Identifying differences from a reference sequence."
+              },
+              {
+                "question": "Bioinformatics is best described as:",
+                "options": {
+                  "A": "Sequencing reads with base quality information",
+                  "B": "Aligned sequencing reads stored compactly",
+                  "C": "A file format listing called variants",
+                  "D": "Computational analysis of genomic data",
+                  "E": "Finding one-base sequence differences"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Computational analysis of genomic data."
+              },
+              {
+                "question": "FASTQ data is best described as:",
+                "options": {
+                  "A": "Aligned sequencing reads stored compactly",
+                  "B": "Sequencing reads with base quality information",
+                  "C": "A file format listing called variants",
+                  "D": "Finding one-base sequence differences",
+                  "E": "Detecting gains or losses of DNA dosage"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Sequencing reads with base quality information."
+              },
+              {
+                "question": "BAM or CRAM data is best described as:",
+                "options": {
+                  "A": "A file format listing called variants",
+                  "B": "Finding one-base sequence differences",
+                  "C": "Detecting gains or losses of DNA dosage",
+                  "D": "Detecting larger genomic rearrangements",
+                  "E": "Aligned sequencing reads stored compactly"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Aligned sequencing reads stored compactly."
+              },
+              {
+                "question": "VCF data is best described as:",
+                "options": {
+                  "A": "Finding one-base sequence differences",
+                  "B": "Detecting gains or losses of DNA dosage",
+                  "C": "A file format listing called variants",
+                  "D": "Detecting larger genomic rearrangements",
+                  "E": "Microscopic assessment of chromosome number and structure"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A file format listing called variants."
+              },
+              {
+                "question": "Single nucleotide variant detection is best described as:",
+                "options": {
+                  "A": "Finding one-base sequence differences",
+                  "B": "Detecting gains or losses of DNA dosage",
+                  "C": "Detecting larger genomic rearrangements",
+                  "D": "Microscopic assessment of chromosome number and structure",
+                  "E": "Genome-wide detection of copy number imbalance"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Finding one-base sequence differences."
+              },
+              {
+                "question": "Copy number analysis is best described as:",
+                "options": {
+                  "A": "Detecting larger genomic rearrangements",
+                  "B": "Microscopic assessment of chromosome number and structure",
+                  "C": "Genome-wide detection of copy number imbalance",
+                  "D": "Detecting gains or losses of DNA dosage",
+                  "E": "Fluorescent probe detection of specific genomic regions"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Detecting gains or losses of DNA dosage."
+              },
+              {
+                "question": "Structural variant analysis is best described as:",
+                "options": {
+                  "A": "Microscopic assessment of chromosome number and structure",
+                  "B": "Detecting larger genomic rearrangements",
+                  "C": "Genome-wide detection of copy number imbalance",
+                  "D": "Fluorescent probe detection of specific genomic regions",
+                  "E": "Amplification of a selected DNA sequence"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Detecting larger genomic rearrangements."
+              },
+              {
+                "question": "Karyotyping is best described as:",
+                "options": {
+                  "A": "Genome-wide detection of copy number imbalance",
+                  "B": "Fluorescent probe detection of specific genomic regions",
+                  "C": "Amplification of a selected DNA sequence",
+                  "D": "Targeted sequencing used to verify a variant",
+                  "E": "Microscopic assessment of chromosome number and structure"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Microscopic assessment of chromosome number and structure."
+              },
+              {
+                "question": "Chromosomal microarray is best described as:",
+                "options": {
+                  "A": "Fluorescent probe detection of specific genomic regions",
+                  "B": "Amplification of a selected DNA sequence",
+                  "C": "Genome-wide detection of copy number imbalance",
+                  "D": "Targeted sequencing used to verify a variant",
+                  "E": "The proportion of tests producing a diagnosis"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Genome-wide detection of copy number imbalance."
+              },
+              {
+                "question": "FISH is best described as:",
+                "options": {
+                  "A": "Fluorescent probe detection of specific genomic regions",
+                  "B": "Amplification of a selected DNA sequence",
+                  "C": "Targeted sequencing used to verify a variant",
+                  "D": "The proportion of tests producing a diagnosis",
+                  "E": "An unexpected result unrelated to the indication"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Fluorescent probe detection of specific genomic regions."
+              },
+              {
+                "question": "PCR is best described as:",
+                "options": {
+                  "A": "Targeted sequencing used to verify a variant",
+                  "B": "The proportion of tests producing a diagnosis",
+                  "C": "An unexpected result unrelated to the indication",
+                  "D": "Amplification of a selected DNA sequence",
+                  "E": "A coordinate framework for mapping sequence reads"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Amplification of a selected DNA sequence."
+              },
+              {
+                "question": "Sanger confirmation is best described as:",
+                "options": {
+                  "A": "The proportion of tests producing a diagnosis",
+                  "B": "Targeted sequencing used to verify a variant",
+                  "C": "An unexpected result unrelated to the indication",
+                  "D": "A coordinate framework for mapping sequence reads",
+                  "E": "A measure of confidence in a base call"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Targeted sequencing used to verify a variant."
+              },
+              {
+                "question": "Diagnostic yield is best described as:",
+                "options": {
+                  "A": "An unexpected result unrelated to the indication",
+                  "B": "A coordinate framework for mapping sequence reads",
+                  "C": "A measure of confidence in a base call",
+                  "D": "An NHS-linked project using genome sequencing in patients",
+                  "E": "The proportion of tests producing a diagnosis"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: The proportion of tests producing a diagnosis."
+              },
+              {
+                "question": "Incidental finding is best described as:",
+                "options": {
+                  "A": "A coordinate framework for mapping sequence reads",
+                  "B": "A measure of confidence in a base call",
+                  "C": "An unexpected result unrelated to the indication",
+                  "D": "An NHS-linked project using genome sequencing in patients",
+                  "E": "Ranking variants by clinical and biological relevance"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: An unexpected result unrelated to the indication."
+              },
+              {
+                "question": "A reference genome is best described as:",
+                "options": {
+                  "A": "A coordinate framework for mapping sequence reads",
+                  "B": "A measure of confidence in a base call",
+                  "C": "An NHS-linked project using genome sequencing in patients",
+                  "D": "Ranking variants by clinical and biological relevance",
+                  "E": "Using clinical features to guide variant interpretation"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A coordinate framework for mapping sequence reads."
+              },
+              {
+                "question": "Quality score is best described as:",
+                "options": {
+                  "A": "An NHS-linked project using genome sequencing in patients",
+                  "B": "Ranking variants by clinical and biological relevance",
+                  "C": "Using clinical features to guide variant interpretation",
+                  "D": "A measure of confidence in a base call",
+                  "E": "Sequencing nearly all nuclear and mitochondrial DNA"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A measure of confidence in a base call."
+              },
+              {
+                "question": "100,000 Genomes Project is best described as:",
+                "options": {
+                  "A": "Ranking variants by clinical and biological relevance",
+                  "B": "An NHS-linked project using genome sequencing in patients",
+                  "C": "Using clinical features to guide variant interpretation",
+                  "D": "Sequencing nearly all nuclear and mitochondrial DNA",
+                  "E": "Sequencing mostly protein-coding exons"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: An NHS-linked project using genome sequencing in patients."
+              },
+              {
+                "question": "Variant prioritisation is best described as:",
+                "options": {
+                  "A": "Using clinical features to guide variant interpretation",
+                  "B": "Sequencing nearly all nuclear and mitochondrial DNA",
+                  "C": "Sequencing mostly protein-coding exons",
+                  "D": "Sequencing selected genes linked to a phenotype",
+                  "E": "Ranking variants by clinical and biological relevance"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Ranking variants by clinical and biological relevance."
+              },
+              {
+                "question": "Phenotype-driven analysis is best described as:",
+                "options": {
+                  "A": "Sequencing nearly all nuclear and mitochondrial DNA",
+                  "B": "Sequencing mostly protein-coding exons",
+                  "C": "Using clinical features to guide variant interpretation",
+                  "D": "Sequencing selected genes linked to a phenotype",
+                  "E": "The number of reads covering a genomic position"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Using clinical features to guide variant interpretation."
+              },
+              {
+                "question": "A child has a suspected single-gene disorder with many possible genes. The most efficient first test is often:",
+                "options": {
+                  "A": "Targeted panel or exome sequencing",
+                  "B": "Routine blood film only",
+                  "C": "Serum protein electrophoresis",
+                  "D": "Plain radiography",
+                  "E": "Faecal microbiome culture"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Targeted panel or exome sequencing."
+              },
+              {
+                "question": "A variant is supported by only two reads at a site where 30 reads are expected. The main concern is low:",
+                "options": {
+                  "A": "Allele frequency",
+                  "B": "Penetrance",
+                  "C": "Recombination",
+                  "D": "Sequencing depth",
+                  "E": "Chromosome count"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Sequencing depth."
+              },
+              {
+                "question": "A test detects a microdeletion too small for routine karyotyping. The most suitable method is:",
+                "options": {
+                  "A": "Light microscopy alone",
+                  "B": "Chromosomal microarray",
+                  "C": "Pedigree drawing",
+                  "D": "PCR of one exon",
+                  "E": "Protein electrophoresis"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Chromosomal microarray."
+              },
+              {
+                "question": "A patient has a balanced translocation suspected from recurrent miscarriage. The most useful first-line cytogenetic test is:",
+                "options": {
+                  "A": "Whole exome sequencing",
+                  "B": "Polygenic risk scoring",
+                  "C": "Methylation array",
+                  "D": "Metabolomics",
+                  "E": "Karyotyping"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Karyotyping."
+              },
+              {
+                "question": "Sequencing finds thousands of variants in one genome. The step that narrows them using phenotype and inheritance is:",
+                "options": {
+                  "A": "Gel electrophoresis",
+                  "B": "Chromosome staining",
+                  "C": "Variant prioritisation",
+                  "D": "Drug randomisation",
+                  "E": "Transcript export"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Variant prioritisation."
+              },
+              {
+                "question": "A report describes an unexpected actionable cancer predisposition variant unrelated to the test indication. This is an:",
+                "options": {
+                  "A": "Incidental finding",
+                  "B": "Allele dropout",
+                  "C": "Uninformative meiosis",
+                  "D": "Index case",
+                  "E": "Environmental exposure"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Incidental finding."
+              },
+              {
+                "question": "A genomic position is covered by many high-quality reads supporting the same variant. Confidence is increased because:",
+                "options": {
+                  "A": "The variant must be benign",
+                  "B": "All non-coding variants are excluded",
+                  "C": "The phenotype is irrelevant",
+                  "D": "Read depth and quality support the call",
+                  "E": "Karyotype resolution is lower"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Read depth and quality support the call."
+              },
+              {
+                "question": "A variant appears because reads map poorly in a repetitive region. The most likely problem is:",
+                "options": {
+                  "A": "High penetrance",
+                  "B": "Alignment artefact",
+                  "C": "Dominant inheritance",
+                  "D": "Mendelian segregation",
+                  "E": "Drug toxicity"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Alignment artefact."
+              },
+              {
+                "question": "A clinician wants to test only BRCA1 and BRCA2 in a clear familial breast cancer scenario. The most focused test is:",
+                "options": {
+                  "A": "Whole transcriptome sequencing",
+                  "B": "Karyotype only",
+                  "C": "Genome-wide methylation",
+                  "D": "Polygenic score only",
+                  "E": "Targeted gene panel"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Targeted gene panel."
+              },
+              {
+                "question": "Whole exome sequencing fails to detect a pathogenic promoter variant. The main limitation is:",
+                "options": {
+                  "A": "Inability to detect any missense variant",
+                  "B": "Use of too many clinical features",
+                  "C": "Poor coverage of non-coding regulatory DNA",
+                  "D": "Excess chromosome resolution",
+                  "E": "Absence of bioinformatics"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Poor coverage of non-coding regulatory DNA."
+              },
+              {
+                "question": "A variant list is stored in a file that records chromosome, position, reference allele and alternate allele. The file is most likely:",
+                "options": {
+                  "A": "VCF",
+                  "B": "FASTQ",
+                  "C": "PDF",
+                  "D": "JPEG",
+                  "E": "DOCX"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: VCF."
+              },
+              {
+                "question": "A lab amplifies a region before sequencing the practical sample. The method used is:",
+                "options": {
+                  "A": "FISH",
+                  "B": "GWAS",
+                  "C": "Karyotyping",
+                  "D": "PCR",
+                  "E": "Proteomics"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: PCR."
+              },
+              {
+                "question": "A sequencing project links genome data to NHS clinical records for rare disease diagnosis. The project is:",
+                "options": {
+                  "A": "Human Microbiome Project",
+                  "B": "100,000 Genomes Project",
+                  "C": "Framingham Heart Study",
+                  "D": "UK blood group registry",
+                  "E": "Cancer staging system"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: 100,000 Genomes Project."
+              },
+              {
+                "question": "A clinician chooses a test using the patient's dysmorphic features and family history. This is:",
+                "options": {
+                  "A": "Random variant selection",
+                  "B": "Population stratification",
+                  "C": "Transcriptome suppression",
+                  "D": "Microbial culturing",
+                  "E": "Phenotype-driven genomic analysis"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Phenotype-driven genomic analysis."
+              }
+            ]
+          },
+          {
+            "id": "gng06-genomics-of-rare-disease-in-clinical-practice",
+            "title": "GNG06 - Genomics of Rare Disease in Clinical Practice",
+            "questions": [
+              {
+                "question": "A rare disease is best described as:",
+                "options": {
+                  "A": "A condition present from birth",
+                  "B": "A disorder mainly caused by variation in one gene",
+                  "C": "A condition affecting a small proportion of the population",
+                  "D": "The first affected person identified in a family",
+                  "E": "The individual through whom a family is ascertained"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A condition affecting a small proportion of the population."
+              },
+              {
+                "question": "A congenital disorder is best described as:",
+                "options": {
+                  "A": "A condition present from birth",
+                  "B": "A disorder mainly caused by variation in one gene",
+                  "C": "The first affected person identified in a family",
+                  "D": "The individual through whom a family is ascertained",
+                  "E": "Testing relatives after a familial variant is found"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A condition present from birth."
+              },
+              {
+                "question": "A monogenic disease is best described as:",
+                "options": {
+                  "A": "The first affected person identified in a family",
+                  "B": "The individual through whom a family is ascertained",
+                  "C": "Testing relatives after a familial variant is found",
+                  "D": "A disorder mainly caused by variation in one gene",
+                  "E": "Sequencing an affected child and both parents"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A disorder mainly caused by variation in one gene."
+              },
+              {
+                "question": "An index case is best described as:",
+                "options": {
+                  "A": "The individual through whom a family is ascertained",
+                  "B": "The first affected person identified in a family",
+                  "C": "Testing relatives after a familial variant is found",
+                  "D": "Sequencing an affected child and both parents",
+                  "E": "A new variant absent from both parents"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: The first affected person identified in a family."
+              },
+              {
+                "question": "A proband is best described as:",
+                "options": {
+                  "A": "Testing relatives after a familial variant is found",
+                  "B": "Sequencing an affected child and both parents",
+                  "C": "A new variant absent from both parents",
+                  "D": "Two different pathogenic variants in the same gene pair",
+                  "E": "The individual through whom a family is ascertained"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: The individual through whom a family is ascertained."
+              },
+              {
+                "question": "Cascade testing is best described as:",
+                "options": {
+                  "A": "Sequencing an affected child and both parents",
+                  "B": "A new variant absent from both parents",
+                  "C": "Testing relatives after a familial variant is found",
+                  "D": "Two different pathogenic variants in the same gene pair",
+                  "E": "Different severity among people with the same genotype"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Testing relatives after a familial variant is found."
+              },
+              {
+                "question": "Trio sequencing is best described as:",
+                "options": {
+                  "A": "Sequencing an affected child and both parents",
+                  "B": "A new variant absent from both parents",
+                  "C": "Two different pathogenic variants in the same gene pair",
+                  "D": "Different severity among people with the same genotype",
+                  "E": "Not all variant carriers show the phenotype"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Sequencing an affected child and both parents."
+              },
+              {
+                "question": "A de novo variant is best described as:",
+                "options": {
+                  "A": "Two different pathogenic variants in the same gene pair",
+                  "B": "Different severity among people with the same genotype",
+                  "C": "Not all variant carriers show the phenotype",
+                  "D": "A new variant absent from both parents",
+                  "E": "Communication about genetic risk and testing choices"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A new variant absent from both parents."
+              },
+              {
+                "question": "Compound heterozygosity is best described as:",
+                "options": {
+                  "A": "Different severity among people with the same genotype",
+                  "B": "Two different pathogenic variants in the same gene pair",
+                  "C": "Not all variant carriers show the phenotype",
+                  "D": "Communication about genetic risk and testing choices",
+                  "E": "Agreement after understanding benefits and risks"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Two different pathogenic variants in the same gene pair."
+              },
+              {
+                "question": "Variable expressivity is best described as:",
+                "options": {
+                  "A": "Not all variant carriers show the phenotype",
+                  "B": "Communication about genetic risk and testing choices",
+                  "C": "Agreement after understanding benefits and risks",
+                  "D": "A variant result explaining the phenotype",
+                  "E": "Different severity among people with the same genotype"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Different severity among people with the same genotype."
+              },
+              {
+                "question": "Reduced penetrance is best described as:",
+                "options": {
+                  "A": "Communication about genetic risk and testing choices",
+                  "B": "Agreement after understanding benefits and risks",
+                  "C": "Not all variant carriers show the phenotype",
+                  "D": "A variant result explaining the phenotype",
+                  "E": "No causative variant identified by the test"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Not all variant carriers show the phenotype."
+              },
+              {
+                "question": "Genetic counselling is best described as:",
+                "options": {
+                  "A": "Communication about genetic risk and testing choices",
+                  "B": "Agreement after understanding benefits and risks",
+                  "C": "A variant result explaining the phenotype",
+                  "D": "No causative variant identified by the test",
+                  "E": "A variant whose clinical significance is uncertain"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Communication about genetic risk and testing choices."
+              },
+              {
+                "question": "Informed consent is best described as:",
+                "options": {
+                  "A": "A variant result explaining the phenotype",
+                  "B": "No causative variant identified by the test",
+                  "C": "A variant whose clinical significance is uncertain",
+                  "D": "Agreement after understanding benefits and risks",
+                  "E": "Reviewing genomic data later with updated knowledge"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Agreement after understanding benefits and risks."
+              },
+              {
+                "question": "A diagnostic result is best described as:",
+                "options": {
+                  "A": "No causative variant identified by the test",
+                  "B": "A variant result explaining the phenotype",
+                  "C": "A variant whose clinical significance is uncertain",
+                  "D": "Reviewing genomic data later with updated knowledge",
+                  "E": "A clinically relevant result outside the test indication"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A variant result explaining the phenotype."
+              },
+              {
+                "question": "A negative result is best described as:",
+                "options": {
+                  "A": "A variant whose clinical significance is uncertain",
+                  "B": "Reviewing genomic data later with updated knowledge",
+                  "C": "A clinically relevant result outside the test indication",
+                  "D": "Testing during pregnancy for fetal genetic information",
+                  "E": "No causative variant identified by the test"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: No causative variant identified by the test."
+              },
+              {
+                "question": "A VUS is best described as:",
+                "options": {
+                  "A": "Reviewing genomic data later with updated knowledge",
+                  "B": "A clinically relevant result outside the test indication",
+                  "C": "A variant whose clinical significance is uncertain",
+                  "D": "Testing during pregnancy for fetal genetic information",
+                  "E": "Testing embryos before implantation"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A variant whose clinical significance is uncertain."
+              },
+              {
+                "question": "Reanalysis is best described as:",
+                "options": {
+                  "A": "Reviewing genomic data later with updated knowledge",
+                  "B": "A clinically relevant result outside the test indication",
+                  "C": "Testing during pregnancy for fetal genetic information",
+                  "D": "Testing embryos before implantation",
+                  "E": "Assessment of patterns of congenital physical features"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Reviewing genomic data later with updated knowledge."
+              },
+              {
+                "question": "Incidental finding is best described as:",
+                "options": {
+                  "A": "Testing during pregnancy for fetal genetic information",
+                  "B": "Testing embryos before implantation",
+                  "C": "Assessment of patterns of congenital physical features",
+                  "D": "A clinically relevant result outside the test indication",
+                  "E": "Coordinated input from several clinical specialties"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A clinically relevant result outside the test indication."
+              },
+              {
+                "question": "Prenatal testing is best described as:",
+                "options": {
+                  "A": "Testing embryos before implantation",
+                  "B": "Testing during pregnancy for fetal genetic information",
+                  "C": "Assessment of patterns of congenital physical features",
+                  "D": "Coordinated input from several clinical specialties",
+                  "E": "A variant with sufficient evidence to cause disease"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Testing during pregnancy for fetal genetic information."
+              },
+              {
+                "question": "Preimplantation genetic testing is best described as:",
+                "options": {
+                  "A": "Assessment of patterns of congenital physical features",
+                  "B": "Coordinated input from several clinical specialties",
+                  "C": "A variant with sufficient evidence to cause disease",
+                  "D": "A variant with strong but incomplete evidence",
+                  "E": "Testing embryos before implantation"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Testing embryos before implantation."
+              },
+              {
+                "question": "Dysmorphology is best described as:",
+                "options": {
+                  "A": "Coordinated input from several clinical specialties",
+                  "B": "A variant with sufficient evidence to cause disease",
+                  "C": "Assessment of patterns of congenital physical features",
+                  "D": "A variant with strong but incomplete evidence",
+                  "E": "A variant not expected to cause disease"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Assessment of patterns of congenital physical features."
+              },
+              {
+                "question": "Multidisciplinary care is best described as:",
+                "options": {
+                  "A": "Coordinated input from several clinical specialties",
+                  "B": "A variant with sufficient evidence to cause disease",
+                  "C": "A variant with strong but incomplete evidence",
+                  "D": "A variant not expected to cause disease",
+                  "E": "Testing relatives to see whether a variant tracks with disease"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Coordinated input from several clinical specialties."
+              },
+              {
+                "question": "A pathogenic variant is best described as:",
+                "options": {
+                  "A": "A variant with strong but incomplete evidence",
+                  "B": "A variant not expected to cause disease",
+                  "C": "Testing relatives to see whether a variant tracks with disease",
+                  "D": "A variant with sufficient evidence to cause disease",
+                  "E": "A condition affecting a small proportion of the population"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A variant with sufficient evidence to cause disease."
+              },
+              {
+                "question": "A likely pathogenic variant is best described as:",
+                "options": {
+                  "A": "A variant not expected to cause disease",
+                  "B": "A variant with strong but incomplete evidence",
+                  "C": "Testing relatives to see whether a variant tracks with disease",
+                  "D": "A condition affecting a small proportion of the population",
+                  "E": "A condition present from birth"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A variant with strong but incomplete evidence."
+              },
+              {
+                "question": "A benign variant is best described as:",
+                "options": {
+                  "A": "Testing relatives to see whether a variant tracks with disease",
+                  "B": "A condition affecting a small proportion of the population",
+                  "C": "A condition present from birth",
+                  "D": "A disorder mainly caused by variation in one gene",
+                  "E": "A variant not expected to cause disease"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A variant not expected to cause disease."
+              },
+              {
+                "question": "Segregation testing is best described as:",
+                "options": {
+                  "A": "A condition affecting a small proportion of the population",
+                  "B": "A condition present from birth",
+                  "C": "Testing relatives to see whether a variant tracks with disease",
+                  "D": "A disorder mainly caused by variation in one gene",
+                  "E": "The first affected person identified in a family"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Testing relatives to see whether a variant tracks with disease."
+              },
+              {
+                "question": "A child with developmental delay is sequenced with both unaffected parents. This design is especially useful for detecting:",
+                "options": {
+                  "A": "De novo variants",
+                  "B": "Population stratification",
+                  "C": "Drug metabolism",
+                  "D": "Balanced imprinting",
+                  "E": "Bacterial resistance genes"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: De novo variants."
+              },
+              {
+                "question": "Two different pathogenic variants are found in the same recessive disease gene, one inherited from each parent. The child is:",
+                "options": {
+                  "A": "Hemizygous",
+                  "B": "Codominant",
+                  "C": "Polygenic",
+                  "D": "Compound heterozygous",
+                  "E": "Homoplasmic"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Compound heterozygous."
+              },
+              {
+                "question": "A familial pathogenic variant is identified in a patient with a rare disease. Testing siblings and parents is called:",
+                "options": {
+                  "A": "Population screening",
+                  "B": "Cascade testing",
+                  "C": "Genome assembly",
+                  "D": "Randomisation",
+                  "E": "Microarray normalisation"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Cascade testing."
+              },
+              {
+                "question": "A variant is found but cannot explain the phenotype with current evidence. The most appropriate classification is:",
+                "options": {
+                  "A": "Pathogenic variant",
+                  "B": "Benign variant",
+                  "C": "Diagnostic result",
+                  "D": "Carrier state",
+                  "E": "Variant of uncertain significance"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Variant of uncertain significance."
+              },
+              {
+                "question": "A previously unsolved genome is reviewed two years later and a diagnosis is made because gene knowledge has changed. This is:",
+                "options": {
+                  "A": "Karyotyping",
+                  "B": "Reverse transcription",
+                  "C": "Reanalysis",
+                  "D": "Imprinting",
+                  "E": "Assortment"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Reanalysis."
+              },
+              {
+                "question": "A patient receives counselling before testing and chooses whether to proceed. This process protects:",
+                "options": {
+                  "A": "Informed consent",
+                  "B": "Allele frequency",
+                  "C": "Sequencing depth",
+                  "D": "Protein folding",
+                  "E": "Chromosome pairing"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Informed consent."
+              },
+              {
+                "question": "A rare disease clinic coordinates genetics, neurology, physiotherapy and metabolic medicine. This is:",
+                "options": {
+                  "A": "Simple dominance",
+                  "B": "Direct-to-consumer testing",
+                  "C": "Population GWAS",
+                  "D": "Multidisciplinary care",
+                  "E": "Allele phasing"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Multidisciplinary care."
+              },
+              {
+                "question": "A fetus is tested during pregnancy because a familial variant is known. This is:",
+                "options": {
+                  "A": "Newborn randomisation",
+                  "B": "Prenatal testing",
+                  "C": "Adult cascade screening",
+                  "D": "Tumour sequencing",
+                  "E": "Microbiome transplant"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Prenatal testing."
+              },
+              {
+                "question": "Embryos are tested for a familial condition before transfer in IVF. This is:",
+                "options": {
+                  "A": "Carrier frequency estimation",
+                  "B": "Postnatal karyotyping",
+                  "C": "Polygenic risk scoring",
+                  "D": "Mitochondrial depletion",
+                  "E": "Preimplantation genetic testing"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Preimplantation genetic testing."
+              },
+              {
+                "question": "Several relatives carry the same variant, but only some are affected. This is:",
+                "options": {
+                  "A": "Complete linkage",
+                  "B": "Synonymous mutation",
+                  "C": "Reduced penetrance",
+                  "D": "Chromosomal trisomy",
+                  "E": "Uniparental disomy"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Reduced penetrance."
+              },
+              {
+                "question": "Affected relatives have the same variant but very different severity. This is:",
+                "options": {
+                  "A": "Variable expressivity",
+                  "B": "A benign polymorphism",
+                  "C": "A sequencing artefact",
+                  "D": "Consanguinity",
+                  "E": "A founder population"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Variable expressivity."
+              },
+              {
+                "question": "A clinical geneticist checks whether a candidate variant is present in affected relatives and absent in unaffected relatives. This is:",
+                "options": {
+                  "A": "Drug monitoring",
+                  "B": "Read alignment",
+                  "C": "Microbiome profiling",
+                  "D": "Segregation testing",
+                  "E": "Copy-neutral mapping"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Segregation testing."
+              },
+              {
+                "question": "A genomic test finds a clearly actionable unrelated cancer-risk variant. Before testing, patients should have been counselled about:",
+                "options": {
+                  "A": "Gel concentration",
+                  "B": "Incidental findings",
+                  "C": "PCR annealing",
+                  "D": "Independent assortment",
+                  "E": "Mendelian ratios"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Incidental findings."
+              },
+              {
+                "question": "A newborn has multiple congenital anomalies. The clinical assessment of physical feature patterns is:",
+                "options": {
+                  "A": "Pharmacogenomics",
+                  "B": "Transcriptomics",
+                  "C": "Proteomics",
+                  "D": "Founder analysis",
+                  "E": "Dysmorphology"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Dysmorphology."
+              }
+            ]
+          },
+          {
+            "id": "gng07-genetics-of-complex-disease-part-1",
+            "title": "GNG07 - Genetics of Complex Disease Part 1",
+            "questions": [
+              {
+                "question": "A complex disease is best described as:",
+                "options": {
+                  "A": "Inheritance involving many genetic loci",
+                  "B": "Disease influenced by genetic and non-genetic factors",
+                  "C": "A disorder influenced by many loci and environment",
+                  "D": "The proportion of population variance attributable to genetic differences",
+                  "E": "Heritability not explained by detected variants"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A disorder influenced by many loci and environment."
+              },
+              {
+                "question": "Polygenic inheritance is best described as:",
+                "options": {
+                  "A": "Inheritance involving many genetic loci",
+                  "B": "Disease influenced by genetic and non-genetic factors",
+                  "C": "The proportion of population variance attributable to genetic differences",
+                  "D": "Heritability not explained by detected variants",
+                  "E": "A design comparing trait sharing in monozygotic and dizygotic twins"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Inheritance involving many genetic loci."
+              },
+              {
+                "question": "Multifactorial disease is best described as:",
+                "options": {
+                  "A": "The proportion of population variance attributable to genetic differences",
+                  "B": "Heritability not explained by detected variants",
+                  "C": "A design comparing trait sharing in monozygotic and dizygotic twins",
+                  "D": "Disease influenced by genetic and non-genetic factors",
+                  "E": "A genome-wide association study of variants and traits"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Disease influenced by genetic and non-genetic factors."
+              },
+              {
+                "question": "Heritability is best described as:",
+                "options": {
+                  "A": "Heritability not explained by detected variants",
+                  "B": "The proportion of population variance attributable to genetic differences",
+                  "C": "A design comparing trait sharing in monozygotic and dizygotic twins",
+                  "D": "A genome-wide association study of variants and traits",
+                  "E": "Comparison of allele frequencies between cases and controls"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: The proportion of population variance attributable to genetic differences."
+              },
+              {
+                "question": "Missing heritability is best described as:",
+                "options": {
+                  "A": "A design comparing trait sharing in monozygotic and dizygotic twins",
+                  "B": "A genome-wide association study of variants and traits",
+                  "C": "Comparison of allele frequencies between cases and controls",
+                  "D": "A stringent association threshold across the genome",
+                  "E": "Heritability not explained by detected variants"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Heritability not explained by detected variants."
+              },
+              {
+                "question": "A twin study is best described as:",
+                "options": {
+                  "A": "A genome-wide association study of variants and traits",
+                  "B": "Comparison of allele frequencies between cases and controls",
+                  "C": "A design comparing trait sharing in monozygotic and dizygotic twins",
+                  "D": "A stringent association threshold across the genome",
+                  "E": "A plot of association signals by genomic position"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A design comparing trait sharing in monozygotic and dizygotic twins."
+              },
+              {
+                "question": "A GWAS is best described as:",
+                "options": {
+                  "A": "A genome-wide association study of variants and traits",
+                  "B": "Comparison of allele frequencies between cases and controls",
+                  "C": "A stringent association threshold across the genome",
+                  "D": "A plot of association signals by genomic position",
+                  "E": "A measure of association between allele and disease odds"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A genome-wide association study of variants and traits."
+              },
+              {
+                "question": "A case-control GWAS is best described as:",
+                "options": {
+                  "A": "A stringent association threshold across the genome",
+                  "B": "A plot of association signals by genomic position",
+                  "C": "A measure of association between allele and disease odds",
+                  "D": "Comparison of allele frequencies between cases and controls",
+                  "E": "A genomic region associated with altered disease risk"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Comparison of allele frequencies between cases and controls."
+              },
+              {
+                "question": "Genome-wide significance is best described as:",
+                "options": {
+                  "A": "A plot of association signals by genomic position",
+                  "B": "A stringent association threshold across the genome",
+                  "C": "A measure of association between allele and disease odds",
+                  "D": "A genomic region associated with altered disease risk",
+                  "E": "The strongest associated variant at a locus"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A stringent association threshold across the genome."
+              },
+              {
+                "question": "A Manhattan plot is best described as:",
+                "options": {
+                  "A": "A measure of association between allele and disease odds",
+                  "B": "A genomic region associated with altered disease risk",
+                  "C": "The strongest associated variant at a locus",
+                  "D": "The magnitude of a variant's association with a trait",
+                  "E": "A plot of association signals by genomic position"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A plot of association signals by genomic position."
+              },
+              {
+                "question": "An odds ratio is best described as:",
+                "options": {
+                  "A": "A genomic region associated with altered disease risk",
+                  "B": "The strongest associated variant at a locus",
+                  "C": "A measure of association between allele and disease odds",
+                  "D": "The magnitude of a variant's association with a trait",
+                  "E": "Frequent alleles with small influence on risk"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A measure of association between allele and disease odds."
+              },
+              {
+                "question": "A risk locus is best described as:",
+                "options": {
+                  "A": "A genomic region associated with altered disease risk",
+                  "B": "The strongest associated variant at a locus",
+                  "C": "The magnitude of a variant's association with a trait",
+                  "D": "Frequent alleles with small influence on risk",
+                  "E": "Uncommon alleles with larger influence on risk"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A genomic region associated with altered disease risk."
+              },
+              {
+                "question": "A lead SNP is best described as:",
+                "options": {
+                  "A": "The magnitude of a variant's association with a trait",
+                  "B": "Frequent alleles with small influence on risk",
+                  "C": "Uncommon alleles with larger influence on risk",
+                  "D": "The strongest associated variant at a locus",
+                  "E": "A model where disease occurs after total liability crosses a threshold"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: The strongest associated variant at a locus."
+              },
+              {
+                "question": "Effect size is best described as:",
+                "options": {
+                  "A": "Frequent alleles with small influence on risk",
+                  "B": "The magnitude of a variant's association with a trait",
+                  "C": "Uncommon alleles with larger influence on risk",
+                  "D": "A model where disease occurs after total liability crosses a threshold",
+                  "E": "A weighted sum of risk alleles"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: The magnitude of a variant's association with a trait."
+              },
+              {
+                "question": "Common low-effect variants is best described as:",
+                "options": {
+                  "A": "Uncommon alleles with larger influence on risk",
+                  "B": "A model where disease occurs after total liability crosses a threshold",
+                  "C": "A weighted sum of risk alleles",
+                  "D": "A measure of classifier discrimination",
+                  "E": "Frequent alleles with small influence on risk"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Frequent alleles with small influence on risk."
+              },
+              {
+                "question": "Rare high-effect variants is best described as:",
+                "options": {
+                  "A": "A model where disease occurs after total liability crosses a threshold",
+                  "B": "A weighted sum of risk alleles",
+                  "C": "Uncommon alleles with larger influence on risk",
+                  "D": "A measure of classifier discrimination",
+                  "E": "A plot of sensitivity against false-positive rate"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Uncommon alleles with larger influence on risk."
+              },
+              {
+                "question": "Liability threshold model is best described as:",
+                "options": {
+                  "A": "A model where disease occurs after total liability crosses a threshold",
+                  "B": "A weighted sum of risk alleles",
+                  "C": "A measure of classifier discrimination",
+                  "D": "A plot of sensitivity against false-positive rate",
+                  "E": "Allele frequency differences caused by ancestry structure"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A model where disease occurs after total liability crosses a threshold."
+              },
+              {
+                "question": "Polygenic risk score is best described as:",
+                "options": {
+                  "A": "A measure of classifier discrimination",
+                  "B": "A plot of sensitivity against false-positive rate",
+                  "C": "Allele frequency differences caused by ancestry structure",
+                  "D": "A weighted sum of risk alleles",
+                  "E": "Random change in allele frequencies over generations"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A weighted sum of risk alleles."
+              },
+              {
+                "question": "Area under the curve is best described as:",
+                "options": {
+                  "A": "A plot of sensitivity against false-positive rate",
+                  "B": "A measure of classifier discrimination",
+                  "C": "Allele frequency differences caused by ancestry structure",
+                  "D": "Random change in allele frequencies over generations",
+                  "E": "Correlation between nearby variants used to tag loci"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A measure of classifier discrimination."
+              },
+              {
+                "question": "Receiver operating curve is best described as:",
+                "options": {
+                  "A": "Allele frequency differences caused by ancestry structure",
+                  "B": "Random change in allele frequencies over generations",
+                  "C": "Correlation between nearby variants used to tag loci",
+                  "D": "A major determinant of power to detect small effects",
+                  "E": "A plot of sensitivity against false-positive rate"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A plot of sensitivity against false-positive rate."
+              },
+              {
+                "question": "Population stratification is best described as:",
+                "options": {
+                  "A": "Random change in allele frequencies over generations",
+                  "B": "Correlation between nearby variants used to tag loci",
+                  "C": "Allele frequency differences caused by ancestry structure",
+                  "D": "A major determinant of power to detect small effects",
+                  "E": "Risk stratification useful across groups"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Allele frequency differences caused by ancestry structure."
+              },
+              {
+                "question": "Genetic drift is best described as:",
+                "options": {
+                  "A": "Random change in allele frequencies over generations",
+                  "B": "Correlation between nearby variants used to tag loci",
+                  "C": "A major determinant of power to detect small effects",
+                  "D": "Risk stratification useful across groups",
+                  "E": "Risk prediction for one person"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Random change in allele frequencies over generations."
+              },
+              {
+                "question": "Linkage disequilibrium in GWAS is best described as:",
+                "options": {
+                  "A": "A major determinant of power to detect small effects",
+                  "B": "Risk stratification useful across groups",
+                  "C": "Risk prediction for one person",
+                  "D": "Correlation between nearby variants used to tag loci",
+                  "E": "A disorder influenced by many loci and environment"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Correlation between nearby variants used to tag loci."
+              },
+              {
+                "question": "Sample size is best described as:",
+                "options": {
+                  "A": "Risk stratification useful across groups",
+                  "B": "A major determinant of power to detect small effects",
+                  "C": "Risk prediction for one person",
+                  "D": "A disorder influenced by many loci and environment",
+                  "E": "Inheritance involving many genetic loci"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A major determinant of power to detect small effects."
+              },
+              {
+                "question": "Population-level prediction is best described as:",
+                "options": {
+                  "A": "Risk prediction for one person",
+                  "B": "A disorder influenced by many loci and environment",
+                  "C": "Inheritance involving many genetic loci",
+                  "D": "Disease influenced by genetic and non-genetic factors",
+                  "E": "Risk stratification useful across groups"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Risk stratification useful across groups."
+              },
+              {
+                "question": "Individual-level prediction is best described as:",
+                "options": {
+                  "A": "A disorder influenced by many loci and environment",
+                  "B": "Inheritance involving many genetic loci",
+                  "C": "Risk prediction for one person",
+                  "D": "Disease influenced by genetic and non-genetic factors",
+                  "E": "The proportion of population variance attributable to genetic differences"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Risk prediction for one person."
+              },
+              {
+                "question": "A disease has no clear Mendelian pattern and involves hundreds of low-effect loci plus smoking. It is best described as:",
+                "options": {
+                  "A": "Complex and multifactorial",
+                  "B": "Autosomal recessive",
+                  "C": "Y-linked",
+                  "D": "Mitochondrial and homoplasmic",
+                  "E": "Single-locus dominant"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Complex and multifactorial."
+              },
+              {
+                "question": "Lung cancer heritability appears higher after smoking rates fall. This is because heritability reflects:",
+                "options": {
+                  "A": "Absolute number of risk alleles",
+                  "B": "Mutation rate in lung cells",
+                  "C": "Strength of Mendelian inheritance",
+                  "D": "Proportion of variance explained by genetics",
+                  "E": "Certainty of disease in relatives"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Proportion of variance explained by genetics."
+              },
+              {
+                "question": "A GWAS reports OR 1.06 for an allele. The most appropriate interpretation is:",
+                "options": {
+                  "A": "The allele guarantees disease",
+                  "B": "The allele has a small association with disease odds",
+                  "C": "The allele is diagnostic in families",
+                  "D": "The allele prevents environmental risk",
+                  "E": "The allele is a chromosomal deletion"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: The allele has a small association with disease odds."
+              },
+              {
+                "question": "A Manhattan plot has a peak crossing the genome-wide threshold. The peak indicates:",
+                "options": {
+                  "A": "A confirmed causal gene",
+                  "B": "A sequencing depth failure",
+                  "C": "A mitochondrial deletion",
+                  "D": "A pedigree error",
+                  "E": "A genomic region associated with the trait"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A genomic region associated with the trait."
+              },
+              {
+                "question": "Cases are recruited from northern Europe and controls from southern Europe. A false association may result from:",
+                "options": {
+                  "A": "High penetrance",
+                  "B": "Codominance",
+                  "C": "Population stratification",
+                  "D": "Nonsense mutation",
+                  "E": "Somatic mosaicism"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Population stratification."
+              },
+              {
+                "question": "A polygenic risk score multiplies each risk allele count by its log odds ratio. This makes the score:",
+                "options": {
+                  "A": "Weighted by variant effect size",
+                  "B": "Independent of allele number",
+                  "C": "Equivalent to a karyotype",
+                  "D": "A measure of methylation",
+                  "E": "Diagnostic for all carriers"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Weighted by variant effect size."
+              },
+              {
+                "question": "A risk score has AUC 0.5. It performs like:",
+                "options": {
+                  "A": "Perfect classification",
+                  "B": "A dominant pedigree",
+                  "C": "A diagnostic sequencing test",
+                  "D": "Random classification",
+                  "E": "A linkage map"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Random classification."
+              },
+              {
+                "question": "A risk score has AUC 1.0. It would mean:",
+                "options": {
+                  "A": "Cases overlap controls completely",
+                  "B": "Cases and controls are perfectly separated",
+                  "C": "No genetic contribution exists",
+                  "D": "The trait is purely environmental",
+                  "E": "All variants are rare"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Cases and controls are perfectly separated."
+              },
+              {
+                "question": "A PRS separates high-risk tails but overlaps heavily for most cases and controls. It is more useful for:",
+                "options": {
+                  "A": "Definitive diagnosis in one patient",
+                  "B": "Replacing clinical assessment",
+                  "C": "Detecting chromosome trisomy",
+                  "D": "Sequencing single exons",
+                  "E": "Population stratification of risk"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Population stratification of risk."
+              },
+              {
+                "question": "Height shows a smooth population distribution because it is:",
+                "options": {
+                  "A": "Usually X-linked recessive",
+                  "B": "Caused by one mutation",
+                  "C": "Highly polygenic",
+                  "D": "A mitochondrial phenotype",
+                  "E": "Always environmentally determined"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Highly polygenic."
+              },
+              {
+                "question": "A very common high-effect harmful allele is uncommon in populations partly because of:",
+                "options": {
+                  "A": "Negative selection",
+                  "B": "Synonymous splicing",
+                  "C": "Reverse transcription",
+                  "D": "Randomisation",
+                  "E": "Read alignment"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Negative selection."
+              },
+              {
+                "question": "A study needs to detect many small-effect variants for lupus. The main requirement is:",
+                "options": {
+                  "A": "One affected family",
+                  "B": "No control group",
+                  "C": "Karyotype only",
+                  "D": "Large sample size",
+                  "E": "Protein assay only"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Large sample size."
+              },
+              {
+                "question": "A clinician tells a patient that carrying several risk alleles increases risk but does not determine outcome. This reflects:",
+                "options": {
+                  "A": "Complete penetrance",
+                  "B": "Polygenic liability",
+                  "C": "Mendelian certainty",
+                  "D": "Chromosome loss",
+                  "E": "Mitochondrial homoplasmy"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Polygenic liability."
+              },
+              {
+                "question": "A GWAS lead SNP lies near, but not inside, a gene. The association may reflect:",
+                "options": {
+                  "A": "Absence of linkage disequilibrium",
+                  "B": "No biological relevance possible",
+                  "C": "Guaranteed protein truncation",
+                  "D": "A cytogenetic artefact",
+                  "E": "Regulatory effects on gene expression"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Regulatory effects on gene expression."
+              }
+            ]
+          },
+          {
+            "id": "gng08-genetics-of-complex-disease-part-2",
+            "title": "GNG08 - Genetics of Complex Disease Part 2",
+            "questions": [
+              {
+                "question": "The mitochondrial genome is best described as:",
+                "options": {
+                  "A": "Mitochondrial ATP production using the electron transport chain",
+                  "B": "The main energy currency of the cell",
+                  "C": "A small circular genome inside mitochondria",
+                  "D": "All mitochondrial DNA copies have the same variant state",
+                  "E": "A mixture of mitochondrial DNA variant states"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A small circular genome inside mitochondria."
+              },
+              {
+                "question": "Oxidative phosphorylation is best described as:",
+                "options": {
+                  "A": "Mitochondrial ATP production using the electron transport chain",
+                  "B": "The main energy currency of the cell",
+                  "C": "All mitochondrial DNA copies have the same variant state",
+                  "D": "A mixture of mitochondrial DNA variant states",
+                  "E": "Disease occurs when mutant mitochondrial load exceeds a tissue threshold"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Mitochondrial ATP production using the electron transport chain."
+              },
+              {
+                "question": "ATP is best described as:",
+                "options": {
+                  "A": "All mitochondrial DNA copies have the same variant state",
+                  "B": "A mixture of mitochondrial DNA variant states",
+                  "C": "Disease occurs when mutant mitochondrial load exceeds a tissue threshold",
+                  "D": "The main energy currency of the cell",
+                  "E": "Transmission through the egg rather than sperm"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: The main energy currency of the cell."
+              },
+              {
+                "question": "Homoplasmy is best described as:",
+                "options": {
+                  "A": "A mixture of mitochondrial DNA variant states",
+                  "B": "All mitochondrial DNA copies have the same variant state",
+                  "C": "Disease occurs when mutant mitochondrial load exceeds a tissue threshold",
+                  "D": "Transmission through the egg rather than sperm",
+                  "E": "Random shift in mitochondrial variant load between generations"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: All mitochondrial DNA copies have the same variant state."
+              },
+              {
+                "question": "Heteroplasmy is best described as:",
+                "options": {
+                  "A": "Disease occurs when mutant mitochondrial load exceeds a tissue threshold",
+                  "B": "Transmission through the egg rather than sperm",
+                  "C": "Random shift in mitochondrial variant load between generations",
+                  "D": "Disease caused by impaired mitochondrial function",
+                  "E": "A mixture of mitochondrial DNA variant states"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A mixture of mitochondrial DNA variant states."
+              },
+              {
+                "question": "Threshold effect is best described as:",
+                "options": {
+                  "A": "Transmission through the egg rather than sperm",
+                  "B": "Random shift in mitochondrial variant load between generations",
+                  "C": "Disease occurs when mutant mitochondrial load exceeds a tissue threshold",
+                  "D": "Disease caused by impaired mitochondrial function",
+                  "E": "Cooperation between nuclear genes and mitochondrial genes"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Disease occurs when mutant mitochondrial load exceeds a tissue threshold."
+              },
+              {
+                "question": "Maternal inheritance is best described as:",
+                "options": {
+                  "A": "Transmission through the egg rather than sperm",
+                  "B": "Random shift in mitochondrial variant load between generations",
+                  "C": "Disease caused by impaired mitochondrial function",
+                  "D": "Cooperation between nuclear genes and mitochondrial genes",
+                  "E": "Microbial communities living in and on the body"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Transmission through the egg rather than sperm."
+              },
+              {
+                "question": "Mitochondrial bottleneck is best described as:",
+                "options": {
+                  "A": "Disease caused by impaired mitochondrial function",
+                  "B": "Cooperation between nuclear genes and mitochondrial genes",
+                  "C": "Microbial communities living in and on the body",
+                  "D": "Random shift in mitochondrial variant load between generations",
+                  "E": "Altered microbiome composition associated with disease"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Random shift in mitochondrial variant load between generations."
+              },
+              {
+                "question": "Mitochondrial disease is best described as:",
+                "options": {
+                  "A": "Cooperation between nuclear genes and mitochondrial genes",
+                  "B": "Disease caused by impaired mitochondrial function",
+                  "C": "Microbial communities living in and on the body",
+                  "D": "Altered microbiome composition associated with disease",
+                  "E": "A substance selectively used by microbes with health benefit"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Disease caused by impaired mitochondrial function."
+              },
+              {
+                "question": "Nuclear-mitochondrial interaction is best described as:",
+                "options": {
+                  "A": "Microbial communities living in and on the body",
+                  "B": "Altered microbiome composition associated with disease",
+                  "C": "A substance selectively used by microbes with health benefit",
+                  "D": "A live microorganism given for potential health benefit",
+                  "E": "Cooperation between nuclear genes and mitochondrial genes"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Cooperation between nuclear genes and mitochondrial genes."
+              },
+              {
+                "question": "The microbiome is best described as:",
+                "options": {
+                  "A": "Altered microbiome composition associated with disease",
+                  "B": "A substance selectively used by microbes with health benefit",
+                  "C": "Microbial communities living in and on the body",
+                  "D": "A live microorganism given for potential health benefit",
+                  "E": "Transfer of donor stool microbes to a recipient"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Microbial communities living in and on the body."
+              },
+              {
+                "question": "Dysbiosis is best described as:",
+                "options": {
+                  "A": "Altered microbiome composition associated with disease",
+                  "B": "A substance selectively used by microbes with health benefit",
+                  "C": "A live microorganism given for potential health benefit",
+                  "D": "Transfer of donor stool microbes to a recipient",
+                  "E": "Use of viruses that infect bacteria"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Altered microbiome composition associated with disease."
+              },
+              {
+                "question": "Prebiotic is best described as:",
+                "options": {
+                  "A": "A live microorganism given for potential health benefit",
+                  "B": "Transfer of donor stool microbes to a recipient",
+                  "C": "Use of viruses that infect bacteria",
+                  "D": "A substance selectively used by microbes with health benefit",
+                  "E": "Microbial ability to survive antimicrobial treatment"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A substance selectively used by microbes with health benefit."
+              },
+              {
+                "question": "Probiotic is best described as:",
+                "options": {
+                  "A": "Transfer of donor stool microbes to a recipient",
+                  "B": "A live microorganism given for potential health benefit",
+                  "C": "Use of viruses that infect bacteria",
+                  "D": "Microbial ability to survive antimicrobial treatment",
+                  "E": "Small molecules produced by microbes"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A live microorganism given for potential health benefit."
+              },
+              {
+                "question": "Faecal microbiota transplant is best described as:",
+                "options": {
+                  "A": "Use of viruses that infect bacteria",
+                  "B": "Microbial ability to survive antimicrobial treatment",
+                  "C": "Small molecules produced by microbes",
+                  "D": "DNA fragments circulating outside cells",
+                  "E": "Transfer of donor stool microbes to a recipient"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Transfer of donor stool microbes to a recipient."
+              },
+              {
+                "question": "Bacteriophage therapy is best described as:",
+                "options": {
+                  "A": "Microbial ability to survive antimicrobial treatment",
+                  "B": "Small molecules produced by microbes",
+                  "C": "Use of viruses that infect bacteria",
+                  "D": "DNA fragments circulating outside cells",
+                  "E": "Sampling circulating biomarkers from blood or similar fluid"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Use of viruses that infect bacteria."
+              },
+              {
+                "question": "Antimicrobial resistance is best described as:",
+                "options": {
+                  "A": "Microbial ability to survive antimicrobial treatment",
+                  "B": "Small molecules produced by microbes",
+                  "C": "DNA fragments circulating outside cells",
+                  "D": "Sampling circulating biomarkers from blood or similar fluid",
+                  "E": "Tumour-derived DNA fragments in circulation"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Microbial ability to survive antimicrobial treatment."
+              },
+              {
+                "question": "Microbial metabolites is best described as:",
+                "options": {
+                  "A": "DNA fragments circulating outside cells",
+                  "B": "Sampling circulating biomarkers from blood or similar fluid",
+                  "C": "Tumour-derived DNA fragments in circulation",
+                  "D": "Small molecules produced by microbes",
+                  "E": "Fetal DNA fragments detectable in maternal blood"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Small molecules produced by microbes."
+              },
+              {
+                "question": "Cell-free DNA is best described as:",
+                "options": {
+                  "A": "Sampling circulating biomarkers from blood or similar fluid",
+                  "B": "DNA fragments circulating outside cells",
+                  "C": "Tumour-derived DNA fragments in circulation",
+                  "D": "Fetal DNA fragments detectable in maternal blood",
+                  "E": "Transplant donor DNA fragments in recipient blood"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: DNA fragments circulating outside cells."
+              },
+              {
+                "question": "Liquid biopsy is best described as:",
+                "options": {
+                  "A": "Tumour-derived DNA fragments in circulation",
+                  "B": "Fetal DNA fragments detectable in maternal blood",
+                  "C": "Transplant donor DNA fragments in recipient blood",
+                  "D": "Combined analysis across molecular data layers",
+                  "E": "Sampling circulating biomarkers from blood or similar fluid"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Sampling circulating biomarkers from blood or similar fluid."
+              },
+              {
+                "question": "Circulating tumour DNA is best described as:",
+                "options": {
+                  "A": "Fetal DNA fragments detectable in maternal blood",
+                  "B": "Transplant donor DNA fragments in recipient blood",
+                  "C": "Tumour-derived DNA fragments in circulation",
+                  "D": "Combined analysis across molecular data layers",
+                  "E": "Measurement of RNA expression patterns"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Tumour-derived DNA fragments in circulation."
+              },
+              {
+                "question": "Cell-free fetal DNA is best described as:",
+                "options": {
+                  "A": "Fetal DNA fragments detectable in maternal blood",
+                  "B": "Transplant donor DNA fragments in recipient blood",
+                  "C": "Combined analysis across molecular data layers",
+                  "D": "Measurement of RNA expression patterns",
+                  "E": "Measurement of protein abundance and states"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Fetal DNA fragments detectable in maternal blood."
+              },
+              {
+                "question": "Donor-derived cell-free DNA is best described as:",
+                "options": {
+                  "A": "Combined analysis across molecular data layers",
+                  "B": "Measurement of RNA expression patterns",
+                  "C": "Measurement of protein abundance and states",
+                  "D": "Transplant donor DNA fragments in recipient blood",
+                  "E": "A small circular genome inside mitochondria"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Transplant donor DNA fragments in recipient blood."
+              },
+              {
+                "question": "Multi-omics is best described as:",
+                "options": {
+                  "A": "Measurement of RNA expression patterns",
+                  "B": "Combined analysis across molecular data layers",
+                  "C": "Measurement of protein abundance and states",
+                  "D": "A small circular genome inside mitochondria",
+                  "E": "Mitochondrial ATP production using the electron transport chain"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Combined analysis across molecular data layers."
+              },
+              {
+                "question": "Transcriptomics is best described as:",
+                "options": {
+                  "A": "Measurement of protein abundance and states",
+                  "B": "A small circular genome inside mitochondria",
+                  "C": "Mitochondrial ATP production using the electron transport chain",
+                  "D": "The main energy currency of the cell",
+                  "E": "Measurement of RNA expression patterns"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Measurement of RNA expression patterns."
+              },
+              {
+                "question": "Proteomics is best described as:",
+                "options": {
+                  "A": "A small circular genome inside mitochondria",
+                  "B": "Mitochondrial ATP production using the electron transport chain",
+                  "C": "Measurement of protein abundance and states",
+                  "D": "The main energy currency of the cell",
+                  "E": "All mitochondrial DNA copies have the same variant state"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Measurement of protein abundance and states."
+              },
+              {
+                "question": "A child has a mitochondrial disorder inherited from an affected mother, while the father does not transmit it. This reflects:",
+                "options": {
+                  "A": "Maternal inheritance",
+                  "B": "Autosomal dominance",
+                  "C": "Y-linked inheritance",
+                  "D": "X-linked recessive inheritance",
+                  "E": "Somatic mosaicism"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Maternal inheritance."
+              },
+              {
+                "question": "Two siblings inherit the same mitochondrial variant but have different severity due to different mutant loads. This is explained by:",
+                "options": {
+                  "A": "Codominance",
+                  "B": "Balanced translocation",
+                  "C": "Linkage equilibrium",
+                  "D": "Heteroplasmy and threshold effect",
+                  "E": "Genome-wide significance"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Heteroplasmy and threshold effect."
+              },
+              {
+                "question": "A tissue with high energy demand is especially affected by impaired oxidative phosphorylation because mitochondria produce:",
+                "options": {
+                  "A": "Antibodies",
+                  "B": "ATP",
+                  "C": "Bile acids",
+                  "D": "Histones",
+                  "E": "Telomeres"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: ATP."
+              },
+              {
+                "question": "A mitochondrial DNA variant is present in all copies measured in a sample. This is:",
+                "options": {
+                  "A": "Heteroplasmy",
+                  "B": "Hemizygosity",
+                  "C": "Triploidy",
+                  "D": "Imprinting",
+                  "E": "Homoplasmy"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Homoplasmy."
+              },
+              {
+                "question": "A microbiome treatment transfers stool-derived microbes from a screened donor to a patient. This is:",
+                "options": {
+                  "A": "Phage therapy",
+                  "B": "Prebiotic treatment",
+                  "C": "Faecal microbiota transplant",
+                  "D": "Antibiotic prophylaxis",
+                  "E": "Liquid biopsy"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Faecal microbiota transplant."
+              },
+              {
+                "question": "A non-digestible fibre selectively supports beneficial gut microbes. It is a:",
+                "options": {
+                  "A": "Prebiotic",
+                  "B": "Probiotic",
+                  "C": "Bacteriophage",
+                  "D": "Antibiotic",
+                  "E": "Cell-free DNA marker"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Prebiotic."
+              },
+              {
+                "question": "A capsule contains live bacteria claimed to improve gut health. It is a:",
+                "options": {
+                  "A": "Prebiotic",
+                  "B": "Antimicrobial",
+                  "C": "Mitochondrial genome",
+                  "D": "Probiotic",
+                  "E": "Liquid biopsy"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Probiotic."
+              },
+              {
+                "question": "Antibiotics remove susceptible commensals and allow rare resistant organisms to expand. The concern is:",
+                "options": {
+                  "A": "Mendelian segregation",
+                  "B": "Antimicrobial resistance",
+                  "C": "Genome-wide significance",
+                  "D": "Reduced penetrance",
+                  "E": "Allele dropout"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Antimicrobial resistance."
+              },
+              {
+                "question": "A therapy uses viruses engineered to kill specific bacteria. This is:",
+                "options": {
+                  "A": "Exome sequencing",
+                  "B": "Microarray testing",
+                  "C": "Cell-free fetal DNA testing",
+                  "D": "Haplotype phasing",
+                  "E": "Bacteriophage therapy"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Bacteriophage therapy."
+              },
+              {
+                "question": "A blood test monitors tumour-derived DNA fragments after cancer treatment. The biomarker is:",
+                "options": {
+                  "A": "Donor-derived cell-free DNA",
+                  "B": "Fetal DNA",
+                  "C": "Circulating tumour DNA",
+                  "D": "Mitochondrial ATP",
+                  "E": "Bacterial fibre"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Circulating tumour DNA."
+              },
+              {
+                "question": "A pregnant woman has fetal trisomy screening using DNA fragments in her blood. The analyte is:",
+                "options": {
+                  "A": "Cell-free fetal DNA",
+                  "B": "Circulating tumour DNA",
+                  "C": "Donor-derived DNA",
+                  "D": "Proteomic ATP",
+                  "E": "Microbial phage DNA"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Cell-free fetal DNA."
+              },
+              {
+                "question": "A transplant recipient has rising donor-derived cell-free DNA after an initial fall. This may suggest:",
+                "options": {
+                  "A": "Improved graft tolerance",
+                  "B": "Lower sequencing depth",
+                  "C": "Fetal trisomy",
+                  "D": "Graft injury or rejection",
+                  "E": "Reduced penetrance"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Graft injury or rejection."
+              },
+              {
+                "question": "A study measures genome, methylation, RNA, proteins and metabolites in one disease cohort. This is:",
+                "options": {
+                  "A": "Karyotyping",
+                  "B": "Multi-omics",
+                  "C": "Sanger confirmation",
+                  "D": "Single-locus linkage",
+                  "E": "Pedigree analysis"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Multi-omics."
+              },
+              {
+                "question": "A gut bacterium is associated with colorectal cancer but may be marker rather than cause. The key uncertainty is:",
+                "options": {
+                  "A": "Chromosome number",
+                  "B": "Mendelian ratio",
+                  "C": "Base quality",
+                  "D": "Sex linkage",
+                  "E": "Causality"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Causality."
+              }
+            ]
+          },
+          {
+            "id": "gng09-cancer-genetics",
+            "title": "GNG09 - Cancer Genetics",
+            "questions": [
+              {
+                "question": "Cancer is best described as:",
+                "options": {
+                  "A": "A mutation acquired in non-germline cells",
+                  "B": "An inherited variant present in reproductive lineage",
+                  "C": "Disease caused by uncontrolled clonal cell growth",
+                  "D": "A gene whose activation can promote cancer",
+                  "E": "A normal gene that can become an oncogene"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Disease caused by uncontrolled clonal cell growth."
+              },
+              {
+                "question": "Somatic mutation is best described as:",
+                "options": {
+                  "A": "A mutation acquired in non-germline cells",
+                  "B": "An inherited variant present in reproductive lineage",
+                  "C": "A gene whose activation can promote cancer",
+                  "D": "A normal gene that can become an oncogene",
+                  "E": "A gene whose loss can promote cancer"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A mutation acquired in non-germline cells."
+              },
+              {
+                "question": "Germline mutation is best described as:",
+                "options": {
+                  "A": "A gene whose activation can promote cancer",
+                  "B": "A normal gene that can become an oncogene",
+                  "C": "A gene whose loss can promote cancer",
+                  "D": "An inherited variant present in reproductive lineage",
+                  "E": "Loss of both tumour suppressor gene copies"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: An inherited variant present in reproductive lineage."
+              },
+              {
+                "question": "Oncogene is best described as:",
+                "options": {
+                  "A": "A normal gene that can become an oncogene",
+                  "B": "A gene whose activation can promote cancer",
+                  "C": "A gene whose loss can promote cancer",
+                  "D": "Loss of both tumour suppressor gene copies",
+                  "E": "A mutation contributing to cancer development"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A gene whose activation can promote cancer."
+              },
+              {
+                "question": "Proto-oncogene is best described as:",
+                "options": {
+                  "A": "A gene whose loss can promote cancer",
+                  "B": "Loss of both tumour suppressor gene copies",
+                  "C": "A mutation contributing to cancer development",
+                  "D": "A mutation not giving major growth advantage",
+                  "E": "A normal gene that can become an oncogene"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A normal gene that can become an oncogene."
+              },
+              {
+                "question": "Tumour suppressor gene is best described as:",
+                "options": {
+                  "A": "Loss of both tumour suppressor gene copies",
+                  "B": "A mutation contributing to cancer development",
+                  "C": "A gene whose loss can promote cancer",
+                  "D": "A mutation not giving major growth advantage",
+                  "E": "Growth of cells descended from one altered cell"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A gene whose loss can promote cancer."
+              },
+              {
+                "question": "Two-hit hypothesis is best described as:",
+                "options": {
+                  "A": "Loss of both tumour suppressor gene copies",
+                  "B": "A mutation contributing to cancer development",
+                  "C": "A mutation not giving major growth advantage",
+                  "D": "Growth of cells descended from one altered cell",
+                  "E": "Increased tendency to acquire genomic changes"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Loss of both tumour suppressor gene copies."
+              },
+              {
+                "question": "Driver mutation is best described as:",
+                "options": {
+                  "A": "A mutation not giving major growth advantage",
+                  "B": "Growth of cells descended from one altered cell",
+                  "C": "Increased tendency to acquire genomic changes",
+                  "D": "A mutation contributing to cancer development",
+                  "E": "Loss of the normal allele in a cell"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A mutation contributing to cancer development."
+              },
+              {
+                "question": "Passenger mutation is best described as:",
+                "options": {
+                  "A": "Growth of cells descended from one altered cell",
+                  "B": "A mutation not giving major growth advantage",
+                  "C": "Increased tendency to acquire genomic changes",
+                  "D": "Loss of the normal allele in a cell",
+                  "E": "Tumour suppressor genes linked to DNA repair"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A mutation not giving major growth advantage."
+              },
+              {
+                "question": "Clonal expansion is best described as:",
+                "options": {
+                  "A": "Increased tendency to acquire genomic changes",
+                  "B": "Loss of the normal allele in a cell",
+                  "C": "Tumour suppressor genes linked to DNA repair",
+                  "D": "Genes preventing accumulation of replication errors",
+                  "E": "Growth of cells descended from one altered cell"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Growth of cells descended from one altered cell."
+              },
+              {
+                "question": "Genomic instability is best described as:",
+                "options": {
+                  "A": "Loss of the normal allele in a cell",
+                  "B": "Tumour suppressor genes linked to DNA repair",
+                  "C": "Increased tendency to acquire genomic changes",
+                  "D": "Genes preventing accumulation of replication errors",
+                  "E": "Inherited cancer risk due to mismatch repair variants"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Increased tendency to acquire genomic changes."
+              },
+              {
+                "question": "Loss of heterozygosity is best described as:",
+                "options": {
+                  "A": "Loss of the normal allele in a cell",
+                  "B": "Tumour suppressor genes linked to DNA repair",
+                  "C": "Genes preventing accumulation of replication errors",
+                  "D": "Inherited cancer risk due to mismatch repair variants",
+                  "E": "Inherited APC-related colorectal cancer predisposition"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Loss of the normal allele in a cell."
+              },
+              {
+                "question": "BRCA1 and BRCA2 is best described as:",
+                "options": {
+                  "A": "Genes preventing accumulation of replication errors",
+                  "B": "Inherited cancer risk due to mismatch repair variants",
+                  "C": "Inherited APC-related colorectal cancer predisposition",
+                  "D": "Tumour suppressor genes linked to DNA repair",
+                  "E": "A tumour suppressor gene in colorectal cancer pathways"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Tumour suppressor genes linked to DNA repair."
+              },
+              {
+                "question": "Mismatch repair genes is best described as:",
+                "options": {
+                  "A": "Inherited cancer risk due to mismatch repair variants",
+                  "B": "Genes preventing accumulation of replication errors",
+                  "C": "Inherited APC-related colorectal cancer predisposition",
+                  "D": "A tumour suppressor gene in colorectal cancer pathways",
+                  "E": "A tumour suppressor gene involved in DNA damage response"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Genes preventing accumulation of replication errors."
+              },
+              {
+                "question": "Lynch syndrome is best described as:",
+                "options": {
+                  "A": "Inherited APC-related colorectal cancer predisposition",
+                  "B": "A tumour suppressor gene in colorectal cancer pathways",
+                  "C": "A tumour suppressor gene involved in DNA damage response",
+                  "D": "A fusion oncogene associated with chronic myeloid leukaemia",
+                  "E": "Inherited cancer risk due to mismatch repair variants"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Inherited cancer risk due to mismatch repair variants."
+              },
+              {
+                "question": "Familial adenomatous polyposis is best described as:",
+                "options": {
+                  "A": "A tumour suppressor gene in colorectal cancer pathways",
+                  "B": "A tumour suppressor gene involved in DNA damage response",
+                  "C": "Inherited APC-related colorectal cancer predisposition",
+                  "D": "A fusion oncogene associated with chronic myeloid leukaemia",
+                  "E": "Treatment directed at a molecular abnormality"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Inherited APC-related colorectal cancer predisposition."
+              },
+              {
+                "question": "APC is best described as:",
+                "options": {
+                  "A": "A tumour suppressor gene in colorectal cancer pathways",
+                  "B": "A tumour suppressor gene involved in DNA damage response",
+                  "C": "A fusion oncogene associated with chronic myeloid leukaemia",
+                  "D": "Treatment directed at a molecular abnormality",
+                  "E": "Genomic testing of cancer tissue"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A tumour suppressor gene in colorectal cancer pathways."
+              },
+              {
+                "question": "TP53 is best described as:",
+                "options": {
+                  "A": "A fusion oncogene associated with chronic myeloid leukaemia",
+                  "B": "Treatment directed at a molecular abnormality",
+                  "C": "Genomic testing of cancer tissue",
+                  "D": "A tumour suppressor gene involved in DNA damage response",
+                  "E": "Detection of tumour DNA in body fluids"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A tumour suppressor gene involved in DNA damage response."
+              },
+              {
+                "question": "BCR-ABL is best described as:",
+                "options": {
+                  "A": "Treatment directed at a molecular abnormality",
+                  "B": "A fusion oncogene associated with chronic myeloid leukaemia",
+                  "C": "Genomic testing of cancer tissue",
+                  "D": "Detection of tumour DNA in body fluids",
+                  "E": "Testing for inherited cancer-risk variants"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A fusion oncogene associated with chronic myeloid leukaemia."
+              },
+              {
+                "question": "Targeted therapy is best described as:",
+                "options": {
+                  "A": "Genomic testing of cancer tissue",
+                  "B": "Detection of tumour DNA in body fluids",
+                  "C": "Testing for inherited cancer-risk variants",
+                  "D": "Testing relatives for a familial cancer-risk variant",
+                  "E": "Treatment directed at a molecular abnormality"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Treatment directed at a molecular abnormality."
+              },
+              {
+                "question": "Tumour sequencing is best described as:",
+                "options": {
+                  "A": "Detection of tumour DNA in body fluids",
+                  "B": "Testing for inherited cancer-risk variants",
+                  "C": "Genomic testing of cancer tissue",
+                  "D": "Testing relatives for a familial cancer-risk variant",
+                  "E": "Probability a variant carrier develops cancer"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Genomic testing of cancer tissue."
+              },
+              {
+                "question": "Liquid biopsy in cancer is best described as:",
+                "options": {
+                  "A": "Detection of tumour DNA in body fluids",
+                  "B": "Testing for inherited cancer-risk variants",
+                  "C": "Testing relatives for a familial cancer-risk variant",
+                  "D": "Probability a variant carrier develops cancer",
+                  "E": "Genetically distinct cell populations within one person"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Detection of tumour DNA in body fluids."
+              },
+              {
+                "question": "Cancer predisposition testing is best described as:",
+                "options": {
+                  "A": "Testing relatives for a familial cancer-risk variant",
+                  "B": "Probability a variant carrier develops cancer",
+                  "C": "Genetically distinct cell populations within one person",
+                  "D": "Testing for inherited cancer-risk variants",
+                  "E": "Disease caused by uncontrolled clonal cell growth"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Testing for inherited cancer-risk variants."
+              },
+              {
+                "question": "Cascade testing in cancer is best described as:",
+                "options": {
+                  "A": "Probability a variant carrier develops cancer",
+                  "B": "Testing relatives for a familial cancer-risk variant",
+                  "C": "Genetically distinct cell populations within one person",
+                  "D": "Disease caused by uncontrolled clonal cell growth",
+                  "E": "A mutation acquired in non-germline cells"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Testing relatives for a familial cancer-risk variant."
+              },
+              {
+                "question": "Penetrance in cancer is best described as:",
+                "options": {
+                  "A": "Genetically distinct cell populations within one person",
+                  "B": "Disease caused by uncontrolled clonal cell growth",
+                  "C": "A mutation acquired in non-germline cells",
+                  "D": "An inherited variant present in reproductive lineage",
+                  "E": "Probability a variant carrier develops cancer"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Probability a variant carrier develops cancer."
+              },
+              {
+                "question": "Somatic mosaicism is best described as:",
+                "options": {
+                  "A": "Disease caused by uncontrolled clonal cell growth",
+                  "B": "A mutation acquired in non-germline cells",
+                  "C": "Genetically distinct cell populations within one person",
+                  "D": "An inherited variant present in reproductive lineage",
+                  "E": "A gene whose activation can promote cancer"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Genetically distinct cell populations within one person."
+              },
+              {
+                "question": "A tumour has an activating point mutation in a growth signalling gene. The affected gene is most likely acting as an:",
+                "options": {
+                  "A": "Oncogene",
+                  "B": "Tumour suppressor gene",
+                  "C": "Housekeeping gene",
+                  "D": "Mitochondrial tRNA",
+                  "E": "Imprinted silencer"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Oncogene."
+              },
+              {
+                "question": "A child inherits one inactive RB1 allele and a retinal cell loses the second copy. This illustrates:",
+                "options": {
+                  "A": "X-linked recessive inheritance",
+                  "B": "Polygenic risk scoring",
+                  "C": "Mitochondrial bottleneck",
+                  "D": "Two-hit tumour suppressor model",
+                  "E": "Silent mutation"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Two-hit tumour suppressor model."
+              },
+              {
+                "question": "A mutation is present in blood, saliva and tumour tissue from birth. It is most likely:",
+                "options": {
+                  "A": "Somatic",
+                  "B": "Germline",
+                  "C": "Passenger",
+                  "D": "Post-transcriptional",
+                  "E": "Microbial"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Germline."
+              },
+              {
+                "question": "A mutation is present in the tumour but absent from normal blood. It is most likely:",
+                "options": {
+                  "A": "Germline",
+                  "B": "Inherited recessive",
+                  "C": "Mitochondrial homoplasmy",
+                  "D": "X-linked",
+                  "E": "Somatic"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Somatic."
+              },
+              {
+                "question": "A tumour accumulates many replication errors because mismatch repair is defective. This suggests:",
+                "options": {
+                  "A": "BRCA1 promoter activation",
+                  "B": "Mitochondrial inheritance",
+                  "C": "Lynch syndrome pathway",
+                  "D": "Balanced karyotype",
+                  "E": "Pharmacogenetic toxicity"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Lynch syndrome pathway."
+              },
+              {
+                "question": "A patient with a pathogenic BRCA1 variant asks why cancer risk increases. The main mechanism is impaired:",
+                "options": {
+                  "A": "DNA repair",
+                  "B": "Drug absorption",
+                  "C": "Mitochondrial ATP synthesis",
+                  "D": "Ribosome assembly",
+                  "E": "Microbial metabolism"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: DNA repair."
+              },
+              {
+                "question": "A cancer mutation gives a clone a growth advantage. It is best classified as:",
+                "options": {
+                  "A": "Passenger mutation",
+                  "B": "Silent polymorphism",
+                  "C": "Benign germline variant",
+                  "D": "Driver mutation",
+                  "E": "Protective allele"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Driver mutation."
+              },
+              {
+                "question": "Many mutations are found in a tumour, but one has no apparent effect on growth. It is best called:",
+                "options": {
+                  "A": "Driver mutation",
+                  "B": "Passenger mutation",
+                  "C": "Oncogenic fusion",
+                  "D": "Tumour suppressor loss",
+                  "E": "High-penetrance allele"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Passenger mutation."
+              },
+              {
+                "question": "A CML patient has a BCR-ABL fusion and receives a kinase inhibitor. This is an example of:",
+                "options": {
+                  "A": "Carrier screening",
+                  "B": "Karyotype counselling",
+                  "C": "Polygenic prevention",
+                  "D": "Mitochondrial replacement",
+                  "E": "Targeted therapy"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Targeted therapy."
+              },
+              {
+                "question": "A healthy sibling is tested after a familial BRCA2 pathogenic variant is found. This is:",
+                "options": {
+                  "A": "Tumour staging",
+                  "B": "Genome-wide association",
+                  "C": "Cascade testing",
+                  "D": "Cell culture",
+                  "E": "Random sampling"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Cascade testing."
+              },
+              {
+                "question": "A colorectal tumour develops after loss of APC function in the Wnt pathway. APC is acting as a:",
+                "options": {
+                  "A": "Tumour suppressor gene",
+                  "B": "Proto-oncogene",
+                  "C": "Drug transporter",
+                  "D": "Mitochondrial gene",
+                  "E": "Bacterial virulence gene"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Tumour suppressor gene."
+              },
+              {
+                "question": "A tumour shows loss of the remaining normal allele near a tumour suppressor locus. This is:",
+                "options": {
+                  "A": "Independent assortment",
+                  "B": "Balanced translocation",
+                  "C": "Linkage equilibrium",
+                  "D": "Loss of heterozygosity",
+                  "E": "Codominance"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Loss of heterozygosity."
+              },
+              {
+                "question": "A blood sample is used to monitor tumour DNA fragments after surgery. This is:",
+                "options": {
+                  "A": "Pedigree analysis",
+                  "B": "Liquid biopsy",
+                  "C": "Sanger carrier testing",
+                  "D": "Embryo selection",
+                  "E": "Microbiome transplant"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Liquid biopsy."
+              },
+              {
+                "question": "An inherited cancer syndrome has high but incomplete risk. This is best described using:",
+                "options": {
+                  "A": "Read depth",
+                  "B": "Allele dropout",
+                  "C": "Translation rate",
+                  "D": "Osmotic gradient",
+                  "E": "Penetrance"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Penetrance."
+              }
+            ]
+          },
+          {
+            "id": "gng10-epigenetics-and-gene-regulation",
+            "title": "GNG10 - Epigenetics and Gene Regulation",
+            "questions": [
+              {
+                "question": "Epigenetics is best described as:",
+                "options": {
+                  "A": "Addition of methyl groups to DNA bases",
+                  "B": "An enzyme adding methyl groups to DNA",
+                  "C": "Heritable regulation of gene expression without DNA sequence change",
+                  "D": "A GC-rich region containing many CpG sites",
+                  "E": "Chemical modification of histone proteins"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Heritable regulation of gene expression without DNA sequence change."
+              },
+              {
+                "question": "DNA methylation is best described as:",
+                "options": {
+                  "A": "Addition of methyl groups to DNA bases",
+                  "B": "An enzyme adding methyl groups to DNA",
+                  "C": "A GC-rich region containing many CpG sites",
+                  "D": "Chemical modification of histone proteins",
+                  "E": "DNA packaged with histone and associated proteins"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Addition of methyl groups to DNA bases."
+              },
+              {
+                "question": "DNA methyltransferase is best described as:",
+                "options": {
+                  "A": "A GC-rich region containing many CpG sites",
+                  "B": "Chemical modification of histone proteins",
+                  "C": "DNA packaged with histone and associated proteins",
+                  "D": "An enzyme adding methyl groups to DNA",
+                  "E": "Open chromatin usually associated with active transcription"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: An enzyme adding methyl groups to DNA."
+              },
+              {
+                "question": "CpG island is best described as:",
+                "options": {
+                  "A": "Chemical modification of histone proteins",
+                  "B": "A GC-rich region containing many CpG sites",
+                  "C": "DNA packaged with histone and associated proteins",
+                  "D": "Open chromatin usually associated with active transcription",
+                  "E": "Condensed chromatin usually associated with reduced transcription"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A GC-rich region containing many CpG sites."
+              },
+              {
+                "question": "Histone modification is best described as:",
+                "options": {
+                  "A": "DNA packaged with histone and associated proteins",
+                  "B": "Open chromatin usually associated with active transcription",
+                  "C": "Condensed chromatin usually associated with reduced transcription",
+                  "D": "A histone modification often linked to open chromatin",
+                  "E": "Chemical modification of histone proteins"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Chemical modification of histone proteins."
+              },
+              {
+                "question": "Chromatin is best described as:",
+                "options": {
+                  "A": "Open chromatin usually associated with active transcription",
+                  "B": "Condensed chromatin usually associated with reduced transcription",
+                  "C": "DNA packaged with histone and associated proteins",
+                  "D": "A histone modification often linked to open chromatin",
+                  "E": "An enzyme removing acetyl groups from histones"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: DNA packaged with histone and associated proteins."
+              },
+              {
+                "question": "Euchromatin is best described as:",
+                "options": {
+                  "A": "Open chromatin usually associated with active transcription",
+                  "B": "Condensed chromatin usually associated with reduced transcription",
+                  "C": "A histone modification often linked to open chromatin",
+                  "D": "An enzyme removing acetyl groups from histones",
+                  "E": "Parent-of-origin-specific gene expression"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Open chromatin usually associated with active transcription."
+              },
+              {
+                "question": "Heterochromatin is best described as:",
+                "options": {
+                  "A": "A histone modification often linked to open chromatin",
+                  "B": "An enzyme removing acetyl groups from histones",
+                  "C": "Parent-of-origin-specific gene expression",
+                  "D": "Condensed chromatin usually associated with reduced transcription",
+                  "E": "A gene expressed according to parental origin"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Condensed chromatin usually associated with reduced transcription."
+              },
+              {
+                "question": "Acetylation is best described as:",
+                "options": {
+                  "A": "An enzyme removing acetyl groups from histones",
+                  "B": "A histone modification often linked to open chromatin",
+                  "C": "Parent-of-origin-specific gene expression",
+                  "D": "A gene expressed according to parental origin",
+                  "E": "A parental epigenetic mark affecting expression"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A histone modification often linked to open chromatin."
+              },
+              {
+                "question": "Histone deacetylase is best described as:",
+                "options": {
+                  "A": "Parent-of-origin-specific gene expression",
+                  "B": "A gene expressed according to parental origin",
+                  "C": "A parental epigenetic mark affecting expression",
+                  "D": "The complete set of epigenetic marks in a cell",
+                  "E": "An enzyme removing acetyl groups from histones"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: An enzyme removing acetyl groups from histones."
+              },
+              {
+                "question": "Genomic imprinting is best described as:",
+                "options": {
+                  "A": "A gene expressed according to parental origin",
+                  "B": "A parental epigenetic mark affecting expression",
+                  "C": "Parent-of-origin-specific gene expression",
+                  "D": "The complete set of epigenetic marks in a cell",
+                  "E": "Epigenetic silencing of one X chromosome in females"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Parent-of-origin-specific gene expression."
+              },
+              {
+                "question": "Imprinted gene is best described as:",
+                "options": {
+                  "A": "A gene expressed according to parental origin",
+                  "B": "A parental epigenetic mark affecting expression",
+                  "C": "The complete set of epigenetic marks in a cell",
+                  "D": "Epigenetic silencing of one X chromosome in females",
+                  "E": "Epigenetic control of cell fate and differentiation"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A gene expressed according to parental origin."
+              },
+              {
+                "question": "Methylation imprint is best described as:",
+                "options": {
+                  "A": "The complete set of epigenetic marks in a cell",
+                  "B": "Epigenetic silencing of one X chromosome in females",
+                  "C": "Epigenetic control of cell fate and differentiation",
+                  "D": "A parental epigenetic mark affecting expression",
+                  "E": "External exposures altering gene regulation"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A parental epigenetic mark affecting expression."
+              },
+              {
+                "question": "Epigenome is best described as:",
+                "options": {
+                  "A": "Epigenetic silencing of one X chromosome in females",
+                  "B": "The complete set of epigenetic marks in a cell",
+                  "C": "Epigenetic control of cell fate and differentiation",
+                  "D": "External exposures altering gene regulation",
+                  "E": "An abnormal epigenetic mark associated with disease"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: The complete set of epigenetic marks in a cell."
+              },
+              {
+                "question": "X-inactivation is best described as:",
+                "options": {
+                  "A": "Epigenetic control of cell fate and differentiation",
+                  "B": "External exposures altering gene regulation",
+                  "C": "An abnormal epigenetic mark associated with disease",
+                  "D": "Epigenetic silencing of a cancer-protective gene",
+                  "E": "Epigenetic silencing of one X chromosome in females"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Epigenetic silencing of one X chromosome in females."
+              },
+              {
+                "question": "Developmental epigenetics is best described as:",
+                "options": {
+                  "A": "External exposures altering gene regulation",
+                  "B": "An abnormal epigenetic mark associated with disease",
+                  "C": "Epigenetic control of cell fate and differentiation",
+                  "D": "Epigenetic silencing of a cancer-protective gene",
+                  "E": "Combinations of histone marks influencing gene activity"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Epigenetic control of cell fate and differentiation."
+              },
+              {
+                "question": "Environmental influence is best described as:",
+                "options": {
+                  "A": "External exposures altering gene regulation",
+                  "B": "An abnormal epigenetic mark associated with disease",
+                  "C": "Epigenetic silencing of a cancer-protective gene",
+                  "D": "Combinations of histone marks influencing gene activity",
+                  "E": "Changing chromatin structure to regulate DNA access"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: External exposures altering gene regulation."
+              },
+              {
+                "question": "Epimutation is best described as:",
+                "options": {
+                  "A": "Epigenetic silencing of a cancer-protective gene",
+                  "B": "Combinations of histone marks influencing gene activity",
+                  "C": "Changing chromatin structure to regulate DNA access",
+                  "D": "An abnormal epigenetic mark associated with disease",
+                  "E": "RNA with regulatory function rather than protein coding"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: An abnormal epigenetic mark associated with disease."
+              },
+              {
+                "question": "Tumour suppressor methylation is best described as:",
+                "options": {
+                  "A": "Combinations of histone marks influencing gene activity",
+                  "B": "Epigenetic silencing of a cancer-protective gene",
+                  "C": "Changing chromatin structure to regulate DNA access",
+                  "D": "RNA with regulatory function rather than protein coding",
+                  "E": "Treatment aiming to modify epigenetic regulation"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Epigenetic silencing of a cancer-protective gene."
+              },
+              {
+                "question": "Histone code is best described as:",
+                "options": {
+                  "A": "Changing chromatin structure to regulate DNA access",
+                  "B": "RNA with regulatory function rather than protein coding",
+                  "C": "Treatment aiming to modify epigenetic regulation",
+                  "D": "Different phenotype depending on which parent transmits the allele",
+                  "E": "Combinations of histone marks influencing gene activity"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Combinations of histone marks influencing gene activity."
+              },
+              {
+                "question": "Chromatin remodelling is best described as:",
+                "options": {
+                  "A": "RNA with regulatory function rather than protein coding",
+                  "B": "Treatment aiming to modify epigenetic regulation",
+                  "C": "Changing chromatin structure to regulate DNA access",
+                  "D": "Different phenotype depending on which parent transmits the allele",
+                  "E": "An imprinting disorder involving paternal 15q expression loss"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Changing chromatin structure to regulate DNA access."
+              },
+              {
+                "question": "Non-coding RNA is best described as:",
+                "options": {
+                  "A": "RNA with regulatory function rather than protein coding",
+                  "B": "Treatment aiming to modify epigenetic regulation",
+                  "C": "Different phenotype depending on which parent transmits the allele",
+                  "D": "An imprinting disorder involving paternal 15q expression loss",
+                  "E": "An imprinting disorder involving maternal UBE3A expression loss"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: RNA with regulatory function rather than protein coding."
+              },
+              {
+                "question": "Epigenetic therapy is best described as:",
+                "options": {
+                  "A": "Different phenotype depending on which parent transmits the allele",
+                  "B": "An imprinting disorder involving paternal 15q expression loss",
+                  "C": "An imprinting disorder involving maternal UBE3A expression loss",
+                  "D": "Treatment aiming to modify epigenetic regulation",
+                  "E": "Heritable regulation of gene expression without DNA sequence change"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Treatment aiming to modify epigenetic regulation."
+              },
+              {
+                "question": "Parent-of-origin effect is best described as:",
+                "options": {
+                  "A": "An imprinting disorder involving paternal 15q expression loss",
+                  "B": "Different phenotype depending on which parent transmits the allele",
+                  "C": "An imprinting disorder involving maternal UBE3A expression loss",
+                  "D": "Heritable regulation of gene expression without DNA sequence change",
+                  "E": "Addition of methyl groups to DNA bases"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Different phenotype depending on which parent transmits the allele."
+              },
+              {
+                "question": "Prader-Willi syndrome is best described as:",
+                "options": {
+                  "A": "An imprinting disorder involving maternal UBE3A expression loss",
+                  "B": "Heritable regulation of gene expression without DNA sequence change",
+                  "C": "Addition of methyl groups to DNA bases",
+                  "D": "An enzyme adding methyl groups to DNA",
+                  "E": "An imprinting disorder involving paternal 15q expression loss"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: An imprinting disorder involving paternal 15q expression loss."
+              },
+              {
+                "question": "Angelman syndrome is best described as:",
+                "options": {
+                  "A": "Heritable regulation of gene expression without DNA sequence change",
+                  "B": "Addition of methyl groups to DNA bases",
+                  "C": "An imprinting disorder involving maternal UBE3A expression loss",
+                  "D": "An enzyme adding methyl groups to DNA",
+                  "E": "A GC-rich region containing many CpG sites"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: An imprinting disorder involving maternal UBE3A expression loss."
+              },
+              {
+                "question": "Two cells have the same DNA sequence but express different genes because of methylation and histone marks. This illustrates:",
+                "options": {
+                  "A": "Epigenetic regulation",
+                  "B": "Chromosomal aneuploidy",
+                  "C": "Genetic drift",
+                  "D": "Frameshift mutation",
+                  "E": "Mitochondrial inheritance"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Epigenetic regulation."
+              },
+              {
+                "question": "A promoter CpG island becomes heavily methylated and gene expression falls. The likely effect is:",
+                "options": {
+                  "A": "Increased chromosome number",
+                  "B": "Protein truncation",
+                  "C": "Gamete nondisjunction",
+                  "D": "Transcriptional repression",
+                  "E": "Enhanced translation fidelity"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Transcriptional repression."
+              },
+              {
+                "question": "A histone becomes acetylated and chromatin opens. The expected effect is increased:",
+                "options": {
+                  "A": "DNA deletion",
+                  "B": "Transcriptional access",
+                  "C": "Mitochondrial bottleneck",
+                  "D": "Allele frequency",
+                  "E": "Karyotype resolution"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Transcriptional access."
+              },
+              {
+                "question": "A child has disease only when a deletion is inherited from the father, not the mother. This suggests:",
+                "options": {
+                  "A": "Autosomal recessive inheritance",
+                  "B": "Codominance",
+                  "C": "Somatic mutation",
+                  "D": "Polygenic inheritance",
+                  "E": "Genomic imprinting"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Genomic imprinting."
+              },
+              {
+                "question": "A female cell silences one X chromosome to balance dosage. This is:",
+                "options": {
+                  "A": "Independent assortment",
+                  "B": "Triplet repeat expansion",
+                  "C": "X-inactivation",
+                  "D": "Linkage analysis",
+                  "E": "Haplotype phasing"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: X-inactivation."
+              },
+              {
+                "question": "A cancer cell silences a tumour suppressor gene without changing its DNA sequence. The likely mechanism is:",
+                "options": {
+                  "A": "Promoter methylation",
+                  "B": "Missense substitution",
+                  "C": "Chromosome gain",
+                  "D": "Mitochondrial deletion",
+                  "E": "Amino acid codon change"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Promoter methylation."
+              },
+              {
+                "question": "A methyltransferase inhibitor restores expression of a silenced gene. This is an example of:",
+                "options": {
+                  "A": "Karyotype correction",
+                  "B": "Polygenic scoring",
+                  "C": "Carrier testing",
+                  "D": "Epigenetic therapy",
+                  "E": "Prebiotic treatment"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Epigenetic therapy."
+              },
+              {
+                "question": "Identical twins become more phenotypically different with age despite similar DNA. A plausible mechanism is divergence in:",
+                "options": {
+                  "A": "Chromosome number",
+                  "B": "Epigenetic marks",
+                  "C": "Mendelian ratios",
+                  "D": "Codon table rules",
+                  "E": "Paternal gametes"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Epigenetic marks."
+              },
+              {
+                "question": "A non-coding RNA reduces expression of a target mRNA. Its role is:",
+                "options": {
+                  "A": "Amino acid coding",
+                  "B": "Chromosome segregation",
+                  "C": "DNA replication origin",
+                  "D": "ATP synthesis",
+                  "E": "Gene regulation"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Gene regulation."
+              },
+              {
+                "question": "A disorder depends on whether the allele came from the oocyte or sperm. This is a:",
+                "options": {
+                  "A": "Transition mutation",
+                  "B": "Balanced translocation",
+                  "C": "Parent-of-origin effect",
+                  "D": "Founder effect",
+                  "E": "Read-depth artefact"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Parent-of-origin effect."
+              },
+              {
+                "question": "Loss of paternal expression in the imprinted 15q region is associated with:",
+                "options": {
+                  "A": "Prader-Willi syndrome",
+                  "B": "Lynch syndrome",
+                  "C": "Cystic fibrosis",
+                  "D": "Marfan syndrome",
+                  "E": "Huntington disease"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Prader-Willi syndrome."
+              },
+              {
+                "question": "Loss of maternal UBE3A expression is associated with:",
+                "options": {
+                  "A": "Prader-Willi syndrome",
+                  "B": "Down syndrome",
+                  "C": "Familial adenomatous polyposis",
+                  "D": "Angelman syndrome",
+                  "E": "Turner syndrome"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Angelman syndrome."
+              },
+              {
+                "question": "A differentiated neuron and hepatocyte maintain different functions partly because they maintain different:",
+                "options": {
+                  "A": "Karyotypes",
+                  "B": "Epigenomes",
+                  "C": "Codon tables",
+                  "D": "Genome sizes",
+                  "E": "Allele frequencies"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Epigenomes."
+              },
+              {
+                "question": "A chromatin-remodelling defect prevents transcription factors reaching DNA. The process disrupted is:",
+                "options": {
+                  "A": "Gamete fertilisation",
+                  "B": "Mitochondrial inheritance",
+                  "C": "Protein glycosylation",
+                  "D": "Chromosome nondisjunction",
+                  "E": "Regulated DNA accessibility"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Regulated DNA accessibility."
+              }
+            ]
+          },
+          {
+            "id": "gng11-chromosomal-abnormalities-and-structural-variants",
+            "title": "GNG11 - Chromosomal Abnormalities and Structural Variants",
+            "questions": [
+              {
+                "question": "A chromosomal abnormality is best described as:",
+                "options": {
+                  "A": "Gain or loss of individual chromosomes",
+                  "B": "Gain of complete extra chromosome sets",
+                  "C": "A numerical or structural chromosome change",
+                  "D": "Presence of three copies of one chromosome",
+                  "E": "Presence of one copy of a chromosome"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A numerical or structural chromosome change."
+              },
+              {
+                "question": "Aneuploidy is best described as:",
+                "options": {
+                  "A": "Gain or loss of individual chromosomes",
+                  "B": "Gain of complete extra chromosome sets",
+                  "C": "Presence of three copies of one chromosome",
+                  "D": "Presence of one copy of a chromosome",
+                  "E": "Failure of chromosome separation during cell division"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Gain or loss of individual chromosomes."
+              },
+              {
+                "question": "Polyploidy is best described as:",
+                "options": {
+                  "A": "Presence of three copies of one chromosome",
+                  "B": "Presence of one copy of a chromosome",
+                  "C": "Failure of chromosome separation during cell division",
+                  "D": "Gain of complete extra chromosome sets",
+                  "E": "Two or more genetically different cell lines in one person"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Gain of complete extra chromosome sets."
+              },
+              {
+                "question": "Trisomy is best described as:",
+                "options": {
+                  "A": "Presence of one copy of a chromosome",
+                  "B": "Presence of three copies of one chromosome",
+                  "C": "Failure of chromosome separation during cell division",
+                  "D": "Two or more genetically different cell lines in one person",
+                  "E": "Loss of a chromosome segment"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Presence of three copies of one chromosome."
+              },
+              {
+                "question": "Monosomy is best described as:",
+                "options": {
+                  "A": "Failure of chromosome separation during cell division",
+                  "B": "Two or more genetically different cell lines in one person",
+                  "C": "Loss of a chromosome segment",
+                  "D": "Extra copy of a chromosome segment",
+                  "E": "Presence of one copy of a chromosome"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Presence of one copy of a chromosome."
+              },
+              {
+                "question": "Nondisjunction is best described as:",
+                "options": {
+                  "A": "Two or more genetically different cell lines in one person",
+                  "B": "Loss of a chromosome segment",
+                  "C": "Failure of chromosome separation during cell division",
+                  "D": "Extra copy of a chromosome segment",
+                  "E": "A chromosome segment reversed in orientation"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Failure of chromosome separation during cell division."
+              },
+              {
+                "question": "Mosaicism is best described as:",
+                "options": {
+                  "A": "Two or more genetically different cell lines in one person",
+                  "B": "Loss of a chromosome segment",
+                  "C": "Extra copy of a chromosome segment",
+                  "D": "A chromosome segment reversed in orientation",
+                  "E": "Exchange of segments between non-homologous chromosomes"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Two or more genetically different cell lines in one person."
+              },
+              {
+                "question": "Deletion is best described as:",
+                "options": {
+                  "A": "Extra copy of a chromosome segment",
+                  "B": "A chromosome segment reversed in orientation",
+                  "C": "Exchange of segments between non-homologous chromosomes",
+                  "D": "Loss of a chromosome segment",
+                  "E": "Fusion of long arms of acrocentric chromosomes"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Loss of a chromosome segment."
+              },
+              {
+                "question": "Duplication is best described as:",
+                "options": {
+                  "A": "A chromosome segment reversed in orientation",
+                  "B": "Extra copy of a chromosome segment",
+                  "C": "Exchange of segments between non-homologous chromosomes",
+                  "D": "Fusion of long arms of acrocentric chromosomes",
+                  "E": "A structural change without net gain or loss"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Extra copy of a chromosome segment."
+              },
+              {
+                "question": "Inversion is best described as:",
+                "options": {
+                  "A": "Exchange of segments between non-homologous chromosomes",
+                  "B": "Fusion of long arms of acrocentric chromosomes",
+                  "C": "A structural change without net gain or loss",
+                  "D": "A structural change with gain or loss of material",
+                  "E": "A chromosome segment reversed in orientation"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A chromosome segment reversed in orientation."
+              },
+              {
+                "question": "Reciprocal translocation is best described as:",
+                "options": {
+                  "A": "Fusion of long arms of acrocentric chromosomes",
+                  "B": "A structural change without net gain or loss",
+                  "C": "Exchange of segments between non-homologous chromosomes",
+                  "D": "A structural change with gain or loss of material",
+                  "E": "A chromosome forming a circular structure"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Exchange of segments between non-homologous chromosomes."
+              },
+              {
+                "question": "Robertsonian translocation is best described as:",
+                "options": {
+                  "A": "Fusion of long arms of acrocentric chromosomes",
+                  "B": "A structural change without net gain or loss",
+                  "C": "A structural change with gain or loss of material",
+                  "D": "A chromosome forming a circular structure",
+                  "E": "A chromosome with duplicated identical arms"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Fusion of long arms of acrocentric chromosomes."
+              },
+              {
+                "question": "Balanced rearrangement is best described as:",
+                "options": {
+                  "A": "A structural change with gain or loss of material",
+                  "B": "A chromosome forming a circular structure",
+                  "C": "A chromosome with duplicated identical arms",
+                  "D": "A structural change without net gain or loss",
+                  "E": "Disease caused by a small chromosomal deletion"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A structural change without net gain or loss."
+              },
+              {
+                "question": "Unbalanced rearrangement is best described as:",
+                "options": {
+                  "A": "A chromosome forming a circular structure",
+                  "B": "A structural change with gain or loss of material",
+                  "C": "A chromosome with duplicated identical arms",
+                  "D": "Disease caused by a small chromosomal deletion",
+                  "E": "A clinical syndrome usually caused by trisomy 21"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A structural change with gain or loss of material."
+              },
+              {
+                "question": "Ring chromosome is best described as:",
+                "options": {
+                  "A": "A chromosome with duplicated identical arms",
+                  "B": "Disease caused by a small chromosomal deletion",
+                  "C": "A clinical syndrome usually caused by trisomy 21",
+                  "D": "A syndrome associated with 45,X",
+                  "E": "A chromosome forming a circular structure"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A chromosome forming a circular structure."
+              },
+              {
+                "question": "Isochromosome is best described as:",
+                "options": {
+                  "A": "Disease caused by a small chromosomal deletion",
+                  "B": "A clinical syndrome usually caused by trisomy 21",
+                  "C": "A chromosome with duplicated identical arms",
+                  "D": "A syndrome associated with 45,X",
+                  "E": "A syndrome associated with 47,XXY"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A chromosome with duplicated identical arms."
+              },
+              {
+                "question": "Microdeletion syndrome is best described as:",
+                "options": {
+                  "A": "Disease caused by a small chromosomal deletion",
+                  "B": "A clinical syndrome usually caused by trisomy 21",
+                  "C": "A syndrome associated with 45,X",
+                  "D": "A syndrome associated with 47,XXY",
+                  "E": "A syndrome associated with deletion of 5p"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Disease caused by a small chromosomal deletion."
+              },
+              {
+                "question": "Down syndrome is best described as:",
+                "options": {
+                  "A": "A syndrome associated with 45,X",
+                  "B": "A syndrome associated with 47,XXY",
+                  "C": "A syndrome associated with deletion of 5p",
+                  "D": "A clinical syndrome usually caused by trisomy 21",
+                  "E": "A syndrome often caused by 22q11.2 deletion"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A clinical syndrome usually caused by trisomy 21."
+              },
+              {
+                "question": "Turner syndrome is best described as:",
+                "options": {
+                  "A": "A syndrome associated with 47,XXY",
+                  "B": "A syndrome associated with 45,X",
+                  "C": "A syndrome associated with deletion of 5p",
+                  "D": "A syndrome often caused by 22q11.2 deletion",
+                  "E": "A standard way to write chromosomal findings"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A syndrome associated with 45,X."
+              },
+              {
+                "question": "Klinefelter syndrome is best described as:",
+                "options": {
+                  "A": "A syndrome associated with deletion of 5p",
+                  "B": "A syndrome often caused by 22q11.2 deletion",
+                  "C": "A standard way to write chromosomal findings",
+                  "D": "Probe-based detection of a specific chromosomal region",
+                  "E": "A syndrome associated with 47,XXY"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A syndrome associated with 47,XXY."
+              },
+              {
+                "question": "Cri-du-chat syndrome is best described as:",
+                "options": {
+                  "A": "A syndrome often caused by 22q11.2 deletion",
+                  "B": "A standard way to write chromosomal findings",
+                  "C": "A syndrome associated with deletion of 5p",
+                  "D": "Probe-based detection of a specific chromosomal region",
+                  "E": "Genome-wide detection of copy number imbalance"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A syndrome associated with deletion of 5p."
+              },
+              {
+                "question": "DiGeorge syndrome is best described as:",
+                "options": {
+                  "A": "A syndrome often caused by 22q11.2 deletion",
+                  "B": "A standard way to write chromosomal findings",
+                  "C": "Probe-based detection of a specific chromosomal region",
+                  "D": "Genome-wide detection of copy number imbalance",
+                  "E": "Screening fetal chromosomal risk using maternal blood"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A syndrome often caused by 22q11.2 deletion."
+              },
+              {
+                "question": "Karyotype notation is best described as:",
+                "options": {
+                  "A": "Probe-based detection of a specific chromosomal region",
+                  "B": "Genome-wide detection of copy number imbalance",
+                  "C": "Screening fetal chromosomal risk using maternal blood",
+                  "D": "A standard way to write chromosomal findings",
+                  "E": "A numerical or structural chromosome change"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A standard way to write chromosomal findings."
+              },
+              {
+                "question": "FISH is best described as:",
+                "options": {
+                  "A": "Genome-wide detection of copy number imbalance",
+                  "B": "Probe-based detection of a specific chromosomal region",
+                  "C": "Screening fetal chromosomal risk using maternal blood",
+                  "D": "A numerical or structural chromosome change",
+                  "E": "Gain or loss of individual chromosomes"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Probe-based detection of a specific chromosomal region."
+              },
+              {
+                "question": "Microarray is best described as:",
+                "options": {
+                  "A": "Screening fetal chromosomal risk using maternal blood",
+                  "B": "A numerical or structural chromosome change",
+                  "C": "Gain or loss of individual chromosomes",
+                  "D": "Gain of complete extra chromosome sets",
+                  "E": "Genome-wide detection of copy number imbalance"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Genome-wide detection of copy number imbalance."
+              },
+              {
+                "question": "Non-invasive prenatal testing is best described as:",
+                "options": {
+                  "A": "A numerical or structural chromosome change",
+                  "B": "Gain or loss of individual chromosomes",
+                  "C": "Screening fetal chromosomal risk using maternal blood",
+                  "D": "Gain of complete extra chromosome sets",
+                  "E": "Presence of three copies of one chromosome"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Screening fetal chromosomal risk using maternal blood."
+              },
+              {
+                "question": "A newborn has 47 chromosomes with an extra chromosome 21. The correct description is:",
+                "options": {
+                  "A": "Trisomy 21",
+                  "B": "Monosomy 21",
+                  "C": "Triploidy",
+                  "D": "Balanced translocation",
+                  "E": "5p deletion"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Trisomy 21."
+              },
+              {
+                "question": "A patient has 45,X. The likely diagnosis is:",
+                "options": {
+                  "A": "Klinefelter syndrome",
+                  "B": "Down syndrome",
+                  "C": "DiGeorge syndrome",
+                  "D": "Turner syndrome",
+                  "E": "Cri-du-chat syndrome"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Turner syndrome."
+              },
+              {
+                "question": "A patient has 47,XXY. The likely diagnosis is:",
+                "options": {
+                  "A": "Turner syndrome",
+                  "B": "Klinefelter syndrome",
+                  "C": "Edwards syndrome",
+                  "D": "Patau syndrome",
+                  "E": "Angelman syndrome"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Klinefelter syndrome."
+              },
+              {
+                "question": "A parent carries a balanced reciprocal translocation and is healthy. The main reproductive risk is:",
+                "options": {
+                  "A": "No chromosome segregation",
+                  "B": "All children affected",
+                  "C": "Mitochondrial disease",
+                  "D": "X-inactivation failure",
+                  "E": "Unbalanced gametes"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Unbalanced gametes."
+              },
+              {
+                "question": "A child has developmental delay due to a 22q11.2 deletion. The likely syndrome is:",
+                "options": {
+                  "A": "Cri-du-chat syndrome",
+                  "B": "Klinefelter syndrome",
+                  "C": "DiGeorge syndrome",
+                  "D": "Turner syndrome",
+                  "E": "Lynch syndrome"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: DiGeorge syndrome."
+              },
+              {
+                "question": "A deletion of the short arm of chromosome 5 is classically associated with:",
+                "options": {
+                  "A": "Cri-du-chat syndrome",
+                  "B": "Down syndrome",
+                  "C": "Prader-Willi syndrome",
+                  "D": "Marfan syndrome",
+                  "E": "Cystic fibrosis"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Cri-du-chat syndrome."
+              },
+              {
+                "question": "A chromosomal change reverses a segment but does not change copy number. This is an:",
+                "options": {
+                  "A": "Deletion",
+                  "B": "Duplication",
+                  "C": "Trisomy",
+                  "D": "Inversion",
+                  "E": "Monosomy"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Inversion."
+              },
+              {
+                "question": "A structural change has no net loss or gain of genetic material. It is:",
+                "options": {
+                  "A": "Unbalanced",
+                  "B": "Balanced",
+                  "C": "Aneuploid",
+                  "D": "Triploid",
+                  "E": "Hemizygous"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Balanced."
+              },
+              {
+                "question": "A test is needed to detect genome-wide copy number changes at higher resolution than karyotype. Use:",
+                "options": {
+                  "A": "Pedigree analysis",
+                  "B": "Sanger sequencing of one exon",
+                  "C": "Polygenic score",
+                  "D": "Bacterial culture",
+                  "E": "Microarray"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Microarray."
+              },
+              {
+                "question": "A clinician suspects a specific microdeletion and wants a targeted probe test. Use:",
+                "options": {
+                  "A": "GWAS",
+                  "B": "Metabolomics",
+                  "C": "FISH",
+                  "D": "Whole proteome assay",
+                  "E": "Dihybrid cross"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: FISH."
+              },
+              {
+                "question": "Different proportions of trisomy cells and normal cells are found in tissues. This is:",
+                "options": {
+                  "A": "Mosaicism",
+                  "B": "Homoplasmy",
+                  "C": "Balanced translocation",
+                  "D": "Codominance",
+                  "E": "Linkage disequilibrium"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Mosaicism."
+              },
+              {
+                "question": "Failure of homologous chromosomes to separate during meiosis causes:",
+                "options": {
+                  "A": "Transcription",
+                  "B": "Acetylation",
+                  "C": "Translation",
+                  "D": "Nondisjunction",
+                  "E": "Splicing"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Nondisjunction."
+              },
+              {
+                "question": "A translocation fuses two acrocentric chromosomes through their long arms. This is:",
+                "options": {
+                  "A": "Reciprocal translocation",
+                  "B": "Robertsonian translocation",
+                  "C": "Paracentric inversion",
+                  "D": "Ring chromosome",
+                  "E": "Isochromosome"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Robertsonian translocation."
+              },
+              {
+                "question": "NIPT gives high risk for trisomy 21. It should be understood as:",
+                "options": {
+                  "A": "A definitive fetal karyotype",
+                  "B": "A measure of maternal genotype only",
+                  "C": "A test for all single-gene disorders",
+                  "D": "A replacement for counselling",
+                  "E": "A screening result requiring diagnostic confirmation"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A screening result requiring diagnostic confirmation."
+              }
+            ]
+          },
+          {
+            "id": "gng12-principles-of-pharmacogenetics",
+            "title": "GNG12 - Principles of Pharmacogenetics",
+            "questions": [
+              {
+                "question": "Pharmacogenetics is best described as:",
+                "options": {
+                  "A": "Genome-wide study of genetic influences on drug response",
+                  "B": "Matching treatment to patient subgroups",
+                  "C": "Study of how genetic variants affect drug response",
+                  "D": "Tailoring care to individual characteristics",
+                  "E": "A measurable indicator of biological state or response"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Study of how genetic variants affect drug response."
+              },
+              {
+                "question": "Pharmacogenomics is best described as:",
+                "options": {
+                  "A": "Genome-wide study of genetic influences on drug response",
+                  "B": "Matching treatment to patient subgroups",
+                  "C": "Tailoring care to individual characteristics",
+                  "D": "A measurable indicator of biological state or response",
+                  "E": "A marker predicting response to a treatment"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Genome-wide study of genetic influences on drug response."
+              },
+              {
+                "question": "Stratified medicine is best described as:",
+                "options": {
+                  "A": "Tailoring care to individual characteristics",
+                  "B": "A measurable indicator of biological state or response",
+                  "C": "A marker predicting response to a treatment",
+                  "D": "Matching treatment to patient subgroups",
+                  "E": "A marker associated with disease outcome"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Matching treatment to patient subgroups."
+              },
+              {
+                "question": "Personalised medicine is best described as:",
+                "options": {
+                  "A": "A measurable indicator of biological state or response",
+                  "B": "Tailoring care to individual characteristics",
+                  "C": "A marker predicting response to a treatment",
+                  "D": "A marker associated with disease outcome",
+                  "E": "What the body does to a drug"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Tailoring care to individual characteristics."
+              },
+              {
+                "question": "A biomarker is best described as:",
+                "options": {
+                  "A": "A marker predicting response to a treatment",
+                  "B": "A marker associated with disease outcome",
+                  "C": "What the body does to a drug",
+                  "D": "What a drug does to the body",
+                  "E": "A measurable indicator of biological state or response"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A measurable indicator of biological state or response."
+              },
+              {
+                "question": "Predictive biomarker is best described as:",
+                "options": {
+                  "A": "A marker associated with disease outcome",
+                  "B": "What the body does to a drug",
+                  "C": "A marker predicting response to a treatment",
+                  "D": "What a drug does to the body",
+                  "E": "Biochemical conversion of a drug"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A marker predicting response to a treatment."
+              },
+              {
+                "question": "Prognostic biomarker is best described as:",
+                "options": {
+                  "A": "A marker associated with disease outcome",
+                  "B": "What the body does to a drug",
+                  "C": "What a drug does to the body",
+                  "D": "Biochemical conversion of a drug",
+                  "E": "Drug-metabolising cytochrome P450 enzymes"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A marker associated with disease outcome."
+              },
+              {
+                "question": "Pharmacokinetics is best described as:",
+                "options": {
+                  "A": "What a drug does to the body",
+                  "B": "Biochemical conversion of a drug",
+                  "C": "Drug-metabolising cytochrome P450 enzymes",
+                  "D": "What the body does to a drug",
+                  "E": "A genotype causing reduced drug metabolism"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: What the body does to a drug."
+              },
+              {
+                "question": "Pharmacodynamics is best described as:",
+                "options": {
+                  "A": "Biochemical conversion of a drug",
+                  "B": "What a drug does to the body",
+                  "C": "Drug-metabolising cytochrome P450 enzymes",
+                  "D": "A genotype causing reduced drug metabolism",
+                  "E": "A genotype causing increased drug metabolism"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: What a drug does to the body."
+              },
+              {
+                "question": "Drug metabolism is best described as:",
+                "options": {
+                  "A": "Drug-metabolising cytochrome P450 enzymes",
+                  "B": "A genotype causing reduced drug metabolism",
+                  "C": "A genotype causing increased drug metabolism",
+                  "D": "The margin between effective and toxic doses",
+                  "E": "Biochemical conversion of a drug"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Biochemical conversion of a drug."
+              },
+              {
+                "question": "CYP enzymes is best described as:",
+                "options": {
+                  "A": "A genotype causing reduced drug metabolism",
+                  "B": "A genotype causing increased drug metabolism",
+                  "C": "Drug-metabolising cytochrome P450 enzymes",
+                  "D": "The margin between effective and toxic doses",
+                  "E": "Harmful unintended response to a medicine"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Drug-metabolising cytochrome P450 enzymes."
+              },
+              {
+                "question": "Poor metaboliser is best described as:",
+                "options": {
+                  "A": "A genotype causing reduced drug metabolism",
+                  "B": "A genotype causing increased drug metabolism",
+                  "C": "The margin between effective and toxic doses",
+                  "D": "Harmful unintended response to a medicine",
+                  "E": "Immune-related genetic variation relevant to some drug reactions"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A genotype causing reduced drug metabolism."
+              },
+              {
+                "question": "Ultra-rapid metaboliser is best described as:",
+                "options": {
+                  "A": "The margin between effective and toxic doses",
+                  "B": "Harmful unintended response to a medicine",
+                  "C": "Immune-related genetic variation relevant to some drug reactions",
+                  "D": "A genotype causing increased drug metabolism",
+                  "E": "Use of variants affecting anticoagulant dose requirement"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A genotype causing increased drug metabolism."
+              },
+              {
+                "question": "Therapeutic index is best described as:",
+                "options": {
+                  "A": "Harmful unintended response to a medicine",
+                  "B": "The margin between effective and toxic doses",
+                  "C": "Immune-related genetic variation relevant to some drug reactions",
+                  "D": "Use of variants affecting anticoagulant dose requirement",
+                  "E": "An HLA-associated adverse drug reaction risk"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: The margin between effective and toxic doses."
+              },
+              {
+                "question": "Adverse drug reaction is best described as:",
+                "options": {
+                  "A": "Immune-related genetic variation relevant to some drug reactions",
+                  "B": "Use of variants affecting anticoagulant dose requirement",
+                  "C": "An HLA-associated adverse drug reaction risk",
+                  "D": "Toxicity risk influenced by TPMT or related metabolism",
+                  "E": "Harmful unintended response to a medicine"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Harmful unintended response to a medicine."
+              },
+              {
+                "question": "HLA genotype is best described as:",
+                "options": {
+                  "A": "Use of variants affecting anticoagulant dose requirement",
+                  "B": "An HLA-associated adverse drug reaction risk",
+                  "C": "Immune-related genetic variation relevant to some drug reactions",
+                  "D": "Toxicity risk influenced by TPMT or related metabolism",
+                  "E": "A variant altering likelihood of benefit"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Immune-related genetic variation relevant to some drug reactions."
+              },
+              {
+                "question": "Warfarin dosing genetics is best described as:",
+                "options": {
+                  "A": "Use of variants affecting anticoagulant dose requirement",
+                  "B": "An HLA-associated adverse drug reaction risk",
+                  "C": "Toxicity risk influenced by TPMT or related metabolism",
+                  "D": "A variant altering likelihood of benefit",
+                  "E": "A variant altering likelihood of harm"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Use of variants affecting anticoagulant dose requirement."
+              },
+              {
+                "question": "Abacavir hypersensitivity is best described as:",
+                "options": {
+                  "A": "Toxicity risk influenced by TPMT or related metabolism",
+                  "B": "A variant altering likelihood of benefit",
+                  "C": "A variant altering likelihood of harm",
+                  "D": "An HLA-associated adverse drug reaction risk",
+                  "E": "Testing before a drug is needed"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: An HLA-associated adverse drug reaction risk."
+              },
+              {
+                "question": "Thiopurine toxicity is best described as:",
+                "options": {
+                  "A": "A variant altering likelihood of benefit",
+                  "B": "Toxicity risk influenced by TPMT or related metabolism",
+                  "C": "A variant altering likelihood of harm",
+                  "D": "Testing before a drug is needed",
+                  "E": "Testing when a treatment decision arises"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Toxicity risk influenced by TPMT or related metabolism."
+              },
+              {
+                "question": "Drug efficacy variant is best described as:",
+                "options": {
+                  "A": "A variant altering likelihood of harm",
+                  "B": "Testing before a drug is needed",
+                  "C": "Testing when a treatment decision arises",
+                  "D": "How well a test predicts a clinical outcome",
+                  "E": "A variant altering likelihood of benefit"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A variant altering likelihood of benefit."
+              },
+              {
+                "question": "Drug toxicity variant is best described as:",
+                "options": {
+                  "A": "Testing before a drug is needed",
+                  "B": "Testing when a treatment decision arises",
+                  "C": "A variant altering likelihood of harm",
+                  "D": "How well a test predicts a clinical outcome",
+                  "E": "Whether testing improves clinical management"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A variant altering likelihood of harm."
+              },
+              {
+                "question": "Pre-emptive testing is best described as:",
+                "options": {
+                  "A": "Testing before a drug is needed",
+                  "B": "Testing when a treatment decision arises",
+                  "C": "How well a test predicts a clinical outcome",
+                  "D": "Whether testing improves clinical management",
+                  "E": "A factor limiting use of testing in practice"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Testing before a drug is needed."
+              },
+              {
+                "question": "Reactive testing is best described as:",
+                "options": {
+                  "A": "How well a test predicts a clinical outcome",
+                  "B": "Whether testing improves clinical management",
+                  "C": "A factor limiting use of testing in practice",
+                  "D": "Testing when a treatment decision arises",
+                  "E": "Study of how genetic variants affect drug response"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Testing when a treatment decision arises."
+              },
+              {
+                "question": "Clinical validity is best described as:",
+                "options": {
+                  "A": "Whether testing improves clinical management",
+                  "B": "How well a test predicts a clinical outcome",
+                  "C": "A factor limiting use of testing in practice",
+                  "D": "Study of how genetic variants affect drug response",
+                  "E": "Genome-wide study of genetic influences on drug response"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: How well a test predicts a clinical outcome."
+              },
+              {
+                "question": "Clinical utility is best described as:",
+                "options": {
+                  "A": "A factor limiting use of testing in practice",
+                  "B": "Study of how genetic variants affect drug response",
+                  "C": "Genome-wide study of genetic influences on drug response",
+                  "D": "Matching treatment to patient subgroups",
+                  "E": "Whether testing improves clinical management"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Whether testing improves clinical management."
+              },
+              {
+                "question": "Implementation barrier is best described as:",
+                "options": {
+                  "A": "Study of how genetic variants affect drug response",
+                  "B": "Genome-wide study of genetic influences on drug response",
+                  "C": "A factor limiting use of testing in practice",
+                  "D": "Matching treatment to patient subgroups",
+                  "E": "Tailoring care to individual characteristics"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A factor limiting use of testing in practice."
+              },
+              {
+                "question": "A patient has HLA-B*57:01 and is being considered for abacavir. The safest action is to:",
+                "options": {
+                  "A": "Avoid abacavir",
+                  "B": "Increase abacavir dose",
+                  "C": "Ignore the result",
+                  "D": "Give abacavir with no monitoring",
+                  "E": "Use the result only for ancestry"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Avoid abacavir."
+              },
+              {
+                "question": "A patient has low TPMT activity before thiopurine therapy. The main concern is:",
+                "options": {
+                  "A": "Reduced infection risk",
+                  "B": "No drug absorption",
+                  "C": "Chromosome trisomy",
+                  "D": "Severe drug toxicity",
+                  "E": "Mitochondrial inheritance"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Severe drug toxicity."
+              },
+              {
+                "question": "A CYP2D6 ultra-rapid metaboliser converts codeine to morphine rapidly. The risk is increased:",
+                "options": {
+                  "A": "Complete lack of analgesia",
+                  "B": "Opioid toxicity",
+                  "C": "Chromosomal nondisjunction",
+                  "D": "Viral resistance",
+                  "E": "Reduced penetrance"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Opioid toxicity."
+              },
+              {
+                "question": "A CYP2D6 poor metaboliser receives codeine and has poor analgesia. The reason is reduced:",
+                "options": {
+                  "A": "Renal filtration of glucose",
+                  "B": "DNA methylation",
+                  "C": "HLA antigen binding",
+                  "D": "Chromosome segregation",
+                  "E": "Activation to morphine"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Activation to morphine."
+              },
+              {
+                "question": "A warfarin genotype helps estimate dose before treatment. This is pharmacogenetics affecting:",
+                "options": {
+                  "A": "Pedigree structure",
+                  "B": "Embryo implantation",
+                  "C": "Drug safety and dosing",
+                  "D": "Bacterial microbiome transfer",
+                  "E": "Cancer staging"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Drug safety and dosing."
+              },
+              {
+                "question": "A marker predicts whether a tumour will respond to a targeted drug. It is a:",
+                "options": {
+                  "A": "Predictive biomarker",
+                  "B": "Prognostic biomarker only",
+                  "C": "Carrier marker",
+                  "D": "Karyotype marker",
+                  "E": "Founder marker"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Predictive biomarker."
+              },
+              {
+                "question": "A marker predicts survival regardless of the treatment chosen. It is a:",
+                "options": {
+                  "A": "Predictive biomarker",
+                  "B": "Haplotype only",
+                  "C": "Drug metaboliser phenotype",
+                  "D": "Prognostic biomarker",
+                  "E": "Sequencing adaptor"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Prognostic biomarker."
+              },
+              {
+                "question": "A drug has a narrow therapeutic index. Pharmacogenetic testing is valuable because small dose differences can affect:",
+                "options": {
+                  "A": "Chromosome number",
+                  "B": "Efficacy and toxicity",
+                  "C": "Gamete formation",
+                  "D": "Ancestry assignment",
+                  "E": "Pedigree symbols"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Efficacy and toxicity."
+              },
+              {
+                "question": "Testing everyone before they need a medication is:",
+                "options": {
+                  "A": "Reactive testing",
+                  "B": "Tumour-only testing",
+                  "C": "Carrier-only testing",
+                  "D": "Newborn karyotyping",
+                  "E": "Pre-emptive testing"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Pre-emptive testing."
+              },
+              {
+                "question": "Testing only when a drug is about to be prescribed is:",
+                "options": {
+                  "A": "Pre-emptive testing",
+                  "B": "Population GWAS",
+                  "C": "Reactive testing",
+                  "D": "Linkage mapping",
+                  "E": "Liquid biopsy"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Reactive testing."
+              },
+              {
+                "question": "A pharmacogenetic result is statistically associated with toxicity but does not change prescribing decisions. The main missing feature is:",
+                "options": {
+                  "A": "Clinical utility",
+                  "B": "Allele frequency",
+                  "C": "Read length",
+                  "D": "Chromosome banding",
+                  "E": "Mendelian segregation"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Clinical utility."
+              },
+              {
+                "question": "A variant changes drug target sensitivity rather than metabolism. This is mainly a pharmacodynamic effect on:",
+                "options": {
+                  "A": "Drug absorption",
+                  "B": "Drug excretion",
+                  "C": "Drug storage",
+                  "D": "Drug response",
+                  "E": "Drug formulation"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Drug response."
+              },
+              {
+                "question": "A variant changes enzyme breakdown of a drug. This is mainly a pharmacokinetic effect on:",
+                "options": {
+                  "A": "Drug receptor binding",
+                  "B": "Drug metabolism",
+                  "C": "Disease penetrance",
+                  "D": "Chromosomal copy number",
+                  "E": "Fetal sex"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Drug metabolism."
+              },
+              {
+                "question": "A health system cannot use a valid pharmacogenetic test because results return after the prescribing decision. The barrier is:",
+                "options": {
+                  "A": "Absence of any genetic effect",
+                  "B": "Incorrect central dogma",
+                  "C": "No biological sample required",
+                  "D": "Complete penetrance",
+                  "E": "Implementation workflow"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Implementation workflow."
+              }
+            ]
+          },
+          {
+            "id": "gng13-genomic-technologies-in-diagnosis-and-therapeutics",
+            "title": "GNG13 - Genomic Technologies in Diagnosis and Therapeutics",
+            "questions": [
+              {
+                "question": "Variant interpretation is best described as:",
+                "options": {
+                  "A": "A conclusion that a variant causes disease",
+                  "B": "Strong evidence that a variant causes disease",
+                  "C": "Assessing whether a variant explains disease",
+                  "D": "A conclusion that a variant does not cause disease",
+                  "E": "Use of variant frequency to judge pathogenicity"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Assessing whether a variant explains disease."
+              },
+              {
+                "question": "Pathogenic classification is best described as:",
+                "options": {
+                  "A": "A conclusion that a variant causes disease",
+                  "B": "Strong evidence that a variant causes disease",
+                  "C": "A conclusion that a variant does not cause disease",
+                  "D": "Use of variant frequency to judge pathogenicity",
+                  "E": "In silico estimation of variant impact"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A conclusion that a variant causes disease."
+              },
+              {
+                "question": "Likely pathogenic classification is best described as:",
+                "options": {
+                  "A": "A conclusion that a variant does not cause disease",
+                  "B": "Use of variant frequency to judge pathogenicity",
+                  "C": "In silico estimation of variant impact",
+                  "D": "Strong evidence that a variant causes disease",
+                  "E": "Experimental evidence of biological effect"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Strong evidence that a variant causes disease."
+              },
+              {
+                "question": "Benign classification is best described as:",
+                "options": {
+                  "A": "Use of variant frequency to judge pathogenicity",
+                  "B": "A conclusion that a variant does not cause disease",
+                  "C": "In silico estimation of variant impact",
+                  "D": "Experimental evidence of biological effect",
+                  "E": "Family evidence that a variant tracks with disease"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A conclusion that a variant does not cause disease."
+              },
+              {
+                "question": "Population frequency evidence is best described as:",
+                "options": {
+                  "A": "In silico estimation of variant impact",
+                  "B": "Experimental evidence of biological effect",
+                  "C": "Family evidence that a variant tracks with disease",
+                  "D": "Evidence a variant arose newly in the affected person",
+                  "E": "Use of variant frequency to judge pathogenicity"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Use of variant frequency to judge pathogenicity."
+              },
+              {
+                "question": "Computational prediction is best described as:",
+                "options": {
+                  "A": "Experimental evidence of biological effect",
+                  "B": "Family evidence that a variant tracks with disease",
+                  "C": "In silico estimation of variant impact",
+                  "D": "Evidence a variant arose newly in the affected person",
+                  "E": "Accuracy of a genomic test for a condition"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: In silico estimation of variant impact."
+              },
+              {
+                "question": "Functional evidence is best described as:",
+                "options": {
+                  "A": "Experimental evidence of biological effect",
+                  "B": "Family evidence that a variant tracks with disease",
+                  "C": "Evidence a variant arose newly in the affected person",
+                  "D": "Accuracy of a genomic test for a condition",
+                  "E": "Accuracy of the laboratory method"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Experimental evidence of biological effect."
+              },
+              {
+                "question": "Segregation evidence is best described as:",
+                "options": {
+                  "A": "Evidence a variant arose newly in the affected person",
+                  "B": "Accuracy of a genomic test for a condition",
+                  "C": "Accuracy of the laboratory method",
+                  "D": "Family evidence that a variant tracks with disease",
+                  "E": "Usefulness of a test for patient management"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Family evidence that a variant tracks with disease."
+              },
+              {
+                "question": "De novo evidence is best described as:",
+                "options": {
+                  "A": "Accuracy of a genomic test for a condition",
+                  "B": "Evidence a variant arose newly in the affected person",
+                  "C": "Accuracy of the laboratory method",
+                  "D": "Usefulness of a test for patient management",
+                  "E": "Treatment by adding, replacing or modifying genetic material"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Evidence a variant arose newly in the affected person."
+              },
+              {
+                "question": "Clinical validity is best described as:",
+                "options": {
+                  "A": "Accuracy of the laboratory method",
+                  "B": "Usefulness of a test for patient management",
+                  "C": "Treatment by adding, replacing or modifying genetic material",
+                  "D": "Targeted alteration of DNA sequence",
+                  "E": "Accuracy of a genomic test for a condition"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Accuracy of a genomic test for a condition."
+              },
+              {
+                "question": "Analytical validity is best described as:",
+                "options": {
+                  "A": "Usefulness of a test for patient management",
+                  "B": "Treatment by adding, replacing or modifying genetic material",
+                  "C": "Accuracy of the laboratory method",
+                  "D": "Targeted alteration of DNA sequence",
+                  "E": "A programmable genome-editing system"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Accuracy of the laboratory method."
+              },
+              {
+                "question": "Clinical utility is best described as:",
+                "options": {
+                  "A": "Usefulness of a test for patient management",
+                  "B": "Treatment by adding, replacing or modifying genetic material",
+                  "C": "Targeted alteration of DNA sequence",
+                  "D": "A programmable genome-editing system",
+                  "E": "Unintended editing at another genomic site"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Usefulness of a test for patient management."
+              },
+              {
+                "question": "Gene therapy is best described as:",
+                "options": {
+                  "A": "Targeted alteration of DNA sequence",
+                  "B": "A programmable genome-editing system",
+                  "C": "Unintended editing at another genomic site",
+                  "D": "Treatment by adding, replacing or modifying genetic material",
+                  "E": "Editing non-reproductive cells"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Treatment by adding, replacing or modifying genetic material."
+              },
+              {
+                "question": "Genome editing is best described as:",
+                "options": {
+                  "A": "A programmable genome-editing system",
+                  "B": "Targeted alteration of DNA sequence",
+                  "C": "Unintended editing at another genomic site",
+                  "D": "Editing non-reproductive cells",
+                  "E": "Editing cells that can transmit changes to offspring"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Targeted alteration of DNA sequence."
+              },
+              {
+                "question": "CRISPR-Cas9 is best described as:",
+                "options": {
+                  "A": "Unintended editing at another genomic site",
+                  "B": "Editing non-reproductive cells",
+                  "C": "Editing cells that can transmit changes to offspring",
+                  "D": "A virus-derived delivery vehicle for genetic material",
+                  "E": "A programmable genome-editing system"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A programmable genome-editing system."
+              },
+              {
+                "question": "Off-target effect is best described as:",
+                "options": {
+                  "A": "Editing non-reproductive cells",
+                  "B": "Editing cells that can transmit changes to offspring",
+                  "C": "Unintended editing at another genomic site",
+                  "D": "A virus-derived delivery vehicle for genetic material",
+                  "E": "A commonly used adeno-associated viral delivery vector"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Unintended editing at another genomic site."
+              },
+              {
+                "question": "Somatic editing is best described as:",
+                "options": {
+                  "A": "Editing non-reproductive cells",
+                  "B": "Editing cells that can transmit changes to offspring",
+                  "C": "A virus-derived delivery vehicle for genetic material",
+                  "D": "A commonly used adeno-associated viral delivery vector",
+                  "E": "An integrating viral vector used in some therapies"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Editing non-reproductive cells."
+              },
+              {
+                "question": "Germline editing is best described as:",
+                "options": {
+                  "A": "A virus-derived delivery vehicle for genetic material",
+                  "B": "A commonly used adeno-associated viral delivery vector",
+                  "C": "An integrating viral vector used in some therapies",
+                  "D": "Editing cells that can transmit changes to offspring",
+                  "E": "A short nucleic acid therapy altering RNA processing"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Editing cells that can transmit changes to offspring."
+              },
+              {
+                "question": "Viral vector is best described as:",
+                "options": {
+                  "A": "A commonly used adeno-associated viral delivery vector",
+                  "B": "A virus-derived delivery vehicle for genetic material",
+                  "C": "An integrating viral vector used in some therapies",
+                  "D": "A short nucleic acid therapy altering RNA processing",
+                  "E": "RNA-mediated reduction of gene expression"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A virus-derived delivery vehicle for genetic material."
+              },
+              {
+                "question": "AAV vector is best described as:",
+                "options": {
+                  "A": "An integrating viral vector used in some therapies",
+                  "B": "A short nucleic acid therapy altering RNA processing",
+                  "C": "RNA-mediated reduction of gene expression",
+                  "D": "Engineered T cells targeting cancer cells",
+                  "E": "A commonly used adeno-associated viral delivery vector"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: A commonly used adeno-associated viral delivery vector."
+              },
+              {
+                "question": "Lentiviral vector is best described as:",
+                "options": {
+                  "A": "A short nucleic acid therapy altering RNA processing",
+                  "B": "RNA-mediated reduction of gene expression",
+                  "C": "An integrating viral vector used in some therapies",
+                  "D": "Engineered T cells targeting cancer cells",
+                  "E": "Genomic testing embedded in clinical pathways"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: An integrating viral vector used in some therapies."
+              },
+              {
+                "question": "Antisense oligonucleotide is best described as:",
+                "options": {
+                  "A": "A short nucleic acid therapy altering RNA processing",
+                  "B": "RNA-mediated reduction of gene expression",
+                  "C": "Engineered T cells targeting cancer cells",
+                  "D": "Genomic testing embedded in clinical pathways",
+                  "E": "A barrier such as delivery, safety or durability"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A short nucleic acid therapy altering RNA processing."
+              },
+              {
+                "question": "RNA interference is best described as:",
+                "options": {
+                  "A": "Engineered T cells targeting cancer cells",
+                  "B": "Genomic testing embedded in clinical pathways",
+                  "C": "A barrier such as delivery, safety or durability",
+                  "D": "RNA-mediated reduction of gene expression",
+                  "E": "Assessing whether a variant explains disease"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: RNA-mediated reduction of gene expression."
+              },
+              {
+                "question": "CAR T-cell therapy is best described as:",
+                "options": {
+                  "A": "Genomic testing embedded in clinical pathways",
+                  "B": "Engineered T cells targeting cancer cells",
+                  "C": "A barrier such as delivery, safety or durability",
+                  "D": "Assessing whether a variant explains disease",
+                  "E": "A conclusion that a variant causes disease"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Engineered T cells targeting cancer cells."
+              },
+              {
+                "question": "NHS genomic testing is best described as:",
+                "options": {
+                  "A": "A barrier such as delivery, safety or durability",
+                  "B": "Assessing whether a variant explains disease",
+                  "C": "A conclusion that a variant causes disease",
+                  "D": "Strong evidence that a variant causes disease",
+                  "E": "Genomic testing embedded in clinical pathways"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Genomic testing embedded in clinical pathways."
+              },
+              {
+                "question": "Therapeutic limitation is best described as:",
+                "options": {
+                  "A": "Assessing whether a variant explains disease",
+                  "B": "A conclusion that a variant causes disease",
+                  "C": "A barrier such as delivery, safety or durability",
+                  "D": "Strong evidence that a variant causes disease",
+                  "E": "A conclusion that a variant does not cause disease"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: A barrier such as delivery, safety or durability."
+              },
+              {
+                "question": "A variant is too common in healthy populations to explain a very rare dominant disease. This is evidence toward:",
+                "options": {
+                  "A": "Benign classification",
+                  "B": "Pathogenic classification",
+                  "C": "De novo status",
+                  "D": "Chromosomal trisomy",
+                  "E": "High penetrance"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Benign classification."
+              },
+              {
+                "question": "A variant is absent from both parents and fits the child's severe phenotype. This supports:",
+                "options": {
+                  "A": "Population stratification",
+                  "B": "Synonymous neutrality",
+                  "C": "Pseudogene mapping",
+                  "D": "De novo pathogenicity evidence",
+                  "E": "Drug toxicity"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: De novo pathogenicity evidence."
+              },
+              {
+                "question": "A family shows the variant in all affected relatives and none of the unaffected relatives. This is:",
+                "options": {
+                  "A": "Analytical validity",
+                  "B": "Segregation evidence",
+                  "C": "Genome editing",
+                  "D": "Pharmacokinetics",
+                  "E": "Microbiome transfer"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Segregation evidence."
+              },
+              {
+                "question": "A lab test accurately detects variants but the result does not improve care. It has analytical validity but limited:",
+                "options": {
+                  "A": "Read alignment",
+                  "B": "PCR amplification",
+                  "C": "Base quality",
+                  "D": "Chromatin access",
+                  "E": "Clinical utility"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Clinical utility."
+              },
+              {
+                "question": "A therapy uses an AAV vector to deliver a working gene copy. This is:",
+                "options": {
+                  "A": "Polygenic risk scoring",
+                  "B": "Karyotyping",
+                  "C": "Gene therapy",
+                  "D": "Microarray screening",
+                  "E": "Faecal transplant"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Gene therapy."
+              },
+              {
+                "question": "A CRISPR treatment creates an unintended cut at a similar genomic sequence. This is an:",
+                "options": {
+                  "A": "Off-target effect",
+                  "B": "Imprinted effect",
+                  "C": "Founder effect",
+                  "D": "LD block",
+                  "E": "Aneuploid event"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Off-target effect."
+              },
+              {
+                "question": "Editing blood stem cells ex vivo for a non-reproductive disorder is:",
+                "options": {
+                  "A": "Germline editing",
+                  "B": "Population editing",
+                  "C": "Mitochondrial bottleneck",
+                  "D": "Somatic editing",
+                  "E": "X-inactivation"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Somatic editing."
+              },
+              {
+                "question": "Editing an embryo in a way that could be inherited would be:",
+                "options": {
+                  "A": "Somatic editing",
+                  "B": "Germline editing",
+                  "C": "Reactive testing",
+                  "D": "Liquid biopsy",
+                  "E": "Cascade testing"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Germline editing."
+              },
+              {
+                "question": "A short nucleic acid therapy changes splicing of a disease transcript. This is an:",
+                "options": {
+                  "A": "AAV capsid",
+                  "B": "Polygenic score",
+                  "C": "Karyotype band",
+                  "D": "Histone tail",
+                  "E": "Antisense oligonucleotide"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Antisense oligonucleotide."
+              },
+              {
+                "question": "A therapy reduces expression of a harmful gene through small RNA mechanisms. This uses:",
+                "options": {
+                  "A": "Robertsonian translocation",
+                  "B": "GWAS imputation",
+                  "C": "RNA interference",
+                  "D": "Dihybrid inheritance",
+                  "E": "FISH probing"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: RNA interference."
+              },
+              {
+                "question": "A patient's T cells are engineered to recognise a tumour antigen and reinfused. This is:",
+                "options": {
+                  "A": "CAR T-cell therapy",
+                  "B": "AAV gene replacement",
+                  "C": "Prenatal screening",
+                  "D": "Methylation testing",
+                  "E": "Phage therapy"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: CAR T-cell therapy."
+              },
+              {
+                "question": "A variant is predicted damaging by software but has no clinical or functional evidence. The result should not be overcalled because computational evidence is:",
+                "options": {
+                  "A": "Always diagnostic",
+                  "B": "Equivalent to segregation",
+                  "C": "Proof of germline editing",
+                  "D": "Supportive but insufficient by itself",
+                  "E": "A measure of allele dose"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Supportive but insufficient by itself."
+              },
+              {
+                "question": "A genomic result returns a VUS in a gene weakly related to the phenotype. The best clinical approach is:",
+                "options": {
+                  "A": "Use it as a definitive diagnosis",
+                  "B": "Avoid treating it as diagnostic",
+                  "C": "Ignore the phenotype",
+                  "D": "Assume all relatives are affected",
+                  "E": "Classify it as benign automatically"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Avoid treating it as diagnostic."
+              },
+              {
+                "question": "A genetic therapy works in one tissue but cannot reach the affected organ. The main limitation is:",
+                "options": {
+                  "A": "Mendelian inheritance",
+                  "B": "Population stratification",
+                  "C": "Pedigree drawing",
+                  "D": "Allele frequency",
+                  "E": "Delivery to target cells"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Delivery to target cells."
+              }
+            ]
+          },
+          {
+            "id": "gng14-summary-integration-and-case-based-review",
+            "title": "GNG14 - Summary, Integration and Case-Based Review",
+            "questions": [
+              {
+                "question": "A clinical phenotype is best described as:",
+                "options": {
+                  "A": "A list of possible explanations for a presentation",
+                  "B": "How a trait is transmitted through a family",
+                  "C": "The observed features prompting genetic assessment",
+                  "D": "Assigning clinical meaning to a genetic variant",
+                  "E": "Relationship between genetic findings and clinical features"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: The observed features prompting genetic assessment."
+              },
+              {
+                "question": "Differential diagnosis is best described as:",
+                "options": {
+                  "A": "A list of possible explanations for a presentation",
+                  "B": "How a trait is transmitted through a family",
+                  "C": "Assigning clinical meaning to a genetic variant",
+                  "D": "Relationship between genetic findings and clinical features",
+                  "E": "Using evidence to guide patient care"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: A list of possible explanations for a presentation."
+              },
+              {
+                "question": "Inheritance pattern is best described as:",
+                "options": {
+                  "A": "Assigning clinical meaning to a genetic variant",
+                  "B": "Relationship between genetic findings and clinical features",
+                  "C": "Using evidence to guide patient care",
+                  "D": "How a trait is transmitted through a family",
+                  "E": "Information about disorders among relatives"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: How a trait is transmitted through a family."
+              },
+              {
+                "question": "Variant classification is best described as:",
+                "options": {
+                  "A": "Relationship between genetic findings and clinical features",
+                  "B": "Assigning clinical meaning to a genetic variant",
+                  "C": "Using evidence to guide patient care",
+                  "D": "Information about disorders among relatives",
+                  "E": "Estimating probability of disease or recurrence"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Assigning clinical meaning to a genetic variant."
+              },
+              {
+                "question": "Genotype-phenotype correlation is best described as:",
+                "options": {
+                  "A": "Using evidence to guide patient care",
+                  "B": "Information about disorders among relatives",
+                  "C": "Estimating probability of disease or recurrence",
+                  "D": "Testing for one recessive pathogenic allele",
+                  "E": "Relationship between genetic findings and clinical features"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Relationship between genetic findings and clinical features."
+              },
+              {
+                "question": "Clinical decision-making is best described as:",
+                "options": {
+                  "A": "Information about disorders among relatives",
+                  "B": "Estimating probability of disease or recurrence",
+                  "C": "Using evidence to guide patient care",
+                  "D": "Testing for one recessive pathogenic allele",
+                  "E": "Testing an unaffected person for future disease risk"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Using evidence to guide patient care."
+              },
+              {
+                "question": "Family history is best described as:",
+                "options": {
+                  "A": "Information about disorders among relatives",
+                  "B": "Estimating probability of disease or recurrence",
+                  "C": "Testing for one recessive pathogenic allele",
+                  "D": "Testing an unaffected person for future disease risk",
+                  "E": "Testing to explain current disease"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Information about disorders among relatives."
+              },
+              {
+                "question": "Risk assessment is best described as:",
+                "options": {
+                  "A": "Testing for one recessive pathogenic allele",
+                  "B": "Testing an unaffected person for future disease risk",
+                  "C": "Testing to explain current disease",
+                  "D": "Estimating probability of disease or recurrence",
+                  "E": "Testing people without definite clinical indication"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Estimating probability of disease or recurrence."
+              },
+              {
+                "question": "Carrier testing is best described as:",
+                "options": {
+                  "A": "Testing an unaffected person for future disease risk",
+                  "B": "Testing for one recessive pathogenic allele",
+                  "C": "Testing to explain current disease",
+                  "D": "Testing people without definite clinical indication",
+                  "E": "Supporting informed decisions about genetic risk"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Testing for one recessive pathogenic allele."
+              },
+              {
+                "question": "Predictive testing is best described as:",
+                "options": {
+                  "A": "Testing to explain current disease",
+                  "B": "Testing people without definite clinical indication",
+                  "C": "Supporting informed decisions about genetic risk",
+                  "D": "A value-based issue in testing or disclosure",
+                  "E": "Testing an unaffected person for future disease risk"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Testing an unaffected person for future disease risk."
+              },
+              {
+                "question": "Diagnostic testing is best described as:",
+                "options": {
+                  "A": "Testing people without definite clinical indication",
+                  "B": "Supporting informed decisions about genetic risk",
+                  "C": "Testing to explain current disease",
+                  "D": "A value-based issue in testing or disclosure",
+                  "E": "Permission based on adequate understanding"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Testing to explain current disease."
+              },
+              {
+                "question": "Screening is best described as:",
+                "options": {
+                  "A": "Testing people without definite clinical indication",
+                  "B": "Supporting informed decisions about genetic risk",
+                  "C": "A value-based issue in testing or disclosure",
+                  "D": "Permission based on adequate understanding",
+                  "E": "Protection of patient information"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Testing people without definite clinical indication."
+              },
+              {
+                "question": "Genetic counselling is best described as:",
+                "options": {
+                  "A": "A value-based issue in testing or disclosure",
+                  "B": "Permission based on adequate understanding",
+                  "C": "Protection of patient information",
+                  "D": "Supporting informed decisions about genetic risk",
+                  "E": "Testing relatives after identifying a familial variant"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Supporting informed decisions about genetic risk."
+              },
+              {
+                "question": "Ethical consideration is best described as:",
+                "options": {
+                  "A": "Permission based on adequate understanding",
+                  "B": "A value-based issue in testing or disclosure",
+                  "C": "Protection of patient information",
+                  "D": "Testing relatives after identifying a familial variant",
+                  "E": "Tailoring care using molecular and clinical information"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: A value-based issue in testing or disclosure."
+              },
+              {
+                "question": "Consent is best described as:",
+                "options": {
+                  "A": "Protection of patient information",
+                  "B": "Testing relatives after identifying a familial variant",
+                  "C": "Tailoring care using molecular and clinical information",
+                  "D": "Reducing future disease risk through early action",
+                  "E": "Permission based on adequate understanding"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Permission based on adequate understanding."
+              },
+              {
+                "question": "Confidentiality is best described as:",
+                "options": {
+                  "A": "Testing relatives after identifying a familial variant",
+                  "B": "Tailoring care using molecular and clinical information",
+                  "C": "Protection of patient information",
+                  "D": "Reducing future disease risk through early action",
+                  "E": "Using genetic variation to guide medicines"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Protection of patient information."
+              },
+              {
+                "question": "Cascade testing is best described as:",
+                "options": {
+                  "A": "Testing relatives after identifying a familial variant",
+                  "B": "Tailoring care using molecular and clinical information",
+                  "C": "Reducing future disease risk through early action",
+                  "D": "Using genetic variation to guide medicines",
+                  "E": "Using tumour and inherited variants in cancer care"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Testing relatives after identifying a familial variant."
+              },
+              {
+                "question": "Precision medicine is best described as:",
+                "options": {
+                  "A": "Reducing future disease risk through early action",
+                  "B": "Using genetic variation to guide medicines",
+                  "C": "Using tumour and inherited variants in cancer care",
+                  "D": "Tailoring care using molecular and clinical information",
+                  "E": "Using sequencing to diagnose uncommon disorders"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Tailoring care using molecular and clinical information."
+              },
+              {
+                "question": "Preventive medicine is best described as:",
+                "options": {
+                  "A": "Using genetic variation to guide medicines",
+                  "B": "Reducing future disease risk through early action",
+                  "C": "Using tumour and inherited variants in cancer care",
+                  "D": "Using sequencing to diagnose uncommon disorders",
+                  "E": "Using many variants and environment to understand risk"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Reducing future disease risk through early action."
+              },
+              {
+                "question": "Pharmacogenomics is best described as:",
+                "options": {
+                  "A": "Using tumour and inherited variants in cancer care",
+                  "B": "Using sequencing to diagnose uncommon disorders",
+                  "C": "Using many variants and environment to understand risk",
+                  "D": "Assessment of chromosomes and large rearrangements",
+                  "E": "Using genetic variation to guide medicines"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Using genetic variation to guide medicines."
+              },
+              {
+                "question": "Cancer genomics is best described as:",
+                "options": {
+                  "A": "Using sequencing to diagnose uncommon disorders",
+                  "B": "Using many variants and environment to understand risk",
+                  "C": "Using tumour and inherited variants in cancer care",
+                  "D": "Assessment of chromosomes and large rearrangements",
+                  "E": "Assessment of DNA sequence-level variation"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Using tumour and inherited variants in cancer care."
+              },
+              {
+                "question": "Rare disease genomics is best described as:",
+                "options": {
+                  "A": "Using sequencing to diagnose uncommon disorders",
+                  "B": "Using many variants and environment to understand risk",
+                  "C": "Assessment of chromosomes and large rearrangements",
+                  "D": "Assessment of DNA sequence-level variation",
+                  "E": "Combining laboratory and clinical expertise"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Using sequencing to diagnose uncommon disorders."
+              },
+              {
+                "question": "Complex disease genetics is best described as:",
+                "options": {
+                  "A": "Assessment of chromosomes and large rearrangements",
+                  "B": "Assessment of DNA sequence-level variation",
+                  "C": "Combining laboratory and clinical expertise",
+                  "D": "Using many variants and environment to understand risk",
+                  "E": "The observed features prompting genetic assessment"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Using many variants and environment to understand risk."
+              },
+              {
+                "question": "Cytogenetics is best described as:",
+                "options": {
+                  "A": "Assessment of DNA sequence-level variation",
+                  "B": "Assessment of chromosomes and large rearrangements",
+                  "C": "Combining laboratory and clinical expertise",
+                  "D": "The observed features prompting genetic assessment",
+                  "E": "A list of possible explanations for a presentation"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Assessment of chromosomes and large rearrangements."
+              },
+              {
+                "question": "Molecular genetics is best described as:",
+                "options": {
+                  "A": "Combining laboratory and clinical expertise",
+                  "B": "The observed features prompting genetic assessment",
+                  "C": "A list of possible explanations for a presentation",
+                  "D": "How a trait is transmitted through a family",
+                  "E": "Assessment of DNA sequence-level variation"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Assessment of DNA sequence-level variation."
+              },
+              {
+                "question": "Multidisciplinary interpretation is best described as:",
+                "options": {
+                  "A": "The observed features prompting genetic assessment",
+                  "B": "A list of possible explanations for a presentation",
+                  "C": "Combining laboratory and clinical expertise",
+                  "D": "How a trait is transmitted through a family",
+                  "E": "Assigning clinical meaning to a genetic variant"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Combining laboratory and clinical expertise."
+              },
+              {
+                "question": "A child has congenital anomalies, developmental delay and unaffected parents. The most useful first reasoning step is:",
+                "options": {
+                  "A": "Define phenotype and consider inheritance",
+                  "B": "Assume no genetic cause",
+                  "C": "Start adult cancer screening",
+                  "D": "Use a polygenic score only",
+                  "E": "Ignore family history"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Define phenotype and consider inheritance."
+              },
+              {
+                "question": "A known familial recessive variant is found in one copy in an unaffected sibling. The sibling is:",
+                "options": {
+                  "A": "Affected with full penetrance",
+                  "B": "Free of all genetic risk",
+                  "C": "A de novo case",
+                  "D": "A carrier",
+                  "E": "A somatic mosaic tumour"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: A carrier."
+              },
+              {
+                "question": "A healthy adult with a Huntington disease parent requests testing. This is:",
+                "options": {
+                  "A": "Diagnostic testing",
+                  "B": "Predictive testing",
+                  "C": "Tumour sequencing",
+                  "D": "Newborn screening",
+                  "E": "Microbiome profiling"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Predictive testing."
+              },
+              {
+                "question": "A symptomatic child is tested to identify the cause of current disease. This is:",
+                "options": {
+                  "A": "Predictive testing",
+                  "B": "Carrier screening only",
+                  "C": "Population GWAS",
+                  "D": "Pharmacokinetic monitoring",
+                  "E": "Diagnostic testing"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Diagnostic testing."
+              },
+              {
+                "question": "A patient with cancer has tumour sequencing to select a targeted drug. This is an example of:",
+                "options": {
+                  "A": "Classical karyotyping only",
+                  "B": "Mendelian segregation",
+                  "C": "Precision medicine",
+                  "D": "Dihybrid crossing",
+                  "E": "Random genetic drift"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Precision medicine."
+              },
+              {
+                "question": "A GP identifies multiple relatives with early-onset colon cancer. The best next step is:",
+                "options": {
+                  "A": "Referral for genetic risk assessment",
+                  "B": "Reassurance with no history taken",
+                  "C": "Direct-to-consumer ancestry test",
+                  "D": "Treat all relatives with chemotherapy",
+                  "E": "Avoid discussion of relatives"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Referral for genetic risk assessment."
+              },
+              {
+                "question": "A patient asks whether relatives can be informed after a familial pathogenic variant is found. The key issue balances:",
+                "options": {
+                  "A": "PCR and gel voltage",
+                  "B": "Karyotype and cell culture",
+                  "C": "Read length and adaptor trimming",
+                  "D": "Confidentiality and familial risk",
+                  "E": "Antibiotics and microbiome"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Confidentiality and familial risk."
+              },
+              {
+                "question": "A variant does not match the phenotype or inheritance pattern. It should be interpreted cautiously because of poor:",
+                "options": {
+                  "A": "Chromosome staining",
+                  "B": "Genotype-phenotype correlation",
+                  "C": "Drug activation",
+                  "D": "Mitochondrial ATP",
+                  "E": "Histone acetylation"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Genotype-phenotype correlation."
+              },
+              {
+                "question": "A patient has a drug-response variant that increases toxicity risk. The most relevant action is:",
+                "options": {
+                  "A": "Change family pedigree symbols",
+                  "B": "Ignore the result if rare",
+                  "C": "Diagnose cancer predisposition",
+                  "D": "Screen embryos immediately",
+                  "E": "Adjust prescribing decision"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Adjust prescribing decision."
+              },
+              {
+                "question": "A fetus is found to have a chromosomal abnormality. Care should include:",
+                "options": {
+                  "A": "No discussion of uncertainty",
+                  "B": "Automatic treatment refusal",
+                  "C": "Counselling about implications and options",
+                  "D": "Population GWAS",
+                  "E": "Microbiome transfer"
+                },
+                "correctAnswer": "C",
+                "explanation": "The correct answer is C: Counselling about implications and options."
+              },
+              {
+                "question": "A disease has one high-penetrance familial variant and many low-effect common variants. The correct conclusion is:",
+                "options": {
+                  "A": "Both rare and common variation can contribute",
+                  "B": "Only common variants matter",
+                  "C": "Only environmental exposure matters",
+                  "D": "A karyotype is always diagnostic",
+                  "E": "All relatives are affected"
+                },
+                "correctAnswer": "A",
+                "explanation": "The correct answer is A: Both rare and common variation can contribute."
+              },
+              {
+                "question": "A test result is returned without checking the clinical presentation. The main risk is:",
+                "options": {
+                  "A": "Improved diagnostic certainty",
+                  "B": "Reduced ethical complexity",
+                  "C": "Elimination of VUS results",
+                  "D": "Misinterpretation of genomic findings",
+                  "E": "Perfect family counselling"
+                },
+                "correctAnswer": "D",
+                "explanation": "The correct answer is D: Misinterpretation of genomic findings."
+              },
+              {
+                "question": "A rare disease genome is negative today. A future diagnosis may still be possible because:",
+                "options": {
+                  "A": "DNA sequence changes in all cells",
+                  "B": "Gene-disease knowledge changes",
+                  "C": "Consent expires immediately",
+                  "D": "All negative tests become positive",
+                  "E": "Karyotypes improve penetrance"
+                },
+                "correctAnswer": "B",
+                "explanation": "The correct answer is B: Gene-disease knowledge changes."
+              },
+              {
+                "question": "A patient asks why genetics matters to general practice. The best answer is that it can guide:",
+                "options": {
+                  "A": "Attendance monitoring only",
+                  "B": "Exam revision only",
+                  "C": "Protein structure without clinical use",
+                  "D": "Ancestry without health relevance",
+                  "E": "Family history, risk, referral and prescribing"
+                },
+                "correctAnswer": "E",
+                "explanation": "The correct answer is E: Family history, risk, referral and prescribing."
+              }
+            ]
+          }
+        ],
+        "subfolders": []
+      },
+      {
         "id": "nutrition-and-metabolism-question-bank",
         "title": "Nutrition and Metabolism Question Bank",
         "questionSets": [
