@@ -836,6 +836,18 @@ export default function Home() {
   }, [themeMode]);
 
   useEffect(() => {
+    if (!isNavMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isNavMenuOpen]);
+
+  useEffect(() => {
     if (
       !activePracticeTimeLimitMinutes ||
       !activePracticeStartedAt ||
@@ -2915,22 +2927,22 @@ export default function Home() {
             <div>
               <div className="min-w-0">
                 <div className="grid gap-4 lg:grid-cols-[auto_minmax(0,1fr)] lg:items-center">
-                  <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsDashboardOpen(!isDashboardOpen)}
+                    className="dashboardHeroToggleArea -m-2 inline-flex min-h-12 items-center gap-2 rounded-2xl p-2 text-left"
+                    aria-label={
+                      isDashboardOpen ? "Collapse dashboard" : "Expand dashboard"
+                    }
+                    aria-expanded={isDashboardOpen}
+                  >
                     <h2 className="text-3xl font-semibold leading-none text-purple-100 sm:text-4xl">
                       Welcome
                     </h2>
-                    <button
-                      type="button"
-                      onClick={() => setIsDashboardOpen(!isDashboardOpen)}
-                      className="dashboardHeroToggle inline-flex h-8 w-8 shrink-0 items-center justify-center text-purple-100 transition"
-                      aria-label={
-                        isDashboardOpen ? "Collapse dashboard" : "Expand dashboard"
-                      }
-                      aria-expanded={isDashboardOpen}
-                    >
+                    <span className="dashboardHeroToggle inline-flex h-8 w-8 shrink-0 items-center justify-center text-purple-100 transition">
                       {renderChevronIcon(isDashboardOpen)}
-                    </button>
-                  </div>
+                    </span>
+                  </button>
 
                   <div className="relative w-full">
                     <svg
@@ -3635,7 +3647,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => startRetestFramework(topic.questionSet)}
-                className="primaryButton inline-flex min-h-9 w-full items-center justify-center px-4 py-2 text-sm font-semibold text-white transition sm:w-auto"
+                className="performanceShortcut inline-flex min-h-9 w-full items-center justify-center rounded-2xl px-4 py-2 text-sm font-semibold transition sm:w-auto"
               >
                 Retest?
               </button>
@@ -4094,8 +4106,43 @@ export default function Home() {
     ];
 
     return (
-      <div className="headerNavLayer absolute left-0 top-full z-[70]">
-        <div className="headerNavPanel w-64 overflow-hidden rounded-b-3xl border-x border-b p-1">
+      <div className="headerNavLayer fixed inset-0 z-[70]">
+        <button
+          type="button"
+          className="headerNavBackdrop"
+          onClick={() => setIsNavMenuOpen(false)}
+          aria-label="Close navigation menu"
+        />
+
+        <nav
+          className="headerNavPanel relative mr-auto flex h-dvh w-full flex-col overflow-y-auto border-r p-4 sm:w-[min(24rem,100vw)] sm:p-5"
+          aria-label="Primary navigation"
+        >
+          <div className="headerNavDrawerHeader mb-5 flex items-center justify-between gap-4">
+            <span className="text-sm font-semibold uppercase tracking-[0.14em]">
+              Menu
+            </span>
+            <button
+              type="button"
+              onClick={() => setIsNavMenuOpen(false)}
+              className="headerNavCloseButton inline-flex h-10 w-10 items-center justify-center rounded-2xl"
+              aria-label="Close navigation menu"
+            >
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <path d="m6 6 12 12" />
+                <path d="m18 6-12 12" />
+              </svg>
+            </button>
+          </div>
+
           <div
             className="verticalTabSwitcher relative grid gap-1"
             style={{ "--active-tab-index": verticalNavIndex } as CSSProperties}
@@ -4143,7 +4190,7 @@ export default function Home() {
               </span>
             </span>
           </button>
-        </div>
+        </nav>
       </div>
     );
   }
